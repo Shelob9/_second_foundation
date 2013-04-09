@@ -159,7 +159,5 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
 	wp_enqueue_script('foundation', get_template_directory_uri().'/js/foundation.min.js');
 	wp_enqueue_style('foundation', get_template_directory_uri().'/css/foundation.min.css');
 	wp_enqueue_style('foundation', get_template_directory_uri().'/css/normalize.css');
-	// Infinite Scroll (https://github.com/paulirish/infinite-scroll/blob/master/jquery.infinitescroll.min.js)
-	wp_enqueue_script('infinitescroll', get_template_directory_uri().'/js/jquery.infintescroll.min.js');
 }
 add_action( 'wp_enqueue_scripts', '_sf_foundation' );
