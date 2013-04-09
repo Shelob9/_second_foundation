@@ -13,8 +13,8 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+	<div id="primary" class="content-area row">
+		<div id="content" class="site-content large-9 columns" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -40,7 +40,6 @@ get_header(); ?>
 		<?php endif; ?>
 
 		</div><!-- #content -->
+	<?php get_sidebar(); ?>
 	</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
