@@ -1,7 +1,7 @@
 <?php
 //these functions totally lifted from https://github.com/milohuang/reverie/blob/master/lib/foundation.php
 // Pagination
-function reverie_pagination() {
+function _sf_pagination() {
 	global $wp_query;
  
 	$big = 999999999; // This needs to be an unlikely integer
@@ -31,7 +31,7 @@ function reverie_pagination() {
  * A fallback when no navigation is selected by default, otherwise it throws some nasty errors in your face.
  * From required+ Foundation http://themes.required.ch
  */
-function reverie_menu_fallback() {
+function _sf_menu_fallback() {
 	echo '<div class="alert-box secondary">';
 	// Translators 1: Link to Menus, 2: Link to Customize
   	printf( __( 'Please assign a menu to the primary menu location under %1$s or %2$s the design.', 'reverie' ),
@@ -46,19 +46,19 @@ function reverie_menu_fallback() {
 }
 
 // Add Foundation 'active' class for the current menu item
-function reverie_active_nav_class( $classes, $item ) {
+function _sf_active_nav_class( $classes, $item ) {
     if ( $item->current == 1 || $item->current_item_ancestor == true ) {
         $classes[] = 'active';
     }
     return $classes;
 }
-add_filter( 'nav_menu_css_class', 'reverie_active_nav_class', 10, 2 );
+add_filter( 'nav_menu_css_class', '_sf_active_nav_class', 10, 2 );
 
 /**
  * Use the active class of ZURB Foundation on wp_list_pages output.
  * From required+ Foundation http://themes.required.ch
  */
-function reverie_active_list_pages_class( $input ) {
+function _sf_active_list_pages_class( $input ) {
 
 	$pattern = '/current_page_item/';
     $replace = 'current_page_item active';
@@ -67,7 +67,7 @@ function reverie_active_list_pages_class( $input ) {
 
     return $output;
 }
-add_filter( 'wp_list_pages', 'reverie_active_list_pages_class', 10, 2 );
+add_filter( 'wp_list_pages', '_sf_active_list_pages_class', 10, 2 );
 
 /**
  * class required_walker
@@ -75,7 +75,7 @@ add_filter( 'wp_list_pages', 'reverie_active_list_pages_class', 10, 2 );
  * Courtesy of Kriesi.at. http://www.kriesi.at/archives/improve-your-wordpress-navigation-menu-output
  * From required+ Foundation http://themes.required.ch
  */
-class reverie_walker extends Walker_Nav_Menu {
+class _sf_walker extends Walker_Nav_Menu {
 
 	/**
 	 * Specify the item type to allow different walkers

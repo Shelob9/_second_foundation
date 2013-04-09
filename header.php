@@ -31,33 +31,38 @@
 		</hgroup>
 
 		<nav id="site-navigation" class="navigation-main" role="navigation">
-			<div class="large-12 columns">
-				<h1 class="menu-toggle"><?php _e( 'Menu', '_s' ); ?></h1>
-				<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', '_s' ); ?>"><?php _e( 'Skip to content', '_s' ); ?></a></div>
-
-		<?php
-		$defaults = array(
-			'theme_location'  => 'primary',
-			'menu'            => '',
-			'container'       => 'nav',
-			'container_class' => 'top-bar',
-			'container_id'    => '',
-			'menu_class'      => 'menu',
-			'menu_id'         => '',
-			'echo'            => true,
-			'fallback_cb'     => 'wp_page_menu',
-			'before'          => '',
-			'after'           => '',
-			'link_before'     => '',
-			'link_after'      => '',
-			'items_wrap'      => '<ul class="left">%3$s</ul>',
-			'depth'           => 0,
-			'walker'          => ''
-		);
-		wp_nav_menu( $defaults );
-		?>
-
-			</div>
+			<div class="contain-to-grid">
+				<!-- Starting the Top-Bar -->
+				<nav class="top-bar">
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						</li>
+						<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+						<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+					</ul>
+					<section class="top-bar-section">
+					<?php
+						wp_nav_menu( array(
+							'theme_location' => 'primary',
+							'container' => false,
+							'depth' => 0,
+							'items_wrap' => '<ul class="left">%3$s</ul>',
+							'fallback_cb' => '_sf_menu_fallback', // workaround to show a message to set up a menu
+							'walker' => new _sf_walker( array(
+								'in_top_bar' => true,
+								'item_type' => 'li'
+							) ),
+						) );
+					?>
+					<ul class="right">
+						<li class="divider hide-for-small"></li>
+						<li class="has-form"><?php get_search_form(); ?></li>
+					</ul>
+					</section>
+	</nav>
+	<!-- End of Top-Bar -->
+</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
