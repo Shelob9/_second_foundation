@@ -6,17 +6,15 @@ Author URI: http://ComplexWaveform.com
 Description: A starter theme based on Foundation 4 and Underscores.
 Version: 0.2
 License: GNU General Public License v3
-License URI: license.txt
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: Responsive, Starter, _S, Underscores, Foundation, Mobile-Friendly
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-Find out more at Underscores.me.
+_Second_Foundation is copyright 2013 by Josh Pollock
+_Second_Foundation is licensed under the GPL 3.
 
-Resetting and rebuilding styles have been helped along thanks to the fine work of
-Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
-along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
-and Blueprint http://www.blueprintcss.org/
+_Second_Foundation is based on Underscores _S by Automattic and Foundation 4 by ZURB.
+
+See license.txt for all license information.
 */
 
 
@@ -545,19 +543,8 @@ object {
 /* =Navigation
 ----------------------------------------------- */
 
-.site-content [class*="navigation"] {
-	margin: 0 0 1.5em;
-	overflow: hidden;
-}
-[class*="navigation"] .previous {
-	float: left;
-	width: 50%;
-}
-[class*="navigation"] .next {
-	float: right;
-	text-align: right;
-	width: 50%;
-}
+#site-navigation 
+{margin-bottom:5px;}
 
 /* =Comments
 ----------------------------------------------- */
