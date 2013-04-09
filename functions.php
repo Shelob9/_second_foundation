@@ -119,8 +119,8 @@ function _s_widgets_init() {
 		'id'            => 'sidebar-1',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h5 class="widget-title">',
+		'after_title'   => '</h5>',
 	) );
 }
 add_action( 'widgets_init', '_s_widgets_init' );
@@ -149,3 +149,17 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
  * Implement the Custom Header feature
  */
 //require( get_template_directory() . '/inc/custom-header.php' );
+
+
+/**
+ * Enqueue Scripts and Styles For Foundation
+ */
+ function _sf_foundation() {
+ 	//Foundation scripts/ styles
+	wp_enqueue_script('foundation', get_template_directory_uri().'/js/foundation.min.js');
+	wp_enqueue_style('foundation', get_template_directory_uri().'/css/foundation.min.css');
+	wp_enqueue_style('foundation', get_template_directory_uri().'/css/normalize.css');
+	// Infinite Scroll (https://github.com/paulirish/infinite-scroll/blob/master/jquery.infinitescroll.min.js)
+	wp_enqueue_script('infinitescroll', get_template_directory_uri().'/js/jquery.infintescroll.min.js');
+}
+add_action( 'wp_enqueue_scripts', '_sf_foundation' );
