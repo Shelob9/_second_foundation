@@ -170,20 +170,21 @@ add_action( 'wp_enqueue_scripts', '_sf_foundation' );
 require( get_template_directory() . '/inc/foundation.php' );
 
 /**
- * Infinite Scroll
- ** http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
+ * Load js for infinite scroll
  */
-function custom_theme_js(){
+
+function _sf_inf_enq(){
 	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'),null,true );
 	if( ! is_singular() ) {
 		wp_enqueue_script('infinite_scroll');
 	}
 }
-add_action('wp_enqueue_scripts', 'custom_theme_js');
+add_action('wp_enqueue_scripts', '_sf_inf_enq');
+
 /**
  * Infinite Scroll
  */
-function custom_infinite_scroll_js() {
+function _sf_inf_js() {
 	if( ! is_singular() ) { ?>
 	<script>
 	var infinite_scroll = {
@@ -192,9 +193,9 @@ function custom_infinite_scroll_js() {
 			msgText: "<?php _e( 'Loading the next set of posts...', 'custom' ); ?>",
 			finishedMsg: "<?php _e( 'All posts loaded.', 'custom' ); ?>"
 		},
-		"nextSelector":".previous .previous a",
+		"nextSelector":"#nav-below .nav-previous a",
 		"navSelector":"#nav-below",
-		"itemSelector":".article",
+		"itemSelector":"article",
 		"contentSelector":"#content"
 	};
 	jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
@@ -202,4 +203,4 @@ function custom_infinite_scroll_js() {
 	<?php
 	}
 }
-add_action( 'wp_footer', 'custom_infinite_scroll_js', 100 );
+add_action( 'wp_footer', '_sf_inf_js', 100 );
