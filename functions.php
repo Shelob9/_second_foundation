@@ -160,7 +160,11 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
 	wp_enqueue_style('foundation', get_template_directory_uri().'/css/foundation.min.css');
 	wp_enqueue_style('foundation', get_template_directory_uri().'/css/normalize.css');
 	// Infinite Scroll (https://github.com/paulirish/infinite-scroll/blob/master/jquery.infinitescroll.min.js)
-	wp_enqueue_script('infinitescroll', get_template_directory_uri().'/js/jquery.infintescroll.min.js');
+	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'),null,true );
+    if( ! is_singular() ) {
+    wp_enqueue_script('infinite_scroll');
+    }
+
 }
 add_action( 'wp_enqueue_scripts', '_sf_foundation' );
 
