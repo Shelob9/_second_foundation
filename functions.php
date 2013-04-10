@@ -187,7 +187,7 @@ function _sf_infinite_scroll_js() {
 			msgText: "<?php _e( 'Loading the next set of posts...', 'custom' ); ?>",
 			finishedMsg: "<?php _e( 'All posts loaded.', 'custom' ); ?>"
 		},
-		"nextSelector":"#nav-below .nav-previous a",
+		"nextSelector":".next",
 		"navSelector":"#nav-below",
 		"itemSelector":"article",
 		"contentSelector":"#content"
@@ -197,4 +197,4 @@ function _sf_infinite_scroll_js() {
 	<?php
 	}
 }
-add_action( 'wp_footer', '_sf_infinite_scroll_js',100 );
+add_action( 'wp_footer', '_sf_infinite_scroll_js', 100 );
