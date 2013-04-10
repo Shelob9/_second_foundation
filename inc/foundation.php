@@ -1,7 +1,7 @@
 <?php
 //these functions totally lifted from https://github.com/milohuang/reverie/blob/master/lib/foundation.php
 // Pagination
-function _sf_pagination() {
+/** function _sf_pagination() {
 	global $wp_query;
  
 	$big = 999999999; // This needs to be an unlikely integer

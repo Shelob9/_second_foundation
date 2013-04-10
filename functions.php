@@ -159,17 +159,12 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
 	wp_enqueue_script('foundation', get_template_directory_uri().'/js/foundation.min.js', array( 'jquery' ));
 	wp_enqueue_style('foundation', get_template_directory_uri().'/css/foundation.min.css');
 	wp_enqueue_style('foundation', get_template_directory_uri().'/css/normalize.css');
-	// Infinite Scroll (https://github.com/paulirish/infinite-scroll/blob/master/jquery.infinitescroll.min.js)
-	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'),null,true );
-    if( ! is_singular() ) {
-    wp_enqueue_script('infinite_scroll');
-    }
 
 }
 add_action( 'wp_enqueue_scripts', '_sf_foundation' );
 
 /**
- * Include foundation pagination and menu functions
+ * Include foundation menu functions
  */
 
 require( get_template_directory() . '/inc/foundation.php' );
@@ -178,7 +173,17 @@ require( get_template_directory() . '/inc/foundation.php' );
  * Infinite Scroll
  ** http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
  */
-function _sf_infinite_scroll_js() {
+function custom_theme_js(){
+	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'),null,true );
+	if( ! is_singular() ) {
+		wp_enqueue_script('infinite_scroll');
+	}
+}
+add_action('wp_enqueue_scripts', 'custom_theme_js');
+/**
+ * Infinite Scroll
+ */
+function custom_infinite_scroll_js() {
 	if( ! is_singular() ) { ?>
 	<script>
 	var infinite_scroll = {
@@ -187,9 +192,9 @@ function _sf_infinite_scroll_js() {
 			msgText: "<?php _e( 'Loading the next set of posts...', 'custom' ); ?>",
 			finishedMsg: "<?php _e( 'All posts loaded.', 'custom' ); ?>"
 		},
-		"nextSelector":".next",
+		"nextSelector":".previous .previous a",
 		"navSelector":"#nav-below",
-		"itemSelector":"article",
+		"itemSelector":".article",
 		"contentSelector":"#content"
 	};
 	jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
@@ -197,4 +202,4 @@ function _sf_infinite_scroll_js() {
 	<?php
 	}
 }
-add_action( 'wp_footer', '_sf_infinite_scroll_js', 100 );
+add_action( 'wp_footer', 'custom_infinite_scroll_js', 100 );
