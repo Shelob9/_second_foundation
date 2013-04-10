@@ -203,22 +203,3 @@ function custom_infinite_scroll_js() {
 	}
 }
 add_action( 'wp_footer', 'custom_infinite_scroll_js', 100 );
-
-/*
- * Loads the scripts that are required for push_states to work.
- *
- * https://github.com/balupton/History.js
- *
- */
- 
-function ajax_demo_init() {
-	if ( !is_admin() ) {
-		wp_deregister_script('historyjs');
-		wp_register_script( 'historyjs', get_bloginfo( 'stylesheet_directory' ) . '/js/jquery.history.js', array( 'jquery' ), '1.7.1' );
-		wp_enqueue_script( 'historyjs' );
-		wp_register_script( 'ajax_demo_init', get_bloginfo( 'stylesheet_directory' ) . '/js/ajax_demo_init.js', array( 'historyjs' ), false, true );
-		wp_enqueue_script( 'ajax_demo_init' );
-	}
-}
-
-add_action( 'wp_enqueue_scripts','ajax_demo_init' );
