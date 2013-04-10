@@ -173,3 +173,28 @@ add_action( 'wp_enqueue_scripts', '_sf_foundation' );
  */
 
 require( get_template_directory() . '/inc/foundation.php' );
+
+/**
+ * Infinite Scroll
+ ** http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
+ */
+function _sf_infinite_scroll_js() {
+	if( ! is_singular() ) { ?>
+	<script>
+	var infinite_scroll = {
+		loading: {
+			img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
+			msgText: "<?php _e( 'Loading the next set of posts...', 'custom' ); ?>",
+			finishedMsg: "<?php _e( 'All posts loaded.', 'custom' ); ?>"
+		},
+		"nextSelector":"#nav-below .nav-previous a",
+		"navSelector":"#nav-below",
+		"itemSelector":"article",
+		"contentSelector":"#content"
+	};
+	jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
+	</script>
+	<?php
+	}
+}
+add_action( 'wp_footer', '_sf_infinite_scroll_js',100 );
