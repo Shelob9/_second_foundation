@@ -1,10 +1,15 @@
 _second_foundation
 ==================
-Second Foundation is a starter theme for WordPress by Josh Pollock. The current Master branch is a fully functional WordPress theme with minimal style. All Foundation JS is included but is lacking settings files and functions to make it work.
+Second Foundation is a starter theme for WordPress by Josh Pollock. 
 
 Josh Pollock = http://ComplexWaveform.com
 
-FUTURE PLANS:
+Current State:
+=============
+* Master Branch is a functional WordPress theme, ready for custimization.
+* jquery.other branch has infinte scroll working.
+* All Foundation JS is included in all branches, but it is lacking settings files and functions to make it work.
+Future Plans:
 ============
 * Add infinite scroll and AJAX page loads (In progress in jquery.other branch)
 * Add support for all Foundation JS.
