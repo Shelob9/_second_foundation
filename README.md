@@ -4,12 +4,11 @@ Second Foundation is a starter theme for WordPress by Josh Pollock. The current 
 
 Josh Pollock = http://ComplexWaveform.com
 
-FUTURE PLANS:
-============
-* Add infinite scroll and AJAX page loads (In progress in jquery.other branch)
-* Add support for all Foundation JS.
-* Child themes.
-
+ABOUT THIS BRANCH:
+=================
+Most recently I made infinte scroll work in this branch.
+My next projects are AJAX page loads and creating page templates and settings for Foundation JS.
+This is the branch I am messing with the most, be careful about using it in production.
 
 _s
 ===
