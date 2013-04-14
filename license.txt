@@ -1,4 +1,4 @@
-_Second Foundation is copyright 2013 Josh Pollock and licensed under the terms of the GPL v3. It is based on Underscores by Automattic and Foundation by ZURB.
+_Second Foundation is copyright 2013 Josh Pollock and licensed under the terms of the GPL v3. It is based on Underscores by Automattic and Foundation by ZURB. It includes infinite scroll by Paul Irish
 
 
 Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
@@ -8,8 +8,11 @@ Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 and Blueprint http://www.blueprintcss.org/
 
-Foundation http://zurb.com/, (c) ZURB.
+Foundation http://zurb.com/, (c) 2013 ZURB.
 Foundation is licensed under the terms of the MIT Open Source License.
+
+Infinite Scroll (c) 2012-2013 Paul Irish.
+Infinite Scroll is licensed under the terms of the MIT Open Source License.
 
 1. GNU General Public License v3 (http://www.gnu.org/licenses/gpl-3.0.html)
 2. GNU General Public License v2 (http://www.gnu.org/licenses/gpl-2.0.html)
