@@ -185,7 +185,6 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
 	wp_enqueue_script('modernizer', get_template_directory_uri().'/js/custom.modernizr.js');
 	wp_enqueue_style('foundation', get_template_directory_uri().'/css/foundation.min.css');
 	wp_enqueue_style('foundation', get_template_directory_uri().'/css/normalize.css');
-	wp_enqueue_script('dblorbit', get_template_directory_uri().'/js/dbl.orbit.js', array(), false, true);
 }
 add_action( 'wp_enqueue_scripts', '_sf_foundation' );
 
