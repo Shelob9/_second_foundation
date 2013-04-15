@@ -138,7 +138,7 @@ function _s_f_theme_features()  {
 		'flex-width'             => true,
 		'flex-height'            => true,
 		'random-default'         => false,
-		'header-text'            => true,
+		'header-text'            => false,
 		'default-text-color'     => '#000',
 		'uploads'                => true,
 
