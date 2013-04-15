@@ -1,27 +1,27 @@
 _second_foundation
 ==================
-Second Foundation is a starter theme for WordPress by Josh Pollock. The current Master branch is a fully functional WordPress theme with minimal style. All Foundation JS is included but is lacking settings files and functions to make it work.
+Second Foundation is a starter theme for WordPress by Josh Pollock. It is based on Foundation 4 by ZURB and Uncerscores (_S) by Automattic. It uses Infinte Scroll by Paul Irish.
 
 Josh Pollock = http://ComplexWaveform.com
 
-ABOUT THIS BRANCH:
-=================
-Most recently I made infinte scroll work in this branch.
-My next projects are AJAX page loads and creating page templates and settings for Foundation JS.
-This is the branch I am messing with the most, be careful about using it in production.
+A
 
-_s
+License Info
 ===
+_Second Foundation is copyright 2013 Josh Pollock.
+_Second Foundation is licensed under the terms of the GPL v3.
 Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
-Underscores, like WordPress, is licensed under the GPL.
+Underscores, like WordPress, is licensed under the GPLv2.
+Infinite Scroll https://github.com/paulirish/infinite-scroll (c) 2012-2013 Paul Irish.
+Infinite Scroll is licensed under the terms of the MIT Open Source License.
+Foundation http://foundation.zurb.com/, (c) 2013 ZURB.
+Foundation is licensed under the terms of the MIT Open Source License.
 
 Foundation
 ==========
 
-Foundation is the most advanced responsive front-end framework in the world. You can quickly prototype and build sites or apps that work on any kind of device with Foundation, which includes layout constructs (like a fully responsive grid), elements and best practices.
 
 Homepage:      http://foundation.zurb.com<br />
 Documentation: http://foundation.zurb.com/docs<br />
 Download:      http://foundation.zurb.com/download.php
 
-Foundation is MIT-licensed and absolutely free to use. Foundation wouldn't be possible without the support of the entire ZURB team, our friends and colleagues who gave feedback, and some luminaries who did some heavy lifting that we took advantage of (thanks guys).
