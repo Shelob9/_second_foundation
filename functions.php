@@ -123,6 +123,31 @@ function _s_widgets_init() {
 		'after_title'   => '</h5>',
 	) );
 }
+
+/**
+ * Add custom header with flexible dimensions
+ **/
+// Register Theme Features
+function _s_f_theme_features()  {
+
+	// Add theme support for Custom Header
+	$header_args = array(
+		'default-image'          => '',
+		'width'                  => 0,
+		'height'                 => 0,
+		'flex-width'             => true,
+		'flex-height'            => true,
+		'random-default'         => false,
+		'header-text'            => true,
+		'default-text-color'     => '#000',
+		'uploads'                => true,
+
+	);
+	add_theme_support( 'custom-header', $header_args );
+}
+
+// Hook into the 'after_setup_theme' action
+add_action( 'after_setup_theme', '_s_f_theme_features' );
 add_action( 'widgets_init', '_s_widgets_init' );
 
 /**
