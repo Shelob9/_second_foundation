@@ -88,7 +88,10 @@ a:active { /* Improves readability when focused and also mouse hovered in all br
 a img {
 	border: 0;
 }
-
+/* =Foundation Tweaks
+.top-bar .toggle-topbar.menu-icon
+----------------------------------------------- */
+.menu-icon {margin-top: 0px;}
 
 /* =Global
 ----------------------------------------------- */
