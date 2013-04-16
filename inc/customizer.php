@@ -26,10 +26,85 @@ function _s_customize_preview_js() {
 add_action( 'customize_preview_init', '_s_customize_preview_js' );
 
 /**
- * Menu/ Header Options
+* Theme Customizer Settings
 **/
+function _s_f_customize_register( $wp_customize ){
+ //SLIDER SECTION   
+    $wp_customize->add_section('_s_f_home_slider', array(
+        'title'    => __('Home Page Slider', '_s_f'),
+        'priority' => 120,
+    ));
+    
+     //  ============================
+    //  = Show Slider on Home Page? =
+    //  =============================
+	$wp_customize->add_setting(
+    '_s_f_slider_visibility'
+    );
+
+    $wp_customize->add_control(
+    '_s_f_slider_visibility',
+    array(
+        'type' => 'checkbox',
+        'label' => 'Hide Home Page Slider?',
+        'section' => '_s_f_home_slider',
+        )
+    );
  
-function _s_f_customize_register($wp_customize){
+    //  ============================
+    //  = Number of Slides To Show =
+    //  ============================
+ 
+    $wp_customize->add_setting(
+    '_s_f_slide_numb' , array (
+    	'capability'     => 'edit_theme_options',
+		'type'           => 'option',
+		)
+    );
+
+    $wp_customize->add_control(
+    '_s_f_slide_numb',
+    array(
+        'type' => 'text',
+		'default' => 5,
+        'label' => 'Number Of Slides To Show - Default is 5. Enter numbers only.',
+        'section' => '_s_f_home_slider',
+        )
+    );
+   
+ 
+    //  =====================
+    //  = Category Dropdown =
+    //  =====================
+    $categories = get_categories();
+	$cats = array();
+	$i = 0;
+	foreach($categories as $category){
+		if($i==0){
+			$default = $category->slug;
+			$i++;
+		}
+		$cats[$category->slug] = $category->name;
+	}
+ 
+	$wp_customize->add_setting('_s_f_slide_cat', array(
+		'default'        => $default,
+		'capability'     => 'edit_theme_options',
+		'type'           => 'option',
+ 
+	));
+	$wp_customize->add_control( 'cat_select_box', array(
+		'settings' => '_s_f_slide_cat',
+		'label'   => 'Select Category:',
+		'section'  => '_s_f_home_slider',
+		'type'    => 'select',
+		'choices' => $cats,
+	));
+ 
+
+// TOP BAR SETTINGS
+
+
     
     $wp_customize->add_section('_s_f_menu_options', array(
         'title'    => __('Menu and Header Options', '_s_f'),
@@ -81,3 +156,4 @@ function _s_f_customize_register($wp_customize){
 }
  
 add_action('customize_register', '_s_f_customize_register');
+?>
