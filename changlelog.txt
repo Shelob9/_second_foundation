@@ -1,8 +1,12 @@
 
 v1.0.1
 ======
-Modified menu to allow for user options (via customizer) to:
+* Added optional home page slider with options to:
+1) Hide the slider
+2) Set the category for the slider
+3) Set the number of posts in the slider.
+* Modified menu to allow for user options (via customizer) to:
 1) Move site name into menu bar and the description of site below it.
 2) Make menu bar sticky
 3) Stick the menu bar to the top of the browser window.
-Fixed bugs with menu mobile toggling and initialization of Foundation JS.
+* Fixed bugs with menu mobile toggling and initialization of Foundation JS.
