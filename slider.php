@@ -1,40 +1,21 @@
-<?php
-/**
-/*
- * Template Name: DBL SLIDER
- */
+<!-- Orbit Slides -->
+<?php if (have_posts()) : ?>
+    <ul data-orbit>      
+		<?php $slide = new WP_Query("cat=".get_option( '_s_f__slide_cat' )."&posts_per_page=".get_option( '_s_f_slide_num') ); ?>
+	
+    	<?php while ($slide->have_posts()) : $slide->the_post(); ?>
+			  <li>
+				<?php the_post_thumbnail(); ?>
+				<div class="orbit-caption">
+					<span class="orbit-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', '_s' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></span><span class="orbit-excerpt"><?php the_excerpt() ?></a></span>
+				</div>
+			  </li>
 
-get_header()
-?>
-<div class="row">
-    <div class="large-8 columns">
-        <ul data-orbit id="slider1">
-            <li>
-            <img src="http://placehold.it/800x350&text=slide 1" />                
-            </li>
-            <li>
-            <img src="http://placehold.it/800x350&text=slide 2" />                
-            </li>
-            <li>
-            <img src="http://placehold.it/800x350&text=slide 3" />                
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="row">
-    <div class="large-4 columns">
-        <ul data-orbit id="slider2">
-            <li>
-            <img src="http://placehold.it/400x150&text=slide 1" />                
-            </li>
-            <li>
-            <img src="http://placehold.it/400x150&text=slide 2" />                
-            </li>
-            <li>
-            <img src="http://placehold.it/400x150&text=slide 3" />                
-            </li>
-        </ul>
-    </div>
-</div>
+	<?php endwhile; ?>
+		<?php endif; ?>
+	</ul>
 
-<?php get_footer(); ?>
+	<?php wp_reset_postdata(); ?>
+	
+	<?php $option = get_option( '_s_f_slide_num' , 'num false' ); echo $option; ?>
+	<?php $option = get_option( '_s_f__slide_cat', 'num cat' ); echo $option; ?>
