@@ -14,9 +14,4 @@
 	<?php endwhile; ?>
 		<?php endif; ?>
 	</ul>
-
 	<?php wp_reset_postdata(); ?>
-	
-	<?php $option = get_theme_mod( '_s_f_slide_numb' , 'num false' ); echo $option; ?>
-	<?php $option = get_theme_mod( '_s_f_slide_cat' , 'cat false' ); echo $option; ?>
-	<h3><?php echo get_theme_mod( '_s_f_slide_numb' ); ?></h3>
