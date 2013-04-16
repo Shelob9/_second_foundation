@@ -73,11 +73,19 @@
 							) ),
 						) );
 					?>
+					
+					<?php 
+					if ( ! get_theme_mod( '_s_f_theme_options_menu_search' ) == '' ) {
+					echo '
 					<ul class="right">
 						<li class="divider hide-for-small"></li>
-						<li class="has-form"><?php get_search_form(); ?></li>
+						<li class="has-form">';
+						get_search_form();
+						echo '</li>
 					</ul>
 					</section>
+					';
+					} ?>
 				</div>	
 	</nav>
 	<?php 

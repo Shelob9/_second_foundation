@@ -62,6 +62,19 @@ function _s_f_customize_register($wp_customize){
         'section'  => '_s_f_menu_options',
         'type'     => 'checkbox',
     ));
+    //  ======================
+    //  = Search Bar In Menu =
+    //  ======================
+    $wp_customize->add_setting('_s_f_theme_options_menu_search', array(
+        'capability' => 'edit_theme_options',
+    ));
+ 
+    $wp_customize->add_control('menu_search', array(
+        'settings' => '_s_f_theme_options_menu_search',
+        'label'    => __('Search Bar In Menu?'),
+        'section'  => '_s_f_menu_options',
+        'type'     => 'checkbox',
+    ));
  
  
  
