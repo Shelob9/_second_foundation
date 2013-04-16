@@ -38,7 +38,13 @@
 		</hgroup>
 		<?php } ?>
 		<nav id="site-navigation" class="navigation-main" role="navigation">
-			<div class="contain-to-grid">
+		<?php if ( get_theme_mod( '_s_f_theme_options_menu_sticky' ) == '' ) { 
+			echo '<div class="contain-to-grid ">';
+		} 
+		else {
+			echo '<div class="contain-to-grid sticky">';
+		}
+		?>
 				<!-- Starting the Top-Bar -->
 				<nav class="top-bar">
 					<ul class="title-area">

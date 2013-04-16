@@ -37,24 +37,6 @@ function _s_f_customize_register($wp_customize){
     ));
  
     //  =============================
-    //  = Text Input                =
-    //  =============================
-    $wp_customize->add_setting('_s_f_theme_options[text_test]', array(
-        'default'        => 'Arse!',
-        'capability'     => 'edit_theme_options',
-        'type'           => 'option',
- 
-    ));
- 
-    $wp_customize->add_control('_s_f_text_test', array(
-        'label'      => __('Text Test', '_s_f'),
-        'section'    => '_s_f_menu_options',
-        'settings'   => '_s_f_theme_options[text_test]',
-    ));
- 
-
- 
-    //  =============================
     //  = Site Name In Menu? =
     //  =============================
     $wp_customize->add_setting('_s_f_theme_options_menu_name', array(
