@@ -1,7 +1,7 @@
 <!-- Orbit Slides -->
 <?php if (have_posts()) : ?>
     <ul data-orbit>      
-		<?php $query = new WP_Query("cat=".get_theme_mod( '_s_f_slide_cat' )."&posts_per_page=".get_theme_mod( '_s_f_slide_numb') ); ?>
+		<?php $query = new WP_Query("category_name=".get_theme_mod( '_s_f_slide_cat' )."&posts_per_page=".get_theme_mod( '_s_f_slide_numb') ); ?>
 	
     	<?php while ($query->have_posts()) : $query->the_post(); ?>
 			  <li>
