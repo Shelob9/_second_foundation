@@ -40,9 +40,9 @@
 				<!-- Starting the Top-Bar -->
 				<nav class="top-bar">
 					<ul class="title-area">
-						<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-						<li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
-					</ul>
+				<li class="name"><h1><a href="#">&nbsp;</h1></a></li>
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+			</ul>
 					<section class="top-bar-section">
 					<?php
 						wp_nav_menu( array(
@@ -62,6 +62,7 @@
 						<li class="has-form"><?php get_search_form(); ?></li>
 					</ul>
 					</section>
+				</div>	
 	</nav>
 	<!-- End of Top-Bar -->
 </div>
