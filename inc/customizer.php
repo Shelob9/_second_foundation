@@ -56,10 +56,7 @@ function _s_f_customize_register( $wp_customize ){
     //  ============================
  
     $wp_customize->add_setting(
-    '_s_f_slide_numb' , array (
-    	'capability'     => 'edit_theme_options',
-		'type'           => 'option',
-		)
+    '_s_f_slide_numb'
     );
 
     $wp_customize->add_control(
@@ -88,10 +85,7 @@ function _s_f_customize_register( $wp_customize ){
 	}
  
 	$wp_customize->add_setting('_s_f_slide_cat', array(
-		'default'        => $default,
-		'capability'     => 'edit_theme_options',
-		'type'           => 'option',
- 
+		'default'        => $default
 	));
 	$wp_customize->add_control( 'cat_select_box', array(
 		'settings' => '_s_f_slide_cat',
