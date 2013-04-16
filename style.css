@@ -91,7 +91,11 @@ a img {
 /* =Foundation Tweaks
 .top-bar .toggle-topbar.menu-icon
 ----------------------------------------------- */
-.menu-icon {margin-top: 0px;}
+ .top-bar .toggle-topbar.menu-icon {
+      right: 15px;
+      top: 50%;
+      margin-top: 0px;
+      padding-left: 40px; }
 
 /* =Global
 ----------------------------------------------- */
