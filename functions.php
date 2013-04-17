@@ -230,3 +230,10 @@ function _sf_inf_js() {
 	}
 }
 add_action( 'wp_footer', '_sf_inf_js', 100 );
+
+function _s_f_extraDesc($hook) {
+    if( 'themes.php' != $hook )
+        return;
+    wp_enqueue_script( 'extra-desc', get_template_directory_uri().'/js/extra-desc.js' );
+}
+add_action( 'admin_enqueue_scripts', '_s_f_extraDesc' );
