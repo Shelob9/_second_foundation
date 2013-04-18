@@ -123,6 +123,7 @@ function _s_widgets_init() {
 		'after_title'   => '</h5>',
 	) );
 }
+add_action( 'widgets_init', '_s_widgets_init' );
 
 /**
  * Add custom header with flexible dimensions
@@ -148,7 +149,7 @@ function _s_f_theme_features()  {
 
 // Hook into the 'after_setup_theme' action
 add_action( 'after_setup_theme', '_s_f_theme_features' );
-add_action( 'widgets_init', '_s_widgets_init' );
+
 
 /**
  * Enqueue scripts and styles
