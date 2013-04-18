@@ -14,4 +14,4 @@
 	<?php endwhile; ?>
 		<?php endif; ?>
 	</ul>
-	<?php wp_reset_postdata(); ?>
+<?php wp_reset_postdata(); ?>
