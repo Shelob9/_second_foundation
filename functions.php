@@ -123,6 +123,7 @@ function _s_widgets_init() {
 		'after_title'   => '</h5>',
 	) );
 }
+add_action( 'widgets_init', '_s_widgets_init' );
 
 /**
  * Add custom header with flexible dimensions
@@ -148,7 +149,7 @@ function _s_f_theme_features()  {
 
 // Hook into the 'after_setup_theme' action
 add_action( 'after_setup_theme', '_s_f_theme_features' );
-add_action( 'widgets_init', '_s_widgets_init' );
+
 
 /**
  * Enqueue scripts and styles
@@ -181,11 +182,11 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
  */
  function _sf_foundation() {
  	//Foundation scripts/ styles
-	wp_enqueue_script('foundation', get_template_directory_uri().'/js/foundation.min.js', array( 'jquery' ), false, true);
+	wp_enqueue_script('foundation-js', get_template_directory_uri().'/js/foundation.min.js', array( 'jquery' ), false, true);
 	wp_enqueue_script('foundation-init', get_template_directory_uri().'/js/foundation-init.js', array(), false, true);
 	wp_enqueue_script('modernizer', get_template_directory_uri().'/js/custom.modernizr.js');
-	wp_enqueue_style('foundation', get_template_directory_uri().'/css/foundation.min.css');
-	wp_enqueue_style('foundation', get_template_directory_uri().'/css/normalize.css');
+	wp_enqueue_style('foundation-css', get_template_directory_uri().'/css/foundation.min.css');
+	wp_enqueue_style('normalize', get_template_directory_uri().'/css/normalize.css');
 }
 add_action( 'wp_enqueue_scripts', '_sf_foundation' );
 
