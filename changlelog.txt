@@ -1,4 +1,7 @@
-
+v1.0.2
+1) Fixing issue with menu bar overlapping site description div with certain settings.
+2) Add some instructions in themes page. Including a link to theme documentation, which I promise to write soon.
+3) Other various bug fixes I can't remember.
 v1.0.1
 ======
 * Added optional home page slider with options to:
