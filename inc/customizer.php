@@ -54,6 +54,10 @@ function _s_f_customize_register( $wp_customize ){
     //  ============================
     //  = Number of Slides To Show =
     //  ============================
+ 
+    $wp_customize->add_setting(
+    '_s_f_slide_numb'
+    );
 
     $wp_customize->add_control(
     '_s_f_slide_numb',
