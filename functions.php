@@ -238,3 +238,23 @@ function _s_f_extraDesc($hook) {
     wp_enqueue_script( 'extra-desc', get_template_directory_uri().'/js/extra-desc.js' );
 }
 add_action( 'admin_enqueue_scripts', '_s_f_extraDesc' );
+
+/*
+ * Loads the scripts that are required for push_states to work.
+ *
+ * https://github.com/balupton/History.js
+ *
+ */
+ 
+function ajax_demo_init() {
+	if ( !is_admin() ) {
+	wp_enqueue_script('json2');
+		wp_deregister_script('historyjs');
+		wp_register_script( 'historyjs', get_bloginfo( 'stylesheet_directory' ) . '/js/jquery.history.js', array( 'jquery' ), '1.7.1' );
+		wp_enqueue_script( 'historyjs' );
+		wp_register_script( 'ajax_demo_init', get_bloginfo( 'stylesheet_directory' ) . '/js/ajax_demo_init.js', array( 'historyjs' ), false, true );
+		wp_enqueue_script( 'ajax_demo_init' );
+	}
+}
+
+add_action( 'wp_enqueue_scripts','ajax_demo_init' );
