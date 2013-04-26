@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
 		$log = $('#log');
 	
 	// If the link goes to somewhere else within the same domain, trigger the pushstate
-	$('#access a').on('click', function(e) {
+	$('#site-navigation a').on('click', function(e) {
 		e.preventDefault();
 		var path = $(this).attr('href');
 		var title = $(this).text();
