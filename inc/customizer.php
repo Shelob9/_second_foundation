@@ -145,7 +145,42 @@ function _s_f_customize_register( $wp_customize ){
         'type'     => 'checkbox',
     ));
  
- 
+  //Infinite Scroll and AJAX Page Loads
+    $wp_customize->add_section('_s_f_ajax_options', array(
+        'title'    => __('Infinite Scroll and AJAX Page Loads', '_s_f'),
+        'priority' => 121,
+    ));
+    
+    //  ============================
+    //  = Disable Infinite Scroll? =
+    //  =============================
+	$wp_customize->add_setting(
+    '_s_f_inf-scroll'
+    );
+
+    $wp_customize->add_control(
+    '_s_f_inf-scroll',
+    array(
+        'type' => 'checkbox',
+        'label' => 'Disable Infinite Scroll?',
+        'section' => '_s_f_ajax_options',
+        )
+    );
+    //  ============================
+    //  = Disable AJAX Page Loads? =
+    //  ============================
+	$wp_customize->add_setting(
+    '_s_f_ajax'
+    );
+
+    $wp_customize->add_control(
+    '_s_f_ajax',
+    array(
+        'type' => 'checkbox',
+        'label' => 'Disable AJAX Page Loads?',
+        'section' => '_s_f_ajax_options',
+        )
+    );
  
 }
  
