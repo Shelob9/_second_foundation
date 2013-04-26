@@ -29,11 +29,12 @@ jQuery(document).ready(function($) {
 		$("#ajax-loader").fadeIn();
 		$('#site-description').fadeTo(200,0);
 		$('#content').fadeTo(200,.3);
-		$("#main").load(State.url + ' #primary, #secondary', function(data) {
+		$("#main").load(State.url + ' #primary ', function(data) {
 			/* After the content loads you can make additional callbacks*/
 			$('#site-description').text('Ajax loaded: ' + State.url);
 			$('#site-description').fadeTo(200,1);
 			$('#content').fadeTo(200,1);
+			
 			
 			// Updates the menu
 			var request = $(data);
