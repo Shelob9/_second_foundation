@@ -37,6 +37,7 @@ get_header(); ?>
 		<?php else : ?>
 			<?php get_template_part( 'no-results', 'index' ); ?>
 		<?php endif; ?>
+		
 		</div><!-- #content -->
 	<?php get_sidebar(); ?>
 	</div><!-- #primary -->
