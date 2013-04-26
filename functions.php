@@ -213,13 +213,25 @@ add_action('wp_enqueue_scripts', '_sf_inf_enq');
  * Method from: http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
  */
 function _sf_inf_js() {
-	if ( get_theme_mod( '_s_f_inf-scroll' ) == '' ) {
-		if( ! is_singular() ) :
-		wp_enqueue_script('inf-init', get_template_directory_uri().'/js/inf-init.js', array(), false, true);
-		endif;
+	if( ! is_singular() ) { ?>
+	<script>
+	var infinite_scroll = {
+		loading: {
+			img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
+			msgText: "<?php _e( 'Loading the next set of posts...', 'custom' ); ?>",
+			finishedMsg: "<?php _e( 'All posts loaded.', 'custom' ); ?>"
+		},
+		"nextSelector":"#nav-below .nav-previous a",
+		"navSelector":"#nav-below",
+		"itemSelector":"article",
+		"contentSelector":"#content"
+	};
+	jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
+	</script>
+	<?php
 	}
 }
-add_action( 'wp_enqueue_scripts', '_sf_inf_js', 100 );
+add_action( 'wp_footer', '_sf_inf_js', 100 );
 
 function _s_f_extraDesc($hook) {
     if( 'themes.php' != $hook )
