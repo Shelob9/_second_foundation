@@ -11,9 +11,9 @@
  */
 
 get_header(); ?>
-
+<!-- content -->
 	<div id="primary" class="content-area row">
-		<div id="content" class="site-content large-9 columns" role="main">
+		<div id="content" class="site-content large-9 columns push-3" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
