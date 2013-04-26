@@ -213,7 +213,8 @@ add_action('wp_enqueue_scripts', '_sf_inf_enq');
  * Method from: http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
  */
 function _sf_inf_js() {
-	if( ! is_singular() ) { ?>
+
+	if( ! is_singular() &&  (get_theme_mod( '_s_f_inf-scroll' ) == '' ) ){ ?>
 	<script>
 	var infinite_scroll = {
 		loading: {
