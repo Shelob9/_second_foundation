@@ -34,6 +34,7 @@ jQuery(document).ready(function($) {
 			$('#site-description').text('Ajax loaded: ' + State.url);
 			$('#site-description').fadeTo(200,1);
 			$('#content').fadeTo(200,1);
+			//re-initialize foundation, so Orbit works on reloading of front page if in use.
 			$(document).foundation();
 			
 			// Updates the menu
