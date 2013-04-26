@@ -34,7 +34,7 @@ jQuery(document).ready(function($) {
 			$('#site-description').text('Ajax loaded: ' + State.url);
 			$('#site-description').fadeTo(200,1);
 			$('#content').fadeTo(200,1);
-			
+			$(document).foundation();
 			
 			// Updates the menu
 			var request = $(data);
