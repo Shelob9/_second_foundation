@@ -1,3 +1,5 @@
+v1.0.3
+1) Ajax page loading.
 v1.0.2
 1) Fixing issue with menu bar overlapping site description div with certain settings.
 2) Add some instructions in themes page. Including a link to theme documentation, which I promise to write soon.

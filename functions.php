@@ -210,6 +210,7 @@ add_action('wp_enqueue_scripts', '_sf_inf_enq');
 
 /**
  * Infinite Scroll
+ * Method from: http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
  */
 function _sf_inf_js() {
 	if ( get_theme_mod( '_s_f_inf-scroll' ) == '' ) {
@@ -228,7 +229,8 @@ function _s_f_extraDesc($hook) {
 add_action( 'admin_enqueue_scripts', '_s_f_extraDesc' );
 
 /*
- * Loads the scripts that are required for push_states to work.
+ * AJAX page Loads
+ * Method from: http://wptheming.com/2011/12/ajax-themes/
  *
  * https://github.com/balupton/History.js
  *

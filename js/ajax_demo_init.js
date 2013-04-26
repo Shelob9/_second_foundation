@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-    
+// method from: http://wptheming.com/2011/12/ajax-themes/
 	// Establish Variables
 	var
 		History = window.History, // Note: Using a capital H instead of a lower h
