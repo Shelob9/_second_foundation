@@ -227,7 +227,8 @@ function _sf_inf_js() {
 		"itemSelector":"article",
 		"contentSelector":"#content"
 	};
-	jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
+	var callbackfunction = jQuery('article').removeClass('sticky');
+	jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll, callbackfunction );
 	</script>
 	<?php
 	}
