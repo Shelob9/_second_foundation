@@ -15,7 +15,9 @@
 
 	<div class="entry-content">
 		<?php if ( has_post_thumbnail()) : ?>
+			<div style="float:right">
 			<a href="<?php the_permalink(); ?>" class="th" title="<?php the_title_attribute(); ?>" ><?php the_post_thumbnail('thumb'); ?></a>
+			</div>
 		<?php endif; ?>
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
