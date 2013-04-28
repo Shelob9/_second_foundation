@@ -600,6 +600,19 @@ html {
   -o-background-size: cover;
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
-#page {border-right:1px solid black;}
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";}
+#page {
+	background-color: #fff;
+	padding-left:15px;
+	margin-top:20px;
+	-moz-border-radius-bottomleft:14px;
+	-moz-border-radius-bottomright:14px;
+	-webkit-border-bottom-left-radius:14px;
+	-webkit-border-bottom-right-radius:14px;
+	border-bottom-left-radius:14px;
+	border-bottom-right-radius:14px;
+	-moz-box-shadow: 5px 5px 15px #000000;
+	-webkit-box-shadow: 5px 5px 15px #000000;
+	box-shadow: 5px 5px 15px #000000;
+	}
 }
