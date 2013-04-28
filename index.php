@@ -14,7 +14,7 @@
 get_header(); ?>
 <!-- content -->
 	<div id="primary" class="content-area row">
-		<div id="content" class="site-content large-9 columns" role="main">
+		<div id="content" class="site-content small-12 columns" role="main">
 		<?php 
 			if ( get_theme_mod( '_s_f_slider_visibility' ) == '' ) { 
 	   		if ( is_front_page() ) : 
