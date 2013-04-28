@@ -22,41 +22,22 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="hfeed site">
+<div id="page" class="hfeed site row">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header row" role="banner">
-		<div class="row" id="header image">
-			<div class="large-12 columns centered">
-				<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
-			</div>
-		</div>
-		<?php 
-		if ( get_theme_mod( '_s_f_theme_options_menu_name' ) == '' ) { ?>
-		<hgroup class="large-12 columns">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-		</hgroup>
-		<?php } ?>
+		
 		<nav >
-		<?php if ( get_theme_mod( '_s_f_theme_options_menu_sticky' ) == '' ) { 
-			echo '<div class="contain-to-grid ">';
-		} 
-		else {
-			echo '<div class="contain-to-grid sticky">';
-		}
-		?>
+			<div class="contain-to-grid">
+
 				<!-- Starting the Top-Bar -->
 				<nav id="site-navigation" class="navigation-main top-bar" role="navigation">
 					<ul class="title-area">
-						<?php 
-						if ( get_theme_mod( '_s_f_theme_options_menu_name' ) == '' ) { ?>
+						
 							<li class="name"><h1><a href="#">&nbsp;</h1></a></li>
-						<?php }
-						else { ?>
 						<li class="name">
 							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1></span>
 						</li>
-						<?php } ?>
+						
 						<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 					</ul>
 					<section class="top-bar-section">
@@ -95,11 +76,9 @@
 							}
 						?>
 						
-						<?php
-							//if name is being shown in menu put description underneath.
-							if ( ! get_theme_mod( '_s_f_theme_options_menu_name' ) == '' ) { ?>
-								<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	
-							<?php }?>
+						
+						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	
+							
 						
 		
 	</header><!-- #masthead -->
