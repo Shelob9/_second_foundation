@@ -233,6 +233,14 @@ function _sf_inf_js() {
 	}
 }
 add_action( 'wp_footer', '_sf_inf_js', 100 );
+//extra script to remove .sticky from sticky posts after page loads. Keeps them at top of list, but prevents infinite scroll from sticking them to the top of the window in an unseemly manner.
+
+function _sf_unstick() {
+	if( ! is_singular() &&  (get_theme_mod( '_s_f_inf-scroll' ) == '' ) ){
+		wp_enqueue_script('unstick', get_template_directory_uri().'/js/unstick.js', array('jquery'), false, true);
+	}
+}
+add_action('wp_enqueue_scripts', '_sf_unstick', 105);
 
 function _s_f_extraDesc($hook) {
     if( 'themes.php' != $hook )
