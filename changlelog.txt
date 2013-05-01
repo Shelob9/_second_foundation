@@ -1,8 +1,9 @@
+v1.0.4
+1) Fix sticky post, extra stickyness issue.
 v1.0.3
 1) AJAX page loading. 
 2) Option via customizer to disable AJAX page loads and Infinite Scrolling.
-3) Initializing infinite scroll with a script that is properly enqueued.
-4) Add history.js from Browser states for those AJAX page loads to work and stuff.
+3) Add history.js from Browser states for those AJAX page loads to work and stuff.
 
 v1.0.2
 1) Fixing issue with menu bar overlapping site description div with certain settings.
