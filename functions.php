@@ -105,7 +105,7 @@ function _s_register_custom_background() {
 		define( 'BACKGROUND_COLOR', $args['default-color'] );
 		if ( ! empty( $args['default-image'] ) )
 			define( 'BACKGROUND_IMAGE', $args['default-image'] );
-		add_custom_background();
+		add_theme_support( 'custom-background', $args );
 	}
 }
 add_action( 'after_setup_theme', '_s_register_custom_background' );
