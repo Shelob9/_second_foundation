@@ -2,7 +2,7 @@
 /**
  * The Template for displaying all single posts.
  *
- * @package _s
+ * @package _sf
  */
 
 get_header(); ?>
@@ -14,7 +14,7 @@ get_header(); ?>
 
 			<?php get_template_part( 'content', 'single' ); ?>
 
-			<?php _sf_content_nav( 'nav-below' ); ?>
+			<?php _sff_content_nav( 'nav-below' ); ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template
@@ -25,6 +25,6 @@ get_header(); ?>
 		<?php endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->
-	<?php get_sidebar(); ?>
+	<?php get_sfidebar(); ?>
 	</div><!-- #primary -->
 <?php get_footer(); ?>

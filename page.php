@@ -7,7 +7,7 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package _s
+ * @package _sf
  */
 
 get_header(); ?>
@@ -28,6 +28,6 @@ get_header(); ?>
 			<?php endwhile; ?>
 
 		</div><!-- #content -->
-	<?php get_sidebar(); ?>
+	<?php get_sfidebar(); ?>
 	</div><!-- #primary -->
 <?php get_footer(); ?>
