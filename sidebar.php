@@ -2,7 +2,7 @@
 /**
  * The Sidebar containing the main widget areas.
  *
- * @package _s
+ * @package _sf
  */
 ?>
 	<div id="secondary" class="widget-area large-3 columns" role="complementary">
