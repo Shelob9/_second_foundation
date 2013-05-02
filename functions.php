@@ -2,7 +2,7 @@
 /**
  * _s functions and definitions
  *
- * @package _s
+ * @package _sf
  */
 
 /**
@@ -11,10 +11,6 @@
 if ( ! isset( $content_width ) )
 	$content_width = 640; /* pixels */
 
-/*
- * Load Jetpack compatibility file.
- */
-require( get_template_directory() . '/inc/jetpack.php' );
 
 if ( ! function_exists( '_s_setup' ) ) :
 /**
@@ -129,7 +125,7 @@ add_action( 'widgets_init', '_s_widgets_init' );
  * Add custom header with flexible dimensions
  **/
 // Register Theme Features
-function _s_f_theme_features()  {
+function _sf_theme_features()  {
 
 	// Add theme support for Custom Header
 	$header_args = array(
@@ -148,7 +144,7 @@ function _s_f_theme_features()  {
 }
 
 // Hook into the 'after_setup_theme' action
-add_action( 'after_setup_theme', '_s_f_theme_features' );
+add_action( 'after_setup_theme', '_sf_theme_features' );
 
 
 /**
@@ -201,7 +197,7 @@ add_action('wp_enqueue_scripts', '_sf_inf_enq');
  */
 function _sf_inf_js() {
 
-	if( ! is_singular() &&  (get_theme_mod( '_s_f_inf-scroll' ) == '' ) ){ ?>
+	if( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) ){ ?>
 	<script>
 	var infinite_scroll = {
 		loading: {
@@ -220,19 +216,19 @@ function _sf_inf_js() {
 	}
 }
 add_action( 'wp_footer', '_sf_inf_js', 100 );
-//extra script to remove .sticky from sticky posts after page loads. Keeps them at top of list, but prevents infinite scroll from sticking them to the top of the window in an unseemly manner.
 
+//extra script to remove .sticky from sticky posts after page loads. Keeps them at top of list, but prevents infinite scroll from sticking them to the top of the window in an unseemly manner.
 function _sf_unstick() {
 	wp_enqueue_script('unstick', get_template_directory_uri().'/js/unstick.js', array('jquery'), false, true);
 }
 add_action('wp_enqueue_scripts', '_sf_unstick', 105);
 
-function _s_f_extraDesc($hook) {
+function _sf_extraDesc($hook) {
     if( 'themes.php' != $hook )
         return;
     wp_enqueue_script( 'extra-desc', get_template_directory_uri().'/js/extra-desc.js' );
 }
-add_action( 'admin_enqueue_scripts', '_s_f_extraDesc' );
+add_action( 'admin_enqueue_scripts', '_sf_extraDesc' );
 
 /*
  * AJAX page Loads
@@ -242,8 +238,8 @@ add_action( 'admin_enqueue_scripts', '_s_f_extraDesc' );
  *
  */
  
-function ajax_demo_init() {
-		if ( get_theme_mod( '_s_f_ajax' ) == '' ) {
+function _sf_ajax_page_load() {
+		if ( get_theme_mod( '_sf_ajax' ) == '' ) {
 			if ( !is_admin() ) :
 				wp_deregister_script('historyjs');
 				wp_register_script( 'historyjs', get_template_directory_uri(). '/js/jquery.history.js', array( 'jquery' ), '1.7.1' );
@@ -254,4 +250,4 @@ function ajax_demo_init() {
 		}	
 }
 
-add_action( 'wp_enqueue_scripts','ajax_demo_init' );
+add_action( 'wp_enqueue_scripts','_sf_ajax_page_load' );
