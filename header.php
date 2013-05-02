@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="main">
  *
- * @package _sf
+ * @package _s
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -31,14 +31,14 @@
 			</div>
 		</div>
 		<?php 
-		if ( get_theme_mod( '_sf_f_theme_options_menu_name' ) == '' ) { ?>
+		if ( get_theme_mod( '_s_f_theme_options_menu_name' ) == '' ) { ?>
 		<hgroup class="large-12 columns">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</hgroup>
 		<?php } ?>
 		<nav >
-		<?php if ( get_theme_mod( '_sf_f_theme_options_menu_sfticky' ) == '' ) { 
+		<?php if ( get_theme_mod( '_s_f_theme_options_menu_sticky' ) == '' ) { 
 			echo '<div class="contain-to-grid ">';
 		} 
 		else {
@@ -49,7 +49,7 @@
 				<nav id="site-navigation" class="navigation-main top-bar" role="navigation">
 					<ul class="title-area">
 						<?php 
-						if ( get_theme_mod( '_sf_f_theme_options_menu_name' ) == '' ) { ?>
+						if ( get_theme_mod( '_s_f_theme_options_menu_name' ) == '' ) { ?>
 							<li class="name"><h1><a href="#">&nbsp;</h1></a></li>
 						<?php }
 						else { ?>
@@ -66,7 +66,7 @@
 								'container' => false,
 								'depth' => 0,
 								'items_wrap' => '<ul class="left">%3$s</ul>',
-								'fallback_cb' => '_sff_menu_fallback', // workaround to show a message to set up a menu
+								'fallback_cb' => '_sf_menu_fallback', // workaround to show a message to set up a menu
 								'walker' => new _sf_walker( array(
 									'in_top_bar' => true,
 									'item_type' => 'li'
@@ -76,12 +76,12 @@
 					
 						<?php
 						//include the search form, or not depending on user settings.
-						if ( ! get_theme_mod( '_sf_f_theme_options_menu_sfearch' ) == '' ) {
+						if ( ! get_theme_mod( '_s_f_theme_options_menu_search' ) == '' ) {
 						echo '
 						<ul class="right">
 							<li class="divider hide-for-small"></li>
 							<li class="has-form">';
-							get_sfearch_form();
+							get_search_form();
 							echo '</li>';
 							echo ' <li class="has-form">
         						<a class="button" href="#">Search</a>
@@ -97,7 +97,7 @@
 						
 						<?php
 							//if name is being shown in menu put description underneath.
-							if ( ! get_theme_mod( '_sf_f_theme_options_menu_name' ) == '' ) { ?>
+							if ( ! get_theme_mod( '_s_f_theme_options_menu_name' ) == '' ) { ?>
 								<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	
 							<?php }?>
 						

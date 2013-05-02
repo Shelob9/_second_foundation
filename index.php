@@ -8,7 +8,7 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package _sf
+ * @package _s
  */
 
 get_header(); ?>
@@ -16,7 +16,7 @@ get_header(); ?>
 	<div id="primary" class="content-area row">
 		<div id="content" class="site-content large-9 columns" role="main">
 		<?php 
-			if ( get_theme_mod( '_sf_f_sflider_visibility' ) == '' ) { 
+			if ( get_theme_mod( '_s_f_slider_visibility' ) == '' ) { 
 	   		if ( is_front_page() ) : 
 		    get_template_part( 'slider' );
 	    	endif;
@@ -33,12 +33,12 @@ get_header(); ?>
 					get_template_part( 'content', get_post_format() );
 				?>
 			<?php endwhile; ?>
-			<?php _sff_content_nav( 'nav-below' ); ?>
+			<?php _sf_content_nav( 'nav-below' ); ?>
 		<?php else : ?>
 			<?php get_template_part( 'no-results', 'index' ); ?>
 		<?php endif; ?>
 		
 		</div><!-- #content -->
-	<?php get_sfidebar(); ?>
+	<?php get_sidebar(); ?>
 	</div><!-- #primary -->
 <?php get_footer(); ?>

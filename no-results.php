@@ -4,35 +4,35 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package _sf
+ * @package _s
  */
 ?>
 
 <article id="post-0" class="post no-results not-found">
 	<header class="entry-header">
-		<h1 class="entry-title"><?php _e( 'Nothing Found', '_sf' ); ?></h1>
+		<h1 class="entry-title"><?php _e( 'Nothing Found', '_s' ); ?></h1>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
-			<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', '_sf' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+			<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', '_s' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
 
-		<?php elseif ( is_sfearch() ) : ?>
+		<?php elseif ( is_search() ) : ?>
 
-			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', '_sf' ); ?></p>
+			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', '_s' ); ?></p>
 			<div class="row">
 				<div class="large-6 push2 columns">
-					<?php get_sfearch_form(); ?>
+					<?php get_search_form(); ?>
 				</div>
 			</div>
 
 		<?php else : ?>
 
-			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', '_sf' ); ?></p>
+			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', '_s' ); ?></p>
 			<div class="row">
 				<div class="large-6 push2 columns">
-					<?php get_sfearch_form(); ?>
+					<?php get_search_form(); ?>
 				</div>
 			</div>
 

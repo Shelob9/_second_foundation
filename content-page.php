@@ -2,7 +2,7 @@
 /**
  * The template used for displaying page content in page.php
  *
- * @package _sf
+ * @package _s
  */
 ?>
 
@@ -13,7 +13,7 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_sf' ), 'after' => '</div>' ) ); ?>
+		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
-	<?php edit_post_link( __( 'Edit', '_sf' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
+	<?php edit_post_link( __( 'Edit', '_s' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
 </article><!-- #post-## -->
