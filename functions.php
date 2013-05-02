@@ -221,7 +221,7 @@ add_action( 'wp_footer', '_sf_inf_js', 100 );
 function _sf_unstick() {
 	wp_enqueue_script('unstick', get_template_directory_uri().'/js/unstick.js', array('jquery'), false, true);
 }
-add_action('wp_enqueue_scripts', '_sf_unstick', 105);
+add_action('wp_enqueue_scripts', '_sf_unstick', 95);
 
 function _sf_extraDesc($hook) {
     if( 'themes.php' != $hook )
