@@ -20,6 +20,7 @@ function _sf_custom_style() {
 	$header_bg_color = get_option('header_bg_color');
 	$menu_bg_color = get_option('menu_bg_color');
 	$menu_hover_color = get_option('menu_hover_color');
+	$background_color = get_option('_sf_background-color');
 
 echo '<style>'; ?>
 	.entry-content { color:  <?php echo $content_text_color; ?>; }
@@ -52,8 +53,11 @@ echo '<style>'; ?>
 		echo '}';
 		echo '.top-bar{paddding-right:15px}';
 	}
-
-	echo' #page {';
+	// page background
+	echo 'body{background-color:';
+	echo $background_color;
+	echo ';}';
+	
 //add shadow to #page if header and background are not transperant	
 	if ( get_theme_mod( 'content-trans-bg' ) == '' && get_theme_mod( 'header-trans-bg' ) == '' ) {
 		echo'

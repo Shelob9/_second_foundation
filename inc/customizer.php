@@ -206,6 +206,10 @@ function _sf_colors_customize_register( $wp_customize ){
         'title'    => __('Content Area Colors', '_sf'),
         'priority' => 132,
     ));
+     $wp_customize->add_section('_sf_background', array(
+        'title'    => __('Background Settings', '_sf'),
+        'priority' => 128,
+    ));
 	$menu = array();
 	//MENU
 	$menu[] = array(
@@ -350,8 +354,27 @@ function _sf_colors_customize_register( $wp_customize ){
         'section' => 'header-colors',
         )
     );
-  
-
+  	// ==================
+	// Page Backgrounds =
+	// ==================
+	
+	$wp_customize->add_setting( '_sf_background-color' , array(
+    'default'     => '#fff',
+    'transport'   => 'post_Message',
+    'type' => 'option'
+	) );
+	
+	$wp_customize->add_control( 
+	new WP_Customize_Color_Control( 
+	$wp_customize, 
+	'link_color', 
+	array(
+		'label'      => __( 'Page Background Color', '_sf' ),
+		'section'    => '_sf_background',
+		'settings'   => '_sf_background-color',
+	) ) 
+);
+	
 
 }
  
