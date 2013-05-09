@@ -350,21 +350,7 @@ function _sf_colors_customize_register( $wp_customize ){
         'section' => 'header-colors',
         )
     );
-        //  =============================
-    //  = Image Upload              =
-    //  =============================
-    $wp_customize->add_setting('stretch-bg', array(
-        'default'           => 'image.jpg',
-        'capability'        => 'edit_theme_options',
-       
- 
-    ));
- 
-    $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'image_upload_test', array(
-        'label'    => __('Image Upload Test', 'sf'),
-        'section'  => 'header-colors',
-        'settings' => 'stretch-bg',
-    )));
+  
 
 
 }
