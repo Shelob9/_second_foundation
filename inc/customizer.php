@@ -360,7 +360,7 @@ function _sf_colors_customize_register( $wp_customize ){
 	
 	$wp_customize->add_setting( 'bg-color' , array(
     'default'     => '#fff',
-    'transport'   => 'post_Message',
+    'transport'   => 'postMessage',
     'type' => 'option'
 	) );
 	//Page bg color
@@ -376,7 +376,6 @@ function _sf_colors_customize_register( $wp_customize ){
 	);
 	//Background Color or Full-Width Image?
 	$wp_customize->add_setting('body_bg_choice', array(
-    'transport'   => 'post_Message',
 	) );
 
     $wp_customize->add_control(
@@ -392,7 +391,6 @@ function _sf_colors_customize_register( $wp_customize ){
 	    $wp_customize->add_setting('body_bg_img', array(
         'default'           => 'image.jpg',
         'capability'        => 'edit_theme_options',
-        'type' 				=> 'option'
     ));
  
     $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'body_bg_img', array(
