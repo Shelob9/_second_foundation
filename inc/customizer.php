@@ -252,7 +252,7 @@ function _sf_colors_customize_register( $wp_customize ){
 	//content area
 	$content[] = array(
 		'slug'=>'content_bg_color', 
-		'default' => ' ',
+		'default' => '#fff',
 		'label' => __('Content Area Background Color', 'sf')
 	);
 	$content[] = array(
@@ -294,7 +294,7 @@ function _sf_colors_customize_register( $wp_customize ){
 	//header
 	$header[] = array(
 		'slug'=>'header_bg_color', 
-		'default' => ' ',
+		'default' => '#fff',
 		'label' => __('Header Background Color', 'sf')
 	);
 	$header[] = array(
