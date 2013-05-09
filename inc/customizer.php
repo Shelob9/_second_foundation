@@ -185,4 +185,189 @@ function _sf_customize_register( $wp_customize ){
 }
  
 add_action('customize_register', '_sf_customize_register');
+
+
+function _sf_colors_customize_register( $wp_customize ){
+
+ 	//  ==================
+    //  = Color Controls =
+    //  ==================
+    
+    //Sections For Color Controls
+    $wp_customize->add_section('menu-colors', array(
+        'title'    => __('Menu Section Colors', '_sf'),
+        'priority' => 130,
+    ));
+ 	$wp_customize->add_section('header-colors', array(
+        'title'    => __('Header Section Colors', '_sf'),
+        'priority' => 131,
+    ));
+    $wp_customize->add_section('content-colors', array(
+        'title'    => __('Content Area Colors', '_sf'),
+        'priority' => 132,
+    ));
+	$menu = array();
+	//MENU
+	$menu[] = array(
+		'slug'=>'site_name_color', 
+		'default' => ' ',
+		'label' => __('Site Name Color', 'sf')
+	);
+	$menu[] = array(
+		'slug'=>'menu_text_color', 
+		'default' => ' ',
+		'label' => __('Menu Text Color', 'sf')
+	);
+	$menu[] = array(
+		'slug'=>'menu_bg_color', 
+		'default' => ' ',
+		'label' => __('Menu Background Color', 'sf')
+	);
+	$menu[] = array(
+		'slug'=>'menu_hover_color', 
+		'default' => ' ',
+		'label' => __('Menu Hover Color', 'sf')
+	);
+		foreach( $menu as $color ) {
+		// SETTINGS
+		$wp_customize->add_setting(
+			$color['slug'], array(
+				'default' => $color['default'],
+				'type' => 'option', 
+				'capability' => 
+				'edit_theme_options'
+			)
+		);
+		// CONTROLS
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				$color['slug'], 
+				array('label' => $color['label'], 
+				'section' => 'menu-colors',
+				'settings' => $color['slug'])
+			)
+		);
+	}
+	//content area
+	$content[] = array(
+		'slug'=>'content_bg_color', 
+		'default' => ' ',
+		'label' => __('Content Area Background Color', 'sf')
+	);
+	$content[] = array(
+	'slug'=>'content_text_color', 
+	'default' => ' ',
+	'label' => __('Content Text Color', 'sf')
+	);
+	$content[] = array(
+		'slug'=>'content_link_color', 
+		'default' => ' ',
+		'label' => __('Content Link Color', 'sf')
+	);
+	$content[] = array(
+		'slug'=>'post_title_color', 
+		'default' => ' ',
+		'label' => __('Post Title Color', 'sf')
+	);
+			foreach( $content as $color ) {
+		// SETTINGS
+		$wp_customize->add_setting(
+			$color['slug'], array(
+				'default' => $color['default'],
+				'type' => 'option', 
+				'capability' => 
+				'edit_theme_options'
+			)
+		);
+		// CONTROLS
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				$color['slug'], 
+				array('label' => $color['label'], 
+				'section' => 'content-colors',
+				'settings' => $color['slug'])
+			)
+		);
+	}
+	//header
+	$header[] = array(
+		'slug'=>'header_bg_color', 
+		'default' => ' ',
+		'label' => __('Header Background Color', 'sf')
+	);
+	$header[] = array(
+		'slug'=>'site_description_color', 
+		'default' => ' ',
+		'label' => __('Site Description Color', 'sf')
+	);
+		foreach( $header as $color ) {
+		// SETTINGS
+		$wp_customize->add_setting(
+			$color['slug'], array(
+				'default' => $color['default'],
+				'type' => 'option', 
+				'capability' => 
+				'edit_theme_options'
+			)
+		);
+		// CONTROLS
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				$color['slug'], 
+				array('label' => $color['label'], 
+				'section' => 'header-colors',
+				'settings' => $color['slug'])
+			)
+		);
+	}
+	//  ============================
+    //  = Transparent Backgrounds  =
+    //  ============================
+    $wp_customize->add_setting(
+    'content-trans-bg'
+    );
+
+    $wp_customize->add_control(
+    'content-trans-bg',
+    array(
+        'type' => 'checkbox',
+        'label' => 'Transparent Background For Content Area',
+        'section' => 'content-colors',
+        )
+    );
+    $wp_customize->add_setting(
+    'header-trans-bg'
+    );
+
+    $wp_customize->add_control(
+    'header-trans-bg',
+    array(
+        'type' => 'checkbox',
+        'label' => 'Transparent Background For Header Area',
+        'section' => 'header-colors',
+        )
+    );
+        //  =============================
+    //  = Image Upload              =
+    //  =============================
+    $wp_customize->add_setting('stretch-bg', array(
+        'default'           => 'image.jpg',
+        'capability'        => 'edit_theme_options',
+       
+ 
+    ));
+ 
+    $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'image_upload_test', array(
+        'label'    => __('Image Upload Test', 'sf'),
+        'section'  => 'header-colors',
+        'settings' => 'stretch-bg',
+    )));
+
+
+}
+ 
+add_action('customize_register', '_sf_colors_customize_register');
 ?>

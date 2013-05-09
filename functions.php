@@ -251,3 +251,8 @@ function _sf_ajax_page_load() {
 }
 
 add_action( 'wp_enqueue_scripts','_sf_ajax_page_load' );
+
+/**
+* Use style.php for color options
+*/
+require('css/style.php');
