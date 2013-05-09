@@ -207,7 +207,7 @@ function _sf_colors_customize_register( $wp_customize ){
         'priority' => 132,
     ));
      $wp_customize->add_section('_sf_background', array(
-        'title'    => __('Background Settings', '_sf'),
+        'title'    => __('Page Settings', '_sf'),
         'priority' => 128,
     ));
 	$menu = array();
@@ -354,9 +354,9 @@ function _sf_colors_customize_register( $wp_customize ){
         'section' => 'header-colors',
         )
     );
-  	// ==================
-	// Page Backgrounds =
-	// ==================
+  	// ===============
+	// Page Settings =
+	// ===============
 	
 	$wp_customize->add_setting( 'bg-color' , array(
     'default'     => '#fff',
