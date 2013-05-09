@@ -72,25 +72,10 @@ echo '<style>'; ?>
   		background-size: cover;
  		 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
 		-ms-filter: \"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')\";
-		";
+	";
 	echo '}';
 	}
 	
-//add shadow to #page if header and background are not transperant	
-	if ( get_theme_mod( 'content-trans-bg' ) == '' && get_theme_mod( 'header-trans-bg' ) == '' ) {
-		echo'
-			-moz-box-shadow: 5px 5px 15px #000000;
-			-webkit-box-shadow: 5px 5px 15px #000000;
-			box-shadow: 5px 5px 15px #000000;
-			-moz-border-radius-bottomleft:14px;
-			-moz-border-radius-bottomright:14px;
-			-webkit-border-bottom-left-radius:14px;
-			-webkit-border-bottom-right-radius:14px;
-			border-bottom-left-radius:14px;
-			border-bottom-right-radius:14px;
-		';
-	}
-	echo '}';
 //custom header image
 	echo '#masthead{ background-image:url(';
 	echo header_image();
