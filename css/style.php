@@ -20,7 +20,9 @@ function _sf_custom_style() {
 	$header_bg_color = get_option('header_bg_color');
 	$menu_bg_color = get_option('menu_bg_color');
 	$menu_hover_color = get_option('menu_hover_color');
-	$background_color = get_option('_sf_background-color');
+	$background_color = get_option('bg-color');
+	$body_bg_img = get_theme_mod('body_bg_img');
+	
 
 echo '<style>'; ?>
 	.entry-content { color:  <?php echo $content_text_color; ?>; }
@@ -53,10 +55,26 @@ echo '<style>'; ?>
 		echo '}';
 		echo '.top-bar{paddding-right:15px}';
 	}
-	// page background
+	// If page background is not set to full-screen image set a color else set the image and add css to make it full screen and shit.
+	if ( get_theme_mod( 'body_bg_choice' ) == '' ) { 
 	echo 'body{background-color:';
 	echo $background_color;
 	echo ';}';
+	}
+	else {
+	echo 'body{background-image:url(';
+	echo $body_bg_img;
+	echo ');';
+	echo "
+  		-webkit-background-size: cover;
+  		-moz-background-size: cover;
+  		-o-background-size: cover;
+  		background-size: cover;
+ 		 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+		-ms-filter: \"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')\";
+		";
+	echo '}';
+	}
 	
 //add shadow to #page if header and background are not transperant	
 	if ( get_theme_mod( 'content-trans-bg' ) == '' && get_theme_mod( 'header-trans-bg' ) == '' ) {

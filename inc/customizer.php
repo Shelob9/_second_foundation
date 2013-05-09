@@ -358,12 +358,12 @@ function _sf_colors_customize_register( $wp_customize ){
 	// Page Backgrounds =
 	// ==================
 	
-	$wp_customize->add_setting( '_sf_background-color' , array(
+	$wp_customize->add_setting( 'bg-color' , array(
     'default'     => '#fff',
     'transport'   => 'post_Message',
     'type' => 'option'
 	) );
-	
+	//Page bg color
 	$wp_customize->add_control( 
 	new WP_Customize_Color_Control( 
 	$wp_customize, 
@@ -371,10 +371,36 @@ function _sf_colors_customize_register( $wp_customize ){
 	array(
 		'label'      => __( 'Page Background Color', '_sf' ),
 		'section'    => '_sf_background',
-		'settings'   => '_sf_background-color',
+		'settings'   => 'bg-color',
 	) ) 
-);
-	
+	);
+	//Background Color or Full-Width Image?
+	$wp_customize->add_setting('body_bg_choice', array(
+    'transport'   => 'post_Message',
+	) );
+
+    $wp_customize->add_control(
+    'body_bg_choice',
+    array(
+        'type' => 'checkbox',
+        'label' => 'Use Background Image Instead of Color?',
+        'section' => '_sf_background',
+        'settings'   => 'body_bg_choice',
+        )
+    );
+	//page background img
+	    $wp_customize->add_setting('body_bg_img', array(
+        'default'           => 'image.jpg',
+        'capability'        => 'edit_theme_options',
+        'type' 				=> 'option'
+    ));
+ 
+    $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'body_bg_img', array(
+        'label'    => __('Upload Page Background', 'sf'),
+        'section'    => '_sf_background',
+        'settings' => 'body_bg_img',
+    )));
+
 
 }
  
