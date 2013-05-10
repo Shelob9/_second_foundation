@@ -241,9 +241,11 @@ function _sf_get_image_id($image_url) {
         return $attachment[0]; 
 }
 
-// add the script to check screen size and if the height is less then 480 set background image to mobile size.
+// add the script to check screen size and if the height is less then 480 set background image to mobile size IF we are using a fullscreen background.
 function _sf_bg_img_size_decider() {
-	wp_enqueue_script('bg-decider', get_template_directory_uri(). '/js/screensize.js', array( 'historyjs' ), false, true);
+	if (! get_theme_mod( 'body_bg_choice' ) == '' ) {
+		wp_enqueue_script('bg-decider', get_template_directory_uri(). '/js/screensize.js', array( 'historyjs' ), false, true);
+	}
 }
 add_action('wp_enqueue_scripts', '_sf_bg_img_size_decider');
 

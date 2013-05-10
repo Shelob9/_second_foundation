@@ -21,6 +21,9 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-</div><!--/bg-->
+<?php if (! get_theme_mod( 'body_bg_choice' ) == '' ) {
+	echo '</div><!--/bg-->';
+}
+?>
 </body>
 </html>

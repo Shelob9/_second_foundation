@@ -55,12 +55,22 @@ echo '<style>'; ?>
 		echo '}';
 		echo '.top-bar{paddding-right:15px}';
 	}
-	// If page background is not set to full-screen image set a color.
+	// If page background is not set to full-screen image set a color else ad #bg to make that container a fullscreen background.
 	if ( get_theme_mod( 'body_bg_choice' ) == '' ) { 
-	echo 'body{background-color:';
-	echo $background_color;
-	echo ';}';
+		echo 'body{background-color:';
+		echo $background_color;
+		echo ';}';
 	}
+	else { ?>
+			#bg {
+ 			-webkit-background-size: cover;
+  			-moz-background-size: cover;
+ 			-o-background-size: cover;
+  			background-size: cover;
+  			filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+			'-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
+			}
+	<?php }
 	
 //custom header image
 	echo '#masthead{ background-image:url(';
