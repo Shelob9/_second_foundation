@@ -21,6 +21,6 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
+</div><!--/bg-->
 </body>
 </html>

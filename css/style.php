@@ -21,7 +21,7 @@ function _sf_custom_style() {
 	$menu_bg_color = get_option('menu_bg_color');
 	$menu_hover_color = get_option('menu_hover_color');
 	$background_color = get_option('bg-color');
-	$body_bg_img = get_theme_mod('body_bg_img');
+
 	
 
 echo '<style>'; ?>
@@ -55,25 +55,11 @@ echo '<style>'; ?>
 		echo '}';
 		echo '.top-bar{paddding-right:15px}';
 	}
-	// If page background is not set to full-screen image set a color else set the image and add css to make it full screen and shit.
+	// If page background is not set to full-screen image set a color.
 	if ( get_theme_mod( 'body_bg_choice' ) == '' ) { 
 	echo 'body{background-color:';
 	echo $background_color;
 	echo ';}';
-	}
-	else {
-	echo 'body{background-image:url(';
-	echo $body_bg_img;
-	echo ');';
-	echo "
-  		-webkit-background-size: cover;
-  		-moz-background-size: cover;
-  		-o-background-size: cover;
-  		background-size: cover;
- 		 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-		-ms-filter: \"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')\";
-	";
-	echo '}';
 	}
 	
 //custom header image
@@ -88,3 +74,6 @@ echo '<style>'; ?>
 echo '</style>';
 
 }
+
+
+ 

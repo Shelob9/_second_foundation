@@ -226,3 +226,26 @@ add_action( 'wp_enqueue_scripts','_sf_ajax_page_load' );
 * Use style.php for color options
 */
 require('css/style.php');
+
+/**
+* Set the fullscreen background image using a smaller image for small (ie mobile screens)
+* http://pippinsplugins.com/retrieve-attachment-id-from-image-url/
+*/
+
+//get id of attachment by full url
+// http://pippinsplugins.com/retrieve-attachment-id-from-image-url/
+function _sf_get_image_id($image_url) {
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $prefix . "posts" . " WHERE guid='%s';", $image_url )); 
+        return $attachment[0]; 
+}
+
+// add the script to check screen size and if the height is less then 480 set background image to mobile size.
+function _sf_bg_img_size_decider() {
+	wp_enqueue_script('bg-decider', get_template_directory_uri(). '/js/screensize.js', array( 'historyjs' ), false, true);
+}
+add_action('wp_enqueue_scripts', '_sf_bg_img_size_decider');
+
+//Add 320x480 image size specifically for mobile background use.
+add_image_size( 'mobile-bg', 320, 480 ); 

@@ -7,7 +7,10 @@
  * @package _sf
  */
 ?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+
+<html <?php language_attributes(); ?> >
+    <!-- html contents -->
+</div>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
@@ -17,11 +20,36 @@
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
+<style>
+#bg {
+ -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
+}
 
+</style>
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+<?php
+	// Set size of full screen background based on window 
+	//get the url of the full-size fullscreen background image.
+	$bg_full = get_theme_mod('body_bg_img');
+	// get the url of background img
+	$img_url = $bg_full;
+	// store the image ID in a var
+	$bg_img_id = _sf_get_image_id($img_url);
+?>
+<div id="bg"
+    data-fullbg-src="<?php $image_attributes = wp_get_attachment_image_src( $bg_img_id, 'full' ); echo $image_attributes[0]; ?>"
+    data-smallbg-src="<?php $image_attributes = wp_get_attachment_image_src( $bg_img_id, 'mobile-bg' ); echo $image_attributes[0];  ?>"
+>
+
+
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header row" role="banner">
