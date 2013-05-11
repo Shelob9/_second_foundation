@@ -235,10 +235,10 @@ require('css/style.php');
 //get id of attachment by full url
 // http://pippinsplugins.com/retrieve-attachment-id-from-image-url/
 function _sf_get_image_id($image_url) {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $prefix . "posts" . " WHERE guid='%s';", $image_url )); 
-        return $attachment[0]; 
+		global $wpdb;
+		$prefix = $wpdb->prefix;
+		$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $prefix . "posts" . " WHERE guid='%s';", $image_url )); 
+			return $attachment[0]; 
 }
 
 // add the script to check screen size and if the height is less then 480 set background image to mobile size IF we are using a fullscreen background.

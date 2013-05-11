@@ -389,7 +389,7 @@ function _sf_colors_customize_register( $wp_customize ){
     );
 	//page background img
 	    $wp_customize->add_setting('body_bg_img', array(
-        'default'           => 'image.jpg',
+        'default'           => 'images/bg.jpg',
         'capability'        => 'edit_theme_options',
     ));
  
