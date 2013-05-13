@@ -234,11 +234,32 @@ require('css/style.php');
 
 //get id of attachment by full url
 // http://pippinsplugins.com/retrieve-attachment-id-from-image-url/
-function _sf_get_image_id($image_url) {
+function _sf_get_image_id($attachment_url) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
-		$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $prefix . "posts" . " WHERE guid='%s';", $image_url )); 
-			return $attachment[0]; 
+	$attachment_id = false;
+ 
+	// If there is no url, return.
+	if ( '' == $attachment_url )
+		return;
+ 
+	// Get the upload directory paths
+	$upload_dir_paths = wp_upload_dir();
+ 
+	// Make sure the upload path base directory exists in the attachment URL, to verify that we're working with a media library image
+	if ( false !== strpos( $attachment_url, $upload_dir_paths['baseurl'] ) ) {
+ 
+		// If this is the URL of an auto-generated thumbnail, get the URL of the original image
+		$attachment_url = preg_replace( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $attachment_url );
+ 
+		// Remove the upload path base directory from the attachment URL
+		$attachment_url = str_replace( $upload_dir_paths['baseurl'] . '/', '', $attachment_url );
+ 
+		// Finally, run a custom database query to get the attachment ID from the modified attachment URL
+		$attachment_id = $wpdb->get_var( $wpdb->prepare( "SELECT wposts.ID FROM $wpdb->posts wposts, $wpdb->postmeta wpostmeta WHERE wposts.ID = wpostmeta.post_id AND wpostmeta.meta_key = '_wp_attached_file' AND wpostmeta.meta_value = '%s' AND wposts.post_type = 'attachment'", $attachment_url ) );
+ 
+	}
+ 
+	return $attachment_id;
 }
 
 // add the script to check screen size and if the height is less then 480 set background image to mobile size IF we are using a fullscreen background.
