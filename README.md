@@ -2,8 +2,9 @@ _second_foundation
 ==================
 Second Foundation is a starter theme for WordPress by Josh Pollock. It is based on Foundation 4 by ZURB and Underscores (_S) by Automattic.
 
-For the last stable release please download [version 1.0.4](http://complexwaveform.com/jp/jp-theme/_sf/_second_foundation-v1.0.4.zip). The master branch is currently v1.0.5, which works, but is incomplete. You can also clone the master branch and revert to the last commit before the v1.0.5 tag.
+For the last stable release please download [version 1.0.4](http://complexwaveform.com/jp/jp-theme/_sf/_second_foundation-v1.0.4.zip). The master branch is currently v1.0.5, which should work, but is not completley test yet. You can also clone the master branch and revert to the last commit before the v1.0.5 tag.
 
+Documentation is availble via [the wiki](https://github.com/Shelob9/_second_foundation/wiki), which is a work in progress.
 Key Features:
 ============
 1) Mobile-first, fully responsive design.<br />
@@ -12,11 +13,11 @@ Key Features:
 5) Home Page Slider.<br />
 6) User options, via the customizer, to disable Infinite Scroll, Home page sider, AJAX page loads and to reconfigure header and menu.
 
-Features Currently Under Development:
+New Features In v.1.0.5
 ==========================
 1) Color options via the customizer. <em>Done</em><br />
 2) Fully screen backgrounds. <em>Done, but limited by new feature #3.</em><br />
-3) Responsive image sizing for full-screen backgrounds to avoid loading a large background image file for mobile. <em>Almost done.</em>
+3) Responsive image sizing for full-screen backgrounds to avoid loading a large background image file for mobile. <em>Done-ish.</em>
 
 Josh Pollock
 ============
