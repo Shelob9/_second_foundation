@@ -28,7 +28,7 @@ echo '<style>'; ?>
 	.entry-content { color:  <?php echo $content_text_color; ?>; }
 	#content a { color:  <?php echo $content_link_color; ?>; }
 	.site-description {color: <?php echo $site_description_color; ?> }
-	.entry-title {color: <?php echo $post_title_color; ?> }
+	h1.entry-title {color: <?php echo $post_title_color; ?> }
 	.top-bar-section ul li>a {color: <?php echo $menu_text_color; ?> }
 	.top-bar .name h1 a {color: <?php echo $site_name_color; ?> }
 	.top-bar, .top-bar-section li a:not(.button) {background-color: <?php echo $menu_bg_color; ?> }
