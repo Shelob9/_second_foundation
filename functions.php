@@ -252,3 +252,22 @@ add_action('wp_enqueue_scripts', '_sf_bg_img_size_decider');
 
 //Add 320x480 image size specifically for mobile background use.
 add_image_size( 'mobile-bg', 320, 480 ); 
+
+//function to put the bg img or not into header
+	function _sf_full_bg() {
+		//if we are using a full screen background image add a container for it with a background image that is sized based on screen height to avoid loading massive file for phones.
+			//First, get the url of the full-size fullscreen background image. Do this before checking if we need it so we can test if any is set.
+			$bg_full = get_theme_mod('body_bg_img');
+			//if we're using full screen background image, and we've set one then continue.
+			if (! get_theme_mod( 'body_bg_choice' ) == '' && ! $bg_full == '') {
+			// store the image ID in a var
+			$bg_img_id = _sf_get_image_id($bg_full);
+			// Set size of full screen background based on window 
+	?>
+	<div id="bg"
+		data-fullbg-src="<?php $image_attributes = wp_get_attachment_image_src( $bg_img_id, 'full' ); echo $image_attributes[0]; ?>"
+		data-smallbg-src="<?php $image_attributes = wp_get_attachment_image_src( $bg_img_id, 'mobile-bg' ); echo $image_attributes[0];  ?>"
+	>
+<?php } 
+}
+?>
