@@ -223,9 +223,29 @@ function _sf_colors_customize_register( $wp_customize ){
 		'label' => __('Menu Text Color', 'sf')
 	);
 	$menu[] = array(
+		'slug'=>'menu_search_txt_color', 
+		'default' => '#fff',
+		'label' => __('Search Button Text Color', 'sf')
+	);
+	$menu[] = array(
+		'slug'=>'menu_search_bg_color', 
+		'default' => '',
+		'label' => __('Search Button Background Color', 'sf')
+	);
+	$menu[] = array(
+		'slug'=>'menu_search_bg_color_hv', 
+		'default' => '',
+		'label' => __('Search Button Background Hover Color', 'sf')
+	);
+	$menu[] = array(
 		'slug'=>'menu_bg_color', 
 		'default' => ' ',
 		'label' => __('Menu Background Color', 'sf')
+	);
+	$menu[] = array(
+		'slug'=>'menu_search_txt_color_hv', 
+		'default' => '#fff',
+		'label' => __('Search Button Text Hover Color', 'sf')
 	);
 	$menu[] = array(
 		'slug'=>'menu_hover_color', 
