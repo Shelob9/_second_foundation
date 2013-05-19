@@ -270,4 +270,13 @@ add_image_size( 'mobile-bg', 320, 480 );
 	>
 <?php } 
 }
+
+/**
+* QTransform
+*/
+function _sf_spiny() {
+	wp_enqueue_script('qt', get_template_directory_uri().'/js/QTransform.js', array( 'jquery' ));
+	wp_enqueue_script('qt-init', get_template_directory_uri().'/js/qt-init.js', array( ), false, true);
+}
+add_action('wp_enqueue_scripts' , '_sf_spiny');
 ?>
