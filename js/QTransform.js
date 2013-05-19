@@ -1,4 +1,6 @@
+jQuery(document).ready(function($) {
 /*
+ ** FROM: https://github.com/puppybits/QTransform/blob/master/QTransform.js
  * based off of Louis-Rémi Babé rotate plugin (https://github.com/lrbabe/jquery.rotate.js)
  *
  * cssTransforms: jQuery cssHooks adding a cross browser, animatible transforms
@@ -452,3 +454,5 @@
     }
 
 })(jQuery);
+
+}); //noconflict wrapper
