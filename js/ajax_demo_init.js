@@ -23,19 +23,21 @@ jQuery(document).ready(function($) {
 	// Load Ajax
 	function load_site_ajax() {
 		State = History.getState(); // Note: Using History.getState() instead of event.state
-		// History.log('statechange:', State.data, State.title, State.url);
-		//console.log(event);
-		$("#primary").prepend('<div id="ajax-loader"><h4>Loading...</h4></div>');
-		$("#ajax-loader").fadeIn();
-		$('#site-description').fadeTo(200,0);
-		$('#content').fadeTo(200,.3);
+		
+		$('#primary').animate({rotate: '+=360deg'}, 1000, 'swing');
+		//$("#primary").prepend('<div id="ajax-loader"><h4>Loading...</h4></div>');
+		//$("#ajax-loader").fadeIn();
+		//$('#site-description').fadeTo(200,0);
+		//$('#content').fadeTo(200,.3);
 		$("#main").load(State.url + ' #primary ', function(data) {
 			/* After the content loads you can make additional callbacks*/
-			$('#site-description').text('Ajax loaded: ' + State.url);
-			$('#site-description').fadeTo(200,1);
-			$('#content').fadeTo(200,1);
+			//$('#site-description').text('Ajax loaded: ' + State.url);
+			//$('#site-description').fadeTo(200,1);
+			//$('#content').fadeTo(200,1);
 			//re-initialize foundation, so Orbit works on reloading of front page if in use.
 			$(document).foundation();
+		
+			
 			
 			// Updates the menu
 			var request = $(data);
