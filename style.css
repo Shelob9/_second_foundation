@@ -576,3 +576,9 @@ object {
 .infinity-end.neverending .site-footer {
 	display: block;
 }
+
+/* -----------------------------------------
+  Masonry
+----------------------------------------- */
+.masonry-entry-details{font-size:.8em; color:#D8D2B1;}
+.masonry-entry-cat{ margin-top:1px;}
