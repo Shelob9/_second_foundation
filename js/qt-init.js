@@ -1,10 +1,11 @@
 jQuery(document).ready(function($) {
+/*
 var log = function(string) {
     $('#console').html(string);
 }
 
 log('center rotate');
-
+*/
 $('#content')
   .css('translate', 100)
   .css('rotate', -1)
