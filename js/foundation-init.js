@@ -1,3 +1,5 @@
 jQuery(document).ready(function($) {
-	$(document).foundation();
+	$(document).foundation( 
+		'topbar', {stickyClass: 'sticky-topbar'}
+);
 });

@@ -42,7 +42,7 @@
 			echo '<div class="contain-to-grid ">';
 		} 
 		else {
-			echo '<div class="contain-to-grid sticky">';
+			echo '<div class="contain-to-grid sticky-topbar">';
 		}
 		?>
 				<!-- Starting the Top-Bar -->
