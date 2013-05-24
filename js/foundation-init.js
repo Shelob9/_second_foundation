@@ -1,5 +1,7 @@
 jQuery(document).ready(function($) {
-	$(document).foundation( 
+	$(document).foundation('orbit')
+		.foundation( 
 		'topbar', {stickyClass: 'sticky-topbar'}
-);
+		);
+
 });
