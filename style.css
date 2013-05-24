@@ -72,15 +72,7 @@ a img {
 }
 /* =Foundation Tweaks
 ----------------------------------------------- */
- .top-bar .toggle-topbar.menu-icon {
-      right: 15px;
-      top: 50%;
-      margin-top: 0px;
-      padding-left: 40px; }
-    
-.admin-bar .sticky-topbar.fixed {
-	margin-top: 28px;
-}
+ 
 
 
 /* =Global
@@ -373,79 +365,7 @@ a:active {
 }
 
 
-/* =Menu
------------------------------------------------ */
 
-.navigation-main {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-}
-.navigation-main ul {
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-}
-.navigation-main li {
-	float: left;
-	position: relative;
-}
-.navigation-main a {
-	display: block;
-	text-decoration: none;
-}
-.navigation-main ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	display: none;
-	float: left;
-	position: absolute;
-		top: 1.5em;
-		left: 0;
-	z-index: 99999;
-}
-.navigation-main ul ul ul {
-	left: 100%;
-	top: 0;
-}
-.navigation-main ul ul a {
-	width: 200px;
-}
-.navigation-main ul ul li {
-}
-.navigation-main li:hover > a {
-}
-.navigation-main ul ul :hover > a {
-}
-.navigation-main ul ul a:hover {
-}
-.navigation-main ul li:hover > ul {
-	display: block;
-}
-.navigation-main li.current_page_item a,
-.navigation-main li.current-menu-item a {
-}
-
-/* Small menu */
-.menu-toggle {
-	display: none;
-	cursor: pointer;
-}
-
-.main-small-navigation ul {
-	display: none;
-}
-
-@media screen and (max-width: 600px) {
-	.menu-toggle,
-	.main-small-navigation ul.nav-menu.toggled-on {
-		display: block;
-	}
-
-	.navigation-main ul {
-		display: none;
-	}
-}
 
 /* =Content
 ----------------------------------------------- */
@@ -577,4 +497,39 @@ object {
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
 .infinity-end.neverending .site-footer {
 	display: block;
+}
+
+/* Foundation Modificiation For Top bar
+-------------------------------------- */
+.contain-to-grid .top-bar,
+.top-bar {
+	margin-bottom: 0;
+}
+.top-bar-section ul {
+	background: #111;
+}
+
+.top-bar .name h3 {
+	line-height: 45px;
+	font-size: 1.0625em;
+	margin: 0;
+}
+	  
+.top-bar .name h3 > a {
+	font-weight: bold;
+	color: #00abfd; 
+	display: block;
+	padding: 0 15px;
+}
+		
+.top-bar.expanded {
+	background: #111;
+}
+
+.admin-bar .sticky-topbar.fixed {
+	margin-top: 28px;
+}
+
+.top-bar .name h1 a {
+padding-left: -15px;
 }
