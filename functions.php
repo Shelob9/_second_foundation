@@ -160,6 +160,7 @@ function _sf_scripts() {
 	wp_enqueue_script('foundation-js', get_template_directory_uri().'/js/foundation.min.js', array( 'jquery' ), false, true);
 	wp_enqueue_script('modernizer', get_template_directory_uri().'/js/custom.modernizr.js');
 	wp_enqueue_script('_sf_init', get_template_directory_uri().'/js/_sf_init.js', array(), false, true);
+	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 	
 
 }
