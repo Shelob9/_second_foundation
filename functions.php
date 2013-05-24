@@ -246,3 +246,14 @@ function _sf_ajax_page_load() {
 }
 
 add_action( 'wp_enqueue_scripts','_sf_ajax_page_load' );
+
+/*
+* Conditionally Add Slider For Home PAGE_LAYOUT_ONE_COLUMN
+*/
+function _sf_home_slider() {
+	if ( get_theme_mod( '_sf_slider_visibility' ) == '' ) { 
+	if ( is_front_page() ) : 
+	get_template_part( 'slider' );
+	endif;
+	}
+}
