@@ -15,13 +15,7 @@ get_header(); ?>
 <!-- content -->
 	<div id="primary" class="content-area row">
 		<div id="content" class="site-content large-9 columns" role="main">
-		<?php 
-			if ( get_theme_mod( '_sf_slider_visibility' ) == '' ) { 
-	   		if ( is_front_page() ) : 
-		    get_template_part( 'slider' );
-	    	endif;
-			}
-		?>
+		<?php _sf_home_slider(); ?>
 		<?php if ( have_posts() ) : ?>
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
