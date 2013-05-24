@@ -98,7 +98,11 @@
 						<?php
 							//if name is being shown in menu put description underneath.
 							if ( ! get_theme_mod( '_sf_theme_options_menu_name' ) == '' ) { ?>
-								<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	
+							<div class="row">
+								<div class="large-12 columns">
+									<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	
+								</div>
+							</div>
 							<?php }?>
 						
 		
