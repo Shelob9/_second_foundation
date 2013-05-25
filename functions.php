@@ -87,7 +87,7 @@ add_action( 'after_setup_theme', '_s_setup' );
  *
  * Hooks into the after_setup_theme action.
  */
-function _s_register_custom_background() {
+function _sf_register_custom_background() {
 	$args = array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
@@ -104,12 +104,12 @@ function _s_register_custom_background() {
 		add_theme_support( 'custom-background', $args );
 	}
 }
-add_action( 'after_setup_theme', '_s_register_custom_background' );
+add_action( 'after_setup_theme', '_sf_register_custom_background' );
 
 /**
  * Register widgetized area and update sidebar with default widgets
  */
-function _s_widgets_init() {
+function _sf_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', '_s' ),
 		'id'            => 'sidebar-1',
@@ -119,7 +119,7 @@ function _s_widgets_init() {
 		'after_title'   => '</h5>',
 	) );
 }
-add_action( 'widgets_init', '_s_widgets_init' );
+add_action( 'widgets_init', '_sf_widgets_init' );
 
 /**
  * Add custom header with flexible dimensions
