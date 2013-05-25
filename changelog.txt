@@ -1,3 +1,5 @@
+v1.0.4.1
+Fixes for silly bugs and visual issues.
 v1.0.4
 1) Fix sticky post, extra stickyness issue.
 v1.0.3
