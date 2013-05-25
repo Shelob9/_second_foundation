@@ -37,12 +37,14 @@
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</hgroup>
 		<?php } ?>
-		<nav >
+		
 		<?php if ( get_theme_mod( '_sf_theme_options_menu_sticky' ) == '' ) { 
 			echo '<div class="contain-to-grid ">';
+			
 		} 
 		else {
 			echo '<div class="contain-to-grid sticky-topbar">';
+			
 		}
 		?>
 				<!-- Starting the Top-Bar -->
