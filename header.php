@@ -52,11 +52,11 @@
 					<ul class="title-area">
 						<?php 
 						if ( get_theme_mod( '_sf_theme_options_menu_name' ) == '' ) { ?>
-							<li class="name"><h1><a href="#">&nbsp;</h1></a></li>
+							<li class="name"><h1><a href="#">&nbsp;</a></h1></li>
 						<?php }
 						else { ?>
 						<li class="name">
-							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1></span>
+							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 						</li>
 						<?php } ?>
 						<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
