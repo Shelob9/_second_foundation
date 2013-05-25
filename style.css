@@ -542,3 +542,5 @@ object {
 .top-bar .name h1 a {
 padding-left: -15px;
 }
+
+ul.title-area {margin-left:0px;}
