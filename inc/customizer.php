@@ -197,12 +197,7 @@ function _sf_customize_register( $wp_customize ){
         )
     );
  
-}
- 
-add_action('customize_register', '_sf_customize_register');
 
-
-function _sf_colors_customize_register( $wp_customize ){
 
  	//  ==================
     //  = Color Controls =
@@ -437,5 +432,5 @@ function _sf_colors_customize_register( $wp_customize ){
 
 }
  
-add_action('customize_register', '_sf_colors_customize_register');
+add_action('customize_register', '_sf_customize_register');
 ?>
