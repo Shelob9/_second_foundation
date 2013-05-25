@@ -13,14 +13,14 @@ if ( ! function_exists( '_s_comment' ) ) :
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  */
-function _s_comment( $comment, $args, $depth ) {
+function _sf_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
 		case 'trackback' :
 	?>
 	<li class="post pingback">
-		<p><?php _e( 'Pingback:', '_s' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', '_s' ), '<span class="edit-link">', '<span>' ); ?></p>
+		<p><?php _e( 'Pingback:', '_s' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', '_sf' ), '<span class="edit-link">', '<span>' ); ?></p>
 	<?php
 			break;
 		default :

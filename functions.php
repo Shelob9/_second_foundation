@@ -20,7 +20,7 @@ if ( ! function_exists( '_s_setup' ) ) :
  * before the init hook. The init hook is too late for some features, such as indicating
  * support post thumbnails.
  */
-function _s_setup() {
+function _sf_setup() {
 
 	/**
 	 * Custom template tags for this theme.
@@ -48,7 +48,7 @@ function _s_setup() {
 	 * If you're building a theme based on _s, use a find and replace
 	 * to change '_s' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( '_s', get_template_directory() . '/languages' );
+	load_theme_textdomain( '_sf', get_template_directory() . '/languages' );
 
 	/**
 	 * Add default posts and comments RSS feed links to head
@@ -64,7 +64,7 @@ function _s_setup() {
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', '_s' ),
+		'primary' => __( 'Primary Menu', '_sf' ),
 	) );
 
 	/**
@@ -73,7 +73,7 @@ function _s_setup() {
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 }
 endif; // _s_setup
-add_action( 'after_setup_theme', '_s_setup' );
+add_action( 'after_setup_theme', '_sf_setup' );
 
 /**
  * Setup the WordPress core custom background feature.
