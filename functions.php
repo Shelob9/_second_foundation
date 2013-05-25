@@ -146,13 +146,6 @@ function _sf_theme_features()  {
 
 // Hook into the 'after_setup_theme' action
 add_action( 'after_setup_theme', '_sf_theme_features' );
-/**
-* Prefix js variables to _sf_int
-* http://wordpress.stackexchange.com/questions/19552/wordpress-plugin-options-and-jquery
-*/ 
-
-
-
 
 /**
  * Enqueue all scripts and styles
@@ -184,10 +177,7 @@ function _sf_scripts() {
  	if ( !is_admin() ) :
 		wp_enqueue_script('_sf_init', get_template_directory_uri().'/js/_sf_init.js', array(), false, true);
 		endif;
-	$infScrollGif = get_template_directory_uri(). '/images/ajax-loader.gif';
-	wp_localize_script( '_sf_init', 'unique_name', array('setting_1' => $infScrollGif) );
 	
-
 }
 add_action( 'wp_enqueue_scripts', '_sf_scripts' );
 
