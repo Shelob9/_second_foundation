@@ -51,10 +51,7 @@
 				<nav id="site-navigation" class="navigation-main top-bar" role="navigation">
 					<ul class="title-area">
 						<?php 
-						if ( get_theme_mod( '_sf_theme_options_menu_name' ) == '' ) { ?>
-							<li class="name"><h1><a href="#">&nbsp;</a></h1></li>
-						<?php }
-						else { ?>
+						if (! get_theme_mod( '_sf_theme_options_menu_name' ) == '' ) { ?>
 						<li class="name">
 							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 						</li>
