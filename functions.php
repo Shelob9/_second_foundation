@@ -146,26 +146,52 @@ function _sf_theme_features()  {
 
 // Hook into the 'after_setup_theme' action
 add_action( 'after_setup_theme', '_sf_theme_features' );
+/**
+* Prefix js variables to _sf_int
+* http://wordpress.stackexchange.com/questions/19552/wordpress-plugin-options-and-jquery
+*/ 
+
+
 
 
 /**
- * Enqueue scripts and styles for _s and foundation
+ * Enqueue all scripts and styles
  */
 function _sf_scripts() {
-//first styles
+	//styles
 	wp_enqueue_style('normalize', get_template_directory_uri().'/css/normalize.css');
 	wp_enqueue_style('foundation-css', get_template_directory_uri().'/css/foundation.min.css');
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
-
- 	//Foundation scripts/ styles
+	//Foundation scripts
 	wp_enqueue_script('foundation-js', get_template_directory_uri().'/js/foundation.min.js', array( 'jquery' ), false, true);
 	wp_enqueue_script('modernizer', get_template_directory_uri().'/js/custom.modernizr.js');
-	wp_enqueue_script('_sf_init', get_template_directory_uri().'/js/_sf_init.js', array(), false, true);
-	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
+	//infinite scroll
+	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'),null,true );
+	//if( ! is_singular() ) {
+		wp_enqueue_script('infinite_scroll');
+	//}
+	//masonry
+	wp_enqueue_script('masonry', get_template_directory_uri().'/js/jquery.masonry.min.js');
+	//ajax page loads
+		if ( get_theme_mod( '_sf_ajax' ) == '' ) {
+			if ( !is_admin() ) :
+				wp_deregister_script('historyjs');
+				wp_register_script( 'historyjs', get_template_directory_uri(). '/js/jquery.history.js', array( 'jquery' ), '1.7.1' );
+				wp_enqueue_script( 'historyjs' );
+			endif;
+		}	
+ 	//initialize it all
+ 	if ( !is_admin() ) :
+		wp_enqueue_script('_sf_init', get_template_directory_uri().'/js/_sf_init.js', array(), false, true);
+		endif;
+	$infScrollGif = get_template_directory_uri(). '/images/ajax-loader.gif';
+	wp_localize_script( '_sf_init', 'unique_name', array('setting_1' => $infScrollGif) );
 	
 
 }
 add_action( 'wp_enqueue_scripts', '_sf_scripts' );
+
+
 
 /**
  * Include foundation menu functions
@@ -173,43 +199,7 @@ add_action( 'wp_enqueue_scripts', '_sf_scripts' );
 
 require( get_template_directory() . '/inc/foundation.php' );
 
-/**
- * Load js for infinite scroll
- */
 
-function _sf_inf_enq(){
-	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'),null,true );
-	if( ! is_singular() ) {
-		wp_enqueue_script('infinite_scroll');
-	}
-}
-add_action('wp_enqueue_scripts', '_sf_inf_enq');
-
-/**
- * Infinite Scroll
- * Method from: http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
- */
-function _sf_inf_js() {
-
-	if( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) ){ ?>
-	<script>
-	var infinite_scroll = {
-		loading: {
-			img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
-			msgText: "<?php _e( 'Loading the next set of posts...', 'custom' ); ?>",
-			finishedMsg: "<?php _e( 'All posts loaded.', 'custom' ); ?>"
-		},
-		"nextSelector":"#nav-below .nav-previous a",
-		"navSelector":"#nav-below",
-		"itemSelector":"article",
-		"contentSelector":"#content"
-	};
-	jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
-	</script>
-	<?php
-	}
-}
-add_action( 'wp_footer', '_sf_inf_js', 100 );
 
 
 function _sf_extraDesc($hook) {
@@ -219,25 +209,7 @@ function _sf_extraDesc($hook) {
 }
 add_action( 'admin_enqueue_scripts', '_sf_extraDesc' );
 
-/*
- * AJAX page Loads
- * Method from: http://wptheming.com/2011/12/ajax-themes/
- *
- * https://github.com/balupton/History.js
- *
- */
- 
-function _sf_ajax_page_load() {
-		if ( get_theme_mod( '_sf_ajax' ) == '' ) {
-			if ( !is_admin() ) :
-				wp_deregister_script('historyjs');
-				wp_register_script( 'historyjs', get_template_directory_uri(). '/js/jquery.history.js', array( 'jquery' ), '1.7.1' );
-				wp_enqueue_script( 'historyjs' );
-			endif;
-		}	
-}
 
-add_action( 'wp_enqueue_scripts','_sf_ajax_page_load' );
 
 /**
 * Use style.php for color options
@@ -289,12 +261,8 @@ add_image_size( 'mobile-bg', 320, 480 );
 }
 
 /**
-* Add Masonry
+* Add an image size for masonry
 */
-function _sf_masonry_script() {
-	wp_enqueue_script('masonry', get_template_directory_uri().'/js/jquery.masonry.min.js');
-}
-add_action('wp_enqueue_scripts', '_sf_masonry_script');
 
 if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'masonry-thumb',  235, 180, true );
