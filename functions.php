@@ -75,8 +75,6 @@ function _sf_setup() {
 endif; // _s_setup
 add_action( 'after_setup_theme', '_sf_setup' );
 
-
-=======
 /**
  * Setup the WordPress core custom background feature.
  *
