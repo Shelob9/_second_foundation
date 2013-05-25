@@ -4,7 +4,11 @@ Theme URI: http://ComplexWaveform.com/jp/sf
 Author: Josh Pollock
 Author URI: http://ComplexWaveform.com
 Description: A mobile-first, fully-responsive starter theme based on Foundation 4 and Underscores. It features AJAX page loads and Infinite Scroll and an option front page slider.
+<<<<<<< HEAD
 Version: 1.0.5
+=======
+Version: 1.0.4.1
+>>>>>>> 1.0.4-fix
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: two-columns, white, black, blue
@@ -26,6 +30,7 @@ html {
 	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
 	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+	word-wrap:break-word;
 }
 body {
 
@@ -70,14 +75,8 @@ a:active { /* Improves readability when focused and also mouse hovered in all br
 a img {
 	border: 0;
 }
-/* =Foundation Tweaks
+/* =Foundation Tweaks, etc.
 ----------------------------------------------- */
- .top-bar .toggle-topbar.menu-icon {
-      right: 15px;
-      top: 50%;
-      margin-top: 0px;
-      padding-left: 40px; }
-    
 
 
 
@@ -371,84 +370,20 @@ a:active {
 }
 
 
-/* =Menu
------------------------------------------------ */
 
-.navigation-main {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-}
-.navigation-main ul {
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-}
-.navigation-main li {
-	float: left;
-	position: relative;
-}
-.navigation-main a {
-	display: block;
-	text-decoration: none;
-}
-.navigation-main ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	display: none;
-	float: left;
-	position: absolute;
-		top: 1.5em;
-		left: 0;
-	z-index: 99999;
-}
-.navigation-main ul ul ul {
-	left: 100%;
-	top: 0;
-}
-.navigation-main ul ul a {
-	width: 200px;
-}
-.navigation-main ul ul li {
-}
-.navigation-main li:hover > a {
-}
-.navigation-main ul ul :hover > a {
-}
-.navigation-main ul ul a:hover {
-}
-.navigation-main ul li:hover > ul {
-	display: block;
-}
-.navigation-main li.current_page_item a,
-.navigation-main li.current-menu-item a {
-}
-
-/* Small menu */
-.menu-toggle {
-	display: none;
-	cursor: pointer;
-}
-
-.main-small-navigation ul {
-	display: none;
-}
-
-@media screen and (max-width: 600px) {
-	.menu-toggle,
-	.main-small-navigation ul.nav-menu.toggled-on {
-		display: block;
-	}
-
-	.navigation-main ul {
-		display: none;
-	}
-}
 
 /* =Content
 ----------------------------------------------- */
 
 .sticky {
+border-style: solid;
+  border-width: 1px;
+  border-color: #d9d9d9;
+  margin-bottom: 1.25em;
+  padding: 1.25em;
+  background: #f2f2f2;
+  -webkit-border-radius: 3px;
+    border-radius: 3px;
 }
 .hentry {
 	margin: 0 0 1.5em;
@@ -576,3 +511,40 @@ object {
 .infinity-end.neverending .site-footer {
 	display: block;
 }
+
+/* Foundation Modificiation For Top bar
+-------------------------------------- */
+.contain-to-grid .top-bar,
+.top-bar {
+	margin-bottom: 0;
+}
+.top-bar-section ul {
+	background: #111;
+}
+
+.top-bar .name h3 {
+	line-height: 45px;
+	font-size: 1.0625em;
+	margin: 0;
+}
+	  
+.top-bar .name h3 > a {
+	font-weight: bold;
+	color: #00abfd; 
+	display: block;
+	padding: 0 15px;
+}
+		
+.top-bar.expanded {
+	background: #111;
+}
+
+.admin-bar .sticky-topbar.fixed {
+	margin-top: 28px;
+}
+
+.top-bar .name h1 a {
+padding-left: -15px;
+}
+
+ul.title-area {margin-left:0px;}

@@ -35,29 +35,28 @@
 		</div>
 		<?php 
 		if ( get_theme_mod( '_sf_theme_options_menu_name' ) == '' ) { ?>
-		<hgroup class="large-12 columns">
+		<hgroup>
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</hgroup>
 		<?php } ?>
-		<nav >
+		
 		<?php if ( get_theme_mod( '_sf_theme_options_menu_sticky' ) == '' ) { 
 			echo '<div class="contain-to-grid ">';
+			
 		} 
 		else {
-			echo '<div class="contain-to-grid sticky">';
+			echo '<div class="contain-to-grid sticky-topbar">';
+			
 		}
 		?>
 				<!-- Starting the Top-Bar -->
 				<nav id="site-navigation" class="navigation-main top-bar" role="navigation">
 					<ul class="title-area">
 						<?php 
-						if ( get_theme_mod( '_sf_theme_options_menu_name' ) == '' ) { ?>
-							<li class="name"><h1><a href="#">&nbsp;</h1></a></li>
-						<?php }
-						else { ?>
+						if (! get_theme_mod( '_sf_theme_options_menu_name' ) == '' ) { ?>
 						<li class="name">
-							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1></span>
+							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 						</li>
 						<?php } ?>
 						<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -101,7 +100,11 @@
 						<?php
 							//if name is being shown in menu put description underneath.
 							if ( ! get_theme_mod( '_sf_theme_options_menu_name' ) == '' ) { ?>
-								<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	
+							<div class="row">
+								<div class="large-12 columns">
+									<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	
+								</div>
+							</div>
 							<?php }?>
 						
 		
