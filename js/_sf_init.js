@@ -60,4 +60,26 @@ jQuery(document).ready(function($) {
 	  }
 });
 //end masonry
+
+//infinite scroll
+	//get prefixed values
+
+	$var_1 = unique_name.setting_1
+
+
+
+	var infinite_scroll = {
+		loading: {
+			img: $var_1,
+			msgText: "Loading the next set of posts...",
+			finishedMsg: "All posts loaded."
+		},
+		"nextSelector":"#nav-below .nav-previous a",
+		"navSelector":"#nav-below",
+		"itemSelector":"article",
+		"contentSelector":"#content"
+	};
+	$( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
+
+//
 });
