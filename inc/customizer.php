@@ -181,6 +181,21 @@ function _sf_customize_register( $wp_customize ){
         'section' => '_sf_ajax_options',
         )
     );
+    //  ============================
+    //  = Use Masonry? =
+    //  ============================
+	$wp_customize->add_setting(
+    '_sf_masonry'
+    );
+
+    $wp_customize->add_control(
+    '_sf_masonry',
+    array(
+        'type' => 'checkbox',
+        'label' => __('Use Masonry For Main Blog Page?', '_sf'),
+        'section' => '_sf_ajax_options',
+        )
+    );
  
 }
  
