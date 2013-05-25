@@ -28,14 +28,41 @@ function _sf_customize_register( $wp_customize ){
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-	
- //SLIDER SECTION   
+//SECTIONS	
+	//slider
     $wp_customize->add_section('_sf_home_slider', array(
         'title'    => __('Home Page Slider', '_s_f'),
         'priority' => 120,
     ));
-    
-     //  ============================
+    //topbar/nav settings
+    $wp_customize->add_section('_sf_menu_options', array(
+        'title'    => __('Menu and Header Options', '_sf'),
+        'priority' => 120,
+    ));
+    //Fancy JS 
+    $wp_customize->add_section('_sf_fancy_js', array(
+        'title'    => __('Fancy Javascripts', '_sf'),
+        'priority' => 121,
+    ));
+	//Sections For Color Controls
+    $wp_customize->add_section('menu-colors', array(
+        'title'    => __('Menu Section Colors', '_sf'),
+        'priority' => 130,
+    ));
+ 	$wp_customize->add_section('header-colors', array(
+        'title'    => __('Header Section Colors', '_sf'),
+        'priority' => 131,
+    ));
+    $wp_customize->add_section('content-colors', array(
+        'title'    => __('Content Area Colors', '_sf'),
+        'priority' => 132,
+    ));
+     $wp_customize->add_section('_sf_background', array(
+        'title'    => __('Page Settings', '_sf'),
+        'priority' => 128,
+    ));
+//slider    
+    //  ============================
     //  = Show Slider on Home Page? =
     //  =============================
 	$wp_customize->add_setting(
@@ -95,16 +122,7 @@ function _sf_customize_register( $wp_customize ){
 		'choices' => $cats,
 	));
  
-
-// TOP BAR SETTINGS
-
-
-    
-    $wp_customize->add_section('_sf_menu_options', array(
-        'title'    => __('Menu and Header Options', '_sf'),
-        'priority' => 120,
-    ));
- 
+//Topbar/nav 
     //  =============================
     //  = Site Name In Menu? =
     //  =============================
@@ -145,12 +163,7 @@ function _sf_customize_register( $wp_customize ){
         'type'     => 'checkbox',
     ));
  
-  //Fancy JS
-    $wp_customize->add_section('_sf_fancy_js', array(
-        'title'    => __('Fancy Javascripts', '_sf'),
-        'priority' => 121,
-    ));
-    
+//Fancy JS   
     //  ============================
     //  = Disable Infinite Scroll? =
     //  =============================
@@ -203,23 +216,7 @@ function _sf_customize_register( $wp_customize ){
     //  = Color Controls =
     //  ==================
     
-    //Sections For Color Controls
-    $wp_customize->add_section('menu-colors', array(
-        'title'    => __('Menu Section Colors', '_sf'),
-        'priority' => 130,
-    ));
- 	$wp_customize->add_section('header-colors', array(
-        'title'    => __('Header Section Colors', '_sf'),
-        'priority' => 131,
-    ));
-    $wp_customize->add_section('content-colors', array(
-        'title'    => __('Content Area Colors', '_sf'),
-        'priority' => 132,
-    ));
-     $wp_customize->add_section('_sf_background', array(
-        'title'    => __('Page Settings', '_sf'),
-        'priority' => 128,
-    ));
+
 	$menu = array();
 	//MENU
 	$menu[] = array(
