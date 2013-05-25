@@ -19,7 +19,7 @@ add_filter( 'wp_page_menu_args', '_sf_page_menu_args' );
 /**
  * Adds custom classes to the array of body classes.
  */
-function _sd_body_classes( $classes ) {
+function _sf_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
