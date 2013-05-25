@@ -70,9 +70,9 @@ a:active { /* Improves readability when focused and also mouse hovered in all br
 a img {
 	border: 0;
 }
-/* =Foundation Tweaks
+/* =Foundation Tweaks, etc.
 ----------------------------------------------- */
- 
+.entry-title {word-wrap:break-word;}
 
 
 /* =Global
