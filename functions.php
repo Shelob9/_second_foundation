@@ -288,6 +288,17 @@ add_image_size( 'mobile-bg', 320, 480 );
 <?php } 
 }
 
+/**
+* Add Masonry
+*/
+function _sf_masonry_script() {
+	wp_enqueue_script('masonry', get_template_directory_uri().'/js/jquery.masonry.min.js');
+}
+add_action('wp_enqueue_scripts', '_sf_masonry_script');
+
+if ( function_exists( 'add_image_size' ) ) {
+	add_image_size( 'masonry-thumb',  235, 180, true );
+}
 
 /*
 * Conditionally Add Slider For Home PAGE_LAYOUT_ONE_COLUMN
@@ -299,5 +310,6 @@ function _sf_home_slider() {
 	endif;
 	}
 }
+
 
 ?>

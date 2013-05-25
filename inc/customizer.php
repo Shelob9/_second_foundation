@@ -145,9 +145,9 @@ function _sf_customize_register( $wp_customize ){
         'type'     => 'checkbox',
     ));
  
-  //Infinite Scroll and AJAX Page Loads
-    $wp_customize->add_section('_sf_ajax_options', array(
-        'title'    => __('Infinite Scroll and AJAX Page Loads', '_sf'),
+  //Fancy JS
+    $wp_customize->add_section('_sf_fancy_js', array(
+        'title'    => __('Fancy Javascripts', '_sf'),
         'priority' => 121,
     ));
     
@@ -163,7 +163,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => __('Disable Infinite Scroll?', '_sf'),
-        'section' => '_sf_ajax_options',
+        'section' => '_sf_fancy_js',
         )
     );
     //  ============================
@@ -178,16 +178,26 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => __('Disable AJAX Page Loads?', '_sf'),
-        'section' => '_sf_ajax_options',
+        'section' => '_sf_fancy_js',
+        )
+    );
+    //  ============================
+    //  = Use Masonry? =
+    //  ============================
+	$wp_customize->add_setting(
+    '_sf_masonry'
+    );
+
+    $wp_customize->add_control(
+    '_sf_masonry',
+    array(
+        'type' => 'checkbox',
+        'label' => __('Use Masonry For Main Blog Page?', '_sf'),
+        'section' => '_sf_fancy_js',
         )
     );
  
-}
- 
-add_action('customize_register', '_sf_customize_register');
 
-
-function _sf_colors_customize_register( $wp_customize ){
 
  	//  ==================
     //  = Color Controls =
@@ -422,5 +432,5 @@ function _sf_colors_customize_register( $wp_customize ){
 
 }
  
-add_action('customize_register', '_sf_colors_customize_register');
+add_action('customize_register', '_sf_customize_register');
 ?>

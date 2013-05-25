@@ -48,5 +48,16 @@ jQuery(document).ready(function($) {
 			$('#access').replaceWith($('#access', request));
 			
 		});
-	}	
+	}
+//end ajax menus
+
+//Masonry
+	$('#masonry-loop').masonry({
+	  itemSelector: '.masonry-entry',
+	  // set columnWidth a fraction of the container width
+	  columnWidth: function( containerWidth ) {
+		return containerWidth / 4;
+	  }
+});
+//end masonry
 });
