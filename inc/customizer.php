@@ -10,12 +10,7 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function _sf_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-}
-add_action( 'customize_register', '_sf_customize_register' );
+
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
@@ -29,6 +24,11 @@ add_action( 'customize_preview_init', '_sf_customize_preview_js' );
 * Theme Customizer Settings
 **/
 function _sf_customize_register( $wp_customize ){
+
+	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	
  //SLIDER SECTION   
     $wp_customize->add_section('_sf_home_slider', array(
         'title'    => __('Home Page Slider', '_s_f'),
