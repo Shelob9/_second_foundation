@@ -21,8 +21,10 @@ function _sf_custom_style() {
 	$menu_bg_color = get_option('menu_bg_color');
 	$menu_hover_color = get_option('menu_hover_color');
 	$background_color = get_option('bg-color');
-
-	
+	$search_but_txt = get_option('menu_search_txt_color');
+	$search_but_bg = get_option('menu_search_bg_color');
+	$search_but_txt_hv = get_option('menu_search_txt_color_hv');
+	$search_but_bg_hv = get_option('menu_search_txt_color_hv');
 
 echo '<style>'; ?>
 	.entry-content { color:  <?php echo $content_text_color; ?>; }
@@ -38,6 +40,8 @@ echo '<style>'; ?>
 	 border-left-color: <?php echo $menu_bg_color; ?>;
 	 border-right-color: <?php echo $menu_bg_color; ?>;
 	 }
+	.top-bar-section ul li>a.button {<?php echo 'color:'. $search_but_txt.'; background-color:'.$search_but_bg.';'; ?>}
+	.top-bar-section ul li>a.button:hover{<?php echo 'color:'. $search_but_txt_hv.'; background-color:'.$search_but_bg_hv.';'; ?>}
 	.top-bar-section li a:not(.button):hover {background-color: <?php echo $menu_hover_color; ?> }
 	.top-bar-section .dropdown li a {color: <?php echo $menu_text_color; ?> }
 	.top-bar-section ul.right {background-color: <?php echo $menu_bg_color; ?> }

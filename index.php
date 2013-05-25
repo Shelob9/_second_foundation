@@ -15,14 +15,9 @@ get_header(); ?>
 <!-- content -->
 	<div id="primary" class="content-area row">
 		<div id="content" class="site-content large-9 columns" role="main">
-		<?php 
-			if ( get_theme_mod( '_sf_slider_visibility' ) == '' ) { 
-	   		if ( is_front_page() ) : 
-		    get_template_part( 'slider' );
-	    	endif;
-			}
-		?>
+		<?php _sf_home_slider(); ?>
 		<?php if ( have_posts() ) : ?>
+		<div id="masonry-loop">
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php
@@ -30,9 +25,13 @@ get_header(); ?>
 					 * If you want to overload this in a child theme then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
-					get_template_part( 'content', get_post_format() );
+					//get_template_part( 'content', get_post_format() );
+					
+					get_template_part( 'content', 'masonry' );
+					
 				?>
 			<?php endwhile; ?>
+			</div>
 			<?php _sf_content_nav( 'nav-below' ); ?>
 		<?php else : ?>
 			<?php get_template_part( 'no-results', 'index' ); ?>

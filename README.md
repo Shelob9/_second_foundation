@@ -2,7 +2,7 @@ _second_foundation
 ==================
 Second Foundation is a starter theme for WordPress by Josh Pollock. It is based on Foundation 4 by ZURB and Underscores (_S) by Automattic.
 
-For the last stable release please download [version 1.0.4](http://complexwaveform.com/jp/jp-theme/_sf/_second_foundation-v1.0.4.zip). The master branch is currently v1.0.5, which should work, but is not completley test yet. You can also clone the master branch and revert to the last commit before the v1.0.5 tag.
+For the last stable release please download [version 1.0.4.1](http://complexwaveform.com/jp/jp-theme/_sf/_second_foundation-v1.0.4.1.zip). The master branch is currently v1.0.5, which should work, but is not completley test yet. The branch '1.0.4-fix' is a completely functional version.
 
 Documentation is availble via [the wiki](https://github.com/Shelob9/_second_foundation/wiki), which is a work in progress.
 Key Features:

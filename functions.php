@@ -20,7 +20,7 @@ if ( ! function_exists( '_s_setup' ) ) :
  * before the init hook. The init hook is too late for some features, such as indicating
  * support post thumbnails.
  */
-function _s_setup() {
+function _sf_setup() {
 
 	/**
 	 * Custom template tags for this theme.
@@ -48,7 +48,7 @@ function _s_setup() {
 	 * If you're building a theme based on _s, use a find and replace
 	 * to change '_s' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( '_s', get_template_directory() . '/languages' );
+	load_theme_textdomain( '_sf', get_template_directory() . '/languages' );
 
 	/**
 	 * Add default posts and comments RSS feed links to head
@@ -64,7 +64,7 @@ function _s_setup() {
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', '_s' ),
+		'primary' => __( 'Primary Menu', '_sf' ),
 	) );
 
 	/**
@@ -73,13 +73,44 @@ function _s_setup() {
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 }
 endif; // _s_setup
-add_action( 'after_setup_theme', '_s_setup' );
+add_action( 'after_setup_theme', '_sf_setup' );
+
+/**
+ * Setup the WordPress core custom background feature.
+ *
+ * Use add_theme_support to register support for WordPress 3.4+
+ * as well as provide backward compatibility for WordPress 3.3
+ * using feature detection of wp_get_theme() which was introduced
+ * in WordPress 3.4.
+ *
+ * @todo Remove the 3.3 support when WordPress 3.6 is released.
+ *
+ * Hooks into the after_setup_theme action.
+ */
+function _sf_register_custom_background() {
+	$args = array(
+		'default-color' => 'ffffff',
+		'default-image' => '',
+	);
+
+	$args = apply_filters( '_sf_custom_background_args', $args );
+
+	if ( function_exists( 'wp_get_theme' ) ) {
+		add_theme_support( 'custom-background', $args );
+	} else {
+		define( 'BACKGROUND_COLOR', $args['default-color'] );
+		if ( ! empty( $args['default-image'] ) )
+			define( 'BACKGROUND_IMAGE', $args['default-image'] );
+		add_theme_support( 'custom-background', $args );
+	}
+}
+add_action( 'after_setup_theme', '_sf_register_custom_background' );
 
 
 /**
  * Register widgetized area and update sidebar with default widgets
  */
-function _s_widgets_init() {
+function _sf_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', '_s' ),
 		'id'            => 'sidebar-1',
@@ -89,7 +120,7 @@ function _s_widgets_init() {
 		'after_title'   => '</h5>',
 	) );
 }
-add_action( 'widgets_init', '_s_widgets_init' );
+add_action( 'widgets_init', '_sf_widgets_init' );
 
 /**
  * Add custom header with flexible dimensions
@@ -128,17 +159,10 @@ function _sf_scripts() {
 
  	//Foundation scripts/ styles
 	wp_enqueue_script('foundation-js', get_template_directory_uri().'/js/foundation.min.js', array( 'jquery' ), false, true);
-	wp_enqueue_script('foundation-init', get_template_directory_uri().'/js/foundation-init.js', array(), false, true);
 	wp_enqueue_script('modernizer', get_template_directory_uri().'/js/custom.modernizr.js');
+	wp_enqueue_script('_sf_init', get_template_directory_uri().'/js/_sf_init.js', array(), false, true);
+	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 	
-	//_s scripts
-	wp_enqueue_script( '_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( '_s-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
-	}
 
 }
 add_action( 'wp_enqueue_scripts', '_sf_scripts' );
@@ -187,11 +211,6 @@ function _sf_inf_js() {
 }
 add_action( 'wp_footer', '_sf_inf_js', 100 );
 
-//extra script to remove .sticky from sticky posts after page loads. Keeps them at top of list, but prevents infinite scroll from sticking them to the top of the window in an unseemly manner.
-function _sf_unstick() {
-	wp_enqueue_script('unstick', get_template_directory_uri().'/js/unstick.js', array('jquery'), false, true);
-}
-add_action('wp_enqueue_scripts', '_sf_unstick', 95);
 
 function _sf_extraDesc($hook) {
     if( 'themes.php' != $hook )
@@ -214,8 +233,6 @@ function _sf_ajax_page_load() {
 				wp_deregister_script('historyjs');
 				wp_register_script( 'historyjs', get_template_directory_uri(). '/js/jquery.history.js', array( 'jquery' ), '1.7.1' );
 				wp_enqueue_script( 'historyjs' );
-				wp_register_script( 'ajax_demo_init', get_template_directory_uri(). '/js/ajax_demo_init.js', array( 'historyjs' ), false, true );
-				wp_enqueue_script( 'ajax_demo_init' );
 			endif;
 		}	
 }
@@ -282,4 +299,17 @@ add_action('wp_enqueue_scripts', '_sf_masonry_script');
 if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'masonry-thumb',  235, 180, true );
 }
+
+/*
+* Conditionally Add Slider For Home PAGE_LAYOUT_ONE_COLUMN
+*/
+function _sf_home_slider() {
+	if ( get_theme_mod( '_sf_slider_visibility' ) == '' ) { 
+	if ( is_front_page() ) : 
+	get_template_part( 'slider' );
+	endif;
+	}
+}
+
+
 ?>

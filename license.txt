@@ -23,8 +23,8 @@ Browser States is licensed under the terms of the New BSD License (BSD-3).
 3. MIT Open Source Software License (http://opensource.org/licenses/MIT)
 4. New BSD License (BSD-3) (http://opensource.org/licenses/BSD-3-Clause)
 
-Default fullscreen background image is in the public domain, was edited by theme author and retrieved from:
-http://commons.wikimedia.org/wiki/File:San_Andres_Mountains_east_Las_Cruces.jpg
+Default fullscreen background image is in the public domain> It was  retrieved from:
+http://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Cirrocumulus_to_Altocumulus.JPG/1024px-Cirrocumulus_to_Altocumulus.JPG
 
 
 

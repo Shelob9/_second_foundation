@@ -1,5 +1,11 @@
 jQuery(document).ready(function($) {
-// method from: http://wptheming.com/2011/12/ajax-themes/
+//Foundation
+	$(document).foundation('orbit')
+		.foundation( 
+		'topbar', {stickyClass: 'sticky-topbar'}
+		);
+//AJAX Menus
+	// method from: http://wptheming.com/2011/12/ajax-themes/
 	// Establish Variables
 	var
 		History = window.History, // Note: Using a capital H instead of a lower h
@@ -42,5 +48,16 @@ jQuery(document).ready(function($) {
 			$('#access').replaceWith($('#access', request));
 			
 		});
-	}	
+	}
+//end ajax menus
+
+//Masonry
+	$('#masonry-loop').masonry({
+	  itemSelector: '.masonry-entry',
+	  // set columnWidth a fraction of the container width
+	  columnWidth: function( containerWidth ) {
+		return containerWidth / 4;
+	  }
+});
+//end masonry
 });
