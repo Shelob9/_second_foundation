@@ -12,7 +12,7 @@ if ( ! isset( $content_width ) )
 	$content_width = 640; /* pixels */
 
 
-if ( ! function_exists( '_s_setup' ) ) :
+if ( ! function_exists( '_sf_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -72,7 +72,7 @@ function _sf_setup() {
 	 */
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 }
-endif; // _s_setup
+endif; // _sf_setup
 add_action( 'after_setup_theme', '_sf_setup' );
 
 /**
