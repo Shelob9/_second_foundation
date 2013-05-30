@@ -7,10 +7,9 @@
 
 get_header();
 ?>
-
-	<div id="primary" class="content-area image-attachment">
-		<div id="content" class="site-content" role="main">
-
+<!-- content -->
+	<div id="primary" class="content-area image-attachment row">
+		<div id="content" class="site-content large-9 columns" role="main">
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -114,9 +113,9 @@ get_header();
 					comments_template();
 			?>
 
-		<?php endwhile; // end of the loop. ?>
+		<?php endwhile; ?>
 
-		</div><!-- #content -->
+				</div><!-- #content -->
+	<?php get_sidebar(); ?>
 	</div><!-- #primary -->
-
 <?php get_footer(); ?>
