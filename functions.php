@@ -304,7 +304,11 @@ function _sf_header() { ?>
 						<li class="name">
 							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 						</li>
-						<?php } ?>
+						<?php } 
+						else {
+						echo '<li class="name"></li>';
+						}
+						?>
 						<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 					</ul>
 					<section class="top-bar-section">
