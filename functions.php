@@ -292,6 +292,46 @@ add_image_size( 'mobile-bg', 320, 480 );
 /*
 * Conditionally Add Slider For Home PAGE_LAYOUT_ONE_COLUMN
 */
+//functions for opening and closing .primary, .content
+function _sf_open_close($openclose, $sidebar) {
+
+	if ($openclose = 'open' && $sidebar = 'right') {
+		echo '<div id="primary" class="content-area row">';
+		echo '<div id="content" class="site-content large-9 columns" role="main">';
+	}
+	elseif ($openclose = 'open' && $sidebar = 'left') {
+		echo '<div id="primary" class="content-area row">';
+		echo '<div id="content" class="site-content large-9 push-large-3 columns" role="main">';
+	}
+	elseif ($openclose = 'open' && $sidebar = 'none') {
+		echo '<div id="primary" class="content-area row">';
+		echo '<div id="content" class="site-content large-12 columns" role="main">';
+	}
+	elseif ($openclose = 'close' && $sidebar = 'left') {
+		echo '</div><!-- #content -->';
+		get_sidebar();
+		echo '</div><!-- #primary -->';
+		get_footer();
+	}
+	elseif ($openclose = 'close' && $sidebar = 'none') {
+		echo '</div><!-- #content -->';
+		echo '</div><!-- #primary -->';
+		get_footer();
+	}
+	elseif ($openclose = 'close' && $sidebar = 'right') {
+		echo '</div><!-- #content -->';
+		get_sidebar();
+		echo '</div><!-- #primary -->';
+		get_footer();
+	}
+	else {
+		echo '</div><!-- #content -->';
+		get_sidebar();
+		echo '</div><!-- #primary -->';
+		get_footer();
+	
+	}
+}
 function _sf_home_slider() {
 	if ( get_theme_mod( '_sf_slider_visibility' ) == '' ) { 
 	if ( is_front_page() ) : 
@@ -299,5 +339,38 @@ function _sf_home_slider() {
 	endif;
 	}
 }
+/**
+* Sidebar Position
+*/
+//add options to customizer (universal for now)
+function _sf_customize_sidebars( $wp_customize ){
+	$wp_customize->add_section('_sf_sidebar_section', array(
+			'title'    => __('Set Sidebars', '_s_f'),
+			'priority' => 80,
+		));
+	$wp_customize->add_setting(
+			'_sf_sidebars', 
+			array(
+				'default'        => 'value1',
+				'capability'     => 'edit_theme_options',
+				'type'           => 'option',
+				)
+		);
+	$wp_customize->add_control(
+   		'_sf_sidebars',
+		array(
+			'label' => __('Sidebar Location', '_s_f'),
+			'section' => '_sf_sidebar_section',
+			'type'       => 'radio',
+			'choices'    => array(
+				'value1' => 'right',
+				'value2' => 'left',
+				'value3' => 'none',
+			)
+		)
+    );
+}
+add_action('customize_register', '_sf_customize_sidebars');
+
 
 ?>
