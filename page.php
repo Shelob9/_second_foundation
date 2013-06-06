@@ -11,7 +11,8 @@
  */
 
 get_header(); 
-_sf_open_close('open');
+$sidebar = get_theme_mod('sf_sidebars');
+_sf_open($sidebar);
 ?>
 	
 			<?php _sf_home_slider(); ?>
@@ -27,4 +28,4 @@ _sf_open_close('open');
 
 			<?php endwhile; ?>
 
-<?php _sf_open_close('close'); ?>
+<?php _sf_close($sidebar); ?>

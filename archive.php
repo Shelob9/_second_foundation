@@ -8,9 +8,9 @@
  */
 
 get_header(); 
-_sf_open_close('open');
+$sidebar = get_theme_mod('sf_sidebars');
+_sf_open($sidebar);
 ?>
-
 
 		<?php if ( have_posts() ) : ?>
 
@@ -105,4 +105,4 @@ _sf_open_close('open');
 
 		<?php endif; ?>
 
-<?php _sf_open_close('close'); ?>
+<?php _sf_close($sidebar); ?>

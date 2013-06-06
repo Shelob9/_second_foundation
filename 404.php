@@ -6,7 +6,8 @@
  */
 
 get_header(); 
-_sf_open_close('open');
+$sidebar = get_theme_mod('sf_sidebars');
+_sf_open($sidebar);
 ?>
 			<article id="post-0" class="post error404 not-found">
 				<header class="entry-header">
@@ -40,4 +41,4 @@ _sf_open_close('open');
 				</div><!-- .entry-content -->
 			</article><!-- #post-0 .post .error404 .not-found -->
 
-<?php _sf_open_close('close'); ?>
+<?php _sf_close($sidebar); ?>

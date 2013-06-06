@@ -304,45 +304,33 @@ function _sf_home_slider() {
 * Sidebar Position
 */
 //functions for opening and closing .primary, .content
-function _sf_open_close($openclose) {
+function _sf_open($sidebar) {
 
-$sidebar = get_option('sf_sidebar');
-	if ($openclose = 'open' && $sidebar = 'right') {
-		echo '<div id="primary" class="content-area row">';
-		echo '<div id="content" class="site-content large-9 columns" role="main">';
+	if ($sidebar = 'left') {
+		echo  '<div id="primary" class="content-area row primary-sidebar-left">';
+		echo   '<div id="content" class="site-content large-9 pull-large-3 columns" role="main">';
 	}
-	elseif ($openclose = 'open' && $sidebar = 'left') {
-		echo '<div id="primary" class="content-area row">';
-		echo '<div id="content" class="site-content large-9 push-large-3 columns" role="main">';
-	}
-	elseif ($openclose = 'open' && $sidebar = 'none') {
-		echo '<div id="primary" class="content-area row">';
-		echo '<div id="content" class="site-content large-12 columns" role="main">';
-	}
-	elseif ($openclose = 'close' && $sidebar = 'left') {
-		echo '</div><!-- #content -->';
-		get_sidebar();
-		echo '</div><!-- #primary -->';
-		get_footer();
-	}
-	elseif ($openclose = 'close' && $sidebar = 'none') {
-		echo '</div><!-- #content -->';
-		echo '</div><!-- #primary -->';
-		get_footer();
-	}
-	elseif ($openclose = 'close' && $sidebar = 'right') {
-		echo '</div><!-- #content -->';
-		get_sidebar();
-		echo '</div><!-- #primary -->';
-		get_footer();
+	elseif ($sidebar = 'none') {
+		echo   '<div id="primary" class="content-area row primary-sidebar-none">';
+		echo   '<div id="content" class="site-content large-12 columns" role="main">';
 	}
 	else {
-		echo '</div><!-- #content -->';
-		get_sidebar();
-		echo '</div><!-- #primary -->';
-		get_footer();
-	
+		echo   '<div id="primary" class="content-area row primary-sidebar-right">';
+		echo   '<div id="content" class="site-content large-9 columns" role="main">';
 	}
+}
+function _sf_close($sidebar) {
+	if ($sidebar = 'none') {
+		echo   '</div><!-- #content -->';
+		echo   '</div><!-- #primary -->';
+		echo  get_footer();
+	}
+	else {
+		echo   '</div><!-- #content -->';
+		echo  get_sidebar();
+		echo   '</div><!-- #primary -->';
+		echo  get_footer();
+	}	
 }
 
 
@@ -358,7 +346,6 @@ function _sf_customize_sidebars( $wp_customize ){
 			array(
 				'default'        => 'value1',
 				'capability'     => 'edit_theme_options',
-				'type'           => 'option',
 				)
 		);
 	$wp_customize->add_control(
