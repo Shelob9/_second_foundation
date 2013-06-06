@@ -32,7 +32,4 @@ get_header(); ?>
 			<?php get_template_part( 'no-results', 'index' ); ?>
 		<?php endif; ?>
 		
-		</div><!-- #content -->
-	<?php get_sidebar(); ?>
-	</div><!-- #primary -->
-<?php get_footer(); ?>
+<?php _sf_open_close('close'); ?>

@@ -292,9 +292,21 @@ add_image_size( 'mobile-bg', 320, 480 );
 /*
 * Conditionally Add Slider For Home PAGE_LAYOUT_ONE_COLUMN
 */
-//functions for opening and closing .primary, .content
-function _sf_open_close($openclose, $sidebar) {
 
+function _sf_home_slider() {
+	if ( get_theme_mod( '_sf_slider_visibility' ) == '' ) { 
+	if ( is_front_page() ) : 
+	get_template_part( 'slider' );
+	endif;
+	}
+}
+/**
+* Sidebar Position
+*/
+//functions for opening and closing .primary, .content
+function _sf_open_close($openclose) {
+
+$sidebar = get_option('sf_sidebar');
 	if ($openclose = 'open' && $sidebar = 'right') {
 		echo '<div id="primary" class="content-area row">';
 		echo '<div id="content" class="site-content large-9 columns" role="main">';
@@ -332,16 +344,9 @@ function _sf_open_close($openclose, $sidebar) {
 	
 	}
 }
-function _sf_home_slider() {
-	if ( get_theme_mod( '_sf_slider_visibility' ) == '' ) { 
-	if ( is_front_page() ) : 
-	get_template_part( 'slider' );
-	endif;
-	}
-}
-/**
-* Sidebar Position
-*/
+
+
+
 //add options to customizer (universal for now)
 function _sf_customize_sidebars( $wp_customize ){
 	$wp_customize->add_section('_sf_sidebar_section', array(

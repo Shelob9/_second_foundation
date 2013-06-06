@@ -5,11 +5,9 @@
  * @package _sf
  */
 
-get_header();
+get_header(); 
+_sf_open_close('open');
 ?>
-
-	<div id="primary" class="content-area image-attachment">
-		<div id="content" class="site-content" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -114,9 +112,6 @@ get_header();
 					comments_template();
 			?>
 
-		<?php endwhile; // end of the loop. ?>
+		<?php endwhile; ?>
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
-
-<?php get_footer(); ?>
+<?php _sf_open_close('close'); ?>

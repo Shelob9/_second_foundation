@@ -7,10 +7,10 @@
  * @package _sf
  */
 
-get_header(); ?>
+get_header(); 
+_sf_open_close('open');
+?>
 
-	<section id="primary" class="content-area row">
-		<div id="content" class="site-content large-9 columns" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -105,7 +105,4 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-		</div><!-- #content -->
-	<?php get_sidebar(); ?>
-	</div><!-- #primary -->
-<?php get_footer(); ?>
+<?php _sf_open_close('close'); ?>
