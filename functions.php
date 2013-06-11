@@ -306,11 +306,11 @@ function _sf_home_slider() {
 //functions for opening and closing .primary, .content
 function _sf_open($sidebar) {
 
-	if ($sidebar = 'left') {
+	if ($sidebar == 'left') {
 		echo  '<div id="primary" class="content-area row primary-sidebar-left">';
 		echo   '<div id="content" class="site-content large-9 pull-large-3 columns" role="main">';
 	}
-	elseif ($sidebar = 'none') {
+	elseif ($sidebar == 'none') {
 		echo   '<div id="primary" class="content-area row primary-sidebar-none">';
 		echo   '<div id="content" class="site-content large-12 columns" role="main">';
 	}
@@ -320,7 +320,7 @@ function _sf_open($sidebar) {
 	}
 }
 function _sf_close($sidebar) {
-	if ($sidebar = 'none') {
+	if ($sidebar == 'none') {
 		echo   '</div><!-- #content -->';
 		echo   '</div><!-- #primary -->';
 		echo  get_footer();
