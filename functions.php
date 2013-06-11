@@ -305,6 +305,9 @@ function _sf_home_slider() {
 */
 //functions for opening and closing .primary, .content
 function _sf_open($sidebar) {
+	if ($sidebar == '') {
+		$sidebar = 'none';
+	}
 
 	if ($sidebar == 'left') {
 		echo  '<div id="primary" class="content-area row primary-sidebar-left">';
@@ -320,6 +323,10 @@ function _sf_open($sidebar) {
 	}
 }
 function _sf_close($sidebar) {
+	if ($sidebar == '') {
+		$sidebar = 'none';
+	}
+
 	if ($sidebar == 'none') {
 		echo   '</div><!-- #content -->';
 		echo   '</div><!-- #primary -->';
@@ -345,7 +352,7 @@ function _sf_customize_sidebars( $wp_customize ){
 			'_sf_sidebars', 
 			array(
 				'default'        => 'value1',
-				'capability'     => 'edit_theme_options',
+				'capability'     => 'edit_theme_options'
 				)
 		);
 	$wp_customize->add_control(
