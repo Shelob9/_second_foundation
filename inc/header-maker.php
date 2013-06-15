@@ -1,7 +1,12 @@
 <?php
+/**
+* Things that make the header.
+* I am the Great Maker of Headers!
+* @_sf since 1.5.1
+**/
+
 /*
 * Create Header, Topbar according to various options
-* @_sf since 1.5.1
 */
 function _sf_header() { ?>
 <header id="masthead" class="site-header row" role="banner">
