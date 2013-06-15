@@ -5,11 +5,11 @@
  * @package _sf
  */
 
-get_header();
+get_header(); 
+$sidebar = get_theme_mod('sf_sidebars');
+_sf_open($sidebar);
 ?>
-<!-- content -->
-	<div id="primary" class="content-area image-attachment row">
-		<div id="content" class="site-content large-9 columns" role="main">
+
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -115,7 +115,11 @@ get_header();
 
 		<?php endwhile; ?>
 
+<<<<<<< HEAD
 				</div><!-- #content -->
 	<?php get_sidebar(); ?>
 	</div><!-- #primary -->
 <?php get_footer(); ?>
+=======
+<?php _sf_open_close('close'); ?>
+>>>>>>> aebc49c41c27ab9e0177c22d60d83008b3c75d3c

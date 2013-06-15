@@ -5,10 +5,11 @@
  * @package _sf
  */
 
-get_header(); ?>
-
-	<div id="primary" class="content-area row">
-		<div id="content" class="site-content large-9 columns" role="main">
+get_header(); 
+$sidebar = get_theme_mod('sf_sidebars');
+_sf_open($sidebar);
+?>
+	
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -22,9 +23,6 @@ get_header(); ?>
 					comments_template();
 			?>
 
-		<?php endwhile; // end of the loop. ?>
+		<?php endwhile; ?>
 
-		</div><!-- #content -->
-	<?php get_sidebar(); ?>
-	</div><!-- #primary -->
-<?php get_footer(); ?>
+<?php _sf_close($sidebar); ?>

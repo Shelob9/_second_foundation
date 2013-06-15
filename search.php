@@ -5,10 +5,10 @@
  * @package _sf
  */
 
-get_header(); ?>
-
-	<section id="primary" class="content-area row ">
-		<div id="content" class="site-content large-9 columns" role="main">
+get_header(); 
+_sf_open_close('open');
+?>
+	
 
 		<?php if ( have_posts() ) : ?>
 

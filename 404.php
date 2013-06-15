@@ -5,11 +5,10 @@
  * @package _sf
  */
 
-get_header(); ?>
-
-	<div id="primary" class="content-area row">
-		<div id="content" class="site-content large-9 columns" role="main">
-
+get_header(); 
+$sidebar = get_theme_mod('sf_sidebars');
+_sf_open($sidebar);
+?>
 			<article id="post-0" class="post error404 not-found">
 				<header class="entry-header">
 					<h1 class="entry-title"><?php _e( 'Oops! That page can&rsquo;t be found.', '_s' ); ?></h1>
@@ -42,7 +41,4 @@ get_header(); ?>
 				</div><!-- .entry-content -->
 			</article><!-- #post-0 .post .error404 .not-found -->
 
-		</div><!-- #content -->
-	<?php get_sidebar(); ?>
-	</div><!-- #primary -->
-<?php get_footer(); ?>
+<?php _sf_close($sidebar); ?>

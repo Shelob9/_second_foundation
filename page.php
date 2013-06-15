@@ -10,10 +10,11 @@
  * @package _sf
  */
 
-get_header(); ?>
-<!-- content -->
-	<div id="primary" class="content-area row">
-		<div id="content" class="site-content large-9 columns" role="main">
+get_header(); 
+$sidebar = get_theme_mod('sf_sidebars');
+_sf_open($sidebar);
+?>
+	
 			<?php _sf_home_slider(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
@@ -27,7 +28,4 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-		</div><!-- #content -->
-	<?php get_sidebar(); ?>
-	</div><!-- #primary -->
-<?php get_footer(); ?>
+<?php _sf_close($sidebar); ?>
