@@ -322,7 +322,7 @@ function _sf_open($sidebar) {
 		echo   '<div id="content" class="site-content large-9 columns" role="main">';
 	}
 }
-function _sf_close($sidebar) {
+function _sf_close($sidebar, $sidebarName = null) {
 	if ($sidebar == '') {
 		$sidebar = 'none';
 	}
@@ -340,6 +340,18 @@ function _sf_close($sidebar) {
 	}	
 }
 
+function _sf_sidebar_starter($sidebar) {
+	if ($sidebar == 'left') {
+		echo '<div id="secondary" class="widget-area large-3 pull-large-9 columns" role="complementary">';
+	}
+	elseif ($sidebar == 'none') {
+		echo '<div id="secondary">';
+	
+	}
+	else {	
+		echo '<div id="secondary" class="widget-area large-3 columns" role="complementary">';
+    }
+}
 
 
 //add options to customizer (universal for now)
