@@ -117,4 +117,17 @@ function _sf_responsive_img($html, $post_id, $post_thumbnail_id, $size, $attr) {
 [1] => width
 [2] => height
 **/
+
+/*
+* Conditionally Add Slider For Home Page
+*/
+function _sf_home_slider() { 
+
+	if ( get_theme_mod( '_sf_slider_visibility' ) == '' ) { 
+	if ( is_front_page() ) : 
+	get_template_part( 'slider' );
+	endif;
+	}
+}
+
 ?>
