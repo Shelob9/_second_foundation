@@ -293,7 +293,6 @@ function _sf_header() { ?>
 		} 
 		else {
 			echo '<div class="contain-to-grid sticky-topbar">';
-			
 		}
 		?>
 				<!-- Starting the Top-Bar -->
@@ -386,5 +385,26 @@ function _sf_inf_js() {
 }
 add_action( 'wp_footer', '_sf_inf_js', 100 );
 
+add_filter('post_thumbnail_html', '_sf_responsive_img', 5, 5);
+add_image_size( 'fd-def', 99999, 99999);
+add_image_size( 'fd-sm', 200, 9999);
 
+function _sf_responsive_img($html, $post_id, $post_thumbnail_id, $size, $attr) {
+	 $attachment_id = $post_thumbnail_id;
+	$size = 'fd-def';
+   $default = wp_get_attachment_image_src($attachment_id, $size);
+   $size = 'fd-sm';
+  	$small = wp_get_attachment_image_src($attachment_id, $size);
+   $html = '<img src="'.$default[0].'"data-interchange="['.$default[0].', (default)], ['.$small[0].', (small)">';
+   return $html;
+}
+/**
+<img src="/path/to/default.jpg" data-interchange="[/path/to/default.jpg, (default)], [/path/to/bigger-image.jpg, (large)]">
+<!-- or your own queries -->
+<img src="/path/to/default.jpg" data-interchange="[/path/to/default.jpg, (only screen and (min-width: 1px))], [/path/to/bigger-image.jpg, (only screen and (min-width: 1280px))]">
+
+[0] => url
+[1] => width
+[2] => height
+**/
 ?>
