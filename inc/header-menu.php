@@ -1,6 +1,6 @@
 <?php
 /**
-* Things that make the header.
+* Things that make the header and menus
 * I am the Great Maker of Headers!
 * @_sf since 1.5.1
 **/
