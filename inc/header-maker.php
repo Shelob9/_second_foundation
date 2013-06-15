@@ -1,5 +1,5 @@
 <?php
-/**
+/*
 * Create Header, Topbar according to various options
 * @_sf since 1.5.1
 */
