@@ -1,5 +1,7 @@
+<?php
 /**
 * Create Header, Topbar according to various options
+* @_sf since 1.5.1
 */
 function _sf_header() { ?>
 <header id="masthead" class="site-header row" role="banner">
