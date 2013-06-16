@@ -425,7 +425,7 @@ function _sf_customize_register( $wp_customize ){
 	$wp_customize->add_control( 
 	new WP_Customize_Color_Control( 
 	$wp_customize, 
-	'link_color', 
+	'bg-color', 
 	array(
 		'label'      => __( 'Page Background Color', '_sf' ),
 		'section'    => '_sf_background',
