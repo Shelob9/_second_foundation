@@ -24,7 +24,7 @@ function _sf_custom_style() {
 	$search_but_txt = get_option('menu_search_txt_color');
 	$search_but_bg = get_option('menu_search_bg_color');
 	$search_but_txt_hv = get_option('menu_search_txt_color_hv');
-	$search_but_bg_hv = get_option('menu_search_txt_color_hv');
+	$search_but_bg_hv = get_option('menu_search_bg_color_hv');
 
 echo '<style>'; ?>
 	.entry-content { color:  <?php echo $content_text_color; ?>; }
