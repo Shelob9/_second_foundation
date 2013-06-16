@@ -454,8 +454,30 @@ function _sf_customize_register( $wp_customize ){
         'section'    => '_sf_backgrounds',
         'settings' => 'body_bg_img',
     )));
-
-
+/**
+* Default Sidebar Location
+*/
+$wp_customize->add_setting(
+			'_sf_default-sidebar', 
+			array(
+				'default'        => 'value1',
+				'capability'     => 'edit_theme_options'
+				)
+		);
+	$wp_customize->add_control(
+   		'sidebar-decider',
+		array(
+			'label' => __('Sidebar Location', '_s_f'),
+			'settings' => '_sf_default-sidebar',
+			'section' => '_sf_page_options',
+			'type'       => 'radio',
+			'choices'    => array(
+				'value1' => 'right',
+				'value2' => 'left',
+				'value3' => 'none',
+			)
+		)
+    );
 }
  
 add_action('customize_register', '_sf_customize_register');

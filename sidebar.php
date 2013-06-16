@@ -6,17 +6,8 @@
  */
 ?>
 <?php 
-	$sidebar = get_option('sf_sidebar');
-	if ($sidebar = 'left') {
-		echo '<div id="secondary" class="widget-area large-3 pull-large-9 columns" role="complementary">';
-	}
-	elseif ($sidebar = 'none') {
-		echo '<div id="secondary">';
-	
-	}
-	else {	
-		echo '<div id="secondary" class="widget-area large-3 columns" role="complementary">';
-    }
+	$sidebar = get_theme_mod('_sf_default_sidebar');
+	_sf_sidebar_starter($sidebar);
 ?>
 		<?php do_action( 'before_sidebar' ); ?>
 		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>

@@ -4,9 +4,9 @@
  *
  * @package _sf
  */
-
 get_header(); 
-_sf_open_close('open');
+$sidebar = get_theme_mod('_sf_default_sidebar');
+_sf_open($sidebar);
 ?>
 	
 
@@ -31,7 +31,4 @@ _sf_open_close('open');
 
 		<?php endif; ?>
 
-		</div><!-- #content -->
-	<?php get_sidebar(); ?>
-	</section><!-- #primary -->
-<?php get_footer(); ?>
+<?php _sf_close($sidebar); ?>

@@ -19,7 +19,7 @@ function _sf_open($sidebar) {
 
 	if ($sidebar == 'left') {
 		echo  '<div id="primary" class="content-area row primary-sidebar-left">';
-		echo   '<div id="content" class="site-content large-9 pull-large-3 columns" role="main">';
+		echo   '<div id="content" class="site-content large-9 push-3 columns" role="main">';
 	}
 	elseif ($sidebar == 'none') {
 		echo   '<div id="primary" class="content-area row primary-sidebar-none">';
@@ -55,10 +55,9 @@ endif; //! _sf_close exists
 if (! function_exists('_sf_sidebar_starter') ) :
 function _sf_sidebar_starter($sidebar) {
 	if ($sidebar == 'left') {
-		echo '<div id="secondary" class="widget-area large-3 pull-large-9 columns" role="complementary">';
+		echo '<div id="secondary" class="widget-area large-3 pull-9 columns" role="complementary">';
 	}
 	elseif ($sidebar == 'none') {
-		echo '<div id="secondary">';
 	
 	}
 	else {	
@@ -67,30 +66,3 @@ function _sf_sidebar_starter($sidebar) {
 }
 endif; // ! _sf_sidebar_starter exists
 
-//add options to customizer (universal for now)
-
-if (! function_exists('_sf_customize_sidebars') ) :
-function _sf_customize_sidebars( $wp_customize ){
-	$wp_customize->add_setting(
-			'default_sidebar', 
-			array(
-				'default'        => 'value1',
-				'capability'     => 'edit_theme_options'
-				)
-		);
-	$wp_customize->add_control(
-   		'default_sidebar',
-		array(
-			'label' => __('Sidebar Location', '_s_f'),
-			'section' => '_sf_page_options',
-			'type'       => 'select',
-			'choices'    => array(
-				'value1' => 'right',
-				'value2' => 'left',
-				'value3' => 'none',
-			)
-		)
-    );
-}
-add_action('customize_register', '_sf_customize_sidebars');
-endif; //! _sf_customize_sidebars exists
