@@ -59,6 +59,7 @@ endif; // _sf_setup
 /**
  * Register widgetized area and update sidebar with default widgets
  */
+if (! function_exists('_sf_widgets_init') ) :
 function _sf_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', '_s' ),
@@ -70,11 +71,13 @@ function _sf_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', '_sf_widgets_init' );
+endif; //! _sf_widgets_init exists
 
 /**
  * Add custom header with flexible dimensions
  **/
 // Register Theme Features
+if (! function_exists('_sf_theme_features') ) :
 function _sf_theme_features()  {
 
 	// Add theme support for Custom Header
@@ -92,6 +95,6 @@ function _sf_theme_features()  {
 	);
 	add_theme_support( 'custom-header', $header_args );
 }
-
 // Hook into the 'after_setup_theme' action
 add_action( 'after_setup_theme', '_sf_theme_features' );
+endif; //! _sf_theme_features exists
