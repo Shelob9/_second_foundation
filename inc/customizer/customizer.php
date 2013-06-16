@@ -329,6 +329,12 @@ function _sf_customize_register( $wp_customize ){
 		'default' => ' ',
 		'label' => __('Post Title Color', 'sf')
 	);
+	$content[] = array(
+		'slug'=>'page_title_color', 
+		'default' => ' ',
+		'label' => __('Page Title Color', 'sf')
+	);
+	
 			foreach( $content as $color ) {
 		// SETTINGS
 		$wp_customize->add_setting(

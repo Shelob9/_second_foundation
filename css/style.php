@@ -34,6 +34,7 @@ function _sf_custom_style() {
 	$sidebar_text_color = get_option('sidebar_text_color');
 	$sidebar_link_color = get_option('sidebar_link_color');
 	$widget_title_color = get_option('widget_title_color');
+	$page_title_color = get_option('page_title_color');
 	
 echo '<style>'; ?>
 	.entry-content { color:  <?php echo $content_text_color; ?>; }
@@ -57,6 +58,7 @@ echo '<style>'; ?>
 	#secondary {color: <?php echo $sidebar_text_color; ?>;}
 	#secondary a {color: <?php echo $sidebar_link_color; ?>;}
 	h5.widget-title {color: <?php echo $widget_title_color; ?>;}
+	h1.entry-title {color: <?php echo $page_title_color; ?>;}
 	<?php
 	//if the background for the header is not set to transparent use $header_bg_color else just let it transparent.
 	if ( get_theme_mod( 'header-trans-bg' ) == '' ) { 	
