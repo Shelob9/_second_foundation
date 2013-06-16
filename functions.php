@@ -21,6 +21,8 @@ locate_template('/inc/open-close.php', true);
 locate_template('/inc/image-stuff.php', true); 
 //Adds options to customizer
 locate_template('/inc/customizer/customizer.php', true); 
+//Adds sanitization functions for customizer
+locate_template('/inc/customizer/customizer_sanitizer.php', true); 
 //Puts styles set in customzier into head.
 locate_template('/css/style.php', true);
 //Functions that act independently of the theme templates from _S.

@@ -101,6 +101,7 @@ function _sf_customize_register( $wp_customize ){
 		'default' => 5,
         'label' => 'Number Of Slides To Show - Default is 5. Enter numbers only.',
         'section' => '_sf_home_slider',
+        'sanitize_callback' => '_sf_sanitize_number'
         )
     );
    
