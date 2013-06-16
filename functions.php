@@ -20,7 +20,7 @@ locate_template('/inc/open-close.php', true);
 // All image related functions including background image and responsive thumbnails.
 locate_template('/inc/image-stuff.php', true); 
 //Adds options to customizer
-locate_template('/inc/customizer.php', true); 
+locate_template('/inc/customizer/customizer.php', true); 
 //Puts styles set in customzier into head.
 locate_template('/css/style.php', true);
 //Functions that act independently of the theme templates from _S.
