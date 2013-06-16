@@ -71,23 +71,19 @@ endif; // ! _sf_sidebar_starter exists
 
 if (! function_exists('_sf_customize_sidebars') ) :
 function _sf_customize_sidebars( $wp_customize ){
-	$wp_customize->add_section('_sf_sidebar_section', array(
-			'title'    => __('Set Sidebars', '_s_f'),
-			'priority' => 80,
-		));
 	$wp_customize->add_setting(
-			'_sf_sidebars', 
+			'default_sidebar', 
 			array(
 				'default'        => 'value1',
 				'capability'     => 'edit_theme_options'
 				)
 		);
 	$wp_customize->add_control(
-   		'_sf_sidebars',
+   		'default_sidebar',
 		array(
 			'label' => __('Sidebar Location', '_s_f'),
-			'section' => '_sf_sidebar_section',
-			'type'       => 'radio',
+			'section' => '_sf_page_options',
+			'type'       => 'select',
 			'choices'    => array(
 				'value1' => 'right',
 				'value2' => 'left',
