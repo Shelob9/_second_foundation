@@ -91,7 +91,10 @@ function _sf_customize_register( $wp_customize ){
     //  ============================
  
     $wp_customize->add_setting(
-    '_sf_slide_numb'
+    '_sf_slide_numb', array(
+    	'default' => 5,
+    	'sanitize_callback' => '_sf_sanitize_number'
+    	)
     );
 
     $wp_customize->add_control(
