@@ -24,7 +24,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php _sf_full_bg();  ?>
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 	<?php _sf_header(); ?>
