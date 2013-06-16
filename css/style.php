@@ -32,7 +32,7 @@ echo '<style>'; ?>
 	.site-description {color: <?php echo $site_description_color; ?> }
 	h1.entry-title {color: <?php echo $post_title_color; ?> }
 	.top-bar-section ul li>a {color: <?php echo $menu_text_color; ?> }
-	.top-bar .name h1 a {color: <?php echo $site_name_color; ?> }
+	.top-bar .name h1 a, h1.site-title a {color: <?php echo $site_name_color; ?> }
 	.top-bar, .top-bar-section li a:not(.button) {background-color: <?php echo $menu_bg_color; ?> }
 	.top-bar-section>ul>.divider
 	{border-bottom-color: <?php echo $menu_bg_color; ?>;
