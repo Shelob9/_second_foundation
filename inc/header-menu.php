@@ -8,6 +8,7 @@
 /*
 * Create Header, Topbar according to various options
 */
+if (! function_exists('_sf_header') ) :
 function _sf_header() { ?>
 <header id="masthead" class="site-header row" role="banner">
 		<div class="row" id="header image">
@@ -95,12 +96,13 @@ function _sf_header() { ?>
 		
 	</header><!-- #masthead -->
 <?php } 
-
+endif; // ! if _sf_header exists
 
 /**
  * A fallback when no navigation is selected by default, otherwise it throws some nasty errors in your face.
  * From required+ Foundation http://themes.required.ch
  */
+if (! function_exists('_sf_menu_fallback') ) :
 function _sf_menu_fallback() {
 	echo '<div class="alert-box secondary">';
 	// Translators 1: Link to Menus, 2: Link to Customize
@@ -114,8 +116,10 @@ function _sf_menu_fallback() {
   	);
   	echo '</div>';
 }
+endif; // ! _sf_menu_fallback exists
 
 // Add Foundation 'active' class for the current menu item
+if (! function_exists('_sf_active_nav_class') ) :
 function _sf_active_nav_class( $classes, $item ) {
     if ( $item->current == 1 || $item->current_item_ancestor == true ) {
         $classes[] = 'active';
@@ -123,11 +127,13 @@ function _sf_active_nav_class( $classes, $item ) {
     return $classes;
 }
 add_filter( 'nav_menu_css_class', '_sf_active_nav_class', 10, 2 );
+endif; // ! _sf_active_nav_class exists
 
 /**
  * Use the active class of ZURB Foundation on wp_list_pages output.
  * From required+ Foundation http://themes.required.ch
  */
+if (function_exists('_sf_active_list_pages_class') ) :
 function _sf_active_list_pages_class( $input ) {
 
 	$pattern = '/current_page_item/';
@@ -138,6 +144,7 @@ function _sf_active_list_pages_class( $input ) {
     return $output;
 }
 add_filter( 'wp_list_pages', '_sf_active_list_pages_class', 10, 2 );
+endif; // ! _sf_active_list_pages_class exists
 
 /**
  * class required_walker

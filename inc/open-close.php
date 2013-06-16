@@ -11,6 +11,7 @@
 * Sidebar Position
 */
 //functions for opening and closing .primary, .content
+if (! function_exists('_sf_open') ) :
 function _sf_open($sidebar) {
 	if ($sidebar == '') {
 		$sidebar = 'none';
@@ -29,6 +30,9 @@ function _sf_open($sidebar) {
 		echo   '<div id="content" class="site-content large-9 columns" role="main">';
 	}
 }
+endif; //! _sf_open exists
+
+if (! function_exists('_sf_close') ) :
 function _sf_close($sidebar, $sidebarName = null) {
 	if ($sidebar == '') {
 		$sidebar = 'none';
@@ -46,7 +50,9 @@ function _sf_close($sidebar, $sidebarName = null) {
 		echo  get_footer();
 	}	
 }
+endif; //! _sf_close exists
 
+if (! function_exists('_sf_sidebar_starter') ) :
 function _sf_sidebar_starter($sidebar) {
 	if ($sidebar == 'left') {
 		echo '<div id="secondary" class="widget-area large-3 pull-large-9 columns" role="complementary">';
@@ -59,9 +65,11 @@ function _sf_sidebar_starter($sidebar) {
 		echo '<div id="secondary" class="widget-area large-3 columns" role="complementary">';
     }
 }
-
+endif; // ! _sf_sidebar_starter exists
 
 //add options to customizer (universal for now)
+
+if (! function_exists('_sf_customize_sidebars') ) :
 function _sf_customize_sidebars( $wp_customize ){
 	$wp_customize->add_section('_sf_sidebar_section', array(
 			'title'    => __('Set Sidebars', '_s_f'),
@@ -89,3 +97,4 @@ function _sf_customize_sidebars( $wp_customize ){
     );
 }
 add_action('customize_register', '_sf_customize_sidebars');
+endif; //! _sf_customize_sidebars exists

@@ -19,6 +19,7 @@
  *
  * Hooks into the after_setup_theme action.
  */
+if (! function_exists('_sf_register_custom_background') ):
 function _sf_register_custom_background() {
 	$args = array(
 		'default-color' => 'ffffff',
@@ -37,13 +38,14 @@ function _sf_register_custom_background() {
 	}
 }
 add_action( 'after_setup_theme', '_sf_register_custom_background' );
+endif; // ! _sf_register_custom_background exists
 
 
 /**
 * Set the fullscreen background image using a smaller image for small (ie mobile screens)
 * http://pippinsplugins.com/retrieve-attachment-id-from-image-url/
 */
-
+if (! function_exists('_sf_get_image_id') ) :
 //get id of attachment by full url
 // http://pippinsplugins.com/retrieve-attachment-id-from-image-url/
 function _sf_get_image_id($image_url) {
@@ -53,19 +55,24 @@ function _sf_get_image_id($image_url) {
 		$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $prefix . "posts" . " WHERE guid='%s';", $image_url )); 
 		return $attachment[0]; 
 }
+endif; // !  _sf_get_image_id exists
 
 // add the script to check screen size and if the height is less then 480 set background image to mobile size IF we are using a fullscreen background.
+
+if (! function_exists('_sf_bg_img_size_decider') ) :
 function _sf_bg_img_size_decider() {
 	if (! get_theme_mod( 'body_bg_choice' ) == '' ) {
 		wp_enqueue_script('bg-decider', get_template_directory_uri(). '/js/screensize.js', array( 'historyjs' ), false, true);
 	}
 }
 add_action('wp_enqueue_scripts', '_sf_bg_img_size_decider');
+endif; // ! _sf_bg_img_size_decider exists
 
 //Add 320x480 image size specifically for mobile background use.
 add_image_size( 'mobile-bg', 320, 480 ); 
 
 //function to put the bg img or not into header
+if (! function_exists('_sf_full_bg') ) :
 	function _sf_full_bg() {
 		//if we are using a full screen background image add a container for it with a background image that is sized based on screen height to avoid loading massive file for phones.
 			//First, get the url of the full-size fullscreen background image. Do this before checking if we need it so we can test if any is set.
@@ -82,7 +89,7 @@ add_image_size( 'mobile-bg', 320, 480 );
 	>
 <?php } 
 }
-
+endif; // ! _sf_full_bg exists
 /**
 * Add an image size for masonry
 */
@@ -95,10 +102,11 @@ if ( function_exists( 'add_image_size' ) ) {
 * Responsive Image Thing
 *
 */
-add_filter('post_thumbnail_html', '_sf_responsive_img', 5, 5);
+
 add_image_size( 'fd-def', 99999, 99999);
 add_image_size( 'fd-sm', 200, 9999);
 
+if (! function_exists('_sf_responsive_img') ) :
 function _sf_responsive_img($html, $post_id, $post_thumbnail_id, $size, $attr) {
 	 $attachment_id = $post_thumbnail_id;
 	$size = 'fd-def';
@@ -108,6 +116,8 @@ function _sf_responsive_img($html, $post_id, $post_thumbnail_id, $size, $attr) {
    $html = '<img src="'.$default[0].'"data-interchange="['.$default[0].', (default)], ['.$small[0].', (small)">';
    return $html;
 }
+add_filter('post_thumbnail_html', '_sf_responsive_img', 5, 5);
+endif; // ! _sf_responsive_img exists
 /**
 <img src="/path/to/default.jpg" data-interchange="[/path/to/default.jpg, (default)], [/path/to/bigger-image.jpg, (large)]">
 <!-- or your own queries -->
@@ -121,6 +131,7 @@ function _sf_responsive_img($html, $post_id, $post_thumbnail_id, $size, $attr) {
 /*
 * Conditionally Add Slider For Home Page
 */
+if (! function_exists('_sf_home_slider') ) :
 function _sf_home_slider() { 
 
 	if ( get_theme_mod( '_sf_slider_visibility' ) == '' ) { 
@@ -129,5 +140,5 @@ function _sf_home_slider() {
 	endif;
 	}
 }
-
+endif; //! _sf_home_slider exists
 ?>

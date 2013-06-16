@@ -12,6 +12,7 @@
 /**
  * Enqueue all scripts and styles
  */
+if (! function_exists('_sf_scripts') ) :
 function _sf_scripts() {
 	//styles
 	wp_enqueue_style('normalize', get_template_directory_uri().'/css/normalize.css');
@@ -42,20 +43,22 @@ function _sf_scripts() {
 	
 }
 add_action( 'wp_enqueue_scripts', '_sf_scripts' );
+endif; //! _sf_scripts exists
 
-
-
+if (! function_exists('_sf_extraDesc') ):
 function _sf_extraDesc($hook) {
     if( 'themes.php' != $hook )
         return;
     wp_enqueue_script( 'extra-desc', get_template_directory_uri().'/js/extra-desc.js' );
 }
 add_action( 'admin_enqueue_scripts', '_sf_extraDesc' );
+endif; //! _sf_extraDesc exists
 
 /**
  * Infinite Scroll
  * Method from: http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
  */
+if (! function_exists('_sf_inf_js') ) :
 function _sf_inf_js() {
 
 	if( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) ){ ?>
@@ -77,4 +80,5 @@ function _sf_inf_js() {
 	}
 }
 add_action( 'wp_footer', '_sf_inf_js', 100 );
+endif; // _sf_inf_js exists
 

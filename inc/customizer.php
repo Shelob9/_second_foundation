@@ -15,14 +15,17 @@
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
+if (! function_exists('_sf_customize_preview_js') ) :
 function _sf_customize_preview_js() {
 	wp_enqueue_script( '_s_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130304', true );
 }
 add_action( 'customize_preview_init', '_sf_customize_preview_js' );
+endif; //! _sf_customize_preview_js exists
 
 /**
 * Theme Customizer Settings
 **/
+if (! function_exists('_sf_customize_register') ) :
 function _sf_customize_register( $wp_customize ){
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
@@ -430,4 +433,5 @@ function _sf_customize_register( $wp_customize ){
 }
  
 add_action('customize_register', '_sf_customize_register');
+endif; //! _sf_customize_register exists
 ?>

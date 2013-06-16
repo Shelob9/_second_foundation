@@ -7,7 +7,7 @@
  * @package _s
  */
 
-if ( ! function_exists( '_s_comment' ) ) :
+if ( ! function_exists( '_sf_comment' ) ) :
 /**
  * Template for comments and pingbacks.
  *
@@ -74,6 +74,8 @@ function _sf_posted_on() {
 	);
 }
 endif;
+
+if (! function_exists( '_sf_categorized_blog') ) :
 /**
  * Returns true if a blog has more than 1 category
  */
@@ -98,7 +100,9 @@ function _sf_categorized_blog() {
 		return false;
 	}
 }
+endif; // !if _sf_categorized_blog exists
 
+if (! function_exists ('_sf_category_transient_flusher') ) :
 /**
  * Flush out the transients used in _s_categorized_blog
  */
@@ -108,8 +112,7 @@ function _sf_category_transient_flusher() {
 }
 add_action( 'edit_category', '_sf_category_transient_flusher' );
 add_action( 'save_post', '_sf_category_transient_flusher' );
-
-
+endif; //! if _sf_category_transient_flusher exists
 
 
 

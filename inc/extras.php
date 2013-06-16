@@ -10,6 +10,7 @@
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  */
+if (! function_exists('_sf_page_menu_args') ) :
 function _sf_page_menu_args( $args ) {
 	$args['show_home'] = true;
 	return $args;
@@ -28,7 +29,9 @@ function _sf_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', '_sf_body_classes' );
+endif;
 
+if (! function_exists ('_sf_enhanced_image_navigation') ) :
 /**
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
  */
@@ -43,7 +46,9 @@ function _sf_enhanced_image_navigation( $url, $id ) {
 	return $url;
 }
 add_filter( 'attachment_link', '_sf_enhanced_image_navigation', 10, 2 );
+endif;
 
+if (! function_exists('_sf_wp_title') ) :
 /**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
  */
@@ -68,3 +73,4 @@ function _sf_wp_title( $title, $sep ) {
 	return $title;
 }
 add_filter( 'wp_title', '_sf_wp_title', 10, 2 );
+endif;
