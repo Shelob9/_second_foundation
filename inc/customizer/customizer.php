@@ -70,6 +70,11 @@ function _sf_customize_register( $wp_customize ){
         'title'    => __('Masonry Colors', '_sf'),
         'priority' => 122,
     ));
+ //Sidebar Colors
+    $wp_customize->add_section('sidebar-colors', array(
+        'title'    => __('Sidebar Colors', '_sf'),
+        'priority' => 133,
+    ));
 /**
 * Slider
 */    
@@ -341,6 +346,44 @@ function _sf_customize_register( $wp_customize ){
 				$color['slug'], 
 				array('label' => $color['label'], 
 				'section' => 'content-colors',
+				'settings' => $color['slug'])
+			)
+		);
+	}
+//sidebar area colors
+
+	$sidebar[] = array(
+	'slug'=>'sidebar_text_color', 
+	'default' => ' ',
+	'label' => __('Sidebar Text Color', 'sf')
+	);
+	$sidebar[] = array(
+		'slug'=>'sidebar_link_color', 
+		'default' => ' ',
+		'label' => __('Sidebar Link Color', 'sf')
+	);
+	$sidebar[] = array(
+		'slug'=>'widget_title_color', 
+		'default' => ' ',
+		'label' => __('Widget Title Color', 'sf')
+	);
+			foreach( $sidebar as $color ) {
+		// SETTINGS
+		$wp_customize->add_setting(
+			$color['slug'], array(
+				'default' => $color['default'],
+				'type' => 'option', 
+				'capability' => 
+				'edit_theme_options'
+			)
+		);
+		// CONTROLS
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				$color['slug'], 
+				array('label' => $color['label'], 
+				'section' => 'sidebar-colors',
 				'settings' => $color['slug'])
 			)
 		);

@@ -31,6 +31,10 @@ function _sf_custom_style() {
 	$masonry_excerpt_text_color = get_option('masonry_excerpt_text_color');
 	$masonry_title_color = get_option('masonry_title_color');
 	$masonry_border_color = get_option('masonry_border_color');
+	$sidebar_text_color = get_option('sidebar_text_color');
+	$sidebar_link_color = get_option('sidebar_link_color');
+	$widget_title_color = get_option('widget_title_color');
+	
 echo '<style>'; ?>
 	.entry-content { color:  <?php echo $content_text_color; ?>; }
 	#content a { color:  <?php echo $content_link_color; ?>; }
@@ -50,6 +54,9 @@ echo '<style>'; ?>
 	.top-bar-section li a:not(.button):hover {background-color: <?php echo $menu_hover_color; ?> }
 	.top-bar-section .dropdown li a {color: <?php echo $menu_text_color; ?> }
 	.top-bar-section ul.right {background-color: <?php echo $menu_bg_color; ?> }
+	#secondary {color: <?php echo $sidebar_text_color; ?>;}
+	#secondary a {color: <?php echo $sidebar_link_color; ?>;}
+	h5.widget-title {color: <?php echo $widget_title_color; ?>;}
 	<?php
 	//if the background for the header is not set to transparent use $header_bg_color else just let it transparent.
 	if ( get_theme_mod( 'header-trans-bg' ) == '' ) { 	
