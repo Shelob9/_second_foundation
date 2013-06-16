@@ -4,15 +4,16 @@
  *
  * Eventually, some of the functionality here could be replaced by core features
  *
- * @package _s
+ * @package _sf
  */
 
-if ( ! function_exists( '_sf_comment' ) ) :
+
 /**
  * Template for comments and pingbacks.
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  */
+if ( ! function_exists( '_sf_comment' ) ) :
 function _sf_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
@@ -73,7 +74,7 @@ function _sf_posted_on() {
 		get_the_author()
 	);
 }
-endif;
+endif; //! _sf_comment exists
 
 if (! function_exists( '_sf_categorized_blog') ) :
 /**
@@ -137,4 +138,4 @@ function _sf_content_nav( $html_id ) {
 		</nav><!-- #<?php echo $html_id; ?> .navigation -->
 	<?php endif;
 }
-endif;
+endif; //! _sf_content_nav exists
