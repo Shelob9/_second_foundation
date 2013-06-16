@@ -371,7 +371,7 @@ function _sf_customize_register( $wp_customize ){
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => 'header-colors',
+				'section' => '_sf_header_options',
 				'settings' => $color['slug'])
 			)
 		);
