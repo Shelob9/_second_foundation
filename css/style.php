@@ -26,7 +26,7 @@ function _sf_custom_style() {
 	$search_but_bg_hv = get_option('menu_search_bg_color_hv');
 	$page_bg_color = get_option('page_bg_color');
 	$sidebar_bg_color = get_option('sidebar_bg_color');
-
+	$footer_bg_color = get_option('footer_bg_color');
 echo '<style>'; ?>
 	.entry-content { color:  <?php echo $content_text_color; ?>; }
 	#content a { color:  <?php echo $content_link_color; ?>; }
@@ -53,6 +53,18 @@ echo '<style>'; ?>
 		echo $header_bg_color;
 		echo '}';
 	}
+		//if the background for the sidebar is not set to transparent use $sidebar_bg_color else just let it transparent.
+	if ( get_theme_mod( 'sidebar-trans-bg' ) == '' ) { 	
+		echo '#secondary {background-color:';
+		echo $sidebar_bg_color;
+		echo '}';
+	}
+		//if the background for the footer is not set to transparent use $footer_bg_color else just let it transparent.
+	if ( get_theme_mod( 'footer-trans-bg' ) == '' ) { 	
+		echo '.site-footer {background-color:';
+		echo $footer_bg_color;
+		echo '}';
+	}
 	//if the background for the content is not set to transparent use $content_bg_color else just let  it transparent.
 	if ( get_theme_mod( 'content-trans-bg' ) == '' ) { 
 		echo '#primary {background-color:';
@@ -60,6 +72,7 @@ echo '<style>'; ?>
 		echo '}';
 		echo '.top-bar{paddding-right:15px}';
 	}
+	
 	// If page background is not set to full-screen image set a color else ad #bg to make that container a fullscreen background.
 	if ( get_theme_mod( 'body_bg_choice' ) == '' ) { 
 		echo 'body{background-color:';

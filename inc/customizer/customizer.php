@@ -266,11 +266,7 @@ function _sf_customize_register( $wp_customize ){
 		'default' => ' ',
 		'label' => __('Menu Background Color', 'sf')
 	);
-	$menu[] = array(
-		'slug'=>'menu_search_txt_color_hv', 
-		'default' => '#fff',
-		'label' => __('Search Button Text Hover Color', 'sf')
-	);
+	
 	$menu[] = array(
 		'slug'=>'menu_hover_color', 
 		'default' => ' ',
@@ -374,6 +370,11 @@ function _sf_customize_register( $wp_customize ){
 		'default' => '#fff',
 		'label' => __('Sidebar Background Color', 'sf')
 	);
+	$bg[] = array(
+		'slug'=>'footer_bg_color', 
+		'default' => '#fff',
+		'label' => __('Footer Background Color', 'sf')
+	);
 	
 		foreach( $bg as $color ) {
 		// SETTINGS
@@ -423,6 +424,32 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Transparent Background For Header Area',
+        'section' => '_sf_backgrounds',
+        )
+    );
+//sidebar area
+    $wp_customize->add_setting(
+    'sidebar-trans-bg'
+    );
+
+    $wp_customize->add_control(
+    'sidebar-trans-bg',
+    array(
+        'type' => 'checkbox',
+        'label' => 'Transparent Background For Sidebar Area',
+        'section' => '_sf_backgrounds',
+        )
+    );
+//footer area
+    $wp_customize->add_setting(
+    'footer-trans-bg'
+    );
+
+    $wp_customize->add_control(
+    'footer-trans-bg',
+    array(
+        'type' => 'checkbox',
+        'label' => 'Transparent Background For Footer Area',
         'section' => '_sf_backgrounds',
         )
     );
