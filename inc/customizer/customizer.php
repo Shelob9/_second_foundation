@@ -501,7 +501,7 @@ function _sf_customize_register( $wp_customize ){
         )
     );
   	// =========
-	// PAGE BG =
+	// BG IMGs =
 	// =========
 	
 	//Background Color or Full-Width Image?
@@ -512,7 +512,7 @@ function _sf_customize_register( $wp_customize ){
     'body_bg_choice',
     array(
         'type' => 'checkbox',
-        'label' => 'Use Background Image Instead of Color?',
+        'label' => 'Use Background Image Instead of Color For Page?',
         'section' => '_sf_backgrounds',
         'settings'   => 'body_bg_choice',
         )
@@ -527,6 +527,54 @@ function _sf_customize_register( $wp_customize ){
         'label'    => __('Upload Page Background', 'sf'),
         'section'    => '_sf_backgrounds',
         'settings' => 'body_bg_img',
+    )));
+    
+    //Background Color or Image For Header?
+	$wp_customize->add_setting('header_bg_choice', array(
+	) );
+
+    $wp_customize->add_control(
+    'header_bg_choice',
+    array(
+        'type' => 'checkbox',
+        'label' => 'Use Background Image Instead of Color For Page?',
+        'section' => '_sf_backgrounds',
+        'settings'   => 'header_bg_choice',
+        )
+    );
+	//page background img
+	    $wp_customize->add_setting('header_bg_img', array(
+        'capability'        => 'edit_theme_options',
+    ));
+ 
+    $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'header_bg_img', array(
+        'label'    => __('Upload Background Image For Header', 'sf'),
+        'section'    => '_sf_backgrounds',
+        'settings' => 'header_bg_img',
+    )));
+    
+    //Background Color or Image For Content-Area?
+	$wp_customize->add_setting('content_bg_choice', array(
+	) );
+
+    $wp_customize->add_control(
+    'content_bg_choice',
+    array(
+        'type' => 'checkbox',
+        'label' => 'Use Background Image Instead of Color For Content Area?',
+        'section' => '_sf_backgrounds',
+        'settings'   => 'content_bg_choice',
+        )
+    );
+	//page background img
+	    $wp_customize->add_setting('content_bg_img', array(
+        'capability'        => 'edit_theme_options',
+    ));
+ 
+    $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'content_bg_img', array(
+        'label'    => __('Upload Background Image For Content Area', 'sf'),
+        'section'    => '_sf_backgrounds',
+        'settings' => 'content_bg_img',
     )));
 /**
 * Default Sidebar Location
