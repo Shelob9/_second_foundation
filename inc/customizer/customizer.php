@@ -139,12 +139,12 @@ function _sf_customize_register( $wp_customize ){
     //  =============================
     //  = Site Name In Menu? =
     //  =============================
-    $wp_customize->add_setting('_sf_theme_options_menu_name', array(
+    $wp_customize->add_setting('_sf_name_in_menu', array(
         'capability' => 'edit_theme_options',
     ));
  
     $wp_customize->add_control('display_menu_name', array(
-        'settings' => '_sf_theme_options_menu_name',
+        'settings' => '_sf_name_in_menu',
         'label'    => __('Display Name of site in Menu?', '_sf'),
         'section'  => '_sf_header_options',
         'type'     => 'checkbox',
@@ -152,12 +152,12 @@ function _sf_customize_register( $wp_customize ){
  	//  =============================
     //  = Menu Sticky? =
     //  =============================
-    $wp_customize->add_setting('_sf_theme_options_menu_sticky', array(
+    $wp_customize->add_setting('_sf_menu_sticky', array(
         'capability' => 'edit_theme_options',
     ));
  
     $wp_customize->add_control('menu_sticky', array(
-        'settings' => '_sf_theme_options_menu_sticky',
+        'settings' => '_sf_menu_sticky',
         'label'    => __('Stick Menu To Top Of Page?', '_sf'),
         'section'  => '_sf_header_options',
         'type'     => 'checkbox',
@@ -165,12 +165,12 @@ function _sf_customize_register( $wp_customize ){
     //  ======================
     //  = Search Bar In Menu =
     //  ======================
-    $wp_customize->add_setting('_sf_theme_options_menu_search', array(
+    $wp_customize->add_setting('_sf_menu_search', array(
         'capability' => 'edit_theme_options',
     ));
  
     $wp_customize->add_control('menu_search', array(
-        'settings' => '_sf_theme_options_menu_search',
+        'settings' => '_sf_menu_search',
         'label'    => __('Search Bar In Menu?', '_sf'),
         'section'  => '_sf_header_options',
         'type'     => 'checkbox',
@@ -458,7 +458,7 @@ function _sf_customize_register( $wp_customize ){
 * Default Sidebar Location
 */
 $wp_customize->add_setting(
-			'_sf_default-sidebar', 
+			'_sf_default_sidebar', 
 			array(
 				'default'        => 'value1',
 				'capability'     => 'edit_theme_options'
@@ -468,7 +468,7 @@ $wp_customize->add_setting(
    		'sidebar-decider',
 		array(
 			'label' => __('Sidebar Location', '_s_f'),
-			'settings' => '_sf_default-sidebar',
+			'settings' => '_sf_default_sidebar',
 			'section' => '_sf_page_options',
 			'type'       => 'radio',
 			'choices'    => array(
