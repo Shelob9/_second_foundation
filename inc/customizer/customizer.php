@@ -36,8 +36,10 @@ function _sf_customize_register( $wp_customize ){
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-//SECTIONS	
-	//slider
+/**
+* Sections
+*/
+//slider
     $wp_customize->add_section('_sf_home_slider', array(
         'title'    => __('Home Page Slider', '_s_f'),
         'priority' => 120,
@@ -47,12 +49,12 @@ function _sf_customize_register( $wp_customize ){
         'title'    => __('Menu and Header Options', '_sf'),
         'priority' => 120,
     ));
-    //Fancy JS 
+//Fancy JS 
     $wp_customize->add_section('_sf_fancy_js', array(
         'title'    => __('Fancy Javascripts', '_sf'),
         'priority' => 121,
     ));
-	//Sections For Color Controls
+//Sections For Color Controls
     $wp_customize->add_section('menu-colors', array(
         'title'    => __('Menu Section Colors', '_sf'),
         'priority' => 130,
@@ -69,7 +71,9 @@ function _sf_customize_register( $wp_customize ){
         'title'    => __('Page Settings', '_sf'),
         'priority' => 128,
     ));
-//slider    
+/**
+* Slider
+*/    
     //  ============================
     //  = Show Slider on Home Page? =
     //  =============================
@@ -108,10 +112,10 @@ function _sf_customize_register( $wp_customize ){
         )
     );
    
- 
-    //  =====================
-    //  = Category Dropdown =
-    //  =====================
+   	// ==========================
+   	// = Which Category To Show = 
+   	// ==========================
+ 	//create category dropdown
     $categories = get_categories();
 	$cats = array();
 	$i = 0;
@@ -134,7 +138,9 @@ function _sf_customize_register( $wp_customize ){
 		'choices' => $cats,
 	));
  
-//Topbar/nav 
+/**
+* Topbar/nav
+*/ 
     //  =============================
     //  = Site Name In Menu? =
     //  =============================
@@ -175,7 +181,9 @@ function _sf_customize_register( $wp_customize ){
         'type'     => 'checkbox',
     ));
  
-//Fancy JS   
+/**
+* Fancy JS
+*/
     //  ============================
     //  = Disable Infinite Scroll? =
     //  =============================
@@ -222,13 +230,15 @@ function _sf_customize_register( $wp_customize ){
         )
     );
  
-
+/**
+* Color Controls
+*/
 
  	//  ==================
     //  = Color Controls =
     //  ==================
     
-
+//menu colors
 	$menu = array();
 	//MENU
 	$menu[] = array(
@@ -292,7 +302,8 @@ function _sf_customize_register( $wp_customize ){
 			)
 		);
 	}
-	//content area
+	
+//content area colors
 	$content[] = array(
 		'slug'=>'content_bg_color', 
 		'default' => '#fff',
@@ -334,7 +345,7 @@ function _sf_customize_register( $wp_customize ){
 			)
 		);
 	}
-	//header
+//header colors
 	$header[] = array(
 		'slug'=>'header_bg_color', 
 		'default' => '#fff',
@@ -366,9 +377,15 @@ function _sf_customize_register( $wp_customize ){
 			)
 		);
 	}
-	//  ============================
-    //  = Transparent Backgrounds  =
-    //  ============================
+/**
+* Background(s)
+* 
+*/
+  // =====================================
+  // = Content/ Header Area Transperancy =
+  // =====================================
+  // TODO: Add image options here.
+//content area
     $wp_customize->add_setting(
     'content-trans-bg'
     );
@@ -381,6 +398,7 @@ function _sf_customize_register( $wp_customize ){
         'section' => 'content-colors',
         )
     );
+//header area
     $wp_customize->add_setting(
     'header-trans-bg'
     );
@@ -393,16 +411,17 @@ function _sf_customize_register( $wp_customize ){
         'section' => 'header-colors',
         )
     );
-  	// ===============
-	// Page Settings =
-	// ===============
-	
+  	// =========
+	// PAGE BG =
+	// =========
+	//TODO: Gradients!
+//Page bg color	
 	$wp_customize->add_setting( 'bg-color' , array(
     'default'     => '#fff',
     'transport'   => 'postMessage',
     'type' => 'option'
 	) );
-	//Page bg color
+	
 	$wp_customize->add_control( 
 	new WP_Customize_Color_Control( 
 	$wp_customize, 
