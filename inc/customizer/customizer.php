@@ -237,7 +237,7 @@ function _sf_customize_register( $wp_customize ){
     //  = Color Controls =
     //  ==================
     
-//menu colors
+//menu/header colors
 	$menu = array();
 	//MENU
 	$menu[] = array(
@@ -279,6 +279,11 @@ function _sf_customize_register( $wp_customize ){
 		'slug'=>'menu_hover_color', 
 		'default' => ' ',
 		'label' => __('Menu Hover Color', 'sf')
+	);
+	$menu[] = array(
+		'slug'=>'site_description_color', 
+		'default' => ' ',
+		'label' => __('Site Description Color', 'sf')
 	);
 		foreach( $menu as $color ) {
 		// SETTINGS
@@ -350,11 +355,7 @@ function _sf_customize_register( $wp_customize ){
 		'default' => '#fff',
 		'label' => __('Header Background Color', 'sf')
 	);
-	$header[] = array(
-		'slug'=>'site_description_color', 
-		'default' => ' ',
-		'label' => __('Site Description Color', 'sf')
-	);
+	
 		foreach( $header as $color ) {
 		// SETTINGS
 		$wp_customize->add_setting(
