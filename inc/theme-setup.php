@@ -24,26 +24,6 @@ if ( ! function_exists( '_sf_setup' ) ) :
 	function _sf_setup() {
 
 		/**
-		 * Custom template tags for this theme.
-		 */
-		require( get_template_directory() . '/inc/template-tags.php' );
-
-		/**
-		 * Custom functions that act independently of the theme templates
-		 */
-		require( get_template_directory() . '/inc/extras.php' );
-
-		/**
-		 * Customizer additions
-		 */
-		require( get_template_directory() . '/inc/customizer.php' );
-
-		/**
-		 * WordPress.com-specific functions and definitions
-		 */
-		//require( get_template_directory() . '/inc/wpcom.php' );
-
-		/**
 		 * Make theme available for translation
 		 * Translations can be filed in the /languages/ directory
 		 * If you're building a theme based on _s, use a find and replace
