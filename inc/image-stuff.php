@@ -8,6 +8,19 @@
  */
  
  /**
+ * Add all image sizes at once
+ */
+ if ( function_exists( 'add_image_size' ) ) {
+ 	//for masonry
+	add_image_size( 'masonry-thumb',  235, 180, true );
+	//for interchange responsive image thing
+	add_image_size( 'fd-def', 99999, 99999);
+	add_image_size( 'fd-sm', 200, 9999);
+	
+}
+
+
+ /**
  * Setup the WordPress core custom background feature.
  *
  * Use add_theme_support to register support for WordPress 3.4+
@@ -90,21 +103,12 @@ if (! function_exists('_sf_full_bg') ) :
 <?php } 
 }
 endif; // ! _sf_full_bg exists
-/**
-* Add an image size for masonry
-*/
 
-if ( function_exists( 'add_image_size' ) ) {
-	add_image_size( 'masonry-thumb',  235, 180, true );
-}
 
 /**
 * Responsive Image Thing
 *
 */
-
-add_image_size( 'fd-def', 99999, 99999);
-add_image_size( 'fd-sm', 200, 9999);
 
 if (! function_exists('_sf_responsive_img') ) :
 function _sf_responsive_img($html, $post_id, $post_thumbnail_id, $size, $attr) {
