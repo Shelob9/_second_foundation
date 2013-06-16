@@ -44,11 +44,12 @@ function _sf_customize_register( $wp_customize ){
         'title'    => __('Home Page Slider', '_s_f'),
         'priority' => 120,
     ));
-    //topbar/nav settings
+//topbar/nav settings
     $wp_customize->add_section('_sf_menu_options', array(
-        'title'    => __('Menu and Header Options', '_sf'),
+        'title'    => __('Menu Bar Options', '_sf'),
         'priority' => 120,
     ));
+
 //Page Options 
     $wp_customize->add_section('_sf_page_options', array(
         'title'    => __('Page Options', '_sf'),
@@ -59,21 +60,14 @@ function _sf_customize_register( $wp_customize ){
         'title'    => __('Background Options', '_sf'),
         'priority' => 129,
     ));
-//Sections For Color Controls
-    $wp_customize->add_section('menu-colors', array(
-        'title'    => __('Menu Section Colors', '_sf'),
-        'priority' => 130,
-    ));
- 	$wp_customize->add_section('header-colors', array(
-        'title'    => __('Header Section Colors', '_sf'),
-        'priority' => 131,
-    ));
+//content colors
     $wp_customize->add_section('content-colors', array(
         'title'    => __('Content Area Colors', '_sf'),
         'priority' => 132,
     ));
+//Background Options
      $wp_customize->add_section('_sf_background', array(
-        'title'    => __('Page Settings', '_sf'),
+        'title'    => __('Background Options', '_sf'),
         'priority' => 128,
     ));
 /**
@@ -302,7 +296,7 @@ function _sf_customize_register( $wp_customize ){
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => 'menu-colors',
+				'section' => '_sf_menu_options',
 				'settings' => $color['slug'])
 			)
 		);
