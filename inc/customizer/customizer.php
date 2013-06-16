@@ -56,7 +56,7 @@ function _sf_customize_register( $wp_customize ){
         'priority' => 121,
     ));
 //Section For Background Options
-	 $wp_customize->add_section('backgrounds', array(
+	 $wp_customize->add_section('_sf_backgrounds', array(
         'title'    => __('Background Options', '_sf'),
         'priority' => 129,
     ));
@@ -65,11 +65,7 @@ function _sf_customize_register( $wp_customize ){
         'title'    => __('Content Area Colors', '_sf'),
         'priority' => 132,
     ));
-//Background Options
-     $wp_customize->add_section('_sf_background', array(
-        'title'    => __('Background Options', '_sf'),
-        'priority' => 128,
-    ));
+
 /**
 * Slider
 */    
@@ -349,14 +345,37 @@ function _sf_customize_register( $wp_customize ){
 			)
 		);
 	}
-//header colors
-	$header[] = array(
+
+/**
+* Background(s)
+* 
+*/
+  // =====================
+  // = background colors =
+  // =====================
+  //TODO: Gradients!
+	$bg[] = array(
+		'slug'=>'page_bg_color', 
+		'default' => '#fff',
+		'label' => __('Page Background Color', 'sf')
+	);
+	$bg[] = array(
 		'slug'=>'header_bg_color', 
 		'default' => '#fff',
 		'label' => __('Header Background Color', 'sf')
 	);
+	$bg[] = array(
+		'slug'=>'content_bg_color', 
+		'default' => '#fff',
+		'label' => __('Content Area Background Color', 'sf')
+	);
+	$bg[] = array(
+		'slug'=>'sidebar_bg_color', 
+		'default' => '#fff',
+		'label' => __('Sidebar Background Color', 'sf')
+	);
 	
-		foreach( $header as $color ) {
+		foreach( $bg as $color ) {
 		// SETTINGS
 		$wp_customize->add_setting(
 			$color['slug'], array(
@@ -372,15 +391,11 @@ function _sf_customize_register( $wp_customize ){
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => '_sf_header_options',
+				'section' => '_sf_backgrounds',
 				'settings' => $color['slug'])
 			)
 		);
 	}
-/**
-* Background(s)
-* 
-*/
   // =====================================
   // = Content/ Header Area Transperancy =
   // =====================================
@@ -395,7 +410,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Transparent Background For Content Area',
-        'section' => 'content-colors',
+        'section' => '_sf_backgrounds',
         )
     );
 //header area
@@ -408,30 +423,13 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Transparent Background For Header Area',
-        'section' => 'header-colors',
+        'section' => '_sf_backgrounds',
         )
     );
   	// =========
 	// PAGE BG =
 	// =========
-	//TODO: Gradients!
-//Page bg color	
-	$wp_customize->add_setting( 'bg-color' , array(
-    'default'     => '#fff',
-    'transport'   => 'postMessage',
-    'type' => 'option'
-	) );
 	
-	$wp_customize->add_control( 
-	new WP_Customize_Color_Control( 
-	$wp_customize, 
-	'bg-color', 
-	array(
-		'label'      => __( 'Page Background Color', '_sf' ),
-		'section'    => '_sf_background',
-		'settings'   => 'bg-color',
-	) ) 
-	);
 	//Background Color or Full-Width Image?
 	$wp_customize->add_setting('body_bg_choice', array(
 	) );
@@ -441,7 +439,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Use Background Image Instead of Color?',
-        'section' => '_sf_background',
+        'section' => '_sf_backgrounds',
         'settings'   => 'body_bg_choice',
         )
     );
@@ -453,7 +451,7 @@ function _sf_customize_register( $wp_customize ){
  
     $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'body_bg_img', array(
         'label'    => __('Upload Page Background', 'sf'),
-        'section'    => '_sf_background',
+        'section'    => '_sf_backgrounds',
         'settings' => 'body_bg_img',
     )));
 
