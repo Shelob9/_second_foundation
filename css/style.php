@@ -27,11 +27,15 @@ function _sf_custom_style() {
 	$page_bg_color = get_option('page_bg_color');
 	$sidebar_bg_color = get_option('sidebar_bg_color');
 	$footer_bg_color = get_option('footer_bg_color');
+	$masonry_bg_color = get_option('masonry_bg_color');
+	$masonry_excerpt_text_color = get_option('masonry_excerpt_text_color');
+	$masonry_title_color = get_option('masonry_title_color');
+	$masonry_border_color = get_option('masonry_border_color');
 echo '<style>'; ?>
 	.entry-content { color:  <?php echo $content_text_color; ?>; }
 	#content a { color:  <?php echo $content_link_color; ?>; }
 	.site-description {color: <?php echo $site_description_color; ?> }
-	h1.entry-title {color: <?php echo $post_title_color; ?> }
+	h1.entry-title a {color: <?php echo $post_title_color; ?> }
 	.top-bar-section ul li>a {color: <?php echo $menu_text_color; ?> }
 	.top-bar .name h1 a, h1.site-title a {color: <?php echo $site_name_color; ?> }
 	.top-bar, .top-bar-section li a:not(.button) {background-color: <?php echo $menu_bg_color; ?> }
@@ -98,6 +102,21 @@ echo '<style>'; ?>
 	echo get_custom_header()->height;
 	echo ';background-repeat:no-repeat;';
 	echo '}';
+	
+//style masonry boxes if we are using masonry today
+	if (! get_theme_mod( '_sf_masonry' ) == '' ) {
+		echo '.masonry-entry{background-color:';
+		echo $masonry_bg_color;
+		echo '; border-color:';
+		echo $masonry_border_color;
+		echo ';}';
+		echo 'h5.masonry-post-title{color:';
+		echo $masonry_title_color;
+		echo ';}';
+		echo '.masonry-post-excerpt{color:';
+		echo $masonry_excerpt_text_color;
+		echo ';}';	
+	}
 
 echo '</style>';
 

@@ -65,7 +65,11 @@ function _sf_customize_register( $wp_customize ){
         'title'    => __('Content Area Colors', '_sf'),
         'priority' => 132,
     ));
-
+// Masonry Colors
+    $wp_customize->add_section('masonry-colors', array(
+        'title'    => __('Masonry Colors', '_sf'),
+        'priority' => 122,
+    ));
 /**
 * Slider
 */    
@@ -505,8 +509,66 @@ $wp_customize->add_setting(
 			)
 		)
     );
+
+    //  ============
+    //  = Masonry =
+    //  ===========
+ 	//show excerpt
+ 	$wp_customize->add_setting(
+    '_sf_masonry_excerpt'
+    );
+
+    $wp_customize->add_control(
+    '_sf_masonry_excerpt',
+    array(
+        'type' => 'checkbox',
+        'label' => __('Show Excerpt In Masonry Box?', '_sf'),
+        'section' => 'masonry-colors',
+        )
+    );
+    //masonry colors
+	$masonry[] = array(
+		'slug'=>'masonry_bg_color', 
+		'default' => '#fff',
+		'label' => __('Background Color', '_sf')
+	);
+	$masonry[] = array(
+	'slug'=>'masonry_excerpt_text_color', 
+	'default' => ' ',
+	'label' => __('Excerpt Text Color', '_sf')
+	);
+	$masonry[] = array(
+		'slug'=>'masonry_title_color', 
+		'default' => ' ',
+		'label' => __('Title Color', '_sf')
+	);
+	$masonry[] = array(
+		'slug'=>'masonry_border_color', 
+		'default' => ' ',
+		'label' => __('Border Color', '_sf')
+	);
+			foreach( $masonry as $color ) {
+		// SETTINGS
+		$wp_customize->add_setting(
+			$color['slug'], array(
+				'default' => $color['default'],
+				'type' => 'option', 
+				'capability' => 
+				'edit_theme_options'
+			)
+		);
+		// CONTROLS
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				$color['slug'], 
+				array('label' => $color['label'], 
+				'section' => 'masonry-colors',
+				'settings' => $color['slug'])
+			)
+		);
+	}
 }
- 
 add_action('customize_register', '_sf_customize_register');
 endif; //! _sf_customize_register exists
 
