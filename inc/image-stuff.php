@@ -16,6 +16,8 @@
 	//for interchange responsive image thing
 	add_image_size( 'fd-def', 99999, 99999);
 	add_image_size( 'fd-sm', 200, 9999);
+	//Add 320x480 image size specifically for mobile background use.
+	add_image_size( 'mobile-bg', 320, 480 );
 	
 }
 
@@ -80,9 +82,7 @@ function _sf_bg_img_size_decider() {
 }
 add_action('wp_enqueue_scripts', '_sf_bg_img_size_decider');
 endif; // ! _sf_bg_img_size_decider exists
-
-//Add 320x480 image size specifically for mobile background use.
-add_image_size( 'mobile-bg', 320, 480 ); 
+ 
 
 //function to put the bg img or not into header
 if (! function_exists('_sf_full_bg') ) :
