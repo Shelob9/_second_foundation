@@ -49,10 +49,15 @@ function _sf_customize_register( $wp_customize ){
         'title'    => __('Menu and Header Options', '_sf'),
         'priority' => 120,
     ));
-//Fancy JS 
-    $wp_customize->add_section('_sf_fancy_js', array(
-        'title'    => __('Fancy Javascripts', '_sf'),
+//Page Options 
+    $wp_customize->add_section('_sf_page_options', array(
+        'title'    => __('Page Options', '_sf'),
         'priority' => 121,
+    ));
+//Section For Background Options
+	 $wp_customize->add_section('backgrounds', array(
+        'title'    => __('Background Options', '_sf'),
+        'priority' => 129,
     ));
 //Sections For Color Controls
     $wp_customize->add_section('menu-colors', array(
@@ -196,7 +201,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => __('Disable Infinite Scroll?', '_sf'),
-        'section' => '_sf_fancy_js',
+        'section' => '_sf_page_options',
         )
     );
     //  ============================
@@ -211,7 +216,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => __('Disable AJAX Page Loads?', '_sf'),
-        'section' => '_sf_fancy_js',
+        'section' => '_sf_page_options',
         )
     );
     //  ============================
@@ -226,7 +231,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => __('Use Masonry For Main Blog Page?', '_sf'),
-        'section' => '_sf_fancy_js',
+        'section' => '_sf_page_options',
         )
     );
  
