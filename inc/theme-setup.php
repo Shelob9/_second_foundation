@@ -73,28 +73,3 @@ function _sf_widgets_init() {
 add_action( 'widgets_init', '_sf_widgets_init' );
 endif; //! _sf_widgets_init exists
 
-/**
- * Add custom header with flexible dimensions
- **/
-// Register Theme Features
-if (! function_exists('_sf_theme_features') ) :
-function _sf_theme_features()  {
-
-	// Add theme support for Custom Header
-	$header_args = array(
-		'default-image'          => '',
-		'width'                  => 0,
-		'height'                 => 0,
-		'flex-width'             => true,
-		'flex-height'            => true,
-		'random-default'         => false,
-		'header-text'            => false,
-		'default-text-color'     => '#000',
-		'uploads'                => true,
-
-	);
-	add_theme_support( 'custom-header', $header_args );
-}
-// Hook into the 'after_setup_theme' action
-add_action( 'after_setup_theme', '_sf_theme_features' );
-endif; //! _sf_theme_features exists

@@ -99,6 +99,31 @@ function _sf_header() { ?>
 endif; // ! if _sf_header exists
 
 /**
+ * Add custom header with flexible dimensions
+ **/
+if (! function_exists('_sf_custom_header') ) :
+function _sf_custom_header()  {
+
+	// Add theme support for Custom Header
+	$header_args = array(
+		'default-image'          => '',
+		'width'                  => 0,
+		'height'                 => 0,
+		'flex-width'             => true,
+		'flex-height'            => true,
+		'random-default'         => false,
+		'header-text'            => false,
+		'default-text-color'     => '#000',
+		'uploads'                => true,
+
+	);
+	add_theme_support( 'custom-header', $header_args );
+}
+// Hook into the 'after_setup_theme' action
+add_action( 'after_setup_theme', '_sf_custom_header' );
+endif; //! _sf_custom_header
+
+/**
  * A fallback when no navigation is selected by default, otherwise it throws some nasty errors in your face.
  * From required+ Foundation http://themes.required.ch
  */
