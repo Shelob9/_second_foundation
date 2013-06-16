@@ -20,6 +20,30 @@ New Features In v.1.0.5
 2) Fully screen backgrounds. <em>Done, but limited by new feature #3.</em><br />
 3) Responsive image sizing for full-screen backgrounds to avoid loading a large background image file for mobile. <em>Done-ish.</em>
 
+<strong>1.0.5.1</strong>
+
+1) All images responsive. <em>In Progress using Foudnation Interchange.</e>
+
+2) More color customizations. <em>In Progress on branch redo.options.</em>
+
+3) Breaking up functions into a lib for ease of use and child theme override. <em>Done.</em>
+
+4) Break up all script enqueues into separate functions, along with initialization functions so they each have their own action that can be removed by child theme. Maybe by theme option late. <em>In Progress on branch breakup.enqueues. Almost done, except it broke infinite scroll:(</em>
+
+5) Add option to use Masonry for blog. <em>Done.</em>
+
+6) Redo full screen background using supersize.js since existing method kinda sucks since it tends to distort image.
+
+7) Separate background image options for header and content area. <em>In Progress on branch redo.options. Options exist, not implemented.</em>
+
+8) Sanitization functions for customizer. <em>Done</em>.
+
+9) Additional links to customizer. <em>Done</em>.
+
+10) Move sidebar from left to right, or remove it via option. Can be overridden in templates. <em>Done</em>. Later will build nicer over ride system--per post, per page, etc. For now just add conditional values for $sidebar.
+
+
+
 Josh Pollock
 ============
 * [Website](http://ComplexWaveform.com)<br />
