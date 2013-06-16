@@ -434,4 +434,39 @@ function _sf_customize_register( $wp_customize ){
  
 add_action('customize_register', '_sf_customize_register');
 endif; //! _sf_customize_register exists
+
+/**
+* Add links to Customizer
+* 1.0.5.1
+*/
+//Add WordPress customizer page to the admin menu.
+if(!function_exists('_sf_add_options_menu')) :
+
+	function _sf_add_options_menu() {
+	    $theme_page = add_theme_page(
+	        __( 'Customize Theme', '_sf' ),   // Name of page
+	        __( 'Customize Theme', '_sf' ),   // Label in menu
+	        'edit_theme_options',          // Capability required
+	        'customize.php'             // Menu slug, used to uniquely identify the page
+	    );
+	}
+add_action ('admin_menu', '_sf_add_options_menu');
+endif; // ! _sf_add_options_menu exists
+
+//Add WordPress customizer page to the admin bar menu.
+if(!function_exists('_sf_add_admin_bar_options_menu')) :
+	function _sf_add_admin_bar_options_menu() {
+	   if ( current_user_can( 'edit_theme_options' ) ) {
+	     global $wp_admin_bar;
+	     $wp_admin_bar->add_menu( array(
+	       'parent' => false,
+	       'id' => 'theme_editor_admin_bar',
+	       'title' =>  __( 'Customize Theme', '_sf' ),
+	       'href' => admin_url( 'customize.php')
+	     ));
+	   }
+	}
+add_action( 'wp_before_admin_bar_render', '_sf_add_admin_bar_options_menu' );
+endif; // ! _sf_add_admin_bar_options_menu exists
+
 ?>
