@@ -20,11 +20,12 @@ function _sf_custom_style() {
 	$header_bg_color = get_option('header_bg_color');
 	$menu_bg_color = get_option('menu_bg_color');
 	$menu_hover_color = get_option('menu_hover_color');
-	$background_color = get_option('bg-color');
 	$search_but_txt = get_option('menu_search_txt_color');
 	$search_but_bg = get_option('menu_search_bg_color');
 	$search_but_txt_hv = get_option('menu_search_txt_color_hv');
 	$search_but_bg_hv = get_option('menu_search_bg_color_hv');
+	$page_bg_color = get_option('page_bg_color');
+	$sidebar_bg_color = get_option('sidebar_bg_color');
 
 echo '<style>'; ?>
 	.entry-content { color:  <?php echo $content_text_color; ?>; }
@@ -62,7 +63,7 @@ echo '<style>'; ?>
 	// If page background is not set to full-screen image set a color else ad #bg to make that container a fullscreen background.
 	if ( get_theme_mod( 'body_bg_choice' ) == '' ) { 
 		echo 'body{background-color:';
-		echo $background_color;
+		echo $page_bg_color;
 		echo ';}';
 	}
 	else { ?>
