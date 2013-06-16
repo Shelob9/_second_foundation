@@ -28,6 +28,11 @@ endif; //! _sf_customize_preview_js exists
 if (! function_exists('_sf_customize_register') ) :
 function _sf_customize_register( $wp_customize ){
 
+	//Remove unnecessary defaults controls, settings and sections
+	$wp_customize-> remove_section('background_image');
+	$wp_customize-> remove_section('static_front_page');
+	$wp_customize-> remove_section('colors');
+
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
