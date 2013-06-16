@@ -45,8 +45,8 @@ function _sf_customize_register( $wp_customize ){
         'priority' => 120,
     ));
 //topbar/nav settings
-    $wp_customize->add_section('_sf_menu_options', array(
-        'title'    => __('Menu Bar Options', '_sf'),
+    $wp_customize->add_section('_sf_header_options', array(
+        'title'    => __('Header Options', '_sf'),
         'priority' => 120,
     ));
 
@@ -150,7 +150,7 @@ function _sf_customize_register( $wp_customize ){
     $wp_customize->add_control('display_menu_name', array(
         'settings' => '_sf_theme_options_menu_name',
         'label'    => __('Display Name of site in Menu?', '_sf'),
-        'section'  => '_sf_menu_options',
+        'section'  => '_sf_header_options',
         'type'     => 'checkbox',
     ));
  	//  =============================
@@ -163,7 +163,7 @@ function _sf_customize_register( $wp_customize ){
     $wp_customize->add_control('menu_sticky', array(
         'settings' => '_sf_theme_options_menu_sticky',
         'label'    => __('Stick Menu To Top Of Page?', '_sf'),
-        'section'  => '_sf_menu_options',
+        'section'  => '_sf_header_options',
         'type'     => 'checkbox',
     ));
     //  ======================
@@ -176,7 +176,7 @@ function _sf_customize_register( $wp_customize ){
     $wp_customize->add_control('menu_search', array(
         'settings' => '_sf_theme_options_menu_search',
         'label'    => __('Search Bar In Menu?', '_sf'),
-        'section'  => '_sf_menu_options',
+        'section'  => '_sf_header_options',
         'type'     => 'checkbox',
     ));
  
@@ -296,7 +296,7 @@ function _sf_customize_register( $wp_customize ){
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => '_sf_menu_options',
+				'section' => '_sf_header_options',
 				'settings' => $color['slug'])
 			)
 		);
