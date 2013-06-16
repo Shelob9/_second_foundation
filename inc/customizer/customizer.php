@@ -588,24 +588,36 @@ function _sf_customize_register( $wp_customize ){
 $wp_customize->add_setting(
 			'_sf_default_sidebar', 
 			array(
-				'default'        => 'value1',
+				'default'        => 'value2',
 				'capability'     => 'edit_theme_options'
 				)
 		);
 	$wp_customize->add_control(
-   		'sidebar-decider',
+   		 '_sf_default_sidebar',
 		array(
 			'label' => __('Sidebar Location', '_s_f'),
-			'settings' => '_sf_default_sidebar',
 			'section' => '_sf_page_options',
-			'type'       => 'radio',
+			'default'        => 'value2',
+			'type'       => 'select',
 			'choices'    => array(
-				'value1' => 'right',
-				'value2' => 'left',
-				'value3' => 'none',
+				'value1' => 'Right',
+				'value2' => 'Left',
+				'value3' => 'None',
 			)
 		)
     );
+    /**
+     $wp_customize->add_control(
+    '_sf_default_sidebar',
+    array(
+        'type' => 'text',
+		'default' => 'none',
+        'label' => 'Location of sidebar.',
+        'section' => '_sf_page_options',
+        'sanitize_callback' => '_sf_sanitize_number'
+        )
+    );
+    **/
 
     //  ============
     //  = Masonry =

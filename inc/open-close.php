@@ -16,19 +16,27 @@ function _sf_open($sidebar) {
 	if ($sidebar == '') {
 		$sidebar = 'none';
 	}
-
-	if ($sidebar == 'left') {
-		echo  '<div id="primary" class="content-area row primary-sidebar-left">';
-		echo   '<div id="content" class="site-content large-9 push-3 columns" role="main">';
-	}
-	elseif ($sidebar == 'none') {
+	/**
+	'value1' => 'right',
+	'value2' => 'left',
+	'value3' => 'none',
+	**/
+	
+	// value1 = right
+	if ($sidebar == 'value3') {
 		echo   '<div id="primary" class="content-area row primary-sidebar-none">';
 		echo   '<div id="content" class="site-content large-12 columns" role="main">';
 	}
-	else {
+	// value3 = none
+	elseif ($sidebar == 'value1') {
 		echo   '<div id="primary" class="content-area row primary-sidebar-right">';
 		echo   '<div id="content" class="site-content large-9 columns" role="main">';
 	}
+	else {
+		echo  '<div id="primary" class="content-area row primary-sidebar-left">';
+		echo   '<div id="content" class="site-content large-9 push-3 columns" role="main">';
+	}
+	
 }
 endif; //! _sf_open exists
 
@@ -37,8 +45,8 @@ function _sf_close($sidebar, $sidebarName = null) {
 	if ($sidebar == '') {
 		$sidebar = 'none';
 	}
-
-	if ($sidebar == 'none') {
+	// value3 = none
+	if ($sidebar == 'value3') {
 		echo   '</div><!-- #content -->';
 		echo   '</div><!-- #primary -->';
 		echo  get_footer();
@@ -48,16 +56,18 @@ function _sf_close($sidebar, $sidebarName = null) {
 		echo  get_sidebar();
 		echo   '</div><!-- #primary -->';
 		echo  get_footer();
-	}	
+	}
 }
 endif; //! _sf_close exists
 
 if (! function_exists('_sf_sidebar_starter') ) :
 function _sf_sidebar_starter($sidebar) {
-	if ($sidebar == 'left') {
+	// value2 = left
+	if ($sidebar == 'value2') {
 		echo '<div id="secondary" class="widget-area large-3 pull-9 columns" role="complementary">';
 	}
-	elseif ($sidebar == 'none') {
+	// value3 = none
+	elseif ($sidebar == 'value3') {
 	
 	}
 	else {	
