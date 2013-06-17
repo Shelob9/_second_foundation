@@ -1,4 +1,4 @@
-_second_foundation
+_Second Foundation
 ==================
 Second Foundation is a starter theme for WordPress by Josh Pollock. It is based on Foundation 4 by ZURB and Underscores (_S) by Automattic.
 
