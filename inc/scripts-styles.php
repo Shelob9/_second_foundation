@@ -13,7 +13,7 @@
  * In child theme can deactivate via remove_action
  * See: http://codex.wordpress.org/Function_Reference/remove_action
  */
-
+if (! is_admin() ) :
 //Foundation
 if (! function_exists('_sf_scripts_foundation') ) :
 function _sf_scripts_foundation() {
@@ -182,6 +182,11 @@ function _sf_style() {
 }
 add_action( 'wp_enqueue_scripts', '_sf_style' );
 endif; //! _sf_style exists
+
+endif; // ! is_admin
+/**
+* Other scripts
+*/
 
 //extra description/ insturctions in themes.php
 if (! function_exists('_sf_extraDesc') ):
