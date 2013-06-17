@@ -160,7 +160,8 @@ function _sf_js_init_ajaxMenus() { ?>
 					$('#content').fadeTo(200,1);
 					//re-initialize foundation, so Orbit works on reloading of front page if in use.
 					$(document).foundation();
-			
+					//re-initialize infinite scroll
+					$( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
 					// Updates the menu
 					var request = $(data);
 					$('#access').replaceWith($('#access', request));
