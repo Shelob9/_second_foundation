@@ -13,7 +13,13 @@ function _sf_header() { ?>
 <header id="masthead" class="site-header row" role="banner">
 		<div class="row" id="header image">
 			<div class="large-12 columns centered">
-				<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
+				<?php
+					$header_image = get_header_image();
+					if ( ! empty( $header_image ) ) { ?>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+							<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" />
+						</a>
+	<?php } // if ( ! empty( $header_image ) ) ?>
 			</div>
 		</div>
 		<?php 
