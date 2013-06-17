@@ -46,12 +46,12 @@ endif; //! _sf_js_init_foundation
 //Infinite Scroll
 if (! function_exists('_sf_scripts_infScroll') ) :
 function _sf_scripts_infScroll() {
-	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'), false, true );
-	if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_backstretch' ) !== '' ) )  {
+	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'), false, false );
+	if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) )  {
 		wp_enqueue_script('infinite_scroll');
 	}
 }
-add_action( 'wp_enqueue_scripts', '_sf_scripts_infScroll', 100 );
+add_action( 'wp_enqueue_scripts', '_sf_scripts_infScroll' );
 endif; //! _sf_scripts exists_infScroll
 
 if (! function_exists('_sf_js_init_infScroll') )  :
@@ -75,26 +75,26 @@ function _sf_js_init_infScroll() {
 	<?php
 	
 }
-if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_backstretch' ) !== '' ) ) {
-	add_action('wp_footer', '_sf_js_init_infScroll', 1001);
+if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
+	add_action('wp_footer', '_sf_js_init_infScroll', 10);
 }
 endif; //! _sf_js_init_infScroll
 
-//backstretch
-if (! function_exists('_sf_scripts_backstretch') ) :
-function _sf_scripts_backstretch() {
-	wp_enqueue_script('backstretch', get_template_directory_uri().'/js/jquery.backstretch.min.js');
+//masonry
+if (! function_exists('_sf_scripts_masonry') ) :
+function _sf_scripts_masonry() {
+	wp_enqueue_script('masonry', get_template_directory_uri().'/js/jquery.masonry.min.js');
 }
-add_action( 'wp_enqueue_scripts', '_sf_scripts_backstretch' );
+add_action( 'wp_enqueue_scripts', '_sf_scripts_masonry' );
 endif; //! _sf_scripts exists
 
-if (! function_exists('_sf_js_init_backstretch') ) :
-function _sf_js_init_backstretch() {
+if (! function_exists('_sf_js_init_masonry') ) :
+function _sf_js_init_masonry() {
 	echo "
 		<script>
 			jQuery(document).ready(function($) {
-				$('#backstretch-loop').backstretch({
-					  itemSelector: '.backstretch-entry',
+				$('#masonry-loop').masonry({
+					  itemSelector: '.masonry-entry',
 					  // set columnWidth a fraction of the container width
 					  columnWidth: function( containerWidth ) {
 						return containerWidth / 4;
@@ -104,8 +104,10 @@ function _sf_js_init_backstretch() {
 		</script>
 	";
 }
-add_action('wp_footer', '_sf_js_init_backstretch');
-endif; //! _sf_js_init_backstretch
+if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
+	add_action('wp_footer', '_sf_js_init_masonry');
+}
+endif; //! _sf_js_init_masonry
 
 //
 if (! function_exists('_sf_scripts_ajaxMenus') ) :
@@ -120,7 +122,8 @@ add_action( 'wp_enqueue_scripts', '_sf_scripts_ajaxMenus' );
 endif; //! _sf_scripts exists
 
 if (! function_exists('_sf_js_init_ajaxMenus') ) :
-function _sf_js_init_ajaxMenus() { ?>
+function _sf_js_init_ajaxMenus() { 
+	echo'
 	<script>
 		jQuery(document).ready(function($) {
 			// method from: http://wptheming.com/2011/12/ajax-themes/
@@ -128,51 +131,55 @@ function _sf_js_init_ajaxMenus() { ?>
 			var
 				History = window.History, // Note: Using a capital H instead of a lower h
 				State = History.getState(),
-				$log = $('#log');
+				$log = $("#log");
 	
 			// If the link goes to somewhere else within the same domain, trigger the pushstate
-			$('#site-navigation a').on('click', function(e) {
+			$("#site-navigation a").on("click", function(e) {
 				e.preventDefault();
-				var path = $(this).attr('href');
+				var path = $(this).attr("href");
 				var title = $(this).text();
-				History.pushState('ajax',title,path);
+				History.pushState("ajax",title,path);
 			});
 		
 			// Bind to state change
 			// When the statechange happens, load the appropriate url via ajax
-			History.Adapter.bind(window,'statechange',function() { // Note: Using statechange instead of popstate
+			History.Adapter.bind(window,"statechange",function() { // Note: Using statechange instead of popstate
 				load_site_ajax();
 			});
 	
 			// Load Ajax
 			function load_site_ajax() {
 				State = History.getState(); // Note: Using History.getState() instead of event.state
-				// History.log('statechange:', State.data, State.title, State.url);
+				// History.log("statechange:", State.data, State.title, State.url);
 				//console.log(event);
-				$("#primary").prepend('<div id="ajax-loader"><h4>Loading...</h4></div>');
+				$("#primary").prepend(\'<div id="ajax-loader"><h4>Loading...</h4></div>\');
 				$("#ajax-loader").fadeIn();
-				$('#site-description').fadeTo(200,0);
-				$('#content').fadeTo(200,.3);
-				$("#main").load(State.url + ' #primary ', function(data) {
+				$("#site-description").fadeTo(200,0);
+				$("#content").fadeTo(200,.3);
+				$("#main").load(State.url + " #primary ", function(data) {
 					/* After the content loads you can make additional callbacks*/
-					$('#site-description').text('Ajax loaded: ' + State.url);
-					$('#site-description').fadeTo(200,1);
-					$('#content').fadeTo(200,1);
+					$("#site-description").text("Ajax loaded: " + State.url);
+					$("#site-description").fadeTo(200,1);
+					$("#content").fadeTo(200,1);
 					//re-initialize foundation, so Orbit works on reloading of front page if in use.
 					$(document).foundation();
-				<?php if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_backstretch' ) !== '' ) ) {
+			';
+			if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
+				echo '
 					//re-initialize infinite scroll
-					echo '$( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );';
-				} ?>
+					$( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
+				';
+			}
+		echo '
 					// Updates the menu
 					var request = $(data);
-					$('#access').replaceWith($('#access', request));
+					$("#access").replaceWith($("#access", request));
 			
 				});
 			}
 		}); //end no conflict wrapper
 	</script>
-	<?php
+	';
 }
 add_action('wp_footer', '_sf_js_init_ajaxMenus');
 endif; //! _sf_js_init_ajaxMenus
@@ -202,40 +209,35 @@ endif; //! _sf_scripts exists
 
 if (! function_exists('_sf_js_init_backstretch') ) :
 function _sf_js_init_backstretch() {
-	echo '<script>
-		jQuery(document).ready(function($)';
+	$body_img_url = get_theme_mod('body_bg_img');
+	$header_img_url = get_theme_mod('header_bg_img');
+	$content_img_url = get_theme_mod('content_bg_img');
+	echo '<script>     ';
+		
 	if ( ! get_theme_mod( 'body_bg_choice' ) == '' && ! $body_img_url == '' ) {
-		// store the image ID in a var
-		$id = $body_img_url;
-		$bg_img = _sf_get_image_id($id);
-		//is this step really needed? Turning it back into a url?
-		$img = wp_get_attachment_image_src($bg_img);
-		echo ' $.backstretch(';
-		echo $img[0];
-		echo '");';
-	}
+		$img = $body_img_url;
+		echo ' jQuery.backstretch("';
+		echo $img;
+		echo '");     ';
+	} 
+	
 	if ( ! get_theme_mod( 'header_bg_choice' ) == '' && ! $header_img_url == '' ) {
 		// store the image ID in a var
-		$id = $header_img_url;
-		$bg_img = _sf_get_image_id($id);
-		//is this step really needed? Turning it back into a url?
-		$img = wp_get_attachment_image_src($bg_img);
-		echo '$("#masthead").backstretch(';
-		echo $img[0];
-		echo '");';
+		$img = $header_img_url;
+		
+		echo 'jQuery("#masthead").backstretch("';
+		echo $img;
+		echo '");    ';
 	}
 	if ( ! get_theme_mod( 'content_bg_choice' ) == '' && ! $content_img_url == '' ) {
-		// store the image ID in a var
-		$id = $content_img_url;
-		$bg_img = _sf_get_image_id($id);
-		//is this step really needed? Turning it back into a url?
-		$img = wp_get_attachment_image_src($bg_img);
-		echo '$("#primary").backstretch(';
-		echo $img[0];
-		echo '");';
+		$img = $content_img_url;
+		echo 'jQuery("#primary").backstretch("';
+		echo $img;
+		echo '");    ';
 	}
 	
-	echo ')};//end no conflict
+	
+	echo '
 		</script>';
 }
 add_action('wp_footer', '_sf_js_init_backstretch');
