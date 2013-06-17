@@ -47,7 +47,7 @@ endif; //! _sf_js_init_foundation
 if (! function_exists('_sf_scripts_infScroll') ) :
 function _sf_scripts_infScroll() {
 	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'), false, true );
-	if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) )  {
+	if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_backstretch' ) !== '' ) )  {
 		wp_enqueue_script('infinite_scroll');
 	}
 }
@@ -75,26 +75,26 @@ function _sf_js_init_infScroll() {
 	<?php
 	
 }
-if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
+if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_backstretch' ) !== '' ) ) {
 	add_action('wp_footer', '_sf_js_init_infScroll', 1001);
 }
 endif; //! _sf_js_init_infScroll
 
-//masonry
-if (! function_exists('_sf_scripts_masonry') ) :
-function _sf_scripts_masonry() {
-	wp_enqueue_script('masonry', get_template_directory_uri().'/js/jquery.masonry.min.js');
+//backstretch
+if (! function_exists('_sf_scripts_backstretch') ) :
+function _sf_scripts_backstretch() {
+	wp_enqueue_script('backstretch', get_template_directory_uri().'/js/jquery.backstretch.min.js');
 }
-add_action( 'wp_enqueue_scripts', '_sf_scripts_masonry' );
+add_action( 'wp_enqueue_scripts', '_sf_scripts_backstretch' );
 endif; //! _sf_scripts exists
 
-if (! function_exists('_sf_js_init_masonry') ) :
-function _sf_js_init_masonry() {
+if (! function_exists('_sf_js_init_backstretch') ) :
+function _sf_js_init_backstretch() {
 	echo "
 		<script>
 			jQuery(document).ready(function($) {
-				$('#masonry-loop').masonry({
-					  itemSelector: '.masonry-entry',
+				$('#backstretch-loop').backstretch({
+					  itemSelector: '.backstretch-entry',
 					  // set columnWidth a fraction of the container width
 					  columnWidth: function( containerWidth ) {
 						return containerWidth / 4;
@@ -104,8 +104,8 @@ function _sf_js_init_masonry() {
 		</script>
 	";
 }
-add_action('wp_footer', '_sf_js_init_masonry');
-endif; //! _sf_js_init_masonry
+add_action('wp_footer', '_sf_js_init_backstretch');
+endif; //! _sf_js_init_backstretch
 
 //
 if (! function_exists('_sf_scripts_ajaxMenus') ) :
@@ -160,7 +160,7 @@ function _sf_js_init_ajaxMenus() { ?>
 					$('#content').fadeTo(200,1);
 					//re-initialize foundation, so Orbit works on reloading of front page if in use.
 					$(document).foundation();
-				<?php if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
+				<?php if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_backstretch' ) !== '' ) ) {
 					//re-initialize infinite scroll
 					echo '$( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );';
 				} ?>
@@ -180,32 +180,68 @@ endif; //! _sf_js_init_ajaxMenus
 /*
 * Backstretch
 */
-/**
+
+//get urls of background images. Doing this first to test if they have a value in the big if statement that is about to happen.
+$body_img_url = get_theme_mod('body_bg_img');
+$header_img_url = get_theme_mod('header_bg_img');
+$content_img_url = get_theme_mod('content_bg_img');
 if (
 //if we're using full screen background image, and one is set 
-! get_theme_mod( 'body_bg_choice' ) == '' && ! $bg_full == ''
+! get_theme_mod( 'body_bg_choice' ) == '' && ! $body_img_url == ''
 //or we're using a background image for the header and  and one is set 
-|| ! get_theme_mod( 'header_bg_choice' ) == '' && ! $bg_full == ''
-) {
-if (! function_exists('_sf_scripts_masonry') ) :
-function _sf_scripts_masonry() {
-	wp_enqueue_script('masonry', get_template_directory_uri().'/js/jquery.masonry.min.js');
+|| ! get_theme_mod( 'header_bg_choice' ) == '' && ! $header_img_url == ''
+//or we're using a background image for the content area and  and one is set 
+|| ! get_theme_mod( 'content_bg_choice' ) == '' && ! $content_img_url == ''
+) :
+if (! function_exists('_sf_scripts_backstretch') ) :
+function _sf_scripts_backstretch() {
+	wp_enqueue_script('backstretch', get_template_directory_uri().'/js/jquery.backstretch.min.js');
 }
-add_action( 'wp_enqueue_scripts', '_sf_scripts_masonry' );
+add_action( 'wp_enqueue_scripts', '_sf_scripts_backstretch' );
 endif; //! _sf_scripts exists
 
-if (! function_exists('_sf_js_init_masonry') ) :
-function _sf_js_init_masonry() {
-	echo "
-		<script>
-			
-		</script>
-	";
+if (! function_exists('_sf_js_init_backstretch') ) :
+function _sf_js_init_backstretch() {
+	echo '<script>
+		jQuery(document).ready(function($)';
+	if ( ! get_theme_mod( 'body_bg_choice' ) == '' && ! $body_img_url == '' ) {
+		// store the image ID in a var
+		$id = $body_img_url;
+		$bg_img = _sf_get_image_id($id);
+		//is this step really needed? Turning it back into a url?
+		$img = wp_get_attachment_image_src($bg_img);
+		echo ' $.backstretch(';
+		echo $img[0];
+		echo '");';
+	}
+	if ( ! get_theme_mod( 'header_bg_choice' ) == '' && ! $header_img_url == '' ) {
+		// store the image ID in a var
+		$id = $header_img_url;
+		$bg_img = _sf_get_image_id($id);
+		//is this step really needed? Turning it back into a url?
+		$img = wp_get_attachment_image_src($bg_img);
+		echo '$("#masthead").backstretch(';
+		echo $img[0];
+		echo '");';
+	}
+	if ( ! get_theme_mod( 'content_bg_choice' ) == '' && ! $content_img_url == '' ) {
+		// store the image ID in a var
+		$id = $content_img_url;
+		$bg_img = _sf_get_image_id($id);
+		//is this step really needed? Turning it back into a url?
+		$img = wp_get_attachment_image_src($bg_img);
+		echo '$("#primary").backstretch(';
+		echo $img[0];
+		echo '");';
+	}
+	
+	echo ')};//end no conflict
+		</script>';
 }
-add_action('wp_footer', '_sf_js_init_masonry');
-endif; //! _sf_js_init_masonry
+add_action('wp_footer', '_sf_js_init_backstretch');
+endif; //! _sf_js_init_backstretch
+endif; //the big one.
 
-**/
 if (! function_exists('_sf_style') ) :
 function _sf_style() {
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
