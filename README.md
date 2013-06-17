@@ -18,7 +18,7 @@ Key Features:
 
 Child Theme
 ===========
-A starter child theme is availble [https://github.com/Shelob9/second_speaker](here). It is designed to make it easy to overide and if neccasary replace scripts, styles and even whole parts of the parent theme's fucntions library. For more information see [the documentation] (https://github.com/Shelob9/_second_foundation/wiki/The-Great-Deactivator).
+A starter child theme is availble [here](https://github.com/Shelob9/second_speaker). It is designed to make it easy to overide and if neccasary replace scripts, styles and even whole parts of the parent theme's fucntions library. For more information see (the documentation) [https://github.com/Shelob9/_second_foundation/wiki/The-Great-Deactivator].
 
 New Features In v.1.0.5
 ==========================
