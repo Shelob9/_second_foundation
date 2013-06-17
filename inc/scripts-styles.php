@@ -46,8 +46,8 @@ endif; //! _sf_js_init_foundation
 //Infinite Scroll
 if (! function_exists('_sf_scripts_infScroll') ) :
 function _sf_scripts_infScroll() {
-wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'),null,true );
-	if (  ! is_singular()   && ! get_theme_mod( '_sf_masonry' ) == ''  ) {
+	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'), false, true );
+	if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) )  {
 		wp_enqueue_script('infinite_scroll');
 	}
 }
@@ -57,26 +57,26 @@ endif; //! _sf_scripts exists_infScroll
 if (! function_exists('_sf_js_init_infScroll') )  :
 function _sf_js_init_infScroll() {
 // Method from: http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
-	if( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) ){ ?>
+	 ?>
 	<script>
-	var infinite_scroll = {
-		loading: {
-			img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
-			msgText: "<?php _e( 'Loading the next set of posts...', 'custom' ); ?>",
-			finishedMsg: "<?php _e( 'All posts loaded.', 'custom' ); ?>"
-		},
-		"nextSelector":"#nav-below .nav-previous a",
-		"navSelector":"#nav-below",
-		"itemSelector":"article",
-		"contentSelector":"#content"
-	};
-	jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
+		var infinite_scroll = {
+			loading: {
+				img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
+				msgText: "<?php _e( 'Loading the next set of posts...', 'custom' ); ?>",
+				finishedMsg: "<?php _e( 'All posts loaded.', 'custom' ); ?>"
+			},
+			"nextSelector":"#nav-below .nav-previous a",
+			"navSelector":"#nav-below",
+			"itemSelector":"article",
+			"contentSelector":"#content"
+		};
+		jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
 	</script>
 	<?php
-	} //end if ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' )
+	
 }
-if (  ! is_singular()   && ! get_theme_mod( '_sf_masonry' ) == ''  ) {
-	add_action('wp_footer', '_sf_js_init_infScroll');
+if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
+	add_action('wp_footer', '_sf_js_init_infScroll', 1001);
 }
 endif; //! _sf_js_init_infScroll
 
@@ -114,7 +114,7 @@ function _sf_scripts_ajaxMenus() {
 		wp_deregister_script('historyjs');
 		wp_register_script( 'historyjs', get_template_directory_uri(). '/js/jquery.history.js', array( 'jquery' ), '1.7.1' );
 		wp_enqueue_script( 'historyjs' );	
-	endif; //get_theme_mod( '_sf_ajax' ) == ''
+	endif; // get_theme_mod( '_sf_ajax' ) == ''
 }
 add_action( 'wp_enqueue_scripts', '_sf_scripts_ajaxMenus' );
 endif; //! _sf_scripts exists
