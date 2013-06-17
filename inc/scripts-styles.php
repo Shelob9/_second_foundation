@@ -170,6 +170,8 @@ function _sf_js_init_ajaxMenus() {
 					$( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
 				';
 			}
+			
+			_sf_js_init_backstretch();
 		echo '
 					// Updates the menu
 					var request = $(data);
