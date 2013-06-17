@@ -60,6 +60,7 @@ echo '<style>'; ?>
 	h5.widget-title {color: <?php echo $widget_title_color; ?>;}
 	h1.entry-title {color: <?php echo $page_title_color; ?>;}
 	<?php
+
 	//if the background for the header is not set to transparent use $header_bg_color else just let it transparent.
 	if ( get_theme_mod( 'header-trans-bg' ) == '' ) { 	
 		echo '#masthead {background-color:';
@@ -72,13 +73,13 @@ echo '<style>'; ?>
 		echo $sidebar_bg_color;
 		echo '}';
 	}
-		//if the background for the footer is not set to transparent use $footer_bg_color else just let it transparent.
+		//if the background for the footer is not set to transparent set background color.
 	if ( get_theme_mod( 'footer-trans-bg' ) == '' ) { 	
 		echo '.site-footer {background-color:';
 		echo $footer_bg_color;
 		echo '}';
 	}
-	//if the background for the content is not set to transparent use $content_bg_color else just let  it transparent.
+	//if the background for the content is not set to transparent set background color.
 	if ( get_theme_mod( 'content-trans-bg' ) == '' ) { 
 		echo '#primary {background-color:';
 		echo $content_bg_color;
@@ -86,24 +87,16 @@ echo '<style>'; ?>
 		echo '.top-bar{paddding-right:15px}';
 	}
 	
-	// If page background is not set to full-screen image set a color else ad #bg to make that container a fullscreen background.
+	// If page background is not set to full-screen image set a color background.
 	if ( get_theme_mod( 'body_bg_choice' ) == '' ) { 
 		echo 'body{background-color:';
 		echo $page_bg_color;
 		echo ';}';
 	}
-	else { ?>
-			#bg {
- 			-webkit-background-size: cover;
-  			-moz-background-size: cover;
- 			-o-background-size: cover;
-  			background-size: cover;
-  			filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-			'-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
-			}
-	<?php }
+	 
 	
 //custom header image
+/* TODO MAKE THIS INTO A BANNER
 	echo '#masthead{ background-image:url(';
 	echo header_image();
 	echo '); background-size:';
@@ -111,6 +104,7 @@ echo '<style>'; ?>
 	echo get_custom_header()->height;
 	echo ';background-repeat:no-repeat;';
 	echo '}';
+*/
 	
 //style masonry boxes if we are using masonry today
 	if (! get_theme_mod( '_sf_masonry' ) == '' ) {
