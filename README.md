@@ -48,6 +48,10 @@ New Features In v.1.0.5
 
 10) Move sidebar from left to right, or remove it via option. Can be overridden in templates. <em>Done</em>. Later will build nicer over ride system--per post, per page, etc. For now just add conditional values for $sidebar.
 
+[Infinite Scroll Limitations](https://github.com/Shelob9/_second_foundation/wiki/Infinite-scroll)
+===========================
+* Activating Masonry deactivates, Infintite Scroll. I will make them play nice later.
+* If a background image is set for the conent area, infinte scroll may add articles on the blog page without the proper background.
 
 
 Josh Pollock
