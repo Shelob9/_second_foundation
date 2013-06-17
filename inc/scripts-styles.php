@@ -170,8 +170,8 @@ function _sf_js_init_ajaxMenus() {
 					$( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
 				';
 			}
-			
-			_sf_js_init_backstretch();
+			$use = 'reinit';
+			_sf_js_init_backstretch($use);
 		echo '
 					// Updates the menu
 					var request = $(data);
@@ -210,11 +210,15 @@ add_action( 'wp_enqueue_scripts', '_sf_scripts_backstretch' );
 endif; //! _sf_scripts exists
 
 if (! function_exists('_sf_js_init_backstretch') ) :
-function _sf_js_init_backstretch() {
+function _sf_js_init_backstretch($use = '') {
 	$body_img_url = get_theme_mod('body_bg_img');
 	$header_img_url = get_theme_mod('header_bg_img');
 	$content_img_url = get_theme_mod('content_bg_img');
-	echo '<script>     ';
+	
+	//$use = 'reinit' in the ajax menu callback, so we don't get style tags in the middle of that.
+	if (! $use == 'reinit') {
+		echo '<script>     ';
+	}
 		
 	if ( ! get_theme_mod( 'body_bg_choice' ) == '' && ! $body_img_url == '' ) {
 		$img = $body_img_url;
@@ -238,9 +242,9 @@ function _sf_js_init_backstretch() {
 		echo '");    ';
 	}
 	
-	
-	echo '
-		</script>';
+	if (! $use == 'reinit') {
+		echo '</script>';
+	}
 }
 add_action('wp_footer', '_sf_js_init_backstretch');
 endif; //! _sf_js_init_backstretch
