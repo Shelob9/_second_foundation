@@ -32,12 +32,13 @@ function _sf_js_init_foundation() { ?>
 	<script>
 	//initialize foundation
 		jQuery(document).ready(function($) {
-			$(document)
-				.foundation('interchange')
-				.foundation('orbit')
+			//orbit
+			$(document).foundation('orbit')
 				.foundation( 
 				'topbar', {stickyClass: 'sticky-topbar'}
 				);
+			//foundation
+		$(document).foundation('interchange', 'reflow');	
 		}); //end no conflict wrapper
 	</script>
 <?php
