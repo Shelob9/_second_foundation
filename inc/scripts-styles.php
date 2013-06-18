@@ -85,7 +85,7 @@ function _sf_js_init_infScroll_codeVar() { ?>
 endif; // if ! _sf_js_init_infScroll_code_var  exists
 
 if (! function_exists('_sf_js_init_infScroll_codeInit') ) :
-function _sf_js_init_infScroll_codeInit($use ='';) {
+function _sf_js_init_infScroll_codeInit($use ='') {
 	//$use='reinit' in the ajax menu callback to get $ instead of jQuery
 	if (! $use == 'reinit') {
 		echo '$( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );';
@@ -212,7 +212,7 @@ function _sf_js_init_ajaxMenus() {
 	_sf_js_init_foundation_code();
 	//use=reinit so inf_scroll and backstretch code functions are wrapped right.
 	$use = 'reinit';
-	if (  &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
+	if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
 		echo '//re-initialize infinite scroll
 		';
 			_sf_js_init_infScroll_codeInit();
