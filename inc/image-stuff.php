@@ -14,10 +14,10 @@
  	//for masonry
 	add_image_size( 'masonry-thumb',  235, 180, true );
 	//for interchange responsive image thing
-	add_image_size( 'fd-def', 99999, 99999);
-	add_image_size( 'fd-sm', 200, 9999);
-	//Add 320x480 image size specifically for mobile background use.
-	add_image_size( 'mobile-bg', 320, 480 );
+	add_image_size( 'fd-lrg', 1024, 99999);
+	add_image_size( 'fd-med', 768, 99999);
+	add_image_size( 'fd-sm', 320, 9999);
+
 	
 }
 
@@ -57,13 +57,23 @@ endif; // ! _sf_bg_img_size_decider exists
 
 if (! function_exists('_sf_responsive_img') ) :
 function _sf_responsive_img($html, $post_id, $post_thumbnail_id, $size, $attr) {
-	 $attachment_id = $post_thumbnail_id;
-	$size = 'fd-def';
-   $default = wp_get_attachment_image_src($attachment_id, $size);
-   $size = 'fd-sm';
-  	$small = wp_get_attachment_image_src($attachment_id, $size);
-   $html = '<img src="'.$default[0].'"data-interchange="['.$default[0].', (default)], ['.$small[0].', (small)">';
-   return $html;
+	//make image links
+	$attachment_id = $post_thumbnail_id;
+	$default = wp_get_attachment_image_src($attachment_id);
+	$size = 'fd-sm';
+	$small = wp_get_attachment_image_src($attachment_id, $size);
+	$size = 'fd-med';
+	$med = wp_get_attachment_image_src($attachment_id, $size);
+	$size = 'fd-lrg';
+	$lrg = wp_get_attachment_image_src($attachment_id, $size);
+	//create image tag with queries
+	$html = '<img src="'.$default[0].'"';
+	$html .= 'data-interchange="['.$default[0].', (default)],';
+	$html .= '['.$small[0].', (only screen and (min-width: 320px))],';
+	$html .= '['.$med[0].', (only screen and (min-width: 768px))],';
+	$html .= '['.$lrg[0].', (only screen and (min-width: 1024px))],';
+	$html .='>';
+	return $html;
 }
 add_filter('post_thumbnail_html', '_sf_responsive_img', 5, 5);
 endif; // ! _sf_responsive_img exists

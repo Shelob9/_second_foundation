@@ -30,12 +30,15 @@ endif; //! _sf_scripts_foundation exists
 if (! function_exists('_sf_js_init_foundation') ) :
 function _sf_js_init_foundation() { ?>
 	<script>
+	//initialize foundation
 		jQuery(document).ready(function($) {
-		//Foundation
+			//orbit
 			$(document).foundation('orbit')
 				.foundation( 
 				'topbar', {stickyClass: 'sticky-topbar'}
 				);
+			//foundation
+		$(document).foundation('interchange', 'reflow');	
 		}); //end no conflict wrapper
 	</script>
 <?php
@@ -47,7 +50,7 @@ endif; //! _sf_js_init_foundation
 if (! function_exists('_sf_scripts_infScroll') ) :
 function _sf_scripts_infScroll() {
 	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'), false, false );
-	if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) )  {
+	if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) )  {
 		wp_enqueue_script('infinite_scroll');
 	}
 }
@@ -75,7 +78,7 @@ function _sf_js_init_infScroll() {
 	<?php
 	
 }
-if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
+if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
 	add_action('wp_footer', '_sf_js_init_infScroll', 10);
 }
 endif; //! _sf_js_init_infScroll
@@ -162,7 +165,11 @@ function _sf_js_init_ajaxMenus() {
 					$("#site-description").fadeTo(200,1);
 					$("#content").fadeTo(200,1);
 					//re-initialize foundation, so Orbit works on reloading of front page if in use.
-					$(document).foundation();
+						.foundation(\'interchange\')
+						.foundation(\'orbit\')
+						.foundation( 
+						\'topbar\', {stickyClass: \'sticky-topbar\'}
+				);
 			';
 			if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
 				echo '
