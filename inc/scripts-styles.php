@@ -67,7 +67,7 @@ add_action( 'wp_enqueue_scripts', '_sf_scripts_infScroll' );
 endif; //! _sf_scripts exists_infScroll
 
 if (! function_exists('_sf_js_init_infScroll_code') ) :
-function _sf_js_init_infScroll_code() { ?>
+function _sf_js_init_infScroll_codeVar() { ?>
 
 		var infinite_scroll = {
 			loading: {
@@ -80,10 +80,23 @@ function _sf_js_init_infScroll_code() { ?>
 			"itemSelector":"article",
 			"contentSelector":"#content"
 		};
-		jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
 <?php
 }
-endif; // if ! _sf_js_init_infScroll_code exists
+endif; // if ! _sf_js_init_infScroll_code_var  exists
+
+if (! function_exists('_sf_js_init_infScroll_codeInit') ) :
+function _sf_js_init_infScroll_codeInit($use ='';) {
+	//$use='reinit' in the ajax menu callback to get $ instead of jQuery
+	if (! $use == 'reinit') {
+		echo '$( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );';
+	}
+	else {
+		echo 'jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );';
+	}
+		
+
+}
+endif; // if ! _sf_js_init_infScroll_codeInit exists
 
 if (! function_exists('_sf_js_init_infScroll') )  :
 function _sf_js_init_infScroll() {
@@ -91,7 +104,8 @@ function _sf_js_init_infScroll() {
 	echo '
 		<script>
 	';
-	_sf_js_init_infScroll_code()
+	_sf_js_init_infScroll_codeVar();
+	_sf_js_init_infScroll_codeInit();
 	echo '	
 		</script>
 	';
