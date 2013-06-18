@@ -100,11 +100,9 @@ function _sf_scripts_masonry() {
 add_action( 'wp_enqueue_scripts', '_sf_scripts_masonry' );
 endif; //! _sf_scripts exists
 
-if (! function_exists('_sf_js_init_masonry') ) :
-function _sf_js_init_masonry() {
+if (! function_exists('_sf_js_init_masonry_code') ) :
+function _sf_js_init_masonry_code() {
 	echo "
-		<script>
-			jQuery(document).ready(function($) {
 				$('#masonry-loop').masonry({
 					  itemSelector: '.masonry-entry',
 					  // set columnWidth a fraction of the container width
@@ -112,6 +110,18 @@ function _sf_js_init_masonry() {
 						return containerWidth / 4;
 					  }
 				});
+		";
+}
+endif; // if ! _sf_js_init_masonry_code exists
+
+if (! function_exists('_sf_js_init_masonry') ) :
+function _sf_js_init_masonry() {
+	echo "
+		<script>
+			jQuery(document).ready(function($) {
+	";
+	_sf_js_init_masonry_code();
+	echo"
 			}); //end no conflict wrapper
 		</script>
 	";
