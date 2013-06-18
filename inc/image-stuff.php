@@ -62,7 +62,7 @@ function _sf_responsive_img($html, $post_id, $post_thumbnail_id, $size, $attr) {
    $default = wp_get_attachment_image_src($attachment_id, $size);
    $size = 'fd-sm';
   	$small = wp_get_attachment_image_src($attachment_id, $size);
-   $html = '<img src="'.$default[0].'"data-interchange="['.$default[0].', (default)], ['.$small[0].', (small)">';
+   $html = '<img src="'.$default[0].'" data-interchange="['.$default[0].', (default)], ['.$small[0].', (only screen and (min-width: 768px))]">';
    return $html;
 }
 add_filter('post_thumbnail_html', '_sf_responsive_img', 5, 5);
