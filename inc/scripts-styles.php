@@ -27,21 +27,30 @@ function _sf_scripts_foundation() {
 add_action( 'wp_enqueue_scripts', '_sf_scripts_foundation' );
 endif; //! _sf_scripts_foundation exists
 
+if (! function_exists('_sf_js_init_foundation_code') ) :
+function _sf_js_init_foundation_code() {
+	echo "
+			$(document)
+				.foundation('interchange')
+					.foundation('orbit')
+					.foundation( 
+					'topbar', {stickyClass: 'sticky-topbar'}
+					);
+		";
+}
+endif; // if ! _sf_js_init_foundation_code exists
+
 if (! function_exists('_sf_js_init_foundation') ) :
-function _sf_js_init_foundation() { ?>
-	<script>
-	//initialize foundation
-		jQuery(document).ready(function($) {
-			//orbit
-			$(document).foundation('orbit')
-				.foundation( 
-				'topbar', {stickyClass: 'sticky-topbar'}
-				);
-			//foundation
-		$(document).foundation('interchange', 'reflow');	
-		}); //end no conflict wrapper
-	</script>
-<?php
+function _sf_js_init_foundation() { 
+	echo "
+		<script>
+			jQuery(document).ready(function($) {
+	";
+	_sf_js_init_foundation_code();
+	echo "
+			}); //end no conflict wrapper
+		</script>
+	";
 }
 add_action('wp_footer', '_sf_js_init_foundation');
 endif; //! _sf_js_init_foundation
