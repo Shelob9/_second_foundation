@@ -14,10 +14,10 @@
  	//for masonry
 	add_image_size( 'masonry-thumb',  235, 180, true );
 	//for interchange responsive image thing
-	add_image_size( 'fd-def', 99999, 99999);
-	add_image_size( 'fd-sm', 200, 9999);
-	//Add 320x480 image size specifically for mobile background use.
-	add_image_size( 'mobile-bg', 320, 480 );
+	add_image_size( 'fd-lrg', 1024, 99999);
+	add_image_size( 'fd-med', 768, 99999);
+	add_image_size( 'fd-sm', 320, 9999);
+
 	
 }
 
