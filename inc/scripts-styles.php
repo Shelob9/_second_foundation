@@ -66,11 +66,9 @@ function _sf_scripts_infScroll() {
 add_action( 'wp_enqueue_scripts', '_sf_scripts_infScroll' );
 endif; //! _sf_scripts exists_infScroll
 
-if (! function_exists('_sf_js_init_infScroll') )  :
-function _sf_js_init_infScroll() {
-// Method from: http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
-	 ?>
-	<script>
+if (! function_exists('_sf_js_init_infScroll_code') ) :
+function _sf_js_init_infScroll_code() { ?>
+
 		var infinite_scroll = {
 			loading: {
 				img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
@@ -83,8 +81,20 @@ function _sf_js_init_infScroll() {
 			"contentSelector":"#content"
 		};
 		jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
-	</script>
-	<?php
+<?php
+}
+endif; // if ! _sf_js_init_infScroll_code exists
+
+if (! function_exists('_sf_js_init_infScroll') )  :
+function _sf_js_init_infScroll() {
+// Method from: http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
+	echo '
+		<script>
+	';
+	_sf_js_init_infScroll_code()
+	echo '	
+		</script>
+	';
 	
 }
 if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
