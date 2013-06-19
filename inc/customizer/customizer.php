@@ -66,8 +66,8 @@ function _sf_customize_register( $wp_customize ){
         'priority' => 132,
     ));
 // Masonry Colors
-    $wp_customize->add_section('masonry-colors', array(
-        'title'    => __('Masonry Colors', '_sf'),
+    $wp_customize->add_section('_sf_masonry_options', array(
+        'title'    => __('Masonry Options', '_sf'),
         'priority' => 122,
     ));
  //Sidebar Colors
@@ -632,7 +632,7 @@ $wp_customize->add_setting(
     array(
         'type' => 'checkbox',
         'label' => __('Show Excerpt In Masonry Box?', '_sf'),
-        'section' => 'masonry-colors',
+        'section' => '_sf_masonry_options',
         )
     );
     //masonry colors
@@ -672,7 +672,7 @@ $wp_customize->add_setting(
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => 'masonry-colors',
+				'section' => '_sf_masonry_options',
 				'settings' => $color['slug'])
 			)
 		);
