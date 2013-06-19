@@ -230,7 +230,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => __('Use Masonry For Main Blog Page?', '_sf'),
-        'section' => '_sf_page_options',
+        'section' => '_sf_masonry_options',
         )
     );
  
