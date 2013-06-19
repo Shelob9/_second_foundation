@@ -468,7 +468,7 @@ function _sf_customize_register( $wp_customize ){
   // =====================================
   // = Content/ Header Area Transperancy =
   // =====================================
-  // TODO: Add image options here.
+
 //content area
     $wp_customize->add_setting(
     'content-trans-bg'
@@ -480,6 +480,7 @@ function _sf_customize_register( $wp_customize ){
         'type' => 'checkbox',
         'label' => 'Transparent Background For Content Area',
         'section' => '_sf_background_options',
+        'priority' => '23',
         )
     );
 //header area
@@ -493,6 +494,7 @@ function _sf_customize_register( $wp_customize ){
         'type' => 'checkbox',
         'label' => 'Transparent Background For Header Area',
         'section' => '_sf_background_options',
+        'priority' => '13',
         )
     );
 //sidebar area
@@ -506,6 +508,7 @@ function _sf_customize_register( $wp_customize ){
         'type' => 'checkbox',
         'label' => 'Transparent Background For Sidebar Area',
         'section' => '_sf_background_options',
+        'priority' => '30',
         )
     );
 //footer area
@@ -519,6 +522,7 @@ function _sf_customize_register( $wp_customize ){
         'type' => 'checkbox',
         'label' => 'Transparent Background For Footer Area',
         'section' => '_sf_background_options',
+        'priority' => '40',
         )
     );
   	// =========
@@ -536,6 +540,7 @@ function _sf_customize_register( $wp_customize ){
         'label' => 'Use Background Image Instead of Color For Page?',
         'section' => '_sf_background_options',
         'settings'   => 'body_bg_choice',
+        'priority' => '5',
         )
     );
 	//page background img
@@ -548,6 +553,7 @@ function _sf_customize_register( $wp_customize ){
         'label'    => __('Upload Page Background', 'sf'),
         'section'    => '_sf_background_options',
         'settings' => 'body_bg_img',
+        'priority' => '10',
     )));
     
     //Background Color or Image For Header?
@@ -558,12 +564,13 @@ function _sf_customize_register( $wp_customize ){
     'header_bg_choice',
     array(
         'type' => 'checkbox',
-        'label' => 'Use Background Image Instead of Color For Page?',
+        'label' => 'Use Background Image Instead of Color For Header?',
         'section' => '_sf_background_options',
         'settings'   => 'header_bg_choice',
+        'priority' => '12',
         )
     );
-	//page background img
+	//header background img
 	    $wp_customize->add_setting('header_bg_img', array(
         'capability'        => 'edit_theme_options',
     ));
@@ -572,6 +579,7 @@ function _sf_customize_register( $wp_customize ){
         'label'    => __('Upload Background Image For Header', 'sf'),
         'section'    => '_sf_background_options',
         'settings' => 'header_bg_img',
+        'priority' => '15',
     )));
     
     //Background Color or Image For Content-Area?
@@ -585,9 +593,10 @@ function _sf_customize_register( $wp_customize ){
         'label' => 'Use Background Image Instead of Color For Content Area?',
         'section' => '_sf_background_options',
         'settings'   => 'content_bg_choice',
+        'priority' => '22',
         )
     );
-	//page background img
+	//content background img
 	    $wp_customize->add_setting('content_bg_img', array(
         'capability'        => 'edit_theme_options',
     ));
@@ -596,6 +605,7 @@ function _sf_customize_register( $wp_customize ){
         'label'    => __('Upload Background Image For Content Area', 'sf'),
         'section'    => '_sf_background_options',
         'settings' => 'content_bg_img',
+        'priority' => '25',
     )));
 /**
 * Default Sidebar Location
