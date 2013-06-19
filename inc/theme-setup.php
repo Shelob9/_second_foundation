@@ -73,3 +73,13 @@ function _sf_widgets_init() {
 add_action( 'widgets_init', '_sf_widgets_init' );
 endif; //! _sf_widgets_init exists
 
+
+/**
+* Filter the_excerpt to add class of excerpt to it.
+*/
+
+add_filter( "the_excerpt", "_sf_add_class_to_excerpt" );
+function _sf_add_class_to_excerpt( $excerpt ) {
+    return str_replace('<p', '<p class="excerpt"', $excerpt);
+}
+
