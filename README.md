@@ -2,11 +2,11 @@ _Second Foundation
 ==================
 Second Foundation is a starter theme for WordPress by Josh Pollock. It is based on Foundation 4 by ZURB and Underscores (_S) by Automattic.
 
-For the last stable release please download [version 1.0.4.3 (via WordPress.org)](http://wordpress.org/themes/download/_second-foundation.1.0.4.3.zip). The master branch is currently v1.0.5, which should work, but is not completley tested, finished.
+For the last stable release please download [version 1.0.4.3 (via WordPress.org)](http://wordpress.org/themes/download/_second-foundation.1.0.4.3.zip). The master branch is currently v1.0.5, which should work, but is not completely tested, finished.
 
 1.0.5.1 will be the next version submitted to WordPress.org. See details below.
 
-Documentation is availble via [the wiki](https://github.com/Shelob9/_second_foundation/wiki), which is a work in progress.
+Documentation is available via [the wiki](https://github.com/Shelob9/_second_foundation/wiki), which is a work in progress.
 
 Key Features:
 ============
@@ -18,7 +18,7 @@ Key Features:
 
 Child Theme
 ===========
-A starter child theme is availble [here](https://github.com/Shelob9/second_speaker). It is designed to make it easy to overide and if neccasary replace scripts, styles and even whole parts of the parent theme's fucntions library. For more information see (the documentation) [https://github.com/Shelob9/_second_foundation/wiki/The-Great-Deactivator].
+A starter child theme is available [here](https://github.com/Shelob9/second_speaker). It is designed to make it easy to override and if necessary replace scripts, styles and even whole parts of the parent theme's functions library. For more information see (the documentation) [https://github.com/Shelob9/_second_foundation/wiki/The-Great-Deactivator].
 
 New Features In v.1.0.5
 ==========================
@@ -28,7 +28,7 @@ New Features In v.1.0.5
 
 <strong>1.0.5.1</strong>
 
-1) All images responsive. <em>In Progress using Foudnation Interchange.</e>
+1) All images responsive. <em>In Progress using Foundation Interchange.</e>
 
 2) More color customizations. <em>In Progress on branch redo.options.</em>
 
@@ -50,8 +50,8 @@ New Features In v.1.0.5
 
 [Infinite Scroll Limitations](https://github.com/Shelob9/_second_foundation/wiki/Infinite-scroll)
 ===========================
-* Activating Masonry deactivates, Infintite Scroll. I will make them play nice later.
-* If a background image is set for the conent area, infinte scroll may add articles on the blog page without the proper background.
+* Activating Masonry deactivates, Infinite Scroll. I will make them play nice later.
+* If a background image is set for the content area, infinite scroll may add articles on the blog page without the proper background.
 
 
 Josh Pollock
