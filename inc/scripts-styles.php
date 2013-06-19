@@ -5,13 +5,24 @@
  *
  * @package _sf
  * since 1.0.5.1
- */
+ *
+ * Pattern used:
+ * 3 functions per plugin. 1) _sf_init_SLUG enqueues scripts, styles. 2) _sf_scripts_SLUG_code contains initialization code. 3) _sf_scripts_SLUG_init calls _sf_scripts_SLUG_init and wraps it in script tags and /or JQuery no conflict wrapper.
+ * _sf_scripts_SLUG_init is hooked to wp_footer/header to initialize plugin. _sf_scripts_SLUG_code is called in the ajax Menu function to reinitialize it--with out script tags or no conflict wrappers that _sf_scripts_SLUG_init has--since that would ruin everything.
+ * BTW Since everything is conditionally enqueued, initialized and reinitialized based on the theme options, if you modify theme to use these plugins in some other manner, you're probably going to need to modify these conditionals or modify the options. If that is an issue, best bet is probably to over ride this whole system by enqueueing, initializing everything in a more traditional manner in a child theme. Double BTW: If you have a file of same name in childtheme dir/inc it will over ride this one. Also there is a starter child theme available at http://github.com/shelob9/_second-speaker . Bonus points for laughing at the dumb joke I've got going with my naming scheme:) TODO: Add the simpler version of this file to that, but don't include it by default.
+ *
+ *
+ * BTW I, your humble narrator, did it this way, which probably seems silly to you at first, to avoid several things: 1) having individual js files to initialize each plugin and all of the resulting HTTP requests. 2) Having to keep current the copy pasta between the initialization file (or the consolidated one in the last version) and the reinitialization in the ajax menu function. 3) Because once I made it so that I wasn't enqueueing plugins that weren't being used due to options settings that created problems with the consolidated initialization function and reinits in the ajax menu thingy, since the (re)initialization code would have no object if the plugin (that wasn't doing anything) wasn't included. 4) I'm probably going to add more jQuery plugins as time goes on and that's going to make my page load time/ copypasta concerns greater. 
+ * TL;DR This file is more complex, but I'm avoiding loading unessasary plugins, HTTP gets, copypasta/ console errors.
+*/
  
 
 /**
  * Enqueue Scripts, styles separated by use. Initializing via wp_footer.
- * In child theme can deactivate via remove_action
+ * In child theme can deactivate each one via remove_action
  * See: http://codex.wordpress.org/Function_Reference/remove_action
+ *
+ * Note: 
  */
 
 //first wrap all front-end scripts in a big, old if ! is_admin
