@@ -48,8 +48,6 @@ function _sf_bg_img_size_decider() {
 add_action('wp_enqueue_scripts', '_sf_bg_img_size_decider');
 endif; // ! _sf_bg_img_size_decider exists
  
-
-
 /**
 * Responsive Image Thing
 *
@@ -77,17 +75,8 @@ function _sf_responsive_img($html, $post_id, $post_thumbnail_id, $size, $attr) {
 }
 add_filter('post_thumbnail_html', '_sf_responsive_img', 5, 5);
 endif; // ! _sf_responsive_img exists
+
 /**
-<img src="/path/to/default.jpg" data-interchange="[/path/to/default.jpg, (default)], [/path/to/bigger-image.jpg, (large)]">
-<!-- or your own queries -->
-<img src="/path/to/default.jpg" data-interchange="[/path/to/default.jpg, (only screen and (min-width: 1px))], [/path/to/bigger-image.jpg, (only screen and (min-width: 1280px))]">
-
-[0] => url
-[1] => width
-[2] => height
-**/
-
-/*
 * Conditionally Add Slider For Home Page
 */
 if (! function_exists('_sf_home_slider') ) :
