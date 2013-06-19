@@ -202,6 +202,10 @@ function _sf_js_init_ajaxMenus() {
 		';
 			_sf_js_init_infScroll_code();
 	}
+	//reinit masonry if it is being used.
+	if (get_theme_mod(! '_sf_masonry' ) == '' ) {
+		_sf_js_init_masonry_code();
+	}
 	//use=reinit so backstretch code functions are wrapped right.
 	$use = 'reinit';
 	_sf_js_init_backstretch($use);
