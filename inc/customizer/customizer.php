@@ -61,8 +61,13 @@ function _sf_customize_register( $wp_customize ){
         'priority' => 125,
     ));
 //Section For Background Options
-	 $wp_customize->add_section('_sf_backgrounds', array(
+	 $wp_customize->add_section('_sf_background_options', array(
         'title'    => __('Background Options', '_sf'),
+        'priority' => 128,
+    ));
+//Section For Background Colors
+	 $wp_customize->add_section('_sf_background_colors', array(
+        'title'    => __('Background Colors', '_sf'),
         'priority' => 129,
     ));
 //content colors
@@ -455,7 +460,7 @@ function _sf_customize_register( $wp_customize ){
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => '_sf_backgrounds',
+				'section' => '_sf_background_colors',
 				'settings' => $color['slug'])
 			)
 		);
@@ -474,7 +479,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Transparent Background For Content Area',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
         )
     );
 //header area
@@ -487,7 +492,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Transparent Background For Header Area',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
         )
     );
 //sidebar area
@@ -500,7 +505,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Transparent Background For Sidebar Area',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
         )
     );
 //footer area
@@ -513,7 +518,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Transparent Background For Footer Area',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
         )
     );
   	// =========
@@ -529,7 +534,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Use Background Image Instead of Color For Page?',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
         'settings'   => 'body_bg_choice',
         )
     );
@@ -541,7 +546,7 @@ function _sf_customize_register( $wp_customize ){
  
     $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'body_bg_img', array(
         'label'    => __('Upload Page Background', 'sf'),
-        'section'    => '_sf_backgrounds',
+        'section'    => '_sf_background_options',
         'settings' => 'body_bg_img',
     )));
     
@@ -554,7 +559,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Use Background Image Instead of Color For Page?',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
         'settings'   => 'header_bg_choice',
         )
     );
@@ -565,7 +570,7 @@ function _sf_customize_register( $wp_customize ){
  
     $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'header_bg_img', array(
         'label'    => __('Upload Background Image For Header', 'sf'),
-        'section'    => '_sf_backgrounds',
+        'section'    => '_sf_background_options',
         'settings' => 'header_bg_img',
     )));
     
@@ -578,7 +583,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Use Background Image Instead of Color For Content Area?',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
         'settings'   => 'content_bg_choice',
         )
     );
@@ -589,7 +594,7 @@ function _sf_customize_register( $wp_customize ){
  
     $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'content_bg_img', array(
         'label'    => __('Upload Background Image For Content Area', 'sf'),
-        'section'    => '_sf_backgrounds',
+        'section'    => '_sf_background_options',
         'settings' => 'content_bg_img',
     )));
 /**
