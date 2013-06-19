@@ -61,7 +61,7 @@ function _sf_customize_register( $wp_customize ){
         'priority' => 129,
     ));
 //content colors
-    $wp_customize->add_section('content-colors', array(
+    $wp_customize->add_section('_sf_content_colors', array(
         'title'    => __('Content Area Colors', '_sf'),
         'priority' => 132,
     ));
@@ -71,7 +71,7 @@ function _sf_customize_register( $wp_customize ){
         'priority' => 122,
     ));
  //Sidebar Colors
-    $wp_customize->add_section('sidebar-colors', array(
+    $wp_customize->add_section('_sf_sidebar_colors', array(
         'title'    => __('Sidebar Colors', '_sf'),
         'priority' => 133,
     ));
@@ -351,7 +351,7 @@ function _sf_customize_register( $wp_customize ){
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => 'content-colors',
+				'section' => '_sf_content_colors',
 				'settings' => $color['slug'])
 			)
 		);
@@ -389,7 +389,7 @@ function _sf_customize_register( $wp_customize ){
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => 'sidebar-colors',
+				'section' => '_sf_sidebar_colors',
 				'settings' => $color['slug'])
 			)
 		);
