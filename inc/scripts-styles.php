@@ -206,9 +206,12 @@ function _sf_js_init_ajaxMenus() {
 	if (get_theme_mod(! '_sf_masonry' ) == '' ) {
 		_sf_js_init_masonry_code();
 	}
-	//use=reinit so backstretch code functions are wrapped right.
-	$use = 'reinit';
-	_sf_js_init_backstretch($use);
+	//check if the backstretch functions exist, which they only do if any options are set to use it. If so reinitialize it.
+	if ( function_exists('_sf_scripts_backstretch') ) {
+		//use=reinit so backstretch code functions are wrapped right.
+		$use = 'reinit';
+		_sf_js_init_backstretch($use);
+	}
 	echo '
 					// Updates the menu
 					var request = $(data);
