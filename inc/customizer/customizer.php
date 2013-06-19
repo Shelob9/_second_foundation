@@ -658,6 +658,7 @@ $wp_customize->add_setting(
         'type' => 'checkbox',
         'label' => __('Show Excerpt In Masonry Box?', '_sf'),
         'section' => '_sf_masonry_options',
+        'priority' => '50',
         )
     );
     //masonry colors
