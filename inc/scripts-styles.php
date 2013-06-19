@@ -13,7 +13,13 @@
  * In child theme can deactivate via remove_action
  * See: http://codex.wordpress.org/Function_Reference/remove_action
  */
+
+//first wrap all front-end scripts in a big, old if ! is_admin
 if (! is_admin() ) :
+
+/**
+* Foundation
+*/
 //Foundation
 if (! function_exists('_sf_scripts_foundation') ) :
 function _sf_scripts_foundation() {
@@ -55,7 +61,11 @@ function _sf_js_init_foundation() {
 add_action('wp_footer', '_sf_js_init_foundation');
 endif; //! _sf_js_init_foundation
 
-//Infinite Scroll
+/**
+*Infinite Scroll
+* 	Method from: http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
+*/
+
 //first test to see if we need infinite scroll:
 if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) :
 if (! function_exists('_sf_scripts_infScroll') ) :
@@ -87,7 +97,6 @@ endif; // if ! _sf_js_init_infScroll_code exists
 
 if (! function_exists('_sf_js_init_infScroll') )  :
 function _sf_js_init_infScroll() {
-// Method from: http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
 	echo '
 		<script>
 	';
@@ -95,7 +104,6 @@ function _sf_js_init_infScroll() {
 	echo '	
 		</script>
 	';
-	
 }
 if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
 	add_action('wp_footer', '_sf_js_init_infScroll', 10);
@@ -103,13 +111,18 @@ if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonr
 endif; //! _sf_js_init_infScroll
 endif; //we need infscroll
 
-//masonry
+/**
+*masonry
+*/
+
+//first check if masonry is being used, if so do all the things we need, if not fuck it.
+if (! get_theme_mod( '_sf_masonry' ) == '' ) :
 if (! function_exists('_sf_scripts_masonry') ) :
 function _sf_scripts_masonry() {
 	wp_enqueue_script('masonry', get_template_directory_uri().'/js/jquery.masonry.min.js');
 }
 add_action( 'wp_enqueue_scripts', '_sf_scripts_masonry' );
-endif; //! _sf_scripts exists
+endif; //! _sf_scripts_masonry exists
 
 if (! function_exists('_sf_js_init_masonry_code') ) :
 function _sf_js_init_masonry_code() {
@@ -141,8 +154,14 @@ if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_the
 	add_action('wp_footer', '_sf_js_init_masonry');
 }
 endif; //! _sf_js_init_masonry
-
+endif; //do we need masonry?
 //
+
+/**
+* Ajax Menus
+* 	method from: http://wptheming.com/2011/12/ajax-themes/
+*/
+
 if (! function_exists('_sf_scripts_ajaxMenus') ) :
 function _sf_scripts_ajaxMenus() {
 	if ( get_theme_mod( '_sf_ajax' ) == '' ) :
@@ -159,7 +178,6 @@ function _sf_js_init_ajaxMenus() {
 	echo'
 	<script>
 		jQuery(document).ready(function($) {
-			// method from: http://wptheming.com/2011/12/ajax-themes/
 			// Establish Variables
 			var
 				History = window.History, // Note: Using a capital H instead of a lower h
@@ -206,12 +224,16 @@ function _sf_js_init_ajaxMenus() {
 	}
 	//check if the masonry exist, which they only do if any options are set to use it. If so reinitialize it.
 	if ( function_exists('_sf_js_init_masonry') ) {
+	echo '//re-initialize masonry
+		';
 		_sf_js_init_masonry_code();
 	}
 	//check if the backstretch functions exist, which they only do if any options are set to use it. If so reinitialize it.
 	if ( function_exists('_sf_scripts_backstretch') ) {
 		//use=reinit so backstretch code functions are wrapped right.
 		$use = 'reinit';
+		echo '//re-initialize backstretch
+		';
 		_sf_js_init_backstretch($use);
 	}
 	echo '
@@ -228,7 +250,7 @@ function _sf_js_init_ajaxMenus() {
 add_action('wp_footer', '_sf_js_init_ajaxMenus');
 endif; //! _sf_js_init_ajaxMenus
 
-/*
+/**
 * Backstretch
 */
 
