@@ -89,7 +89,7 @@ function _sf_customize_register( $wp_customize ){
     '_sf_slider_visibility',
     array(
         'type' => 'checkbox',
-        'label' => 'Hide Home Page Slider?',
+        'label' => __('Show Home Page Slider?', '_sf'),
         'section' => '_sf_home_slider',
         )
     );
