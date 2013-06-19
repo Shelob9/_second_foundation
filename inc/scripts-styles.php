@@ -27,21 +27,30 @@ function _sf_scripts_foundation() {
 add_action( 'wp_enqueue_scripts', '_sf_scripts_foundation' );
 endif; //! _sf_scripts_foundation exists
 
+if (! function_exists('_sf_js_init_foundation_code') ) :
+function _sf_js_init_foundation_code() {
+	echo "
+			$(document)
+				.foundation('interchange')
+					.foundation('orbit')
+					.foundation( 
+					'topbar', {stickyClass: 'sticky-topbar'}
+					);
+		";
+}
+endif; // if ! _sf_js_init_foundation_code exists
+
 if (! function_exists('_sf_js_init_foundation') ) :
-function _sf_js_init_foundation() { ?>
-	<script>
-	//initialize foundation
-		jQuery(document).ready(function($) {
-			//orbit
-			$(document).foundation('orbit')
-				.foundation( 
-				'topbar', {stickyClass: 'sticky-topbar'}
-				);
-			//foundation
-		$(document).foundation('interchange', 'reflow');	
-		}); //end no conflict wrapper
-	</script>
-<?php
+function _sf_js_init_foundation() { 
+	echo "
+		<script>
+			jQuery(document).ready(function($) {
+	";
+	_sf_js_init_foundation_code();
+	echo "
+			}); //end no conflict wrapper
+		</script>
+	";
 }
 add_action('wp_footer', '_sf_js_init_foundation');
 endif; //! _sf_js_init_foundation
@@ -57,11 +66,9 @@ function _sf_scripts_infScroll() {
 add_action( 'wp_enqueue_scripts', '_sf_scripts_infScroll' );
 endif; //! _sf_scripts exists_infScroll
 
-if (! function_exists('_sf_js_init_infScroll') )  :
-function _sf_js_init_infScroll() {
-// Method from: http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
-	 ?>
-	<script>
+if (! function_exists('_sf_js_init_infScroll_code') ) :
+function _sf_js_init_infScroll_code() { ?>
+
 		var infinite_scroll = {
 			loading: {
 				img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
@@ -74,8 +81,20 @@ function _sf_js_init_infScroll() {
 			"contentSelector":"#content"
 		};
 		jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
-	</script>
-	<?php
+<?php
+}
+endif; // if ! _sf_js_init_infScroll_code exists
+
+if (! function_exists('_sf_js_init_infScroll') )  :
+function _sf_js_init_infScroll() {
+// Method from: http://wptheming.com/2012/03/infinite-scroll-to-wordpress-theme/
+	echo '
+		<script>
+	';
+	_sf_js_init_infScroll_code();
+	echo '	
+		</script>
+	';
 	
 }
 if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
@@ -91,11 +110,9 @@ function _sf_scripts_masonry() {
 add_action( 'wp_enqueue_scripts', '_sf_scripts_masonry' );
 endif; //! _sf_scripts exists
 
-if (! function_exists('_sf_js_init_masonry') ) :
-function _sf_js_init_masonry() {
+if (! function_exists('_sf_js_init_masonry_code') ) :
+function _sf_js_init_masonry_code() {
 	echo "
-		<script>
-			jQuery(document).ready(function($) {
 				$('#masonry-loop').masonry({
 					  itemSelector: '.masonry-entry',
 					  // set columnWidth a fraction of the container width
@@ -103,6 +120,18 @@ function _sf_js_init_masonry() {
 						return containerWidth / 4;
 					  }
 				});
+		";
+}
+endif; // if ! _sf_js_init_masonry_code exists
+
+if (! function_exists('_sf_js_init_masonry') ) :
+function _sf_js_init_masonry() {
+	echo "
+		<script>
+			jQuery(document).ready(function($) {
+	";
+	_sf_js_init_masonry_code();
+	echo"
 			}); //end no conflict wrapper
 		</script>
 	";
@@ -164,22 +193,19 @@ function _sf_js_init_ajaxMenus() {
 					$("#site-description").text("Ajax loaded: " + State.url);
 					$("#site-description").fadeTo(200,1);
 					$("#content").fadeTo(200,1);
-					//re-initialize foundation, so Orbit works on reloading of front page if in use.
-						.foundation(\'interchange\')
-						.foundation(\'orbit\')
-						.foundation( 
-						\'topbar\', {stickyClass: \'sticky-topbar\'}
-				);
-			';
-			if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
-				echo '
-					//re-initialize infinite scroll
-					$( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
-				';
-			}
-			$use = 'reinit';
-			_sf_js_init_backstretch($use);
-		echo '
+	';
+	echo '//re-initialize foundation';
+	_sf_js_init_foundation_code();
+
+	if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
+		echo '//re-initialize infinite scroll
+		';
+			_sf_js_init_infScroll_code();
+	}
+	//use=reinit so backstretch code functions are wrapped right.
+	$use = 'reinit';
+	_sf_js_init_backstretch($use);
+	echo '
 					// Updates the menu
 					var request = $(data);
 					$("#access").replaceWith($("#access", request));
