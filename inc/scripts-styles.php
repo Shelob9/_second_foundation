@@ -101,7 +101,7 @@ if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonr
 	add_action('wp_footer', '_sf_js_init_infScroll', 10);
 }
 endif; //! _sf_js_init_infScroll
-endif; we need infscroll
+endif; //we need infscroll
 
 //masonry
 if (! function_exists('_sf_scripts_masonry') ) :
@@ -204,8 +204,8 @@ function _sf_js_init_ajaxMenus() {
 		';
 			_sf_js_init_infScroll_code();
 	}
-	//reinit masonry if it is being used.
-	if (get_theme_mod(! '_sf_masonry' ) == '' ) {
+	//check if the masonry exist, which they only do if any options are set to use it. If so reinitialize it.
+	if ( function_exists('_sf_js_init_masonry') ) {
 		_sf_js_init_masonry_code();
 	}
 	//check if the backstretch functions exist, which they only do if any options are set to use it. If so reinitialize it.
