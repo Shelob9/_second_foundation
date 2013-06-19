@@ -2,51 +2,48 @@ _Second Foundation
 ==================
 Second Foundation is a starter theme for WordPress by Josh Pollock. It is based on Foundation 4 by ZURB and Underscores (_S) by Automattic.
 
-For the last stable release please download [version 1.0.4.3 (via WordPress.org)](http://wordpress.org/themes/download/_second-foundation.1.0.4.3.zip). The master branch is currently v1.0.5, which should work, but is not completely tested, finished.
-
-1.0.5.1 will be the next version submitted to WordPress.org. See details below.
+For the last stable release please download [version 1.0.4.3 (via WordPress.org)](http://wordpress.org/themes/download/_second-foundation.1.0.4.3.zip). The master branch is currently v1.0.5.1, which is finished and will be submitted to WordPress.org pending additional testing.
 
 Documentation is available via [the wiki](https://github.com/Shelob9/_second_foundation/wiki), which is a work in progress.
 
+New Features In v.1.0.5.1 
+==========================
+* Full screen image background option. Can also be used for adding a background image to the header and footer.
+
+* Responsive image sizing via Foundation's [Interchange](http://foundation.zurb.com/docs/components/interchange.html).
+
+* More color customizations.
+
+* Functions.php broken up into several files included files for ease of use and child theme override.
+
+* Broke up all script enqueues into separate functions, along with initialization functions so they each have their own action that can be removed by child theme, as well as to improve performance.
+
+* Added ability to use Masonry for blog.
+
+* Separate background image options for header and content area.
+
+* Sanitization functions for customizer. <em>Done</em>.
+
+* Additional links to customizer. <em>Done</em>.
+
+* Ability to move sidebar from left to right, or remove it via option. Can be overridden in templates.
+
 Key Features:
 ============
-1) Mobile-first, fully responsive design.<br />
-2) AJAX page loads.<br />
-3) Infinite scroll.<br />
-5) Home Page Slider.<br />
-6) User options, via the customizer, to disable Infinite Scroll, Home page sider, AJAX page loads and to reconfigure header and menu.
+* Mobile-first, fully responsive design.
+
+* AJAX page loads.
+
+* Infinite scroll.
+
+* Home Page Slider.
+
+* User options, via the customizer, to disable Infinite Scroll, Home page sider, AJAX page loads and to reconfigure header and menu.
 
 Child Theme
 ===========
 A starter child theme is available [here](https://github.com/Shelob9/second_speaker). It is designed to make it easy to override and if necessary replace scripts, styles and even whole parts of the parent theme's functions library. For more information see (the documentation) [https://github.com/Shelob9/_second_foundation/wiki/The-Great-Deactivator].
 
-New Features In v.1.0.5
-==========================
-1) Color options via the customizer. <em>Done</em><br />
-2) Fully screen backgrounds. <em>Done, but limited by new feature #3.</em><br />
-3) Responsive image sizing for full-screen backgrounds to avoid loading a large background image file for mobile. <em>Done-ish.</em>
-
-<strong>1.0.5.1</strong>
-
-1) All images responsive. <em>In Progress using Foundation Interchange.</e>
-
-2) More color customizations. <em>In Progress on branch redo.options.</em>
-
-3) Breaking up functions into a lib for ease of use and child theme override. <em>Done.</em>
-
-4) Break up all script enqueues into separate functions, along with initialization functions so they each have their own action that can be removed by child theme. Maybe by theme option late. <em>In Progress on branch breakup.enqueues. Almost done, except it broke infinite scroll:(</em>
-
-5) Add option to use Masonry for blog. <em>Done.</em>
-
-6) Redo full screen background using supersize.js since existing method kinda sucks since it tends to distort image.
-
-7) Separate background image options for header and content area. <em>In Progress on branch redo.options. Options exist, not implemented.</em>
-
-8) Sanitization functions for customizer. <em>Done</em>.
-
-9) Additional links to customizer. <em>Done</em>.
-
-10) Move sidebar from left to right, or remove it via option. Can be overridden in templates. <em>Done</em>. Later will build nicer over ride system--per post, per page, etc. For now just add conditional values for $sidebar.
 
 [Infinite Scroll Limitations](https://github.com/Shelob9/_second_foundation/wiki/Infinite-scroll)
 ===========================

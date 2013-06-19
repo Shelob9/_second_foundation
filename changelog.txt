@@ -1,7 +1,27 @@
+v1.0.5.1
+1) Even more color options via the customizer.
+2) Full screen image background option. Can also be used for adding a background image to the header and footer.
+3) Responsive image sizing via Foundation's [Interchange](http://foundation.zurb.com/docs/components/interchange.html).
+4) Functions.php broken up into several files included files for ease of use and child theme override.
+5) Broke up all script enqueues into separate functions, along with initialization functions so they each have their own action that can be removed by child theme, as well as to improve performance.
+6) Added ability to use Masonry for blog.
+7) Separate background image options for header and content area.
+8) Sanitization functions for customizer. <em>Done</em>.
+9) Additional links to customizer. <em>Done</em>.
+10) Functions/ options to move sidebar from left to right, or remove it via option. Can be overridden in templates.
+11) Hellabug fixes.
+
+v1.0.5 (never really finished.)
+1) More color options.
+2) Fullscreen background image.
+3) Some other stupid shit that didn't really work.
+
 v1.0.4.1
 Fixes for silly bugs and visual issues.
+
 v1.0.4
 1) Fix sticky post, extra stickyness issue.
+
 v1.0.3
 1) AJAX page loading. 
 2) Option via customizer to disable AJAX page loads and Infinite Scrolling.
@@ -11,8 +31,8 @@ v1.0.2
 1) Fixing issue with menu bar overlapping site description div with certain settings.
 2) Add some instructions in themes page. Including a link to theme documentation, which I promise to write soon.
 3) Other various bug fixes I can't remember.
+
 v1.0.1
-======
 * Added optional home page slider with options to:
 1) Hide the slider
 2) Set the category for the slider
