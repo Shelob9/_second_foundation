@@ -93,7 +93,7 @@ endif; // ! _sf_responsive_img exists
 if (! function_exists('_sf_home_slider') ) :
 function _sf_home_slider() { 
 
-	if ( get_theme_mod( '_sf_slider_visibility' ) == '' ) { 
+	if (! get_theme_mod( '_sf_slider_visibility' ) == '' ) { 
 	if ( is_front_page() ) : 
 	get_template_part( 'slider' );
 	endif;

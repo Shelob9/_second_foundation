@@ -44,34 +44,44 @@ function _sf_customize_register( $wp_customize ){
         'title'    => __('Home Page Slider', '_s_f'),
         'priority' => 120,
     ));
-//topbar/nav settings
+//header options
     $wp_customize->add_section('_sf_header_options', array(
         'title'    => __('Header Options', '_sf'),
         'priority' => 120,
+    ));
+//header colors
+    $wp_customize->add_section('_sf_header_colors', array(
+        'title'    => __('Header Colors', '_sf'),
+        'priority' => 121,
     ));
 
 //Page Options 
     $wp_customize->add_section('_sf_page_options', array(
         'title'    => __('Page Options', '_sf'),
-        'priority' => 121,
+        'priority' => 125,
     ));
 //Section For Background Options
-	 $wp_customize->add_section('_sf_backgrounds', array(
+	 $wp_customize->add_section('_sf_background_options', array(
         'title'    => __('Background Options', '_sf'),
+        'priority' => 128,
+    ));
+//Section For Background Colors
+	 $wp_customize->add_section('_sf_background_colors', array(
+        'title'    => __('Background Colors', '_sf'),
         'priority' => 129,
     ));
 //content colors
-    $wp_customize->add_section('content-colors', array(
+    $wp_customize->add_section('_sf_content_colors', array(
         'title'    => __('Content Area Colors', '_sf'),
         'priority' => 132,
     ));
-// Masonry Colors
-    $wp_customize->add_section('masonry-colors', array(
-        'title'    => __('Masonry Colors', '_sf'),
-        'priority' => 122,
+// Masonry Options
+    $wp_customize->add_section('_sf_masonry_options', array(
+        'title'    => __('Masonry Options', '_sf'),
+        'priority' => 140,
     ));
  //Sidebar Colors
-    $wp_customize->add_section('sidebar-colors', array(
+    $wp_customize->add_section('_sf_sidebar_colors', array(
         'title'    => __('Sidebar Colors', '_sf'),
         'priority' => 133,
     ));
@@ -89,7 +99,7 @@ function _sf_customize_register( $wp_customize ){
     '_sf_slider_visibility',
     array(
         'type' => 'checkbox',
-        'label' => 'Hide Home Page Slider?',
+        'label' => __('Show Home Page Slider?', '_sf'),
         'section' => '_sf_home_slider',
         )
     );
@@ -150,6 +160,7 @@ function _sf_customize_register( $wp_customize ){
     //  =============================
     $wp_customize->add_setting('_sf_name_in_menu', array(
         'capability' => 'edit_theme_options',
+        
     ));
  
     $wp_customize->add_control('display_menu_name', array(
@@ -157,6 +168,7 @@ function _sf_customize_register( $wp_customize ){
         'label'    => __('Display Name of site in Menu?', '_sf'),
         'section'  => '_sf_header_options',
         'type'     => 'checkbox',
+        'priority'	 => '5',
     ));
  	//  =============================
     //  = Menu Sticky? =
@@ -170,6 +182,7 @@ function _sf_customize_register( $wp_customize ){
         'label'    => __('Stick Menu To Top Of Page?', '_sf'),
         'section'  => '_sf_header_options',
         'type'     => 'checkbox',
+        'priority'	 => '10',
     ));
     //  ======================
     //  = Search Bar In Menu =
@@ -183,6 +196,7 @@ function _sf_customize_register( $wp_customize ){
         'label'    => __('Search Bar In Menu?', '_sf'),
         'section'  => '_sf_header_options',
         'type'     => 'checkbox',
+        'priority'	 => '15',
     ));
  
 /**
@@ -230,7 +244,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => __('Use Masonry For Main Blog Page?', '_sf'),
-        'section' => '_sf_page_options',
+        'section' => '_sf_masonry_options',
         )
     );
  
@@ -248,12 +262,13 @@ function _sf_customize_register( $wp_customize ){
 	$menu[] = array(
 		'slug'=>'site_name_color', 
 		'default' => ' ',
-		'label' => __('Site Name Color', 'sf')
+		'label' => __('Site Name Color', 'sf'),
 	);
 	$menu[] = array(
 		'slug'=>'menu_text_color', 
 		'default' => ' ',
-		'label' => __('Menu Text Color', 'sf')
+		'label' => __('Menu Text Color', 'sf'),
+		
 	);
 	$menu[] = array(
 		'slug'=>'menu_search_txt_color', 
@@ -302,7 +317,7 @@ function _sf_customize_register( $wp_customize ){
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => '_sf_header_options',
+				'section' => '_sf_header_colors',
 				'settings' => $color['slug'])
 			)
 		);
@@ -351,7 +366,7 @@ function _sf_customize_register( $wp_customize ){
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => 'content-colors',
+				'section' => '_sf_content_colors',
 				'settings' => $color['slug'])
 			)
 		);
@@ -389,7 +404,7 @@ function _sf_customize_register( $wp_customize ){
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => 'sidebar-colors',
+				'section' => '_sf_sidebar_colors',
 				'settings' => $color['slug'])
 			)
 		);
@@ -445,7 +460,7 @@ function _sf_customize_register( $wp_customize ){
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => '_sf_backgrounds',
+				'section' => '_sf_background_colors',
 				'settings' => $color['slug'])
 			)
 		);
@@ -453,7 +468,7 @@ function _sf_customize_register( $wp_customize ){
   // =====================================
   // = Content/ Header Area Transperancy =
   // =====================================
-  // TODO: Add image options here.
+
 //content area
     $wp_customize->add_setting(
     'content-trans-bg'
@@ -464,7 +479,8 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Transparent Background For Content Area',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
+        'priority' => '23',
         )
     );
 //header area
@@ -477,7 +493,8 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Transparent Background For Header Area',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
+        'priority' => '13',
         )
     );
 //sidebar area
@@ -490,7 +507,8 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Transparent Background For Sidebar Area',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
+        'priority' => '30',
         )
     );
 //footer area
@@ -503,7 +521,8 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Transparent Background For Footer Area',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
+        'priority' => '40',
         )
     );
   	// =========
@@ -519,8 +538,9 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Use Background Image Instead of Color For Page?',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
         'settings'   => 'body_bg_choice',
+        'priority' => '5',
         )
     );
 	//page background img
@@ -531,8 +551,9 @@ function _sf_customize_register( $wp_customize ){
  
     $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'body_bg_img', array(
         'label'    => __('Upload Page Background', 'sf'),
-        'section'    => '_sf_backgrounds',
+        'section'    => '_sf_background_options',
         'settings' => 'body_bg_img',
+        'priority' => '10',
     )));
     
     //Background Color or Image For Header?
@@ -543,20 +564,22 @@ function _sf_customize_register( $wp_customize ){
     'header_bg_choice',
     array(
         'type' => 'checkbox',
-        'label' => 'Use Background Image Instead of Color For Page?',
-        'section' => '_sf_backgrounds',
+        'label' => 'Use Background Image Instead of Color For Header?',
+        'section' => '_sf_background_options',
         'settings'   => 'header_bg_choice',
+        'priority' => '12',
         )
     );
-	//page background img
+	//header background img
 	    $wp_customize->add_setting('header_bg_img', array(
         'capability'        => 'edit_theme_options',
     ));
  
     $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'header_bg_img', array(
         'label'    => __('Upload Background Image For Header', 'sf'),
-        'section'    => '_sf_backgrounds',
+        'section'    => '_sf_background_options',
         'settings' => 'header_bg_img',
+        'priority' => '15',
     )));
     
     //Background Color or Image For Content-Area?
@@ -568,19 +591,21 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'checkbox',
         'label' => 'Use Background Image Instead of Color For Content Area?',
-        'section' => '_sf_backgrounds',
+        'section' => '_sf_background_options',
         'settings'   => 'content_bg_choice',
+        'priority' => '22',
         )
     );
-	//page background img
+	//content background img
 	    $wp_customize->add_setting('content_bg_img', array(
         'capability'        => 'edit_theme_options',
     ));
  
     $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'content_bg_img', array(
         'label'    => __('Upload Background Image For Content Area', 'sf'),
-        'section'    => '_sf_backgrounds',
+        'section'    => '_sf_background_options',
         'settings' => 'content_bg_img',
+        'priority' => '25',
     )));
 /**
 * Default Sidebar Location
@@ -632,7 +657,8 @@ $wp_customize->add_setting(
     array(
         'type' => 'checkbox',
         'label' => __('Show Excerpt In Masonry Box?', '_sf'),
-        'section' => 'masonry-colors',
+        'section' => '_sf_masonry_options',
+        'priority' => '50',
         )
     );
     //masonry colors
@@ -672,7 +698,7 @@ $wp_customize->add_setting(
 				$wp_customize,
 				$color['slug'], 
 				array('label' => $color['label'], 
-				'section' => 'masonry-colors',
+				'section' => '_sf_masonry_options',
 				'settings' => $color['slug'])
 			)
 		);
