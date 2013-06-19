@@ -72,7 +72,7 @@ function _sf_responsive_img($html, $post_id, $post_thumbnail_id, $size, $attr) {
 	$html .= '['.$small[0].', (only screen and (min-width: 320px))],';
 	$html .= '['.$med[0].', (only screen and (min-width: 768px))],';
 	$html .= '['.$lrg[0].', (only screen and (min-width: 1024px))],';
-	$html .='>';
+	$html .='">';
 	return $html;
 }
 add_filter('post_thumbnail_html', '_sf_responsive_img', 5, 5);
