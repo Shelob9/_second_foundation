@@ -113,10 +113,10 @@ echo '<style>'; ?>
 		echo '; border-color:';
 		echo $masonry_border_color;
 		echo ';}';
-		echo 'h5.masonry-post-title{color:';
+		echo '.masonry-post-title{color:';
 		echo $masonry_title_color;
 		echo ';}';
-		echo '.masonry-post-excerpt{color:';
+		echo '.masonry-post-excerpt .excerpt{color:';
 		echo $masonry_excerpt_text_color;
 		echo ';}';	
 	}
