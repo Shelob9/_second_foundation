@@ -298,6 +298,7 @@ function _sf_customize_register( $wp_customize ){
         'section' => '_sf_masonry_options',
         )
     );
+
  
 /**
 * Color Controls
@@ -456,6 +457,42 @@ function _sf_customize_register( $wp_customize ){
 				$color['slug'], 
 				array('label' => $color['label'], 
 				'section' => '_sf_sidebar_colors',
+				'settings' => $color['slug'])
+			)
+		);
+	}
+
+//read more button
+	//sidebar area colors
+
+	$readmore[] = array(
+	'slug'=>'excerpt_button_text_color', 
+	'default' => '#fff',
+	'label' => __('Read More Button Text Color', 'sf')
+	);
+	$readmore[] = array(
+		'slug'=>'excerpt_button_bg_color', 
+		'default' => ' ',
+		'label' => __('Read More Button Background Color', 'sf')
+	);
+
+			foreach( $readmore as $color ) {
+		// SETTINGS
+		$wp_customize->add_setting(
+			$color['slug'], array(
+				'default' => $color['default'],
+				'type' => 'option', 
+				'capability' => 
+				'edit_theme_options'
+			)
+		);
+		// CONTROLS
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				$color['slug'], 
+				array('label' => $color['label'], 
+				'section' => '_sf_page_options',
 				'settings' => $color['slug'])
 			)
 		);
