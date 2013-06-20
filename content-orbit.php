@@ -23,7 +23,6 @@
 		</div>
 		<?php endif; ?> 
 		<?php the_excerpt(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="slider page-links">' . __( 'Pages:', '_sf' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 
