@@ -327,7 +327,7 @@ endif; //the big one.
 
 if (! function_exists('_sf_style') ) :
 function _sf_style() {
-	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
+	wp_enqueue_style( '_sf-style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', '_sf_style' );
 endif; //! _sf_style exists
