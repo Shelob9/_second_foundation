@@ -40,7 +40,8 @@ function _sf_custom_style() {
 	$slider_button_bg_color = get_option('slider_button_bg_color');
 	$slider_button_text_color = get_option('slider_button_text_color');
 	$slider_excerpt_text_color = get_option('slider_excerpt_text_color');
-	
+	$excerpt_button_bg_color = get_option('excerpt_button_bg_color');
+	$excerpt_button_text_color = get_option('excerpt_button_text_color');
 	
 echo '<style>'; ?>
 	.entry-content { color:  <?php echo $content_text_color; ?>; }
@@ -65,6 +66,8 @@ echo '<style>'; ?>
 	#secondary a {color: <?php echo $sidebar_link_color; ?>;}
 	h5.widget-title {color: <?php echo $widget_title_color; ?>;}
 	h1.entry-title {color: <?php echo $page_title_color; ?>;}
+	#content a.read-more-button.button	{color: <?php echo $excerpt_button_text_color; ?>;}
+	.read-more a.button {background-color: <?php echo $excerpt_button_bg_color; ?>;}
 	<?php
 
 	//if the background for the header is not set to transparent use $header_bg_color else just let it transparent.
