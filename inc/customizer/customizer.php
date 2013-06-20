@@ -151,6 +151,52 @@ function _sf_customize_register( $wp_customize ){
 		'type'    => 'select',
 		'choices' => $cats,
 	));
+	
+	// =================
+	// = Slider Colors =
+	// =================
+	
+	$slider[] = array(
+		'slug'=>'slider_bg_color', 
+		'default' => '#fff',
+		'label' => __('Slider Background Color', 'sf')
+	);
+	$slider[] = array(
+		'slug'=>'slider_title_color', 
+		'default' => '#fff',
+		'label' => __('Slider Title Color', 'sf')
+	);
+	$slider[] = array(
+		'slug'=>'slider_button_bg_color', 
+		'default' => '#fff',
+		'label' => __('Slider Button Background Color', 'sf')
+	);
+	$slider[] = array(
+		'slug'=>'slider_button_text_color', 
+		'default' => '#fff',
+		'label' => __('Slider Button Text Color', 'sf')
+	);
+		foreach( $slider as $color ) {
+		// SETTINGS
+		$wp_customize->add_setting(
+			$color['slug'], array(
+				'default' => $color['default'],
+				'type' => 'option', 
+				'capability' => 
+				'edit_theme_options'
+			)
+		);
+		// CONTROLS
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				$color['slug'], 
+				array('label' => $color['label'], 
+				'section' => '_sf_home_slider',
+				'settings' => $color['slug'])
+			)
+		);
+	}
  
 /**
 * Topbar/nav
@@ -418,33 +464,33 @@ function _sf_customize_register( $wp_customize ){
   // = background colors =
   // =====================
   //TODO: Gradients!
-	$bg[] = array(
+	$slider[] = array(
 		'slug'=>'page_bg_color', 
 		'default' => '#fff',
 		'label' => __('Page Background Color', 'sf')
 	);
-	$bg[] = array(
+	$slider[] = array(
 		'slug'=>'header_bg_color', 
 		'default' => '#fff',
 		'label' => __('Header Background Color', 'sf')
 	);
-	$bg[] = array(
+	$slider[] = array(
 		'slug'=>'content_bg_color', 
 		'default' => '#fff',
 		'label' => __('Content Area Background Color', 'sf')
 	);
-	$bg[] = array(
+	$slider[] = array(
 		'slug'=>'sidebar_bg_color', 
 		'default' => '#fff',
 		'label' => __('Sidebar Background Color', 'sf')
 	);
-	$bg[] = array(
+	$slider[] = array(
 		'slug'=>'footer_bg_color', 
 		'default' => '#fff',
 		'label' => __('Footer Background Color', 'sf')
 	);
 	
-		foreach( $bg as $color ) {
+		foreach( $slider as $color ) {
 		// SETTINGS
 		$wp_customize->add_setting(
 			$color['slug'], array(
