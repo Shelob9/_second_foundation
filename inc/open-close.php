@@ -22,19 +22,20 @@ function _sf_open($sidebar = 'value1') {
 	'value3' => 'none',
 	**/
 	
-	// value1 = right
-	if ($sidebar == 'value3') {
-		echo   '<div id="primary" class="content-area row primary-sidebar-none">';
-		echo   '<div id="content" class="site-content large-12 columns" role="main">';
-	}
 	// value3 = none
-	elseif ($sidebar == 'value1') {
+	if ($sidebar == 'value1') {
+		echo   '<div id="primary" class="content-area row primary-sidebar-none">';
+		echo   '<div id="content" class="site-content large-12 columns" role="main">';	
+	}
+	// value2 = left
+	elseif ($sidebar == 'value2') {
+		echo  '<div id="primary" class="content-area row primary-sidebar-left">';
+		echo  '<div id="content" class="site-content large-9 push-3 columns" role="main">';
+	}
+	// right
+	else {
 		echo   '<div id="primary" class="content-area row primary-sidebar-right">';
 		echo   '<div id="content" class="site-content large-9 columns" role="main">';
-	}
-	else {
-		echo  '<div id="primary" class="content-area row primary-sidebar-left">';
-		echo   '<div id="content" class="site-content large-9 push-3 columns" role="main">';
 	}
 	
 }
