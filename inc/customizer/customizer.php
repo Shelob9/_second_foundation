@@ -647,6 +647,23 @@ $wp_customize->add_setting(
     //  ============
     //  = Masonry =
     //  ===========
+    //TODO: seperate settings for mobile.
+    
+    //How many bricks Wide?
+    $wp_customize->add_setting(
+    	'masonry_how_many'
+    );
+    
+    $wp_customize->add_control(
+    	'masonry_how_many',
+    	array(
+    		'type' => 'text',
+    		'label' => __('How Many Bricks Per Row', '_sf'),
+    		'priority' => '10',
+    		'section' => '_sf_masonry_options',
+    		'callback' => '_sf_sanitize_textarea',
+    	)
+    );
  	//show excerpt
  	$wp_customize->add_setting(
     '_sf_masonry_excerpt'
