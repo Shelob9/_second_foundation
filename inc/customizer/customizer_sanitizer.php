@@ -5,7 +5,7 @@
  */
 
 /**
- * adds sanitization callback funtion : textarea
+ * adds sanitization callback function : textarea
  * @since _sf 1.0.5.1
  */
  if(!function_exists('_sf_sanitize_textarea')) :
@@ -17,7 +17,7 @@ endif;
 
 
 /**
- * adds sanitization callback funtion : number
+ * adds sanitization callback function : number
  * @since _sf 1.0.5.1
  */
  if(!function_exists('_sf_sanitize_number')) :
@@ -29,7 +29,7 @@ endif;
 endif;
 
 /**
- * adds sanitization callback funtion : url
+ * adds sanitization callback function : url
  * @since _sf 1.0.5.1
  */
 if(!function_exists('_sf_sanitize_url')) :
