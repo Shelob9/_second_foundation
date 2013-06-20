@@ -23,10 +23,10 @@
 		</div>
 		<?php endif; ?> 
 		<?php the_excerpt(); ?>
+		
 	</div><!-- .entry-content -->
 	<?php endif; ?>
-
-	<footer class="slider entry-meta">
-		
+	<footer class="slider read-more">
+		<a class="slider button radius alignright" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', '_sf' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php echo esc_attr('Read More', '_sf'); ?></a></h1>
 	</footer>
 </article><!-- #post-## -->
