@@ -78,7 +78,7 @@ endif; //! _sf_js_init_foundation
 */
 
 //first test to see if we need infinite scroll:
-if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) :
+if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  ( get_theme_mod( '_sf_masonry' ) == '' ) ) :
 if (! function_exists('_sf_scripts_infScroll') ) :
 function _sf_scripts_infScroll() {
 	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'), false, false );
@@ -116,9 +116,8 @@ function _sf_js_init_infScroll() {
 		</script>
 	';
 }
-if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
-	add_action('wp_footer', '_sf_js_init_infScroll', 10);
-}
+add_action('wp_footer', '_sf_js_init_infScroll', 10);
+
 endif; //! _sf_js_init_infScroll
 endif; //we need infscroll
 
