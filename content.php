@@ -21,6 +21,11 @@
 	</div><!-- .entry-summary -->
 	<?php else : ?>
 	<div class="entry-content">
+		<?php if ( has_post_thumbnail()) : ?>
+			<div class="large-3 columns">
+			<a href="<?php the_permalink(); ?>" class="th" title="<?php the_title_attribute(); ?>" ><?php the_post_thumbnail('small'); ?></a>
+		</div>
+		<?php endif; ?> 
 		<?php the_excerpt(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_sf' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
