@@ -132,47 +132,14 @@ endif; //! _sf_custom_header
 
 
 /**
- * Menu fallback. Link to the menu editor if that is useful.
- *
- * http://wordpress.stackexchange.com/questions/64515/fall-back-for-main-menu/64526#64526
- *
- * @param  array $args
- * @return string
+ * Menu fallback. Shows a list of pages.
+
  */
 if (! function_exists('_sf_menu_fallback') ) :
-function _sf_menu_fallback( $args ) {
-    if ( ! current_user_can( 'manage_options' ) )
-    {
-        return;
-    }
-
-    // see wp-includes/nav-menu-template.php for available arguments
-    extract( $args );
-
-    $link = $link_before
-        . '<a href="' .admin_url( 'nav-menus.php' ) . '">' . $before . 'Add a menu' . $after . '</a>'
-        . $link_after;
-
-    // We have a list
-    if ( FALSE !== stripos( $items_wrap, '<ul' )
-        or FALSE !== stripos( $items_wrap, '<ol' )
-    )
-    {
-        $link = "<li>$link</li>";
-    }
-
-    $output = sprintf( $items_wrap, $menu_id, $menu_class, $link );
-    if ( ! empty ( $container ) )
-    {
-        $output  = "<$container class='$container_class' id='$container_id'>$output</$container>";
-    }
-
-    if ( $echo )
-    {
-        echo $output;
-  }
-
-    return $output;
+function _sf_menu_fallback( ) {
+	echo '<ul class="left">';
+	wp_list_pages('title_li=');
+	echo '</ul>';
 }
 endif; // ! _sf_menu_fallback exists
 
