@@ -720,18 +720,6 @@ $wp_customize->add_setting(
 			)
 		)
     );
-    /**
-     $wp_customize->add_control(
-    '_sf_default_sidebar',
-    array(
-        'type' => 'text',
-		'default' => 'none',
-        'label' => 'Location of sidebar.',
-        'section' => '_sf_page_options',
-        'sanitize_callback' => '_sf_sanitize_number'
-        )
-    );
-    **/
 
     //  ============
     //  = Masonry =
