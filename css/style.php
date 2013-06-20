@@ -35,6 +35,12 @@ function _sf_custom_style() {
 	$sidebar_link_color = get_option('sidebar_link_color');
 	$widget_title_color = get_option('widget_title_color');
 	$page_title_color = get_option('page_title_color');
+	$slider_bg_color = get_option('slider_bg_color');
+	$slider_title_color = get_option('slider_title_color');
+	$slider_button_bg_color = get_option('slider_button_bg_color');
+	$slider_button_text_color = get_option('slider_button_text_color');
+	$slider_excerpt_text_color = get_option('slider_excerpt_text_color');
+	
 	
 echo '<style>'; ?>
 	.entry-content { color:  <?php echo $content_text_color; ?>; }
@@ -114,7 +120,26 @@ echo '<style>'; ?>
 		echo '.masonry-post-excerpt .excerpt{color:';
 		echo $masonry_excerpt_text_color;
 		echo ';}';	
-		
+	}
+
+//style home page slider, if we are using it.
+	if (! get_theme_mod( '_sf_slider_visibility' ) == '' ) { 
+		echo '.orbit-container {background-color:';
+		echo $slider_bg_color;
+		echo ';}';
+		echo '#content h1.slider-entry-title a {color:';
+		echo $slider_title_color;
+		echo ';}';
+		echo '#content a.slider.button {color:';
+		echo $slider_button_text_color;
+		echo ';}';
+		echo '.slider-read-more a.button {';
+		echo ';background-color:';
+		echo $slider_button_bg_color;
+		echo ';}';
+		echo '.slider-entry-content .excerpt{color:';
+		echo $slider_excerpt_text_color;
+		echo ';}';	
 	}
 
 echo '</style>';
