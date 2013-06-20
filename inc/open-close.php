@@ -12,7 +12,7 @@
 */
 //functions for opening and closing .primary, .content
 if (! function_exists('_sf_open') ) :
-function _sf_open($sidebar) {
+function _sf_open($sidebar = 'left') {
 	if ($sidebar == '') {
 		$sidebar = 'none';
 	}
