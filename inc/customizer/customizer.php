@@ -101,6 +101,7 @@ function _sf_customize_register( $wp_customize ){
         'type' => 'checkbox',
         'label' => __('Show Home Page Slider?', '_sf'),
         'section' => '_sf_home_slider',
+        'priority' => '1',
         )
     );
  
