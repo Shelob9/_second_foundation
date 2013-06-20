@@ -1,5 +1,5 @@
 
-	<div class="masonry-entry  panel radius" id="post-<?php the_ID(); ?>" <?php post_class(); ?> style="width:25%; margin: 2px, 4px, 2px, 4px;">
+	<div class="masonry-entry  panel radius" id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
         <div class="masonry-thumbnail">
             <a href="<?php the_permalink(' ') ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail('masonry-thumb'); ?></a>
         </div>
