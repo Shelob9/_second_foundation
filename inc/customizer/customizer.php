@@ -464,33 +464,33 @@ function _sf_customize_register( $wp_customize ){
   // = background colors =
   // =====================
   //TODO: Gradients!
-	$slider[] = array(
+	$bg[] = array(
 		'slug'=>'page_bg_color', 
 		'default' => '#fff',
 		'label' => __('Page Background Color', 'sf')
 	);
-	$slider[] = array(
+	$bg[] = array(
 		'slug'=>'header_bg_color', 
 		'default' => '#fff',
 		'label' => __('Header Background Color', 'sf')
 	);
-	$slider[] = array(
+	$bg[] = array(
 		'slug'=>'content_bg_color', 
 		'default' => '#fff',
 		'label' => __('Content Area Background Color', 'sf')
 	);
-	$slider[] = array(
+	$bg[] = array(
 		'slug'=>'sidebar_bg_color', 
 		'default' => '#fff',
 		'label' => __('Sidebar Background Color', 'sf')
 	);
-	$slider[] = array(
+	$bg[] = array(
 		'slug'=>'footer_bg_color', 
 		'default' => '#fff',
 		'label' => __('Footer Background Color', 'sf')
 	);
 	
-		foreach( $slider as $color ) {
+		foreach( $bg as $color ) {
 		// SETTINGS
 		$wp_customize->add_setting(
 			$color['slug'], array(
