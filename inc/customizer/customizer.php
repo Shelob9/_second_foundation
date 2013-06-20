@@ -158,22 +158,22 @@ function _sf_customize_register( $wp_customize ){
 	
 	$slider[] = array(
 		'slug'=>'slider_bg_color', 
-		'default' => '#fff',
+		'default' => '',
 		'label' => __('Slider Background Color', 'sf')
 	);
 	$slider[] = array(
 		'slug'=>'slider_title_color', 
-		'default' => '#fff',
+		'default' => '#',
 		'label' => __('Slider Title Color', 'sf')
 	);
 	$slider[] = array(
 		'slug'=>'slider_button_bg_color', 
-		'default' => '#fff',
+		'default' => '',
 		'label' => __('Slider Button Background Color', 'sf')
 	);
 	$slider[] = array(
 		'slug'=>'slider_button_text_color', 
-		'default' => '#fff',
+		'default' => '#000',
 		'label' => __('Slider Button Text Color', 'sf')
 	);
 		foreach( $slider as $color ) {
