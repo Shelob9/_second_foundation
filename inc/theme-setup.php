@@ -85,20 +85,16 @@ function _sf_add_class_to_excerpt( $excerpt ) {
 
 /**
 * Masonry Brick Width As A Percentage
+* Use to set value with width selector.
 */
 
 if (! function_exists('_sf_masonry_width') ) :
-function _sf_masonry_width($use='') {
-	//get the theme_mod that tells us how many wide we want to go. If it isn't set return 4 so we don't get an error and it goes 4 wide.
+function _sf_masonry_width() {
+	//get the theme_mod that tells us how many wide we want to go. If it isn't set return 4 so we don't get an error. 4 is a nice looking number.
 	$howmany = get_theme_mod('masonry_how_many', 4);
 	//divide that by 100 to get the percent width
 	$percent = 100/$howmany;
-	//if $use=css since we are using it in css echo the value as a percentage. Else just use the number
-	if ($use == 'css') {
-		echo $percent.'%;';
-	}
-	else {
-		echo $howmany;
-	}
+	//echo it with a % sign.
+	echo $percent.'%;';
 }
 endif; //_sf_masonry_width exsits
