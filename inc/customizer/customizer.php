@@ -120,7 +120,7 @@ function _sf_customize_register( $wp_customize ){
     array(
         'type' => 'text',
 		'default' => 5,
-        'label' => 'Number Of Slides To Show - Default is 5. Enter numbers only.',
+        'label' => __('Number Of Slides To Show - Default is 5. Enter numbers only.', '_sf'),
         'section' => '_sf_home_slider',
         'sanitize_callback' => '_sf_sanitize_number'
         )
@@ -146,7 +146,7 @@ function _sf_customize_register( $wp_customize ){
 	));
 	$wp_customize->add_control( 'cat_select_box', array(
 		'settings' => '_sf_slide_cat',
-		'label'   => 'Select Category:',
+		'label'   => __('Select Category:', '_sf'),
 		'section'  => '_sf_home_slider',
 		'type'    => 'select',
 		'choices' => $cats,
