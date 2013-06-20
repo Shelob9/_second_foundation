@@ -108,7 +108,7 @@ echo '<style>'; ?>
 
 	
 //style masonry boxes if we are using masonry today
-	if (! get_theme_mod( '_sf_masonry' ) == '' ) {
+	if ( get_theme_mod( '_sf_masonry' ) == '' ) {
 		echo '.masonry-entry{background-color:';
 		echo $masonry_bg_color;
 		echo '; border-color:';

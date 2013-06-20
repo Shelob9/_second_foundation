@@ -78,7 +78,7 @@ endif; //! _sf_js_init_foundation
 */
 
 //first test to see if we need infinite scroll:
-if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  ( get_theme_mod( '_sf_masonry' ) == '' ) ) :
+if (  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  function_exists('_sf_js_init_masonry')  ) :
 if (! function_exists('_sf_scripts_infScroll') ) :
 function _sf_scripts_infScroll() {
 	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'), false, false );
@@ -126,7 +126,7 @@ endif; //we need infscroll
 */
 
 //first check if masonry is being used, if so do all the things we need, if not fuck it.
-if (! get_theme_mod( '_sf_masonry' ) == '' ) :
+if ( get_theme_mod( '_sf_masonry' ) == '' ) :
 if (! function_exists('_sf_scripts_masonry') ) :
 function _sf_scripts_masonry() {
 	wp_enqueue_script('masonry', get_template_directory_uri().'/js/jquery.masonry.min.js');

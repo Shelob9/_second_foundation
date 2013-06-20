@@ -295,7 +295,7 @@ function _sf_customize_register( $wp_customize ){
     '_sf_masonry',
     array(
         'type' => 'checkbox',
-        'label' => __('Use Masonry For Main Blog Page?', '_sf'),
+        'label' => __('Disable Masonry?', '_sf'),
         'section' => '_sf_masonry_options',
         )
     );
