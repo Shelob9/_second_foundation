@@ -137,12 +137,16 @@ endif; //! _sf_scripts_masonry exists
 
 if (! function_exists('_sf_js_init_masonry_code') ) :
 function _sf_js_init_masonry_code() {
+	//get the theme_mod that tells us how many wide we want to go. If it isn't set return 4 so we don't get an error and it goes 4 wide, because I said so and you didn't.
+	$howmany = get_theme_mod('masonry_how_many', 4);
 	echo "
 				$('#masonry-loop').masonry({
 					  itemSelector: '.masonry-entry',
 					  // set columnWidth a fraction of the container width
 					  columnWidth: function( containerWidth ) {
-						return containerWidth / 4;
+		
+	";
+	echo "					return containerWidth / ".$howmany.";
 					  }
 				});
 		";
