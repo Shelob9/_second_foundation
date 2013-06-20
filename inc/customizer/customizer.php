@@ -673,7 +673,7 @@ $wp_customize->add_setting(
 		array(
 			'label' => __('Sidebar Location', '_s_f'),
 			'section' => '_sf_page_options',
-			'default'        => 'value2',
+			'default'        => 'value1',
 			'type'       => 'select',
 			'choices'    => array(
 				'value1' => 'Right',

@@ -12,7 +12,7 @@
 */
 //functions for opening and closing .primary, .content
 if (! function_exists('_sf_open') ) :
-function _sf_open($sidebar = 'left') {
+function _sf_open($sidebar = 'value1') {
 	if ($sidebar == '') {
 		$sidebar = 'none';
 	}
@@ -41,7 +41,7 @@ function _sf_open($sidebar = 'left') {
 endif; //! _sf_open exists
 
 if (! function_exists('_sf_close') ) :
-function _sf_close($sidebar, $sidebarName = null) {
+function _sf_close($sidebar = 'value1', $sidebarName = null) {
 	if ($sidebar == '') {
 		$sidebar = 'none';
 	}
@@ -61,7 +61,7 @@ function _sf_close($sidebar, $sidebarName = null) {
 endif; //! _sf_close exists
 
 if (! function_exists('_sf_sidebar_starter') ) :
-function _sf_sidebar_starter($sidebar) {
+function _sf_sidebar_starter($sidebar = 'value1') {
 	// value2 = left
 	if ($sidebar == 'value2') {
 		echo '<div id="secondary" class="widget-area large-3 pull-9 columns" role="complementary">';
