@@ -176,6 +176,11 @@ function _sf_customize_register( $wp_customize ){
 		'default' => '#000',
 		'label' => __('Slider Button Text Color', 'sf')
 	);
+	$slider[] = array(
+		'slug'=>'slider_excerpt_text_color',
+		'default' => '',
+		'label' => __('Slider Excerpt Color', '_sf')
+	);
 		foreach( $slider as $color ) {
 		// SETTINGS
 		$wp_customize->add_setting(
