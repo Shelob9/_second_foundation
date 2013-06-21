@@ -23,7 +23,7 @@ function _sf_header() { ?>
 			</div>
 		</div>
 		<?php 
-		if ( get_theme_mod( '_sf_name_in_menu' ) == '' ) { ?>
+		if (! get_theme_mod( '_sf_name_in_menu' ) == '' ) { ?>
 		<hgroup>
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
@@ -42,7 +42,7 @@ function _sf_header() { ?>
 				<nav id="site-navigation" class="navigation-main top-bar" role="navigation">
 					<ul class="title-area">
 						<?php 
-						if (! get_theme_mod( '_sf_name_in_menu' ) == '' ) { ?>
+						if ( get_theme_mod( '_sf_name_in_menu' ) == '' ) { ?>
 						<li class="name">
 							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 						</li>
@@ -91,7 +91,7 @@ function _sf_header() { ?>
 						
 						<?php
 							//if name is being shown in menu put description underneath.
-							if ( ! get_theme_mod( '_sf_name_in_menu' ) == '' ) { ?>
+							if ( get_theme_mod( '_sf_name_in_menu' ) == '' ) { ?>
 							<div class="row">
 								<div class="large-12 columns">
 									<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	

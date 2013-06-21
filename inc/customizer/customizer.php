@@ -217,7 +217,7 @@ function _sf_customize_register( $wp_customize ){
  
     $wp_customize->add_control('display_menu_name', array(
         'settings' => '_sf_name_in_menu',
-        'label'    => __('Display Name of site in Menu?', '_sf'),
+        'label'    => __('Don\'t display Name of site in Menu?', '_sf'),
         'section'  => '_sf_header_options',
         'type'     => 'checkbox',
         'priority'	 => '5',
