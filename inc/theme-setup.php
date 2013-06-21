@@ -104,7 +104,7 @@ function _sf_custom_excerpt_length( $length ) {
 		return $masonry_excerpt_length;
 	}
 	else {
-		return 20;
+		return 55;
 	}
 }
 add_filter( 'excerpt_length', '_sf_custom_excerpt_length', 999 );
