@@ -732,7 +732,7 @@ $wp_customize->add_setting(
     );
     
     $wp_customize->add_control(
-    	'masonry_how_many',
+    'masonry_how_many',
     	array(
     		'type' => 'text',
     		'label' => __('How Many Bricks Per Row', '_sf'),
@@ -748,13 +748,33 @@ $wp_customize->add_setting(
 
     $wp_customize->add_control(
     '_sf_masonry_excerpt',
-    array(
-        'type' => 'checkbox',
-        'label' => __('Show Excerpt In Masonry Box?', '_sf'),
-        'section' => '_sf_masonry_options',
-        'priority' => '50',
-        )
+		array(
+			'type' => 'checkbox',
+			'label' => __('Show Excerpt In Masonry Box?', '_sf'),
+			'section' => '_sf_masonry_options',
+			'priority' => '50',
+			)
     );
+    
+    //How long is excerpt?
+    $wp_customize->add_setting(
+   	'masonry_excerpt_length',
+   		array(
+   			'default' => '10',
+   		)
+   	);
+   	
+   	$wp_customize->add_control(
+   	'masonry_excerpt_length',
+   		array (
+   			'type' => 'text',
+   			'label' => __('Masonry Excerpt Length (enter numbers only)', '_sf'),
+   			'section' => '_sf_masonry_options',
+   			'callback' => '_sf_sanitize_number',
+   			'priority' => '52',
+   			)
+   	);
+   	
     //masonry colors
 	$masonry[] = array(
 		'slug'=>'masonry_bg_color', 
