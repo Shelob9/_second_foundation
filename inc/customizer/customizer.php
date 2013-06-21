@@ -378,11 +378,6 @@ function _sf_customize_register( $wp_customize ){
 	
 //content area colors
 	$content[] = array(
-		'slug'=>'content_bg_color', 
-		'default' => '#fff',
-		'label' => __('Content Area Background Color', 'sf')
-	);
-	$content[] = array(
 	'slug'=>'content_text_color', 
 	'default' => ' ',
 	'label' => __('Content Text Color', 'sf')
