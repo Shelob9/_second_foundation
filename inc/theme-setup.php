@@ -90,8 +90,23 @@ if (! function_exists('_sf_new_excerpt_more' ) ) :
 function _sf_new_excerpt_more( $more ) {
 	return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">Read More</a>';
 }
-add_filter( 'excerpt_more', 'new_excerpt_more' );
+add_filter( 'excerpt_more', '_sf_new_excerpt_more' );
 endif; //! _sf_new_excerpt_more exists
+
+if (! function_exists('_sf_custom_excerpt_length') ) :
+function _sf_custom_excerpt_length( $length ) {
+	//get the value of the masonry excerpt length option, or set it to 10 if !isset
+	$masonry_excerpt_length = get_theme_mod('masonry_excerpt_length', 10);
+	//if masonry functions exists, since we're using it set using $masonry_excerpt_length, else leave at 55.
+	if (function_exists('_sf_init_masonry')) {
+		return $masonry_excerpt_length;
+	}
+	else {
+		return 20;
+	}
+}
+add_filter( 'excerpt_length', '_sf_custom_excerpt_length', 999 );
+endif; // ! _sf_custom_excerpt_length exists
 
 /**
 * Masonry Brick Width As A Percentage
