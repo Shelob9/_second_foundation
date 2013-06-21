@@ -514,8 +514,9 @@ object {
 /* -----------------------------------------
   Masonry
 ----------------------------------------- */
-.masonry-entry-details{font-size:.8em; color:#D8D2B1;}
+.masonry-post-excerpt p.excerpt {font-size:.8em;}
 .masonry-entry-cat{ margin-top:1px;}
+
 
 /* Foundation Modificiation For Top bar
 -------------------------------------- */
