@@ -632,9 +632,10 @@ function _sf_customize_register( $wp_customize ){
         'priority' => '5',
         )
     );
+    $defaultbg = get_template_directory_uri().'/images/bg.jpg';
 	//page background img
 	    $wp_customize->add_setting('body_bg_img', array(
-        'default'           => 'images/bg.jpg',
+        'default'           => $defaultbg,
         'capability'        => 'edit_theme_options',
     ));
  
