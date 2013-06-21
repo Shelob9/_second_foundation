@@ -728,7 +728,10 @@ $wp_customize->add_setting(
     
     //How many bricks Wide?
     $wp_customize->add_setting(
-    	'masonry_how_many'
+    	'masonry_how_many',
+    		array(
+    			'default' => '4',
+    		)
     );
     
     $wp_customize->add_control(
@@ -738,7 +741,7 @@ $wp_customize->add_setting(
     		'label' => __('How Many Bricks Per Row', '_sf'),
     		'priority' => '10',
     		'section' => '_sf_masonry_options',
-    		'callback' => '_sf_sanitize_textarea',
+    		'callback' => '_sf_sanitize_number',
     	)
     );
  	//show excerpt
