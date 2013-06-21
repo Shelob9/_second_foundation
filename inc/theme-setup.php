@@ -75,13 +75,23 @@ endif; //! _sf_widgets_init exists
 
 
 /**
-* Filter the_excerpt to add class of excerpt to it.
+* Filters for the_excerpt 
 */
 
-add_filter( "the_excerpt", "_sf_add_class_to_excerpt" );
+//add class of excerpt to excerpt
+if (! function_exists('_sf_add_class_to_excerpt' ) ) :
 function _sf_add_class_to_excerpt( $excerpt ) {
     return str_replace('<p', '<p class="excerpt"', $excerpt);
 }
+add_filter( "the_excerpt", "_sf_add_class_to_excerpt" );
+endif; //! ! _sf_add_class_to_excerpt exists
+
+if (! function_exists('_sf_new_excerpt_more' ) ) :
+function _sf_new_excerpt_more( $more ) {
+	return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">Read More</a>';
+}
+add_filter( 'excerpt_more', 'new_excerpt_more' );
+endif; //! _sf_new_excerpt_more exists
 
 /**
 * Masonry Brick Width As A Percentage
