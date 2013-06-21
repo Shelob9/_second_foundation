@@ -273,8 +273,8 @@ $body_img_url = get_theme_mod('body_bg_img');
 $header_img_url = get_theme_mod('header_bg_img');
 $content_img_url = get_theme_mod('content_bg_img');
 if (
-//if we're using full screen background image, and one is set 
-! get_theme_mod( 'body_bg_choice' ) == '' && ! $body_img_url == ''
+//if we're using full screen background image, and one is set (which btw may be the default one.)
+get_theme_mod( 'body_bg_choice' ) == '' 
 //or we're using a background image for the header and  and one is set 
 || ! get_theme_mod( 'header_bg_choice' ) == '' && ! $header_img_url == ''
 //or we're using a background image for the content area and  and one is set 
@@ -289,7 +289,12 @@ endif; //! _sf_scripts exists
 
 if (! function_exists('_sf_js_init_backstretch') ) :
 function _sf_js_init_backstretch($use = '') {
-	$body_img_url = get_theme_mod('body_bg_img');
+	if ( get_theme_mod('body_bg_img') == '' ) {
+		$body_img_url = get_template_directory_uri().'/images/bg.jpg';
+	}
+	else {
+		$body_img_url = get_theme_mod('body_bg_img');
+	}
 	$header_img_url = get_theme_mod('header_bg_img');
 	$content_img_url = get_theme_mod('content_bg_img');
 	
@@ -297,13 +302,13 @@ function _sf_js_init_backstretch($use = '') {
 	if (! $use == 'reinit') {
 		echo '<script>     ';
 	}
-		
-	if ( ! get_theme_mod( 'body_bg_choice' ) == '' && ! $body_img_url == '' ) {
+	
+	//if (!  get_theme_mod( 'body_bg_choice' ) == ''  ) {
 		$img = $body_img_url;
 		echo ' jQuery.backstretch("';
 		echo $img;
 		echo '");     ';
-	} 
+	//} 
 	
 	if ( ! get_theme_mod( 'header_bg_choice' ) == '' && ! $header_img_url == '' ) {
 		// store the image ID in a var

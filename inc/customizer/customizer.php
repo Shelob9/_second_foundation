@@ -567,7 +567,7 @@ function _sf_customize_register( $wp_customize ){
     'content-trans-bg',
     array(
         'type' => 'checkbox',
-        'label' => 'Transparent Background For Content Area',
+        'label' => 'Use A Background Color For Content Area, If Not Using An Image Background?',
         'section' => '_sf_background_options',
         'priority' => '23',
         )
@@ -581,7 +581,7 @@ function _sf_customize_register( $wp_customize ){
     'header-trans-bg',
     array(
         'type' => 'checkbox',
-        'label' => 'Transparent Background For Header Area',
+        'label' => 'Use A Background Color For Header Area, If Not Using An Image Background?',
         'section' => '_sf_background_options',
         'priority' => '13',
         )
@@ -595,7 +595,7 @@ function _sf_customize_register( $wp_customize ){
     'sidebar-trans-bg',
     array(
         'type' => 'checkbox',
-        'label' => 'Transparent Background For Sidebar Area',
+        'label' => 'Use A Background Color For Sidebar Area',
         'section' => '_sf_background_options',
         'priority' => '30',
         )
@@ -609,7 +609,7 @@ function _sf_customize_register( $wp_customize ){
     'footer-trans-bg',
     array(
         'type' => 'checkbox',
-        'label' => 'Transparent Background For Footer Area',
+        'label' => 'Use A Background Color For Footer Area',
         'section' => '_sf_background_options',
         'priority' => '40',
         )
@@ -619,14 +619,15 @@ function _sf_customize_register( $wp_customize ){
 	// =========
 	
 	//Background Color or Full-Width Image?
-	$wp_customize->add_setting('body_bg_choice', array(
-	) );
+	$wp_customize->add_setting('body_bg_choice'
+
+	);
 
     $wp_customize->add_control(
     'body_bg_choice',
     array(
         'type' => 'checkbox',
-        'label' => 'Use Background Image Instead of Color For Page?',
+        'label' => 'Use Background Color Instead of Image For Page?',
         'section' => '_sf_background_options',
         'settings'   => 'body_bg_choice',
         'priority' => '5',
