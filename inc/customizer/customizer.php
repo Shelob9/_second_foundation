@@ -428,17 +428,17 @@ function _sf_customize_register( $wp_customize ){
 
 	$sidebar[] = array(
 	'slug'=>'sidebar_text_color', 
-	'default' => ' ',
+	'default' => '#000',
 	'label' => __('Sidebar Text Color', 'sf')
 	);
 	$sidebar[] = array(
 		'slug'=>'sidebar_link_color', 
-		'default' => ' ',
+		'default' => '#fff',
 		'label' => __('Sidebar Link Color', 'sf')
 	);
 	$sidebar[] = array(
 		'slug'=>'widget_title_color', 
-		'default' => ' ',
+		'default' => '#000',
 		'label' => __('Widget Title Color', 'sf')
 	);
 			foreach( $sidebar as $color ) {
