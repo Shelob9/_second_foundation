@@ -138,7 +138,7 @@ endif; //! _sf_custom_header
 if (! function_exists('_sf_menu_fallback') ) :
 function _sf_menu_fallback( ) {
 	echo '<ul class="left">';
-	wp_list_pages('title_li=');
+	wp_list_pages('title_li=&&depth=1');
 	echo '</ul>';
 }
 endif; // ! _sf_menu_fallback exists
