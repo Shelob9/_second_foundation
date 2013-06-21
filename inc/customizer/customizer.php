@@ -379,22 +379,22 @@ function _sf_customize_register( $wp_customize ){
 //content area colors
 	$content[] = array(
 	'slug'=>'content_text_color', 
-	'default' => ' ',
+	'default' => '#000',
 	'label' => __('Content Text Color', 'sf')
 	);
 	$content[] = array(
 		'slug'=>'content_link_color', 
-		'default' => ' ',
+		'default' => '#fff',
 		'label' => __('Content Link Color', 'sf')
 	);
 	$content[] = array(
 		'slug'=>'post_title_color', 
-		'default' => ' ',
+		'default' => '#fff',
 		'label' => __('Post Title Color', 'sf')
 	);
 	$content[] = array(
 		'slug'=>'page_title_color', 
-		'default' => ' ',
+		'default' => '#fff',
 		'label' => __('Page Title Color', 'sf')
 	);
 	
