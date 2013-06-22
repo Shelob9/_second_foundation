@@ -9,30 +9,46 @@
  
  /**
 * Sidebar Position
+* Can get the value set with get_theme_mod('_sf_default_sidebar'); but don't do it inside these functions, do it in the templates before calling this function, that way we can set $sidebar manually or with a conditional there if we want ina  child theme or when customizing theme.
 */
-//functions for opening and closing .primary, .content
-if (! function_exists('_sf_open') ) :
-function _sf_open($sidebar = 'value1') {
-	if ($sidebar == '') {
-		$sidebar = 'none';
-	}
+//first  a function to translate dropdown (value1, value2, value3) into a left, right, none.
+
+if (! function_exists('_sf_translate_dropdown_value') ):
+function _sf_translate_dropdown_value($sidebar = null) {
 	/**
 	'value1' => 'right',
 	'value2' => 'left',
 	'value3' => 'none',
 	**/
+	if ($sidebar == 'value1' || 'value2' || 'value3') :
+		if ($sidebar == 'value1') {
+			$sidebar = 'right';
+		}
+		if ($sidebar == 'value2') {
+			$sidebar = 'left';
+		}
+		if ($sidebar == 'value3') {
+			($sidebar = 'none');
+		}
+	endif; //$sidebar = value 1,2,3
+	return $sidebar;
 	
-	// value3 = none
-	if ($sidebar == 'value1') {
+}
+endif; // ! _sf_translate_dropdown_value exists
+
+//functions for opening and closing .primary, .content
+if (! function_exists('_sf_open') ) :
+function _sf_open($sidebar = 'value1') {
+
+	$sidebar = _sf_translate_dropdown_value($sidebar);
+	if ($sidebar == 'none') {
 		echo   '<div id="primary" class="content-area row primary-sidebar-none">';
 		echo   '<div id="content" class="site-content large-12 columns" role="main">';	
 	}
-	// value2 = left
-	elseif ($sidebar == 'value2') {
+	elseif ($sidebar == 'left') {
 		echo  '<div id="primary" class="content-area row primary-sidebar-left">';
 		echo  '<div id="content" class="site-content large-9 push-3 columns" role="main">';
 	}
-	// right
 	else {
 		echo   '<div id="primary" class="content-area row primary-sidebar-right">';
 		echo   '<div id="content" class="site-content large-9 columns" role="main">';
@@ -43,11 +59,11 @@ endif; //! _sf_open exists
 
 if (! function_exists('_sf_close') ) :
 function _sf_close($sidebar = 'value1', $sidebarName = null) {
-	if ($sidebar == '') {
-		$sidebar = 'none';
-	}
-	// value3 = none
-	if ($sidebar == 'value3') {
+	//if ($sidebar == '') {
+	//	$sidebar = 'none';
+	//}
+	$sidebar = _sf_translate_dropdown_value($sidebar);
+	if ($sidebar == 'none') {
 		echo   '</div><!-- #content -->';
 		echo   '</div><!-- #primary -->';
 		echo  get_footer();
@@ -63,12 +79,11 @@ endif; //! _sf_close exists
 
 if (! function_exists('_sf_sidebar_starter') ) :
 function _sf_sidebar_starter($sidebar = 'value1') {
-	// value2 = left
-	if ($sidebar == 'value2') {
+	$sidebar = _sf_translate_dropdown_value($sidebar);
+	if ($sidebar == 'left') {
 		echo '<div id="secondary" class="widget-area large-3 pull-9 columns" role="complementary">';
 	}
-	// value3 = none
-	elseif ($sidebar == 'value3') {
+	elseif ($sidebar == 'none') {
 	
 	}
 	else {	
