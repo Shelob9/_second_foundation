@@ -164,9 +164,7 @@ function _sf_js_init_masonry() {
 		</script>
 	";
 }
-if ( ! is_singular() &&  (get_theme_mod( '_sf_inf-scroll' ) == '' ) &&  (get_theme_mod( '_sf_masonry' ) !== '' ) ) {
 	add_action('wp_footer', '_sf_js_init_masonry');
-}
 endif; //! _sf_js_init_masonry
 endif; //do we need masonry?
 //
