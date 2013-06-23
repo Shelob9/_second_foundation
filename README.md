@@ -2,12 +2,12 @@ _Second Foundation
 ==================
 An advanced starter theme with a mobile-first, responsive design. It features AJAX page loads, Infinite Scroll, Masonry blog page, an optional front page slider, full screen backgrounds and user-configurable color options. Can be used as theme as is, but makes a great starter theme for custom designs, as it already has all of the cool features you need built-in.
 
-You can download [version 1.0.4.3 (via WordPress.org)](http://wordpress.org/themes/download/_second-foundation.1.0.4.3.zip). The master branch is currently v1.0.5.1, which is finished and has been submitted to WordPress.org. It is pending review.
+You can download [version 1.0.4.3 (via WordPress.org)](http://wordpress.org/themes/download/_second-foundation.1.0.4.3.zip). The master branch is currently v1.0.5.3, which is finished and has been submitted to WordPress.org. It is pending review.
 
 Documentation is available via [the wiki](https://github.com/Shelob9/_second_foundation/wiki), which is a work in progress.
 
-New Features In v.1.0.5.1 
-==========================
+New Features In v.1.0.5.x From 1.0.4.x 
+======================================
 * Full screen image background option. Can also be used for adding a background image to the header and footer.
 
 * Responsive image sizing via Foundation's [Interchange](http://foundation.zurb.com/docs/components/interchange.html).

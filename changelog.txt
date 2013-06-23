@@ -1,3 +1,12 @@
+v1.0.5.2
+1) Improved sidebar postion functions by:
+	-Removing default value for sidebar default in customizer
+	-Adding a function to translate values from dropdown (value1, value2, value3) into left, right, none.
+2) Fixed the conditionals for enquueing masonry.
+
+v1.0.5.2
+1) Dumped js files that were recently rendered obsolete.
+
 v1.0.5.1
 1) Even more color options via the customizer.
 2) Full screen image background option. Can also be used for adding a background image to the header and footer.
