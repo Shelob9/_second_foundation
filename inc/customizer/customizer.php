@@ -699,7 +699,6 @@ function _sf_customize_register( $wp_customize ){
 $wp_customize->add_setting(
 			'_sf_default_sidebar', 
 			array(
-				'default'        => 'value2',
 				'capability'     => 'edit_theme_options'
 				)
 		);
