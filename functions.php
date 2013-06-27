@@ -30,7 +30,7 @@ locate_template('/inc/extras.php', true);
 // Custom template tags for this theme from _S.
 locate_template('/inc/template-tags.php', true);
 //helper functions
-locate_template('/inc/helper.php')
+locate_template('/inc/helper.php');
 
 
 
