@@ -8,7 +8,7 @@
 */
 
 /**
-* Turn Categor ID into whatever
+* Turn Category ID into whatever
 * 
 * @ since terminus 0.1
 * @param int $CatID - The Category's ID
@@ -31,17 +31,21 @@
     desc
 * @return string Category ID translated into whatever form.
 */
-function _sf_translate_CatID($catID, $form) {
-	if ( ! is_array($catID) ) {
-		$cat = get_category($catID);
-		$output = $cat->$form;
-		return $output;
+function _sf_translate_CatID($CatID, $form) {
+	if ( $CatID == '' ) {
+		$CatID = '1';
 	}
-	else {
-		foreach ($catID as $catID) {
-			$cat = get_category($catID);
+		if ( ! is_array($CatID) ) {
+			$cat = get_category($CatID);
 			$output = $cat->$form;
-			return array($output);
+			return $output;
+		}
+		else {
+			foreach ($CatID as $CatID) {
+				$cat[] = get_category($CatID);
+				$output[] = $cat->$form;
+			}
+			return $output;
 		}
 	}
 }
