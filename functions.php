@@ -30,5 +30,7 @@ locate_template('/css/style.php', true);
 locate_template('/lib/extras.php', true); 
 // Custom template tags for this theme from _S.
 locate_template('/lib/template-tags.php', true);
-//temporarily here, move to parent theme if this shit works
+//Custom Controls
 locate_template('/lib/customizer/custom_controls.php', true); 
+
+
