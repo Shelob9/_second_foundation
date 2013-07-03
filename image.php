@@ -114,11 +114,4 @@ _sf_open($sidebar);
 
 		<?php endwhile; ?>
 
-<<<<<<< HEAD
-				</div><!-- #content -->
-	<?php get_sidebar(); ?>
-	</div><!-- #primary -->
-<?php get_footer(); ?>
-=======
-<?php _sf_open_close('close'); ?>
->>>>>>> aebc49c41c27ab9e0177c22d60d83008b3c75d3c
+<?php _sf_close($sidebar); ?>
