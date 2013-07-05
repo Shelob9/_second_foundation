@@ -2,7 +2,7 @@ _Second Foundation
 ==================
 An advanced starter theme with a mobile-first, responsive design. It features AJAX page loads, Infinite Scroll, Masonry blog page, an optional front page slider, full screen backgrounds and user-configurable color options. Can be used as theme as is, but makes a great starter theme for custom designs, as it already has all of the cool features you need built-in.
 
-You can download [version 1.0.4.3 (via WordPress.org)](http://wordpress.org/themes/download/_second-foundation.1.0.4.3.zip). The master branch is currently v1.0.5.3, which is finished and has been submitted to WordPress.org. It is pending review.
+To download the latest stable version you can use the [theme's page at WordPress.org](http://wordpress.org/themes/_second-foundation). The master branch is at 1.1.0, which is unde development.
 
 Documentation is available via [the wiki](https://github.com/Shelob9/_second_foundation/wiki), which is a work in progress.
 
@@ -22,9 +22,9 @@ New Features In v.1.0.5.x From 1.0.4.x
 
 * Separate background image options for header and content area.
 
-* Sanitization functions for customizer. <em>Done</em>.
+* Sanitization functions for customizer.
 
-* Additional links to customizer. <em>Done</em>.
+* Additional links to customizer.
 
 * Ability to move sidebar from left to right, or remove it via option. Can be overridden in templates.
 
@@ -53,27 +53,44 @@ A starter child theme is available [here](https://github.com/Shelob9/second_spea
 
 Josh Pollock
 ============
-* [Website](http://ComplexWaveform.com)<br />
-* [Resume](http://ComplexWaveform.com/jp/Resume)<br />
+* [Website](http://ComplexWaveform.com)
+
+* [Resume](http://ComplexWaveform.com/jp/Resume)
+
 * [Twitter](http://twitter.com/Josh412)
 
 Foundation
 ==========
-Homepage:      http://foundation.zurb.com<br />
-Documentation: http://foundation.zurb.com/docs<br />
+Homepage:      http://foundation.zurb.com
+
+Documentation: http://foundation.zurb.com/docs
+
 Download:      http://foundation.zurb.com/download.php
 
 
 License Info
 ============
-_Second Foundation is copyright 2013 Josh Pollock.<br />
-_Second Foundation is licensed under the terms of the GPL v3.<br />
-Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.<br />
-Underscores, like WordPress, is licensed under the GPLv2.<br />
-Infinite Scroll https://github.com/paulirish/infinite-scroll (c) 2012-2013 Paul Irish.<br />
-Infinite Scroll is licensed under the terms of the MIT Open Source License.<br />
-Foundation http://foundation.zurb.com/, (c) 2013 ZURB.<br />
-Foundation is licensed under the terms of the MIT Open Source License.<br />
-Browser States https://github.com/browserstate (c) 2011+ by Benjamin Arthur Lupton http://balupton.com/<br />
-Browser States is licensed under the terms of the New BSD License (BSD-3).<br />
+_Second Foundation is copyright 2013 Josh Pollock.
+
+_Second Foundation is licensed under the terms of the GPL v3.
+
+
+Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
+
+Underscores, like WordPress, is licensed under the GPLv2.
+
+
+Infinite Scroll https://github.com/paulirish/infinite-scroll (c) 2012-2013 Paul Irish.
+
+Infinite Scroll is licensed under the terms of the MIT Open Source License.
+
+
+Foundation http://foundation.zurb.com/, (c) 2013 ZURB.
+
+Foundation is licensed under the terms of the MIT Open Source License.
+
+
+Browser States https://github.com/browserstate (c) 2011+ by Benjamin Arthur Lupton http://balupton.com/
+
+Browser States is licensed under the terms of the New BSD License (BSD-3).
 
