@@ -17,9 +17,8 @@ _sf_open($sidebar);
 		<?php _sf_home_slider(); ?>
 		<?php if ( have_posts() ) : ?>
 		<?php
-		if ( get_theme_mod( '_sf_masonry' ) == '' ) { ?>
-			<div id="masonry-loop" class="js-masonry" data-masonry-options='{ "itemSelector": ".masonry-entry", "guttersize": 10, "isInitLayout": "false" }'><!--start masonry-loop-->';
-  		<?php
+		if ( get_theme_mod( '_sf_masonry' ) == '' ) {
+			echo '<div id="masonry-loop"><!--start masonry-loop-->';
 				/* Start the Loop */
 				while ( have_posts() ) : the_post();
 				get_template_part( 'content', 'masonry' );
