@@ -25,7 +25,7 @@ locate_template('/lib/customizer/customizer.php', true);
 //Adds sanitization functions for customizer
 locate_template('/lib/customizer/customizer_sanitizer.php', true); 
 //Puts styles set in customzier into head.
-locate_template('/css/style.php', true);
+locate_template('lib/css/style.php', true);
 //Functions that act independently of the theme templates from _S.
 locate_template('/lib/extras.php', true); 
 // Custom template tags for this theme from _S.
