@@ -1,6 +1,8 @@
 <?php
 /**
- * Includes various parts of the functions incrary
+ * Includes the various parts of the library.
+ * Note: Library is a git submodule.
+ * Source = https://github.com/Shelob9/_sf_lib
  *
  * @package _sf
  * revamped 1.0.5
@@ -30,7 +32,8 @@ locate_template('lib/css/style.php', true);
 locate_template('/lib/extras.php', true); 
 // Custom template tags for this theme from _S.
 locate_template('/lib/template-tags.php', true);
-
+//use galleria (instead of orbit?) if options say so.
+locate_template('/lib/galleria.php', true);
 
 
 
