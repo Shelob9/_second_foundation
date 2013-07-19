@@ -516,6 +516,7 @@ object {
 ----------------------------------------- */
 .masonry-post-excerpt p.excerpt {font-size:.8em;}
 .masonry-entry-cat{ margin-top:1px;}
+#masonry-loop .panel {margin: 0 0 0 0; padding: 0 0 0 0;}
 
 
 /* Foundation Modificiation For Top bar
