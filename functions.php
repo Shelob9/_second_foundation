@@ -34,15 +34,3 @@ locate_template('/lib/extras.php', true);
 locate_template('/lib/template-tags.php', true);
 //use galleria (instead of orbit?) if options say so.
 locate_template('/lib/galleria.php', true);
-
-//customizer-boilerplate
-require( get_stylesheet_directory() . '/lib/options/customizer-boilerplate/customizer.php' );
-
-
-
-
-
-
-
-
-
