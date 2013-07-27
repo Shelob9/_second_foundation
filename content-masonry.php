@@ -4,9 +4,11 @@
         </div>
   		<div class="masonry-details">
 			<h5  show-for-medium-up hide-for-small"><a href="<?php the_permalink(' ') ?>" title="<?php the_title(); ?>"><span class="masonry-post-title"> <?php the_title(); ?></span></a></h5>
-			<?php if ( get_theme_mod( '_sf_masonry_excerpt' ) == '' ) :
+			<?php 
+				global $options;
+				if ( $options['masonry_excerpt'] == '' ) :
 				echo '<div class="masonry-post-excerpt">';
-				echo the_excerpt('15');
+				echo the_excerpt();
 				echo '</div>';
 				endif;
 			?>

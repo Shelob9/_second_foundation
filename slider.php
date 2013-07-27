@@ -3,7 +3,10 @@
 <div class="slideshow-wrapper">
 	<div class="preloader"></div>
 	<ul data-orbit>      
-		<?php $query = new WP_Query("category_name=".get_theme_mod( '_sf_slide_cat' )."&posts_per_page=".get_theme_mod( '_sf_slide_numb') ); ?>
+		<?php 
+			global $options;
+			$query = new WP_Query("category_name=".$options['slide_cat']."&posts_per_page=".$options['slide_numb'] );
+		?>
 
 		<?php while ($query->have_posts()) : $query->the_post(); ?>
 			<li>
