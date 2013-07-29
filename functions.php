@@ -34,6 +34,8 @@ locate_template('/lib/extras.php', true);
 locate_template('/lib/template-tags.php', true);
 //use galleria (instead of orbit?) if options say so.
 locate_template('/lib/galleria.php', true);
+//include theme hook alliance hooks
+locate_template('/lib/tha/tha-theme-hooks.php', true);
 
 
 
