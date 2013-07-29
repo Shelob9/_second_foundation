@@ -3,8 +3,9 @@
  * @package _sf
  */
 ?>
-
+<?php do_action( 'tha_entry_before' ); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php do_action( 'tha_entry_top' ); ?>
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 
@@ -60,4 +61,6 @@
 
 		<?php edit_post_link( __( 'Edit', '_sf' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-meta -->
+<?php do_action( 'tha_entry_bottom' ); ?>
 </article><!-- #post-## -->
+<?php do_action( 'tha_entry_after' ); ?>

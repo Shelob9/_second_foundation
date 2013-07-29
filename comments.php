@@ -70,6 +70,10 @@
 		<p class="no-comments"><?php _e( 'Comments are closed.', '_sf' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form(); ?>
-
+	<?php 
+	do_action( 'tha_comments_before' );
+	comment_form();
+	do_action( 'tha_comments_after' );
+	?>
+	
 </div><!-- #comments -->

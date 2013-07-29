@@ -6,8 +6,10 @@
  */
 ?>
 <?php 
+	do_action( 'tha_sidebars_before' );
 	$sidebar = get_theme_mod('_sf_default_sidebar');
 	_sf_sidebar_starter($sidebar);
+	do_action( 'tha_sidebar_top' );
 ?>
 		<?php do_action( 'before_sidebar' ); ?>
 		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
@@ -33,4 +35,6 @@
 			</aside>
 
 		<?php endif; // end sidebar widget area ?>
+	<?php do_action( 'tha_sidebar_bottom' ); ?>
 	</div><!-- #secondary -->
+<?php do_action( 'tha_sidebars_after' ); ?>

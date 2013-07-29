@@ -7,11 +7,12 @@
  * @package _sf
  */
 ?><!DOCTYPE html>
-
+<?php do_action( 'tha_html_before' ); ?>
 <html <?php language_attributes(); ?> >
     <!-- html contents -->
 </div>
 <head>
+<?php do_action( 'tha_head_top' ); ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
 <title><?php wp_title( '|', true, 'right' ); ?></title>
@@ -21,7 +22,10 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
  <?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); ?>
-<?php wp_head(); ?>
+<?php 
+	do_action( 'tha_head_bottom' );
+	wp_head(); 
+?>
 </head>
 
 <body <?php body_class(); ?>>
