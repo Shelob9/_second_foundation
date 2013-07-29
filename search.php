@@ -23,7 +23,7 @@ _sf_open($sidebar);
 
 			<?php endwhile; ?>
 
-			<?php _sf_content_nav( 'nav-below' ); ?>
+			
 
 		<?php else : ?>
 

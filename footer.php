@@ -13,6 +13,7 @@
 	<footer id="colophon" class="site-footer row" role="contentinfo">
 	<?php do_action( 'tha_footer_top' ); ?>
 		<div class="site-info large-12 columns">
+			<?php _sf_content_nav( 'nav-below' ); ?>
 			<?php do_action( '_sf_credits' ); ?>
 			<a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', '_sf' ); ?>" rel="generator"><?php printf( __( 'Powered by %s', '_s' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
