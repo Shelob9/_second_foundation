@@ -3,8 +3,9 @@
  * @package _sf
  */
 ?>
-
+<?php do_action( 'tha_entry_before' ); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php do_action( 'tha_entry_top' ); ?>
 	<header class="entry-header">
 		<h1 class="slider-entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', '_sf' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 	</header><!-- .entry-header -->
@@ -24,4 +25,6 @@
 	<footer class="slider-read-more" style="margin-right:10%;">
 		<a class="slider button radius alignright" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', '_sf' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">Read More</a>
 	</footer>
+<?php do_action( 'tha_entry_bottom' ); ?>
 </article><!-- #post-## -->
+<?php do_action( 'tha_entry_after' ); ?>

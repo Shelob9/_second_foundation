@@ -1,4 +1,6 @@
-	<div class="masonry-entry  panel radius" id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
+	<?php do_action( 'tha_entry_before' ); ?>
+	<article class="masonry-entry  panel radius" id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
+	<?php do_action( 'tha_entry_top' ); ?>
         <div class="masonry-thumbnail">
             <a href="<?php the_permalink(' ') ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail('masonry-thumb'); ?></a>
         </div>
@@ -12,4 +14,6 @@
 			?>
 		</div>
 		<!-- END masonry-entry-details -->  
-	</div> <!--END masonry-entry-->
+	<?php do_action( 'tha_entry_bottom' ); ?>
+	</article> <!--END masonry-entry-->
+	<?php do_action( 'tha_entry_after' ); ?>
