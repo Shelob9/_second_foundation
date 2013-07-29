@@ -13,9 +13,9 @@
 	<footer id="colophon" class="site-footer row" role="contentinfo">
 	<?php do_action( 'tha_footer_top' ); ?>
 			<?php _sf_content_nav( 'nav-below' ); ?>
-	<?php do_action( 'tha_footer_top' ); ?>
-	</footer><!-- #colophon -->
 	<?php do_action( 'tha_footer_bottom' ); ?>
+	</footer><!-- #colophon -->
+	<?php do_action( 'tha_footer_after' ); ?>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
