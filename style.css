@@ -76,6 +76,12 @@ a img {
 /* =Foundation Tweaks, etc.
 ----------------------------------------------- */
 
+#secondary ul, #seconddary ol {
+	list-style-type: none;
+}
+#secondary li {
+	margin-left: .2em;
+}
 
 
 /* =Global
