@@ -22,8 +22,10 @@
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-content -->
 	<?php } ?>
-	<footer class="slider-read-more" style="margin-right:10%;">
-		<a class="slider button radius alignright" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', '_sf' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">Read More</a>
+	<footer class="slider-read-more" class="row">
+		<div class="large-9 columns">
+			<a class="slider button radius alignleft" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', '_sf' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">Read More</a>
+		</div>
 	</footer>
 <?php do_action( 'tha_entry_bottom' ); ?>
 </article><!-- #post-## -->
