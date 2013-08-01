@@ -69,6 +69,6 @@
 			<a class="read-more-button button small radius alignright" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', '_sf' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">Read More</a>
 		</div>
 	</footer><!-- .entry-meta -->
-<?php do_action( 'tha_entry_bottom' ); ?>s
+<?php do_action( 'tha_entry_bottom' ); ?>
 </article><!-- #post-## -->
 <?php do_action( 'tha_entry_after' ); ?>
