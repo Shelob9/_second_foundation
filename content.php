@@ -38,7 +38,7 @@
 			<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
 				<?php
 					/* translators: used between list items, there is a space after the comma */
-					$categories_list = get_the_category_list( __( ', ', '_sf' ) );
+					$categories_list = get_the_category_list( __( ', ', '_s' ) );
 					if ( $categories_list && _sf_categorized_blog() ) :
 				?>
 				<span class="cat-links">
@@ -69,6 +69,6 @@
 			<a class="read-more-button button small radius alignright" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', '_sf' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">Read More</a>
 		</div>
 	</footer><!-- .entry-meta -->
-<?php do_action( 'tha_entry_bottom' ); ?>
+<?php do_action( 'tha_entry_bottom' ); ?>s
 </article><!-- #post-## -->
 <?php do_action( 'tha_entry_after' ); ?>
