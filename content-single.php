@@ -17,7 +17,7 @@
 	<div class="entry-content">
 		<?php if ( has_post_thumbnail() && ! has_post_format('gallery')  && ! has_post_format('image') ) : ?>
 			<div class="large-3 columns post-thumbnail">
-			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" ><?php the_post_thumbnail('medium'); ?></a>
+			<a href="<?php $id= get_post_thumbnail_id(); $src= wp_get_attachment_image_src( $id, 'large'); echo $src[0];  ?>" title="<?php the_title_attribute(); ?>" ><?php the_post_thumbnail('medium'); ?></a>
 			</div>
 		<?php endif; ?>
 		<?php the_content(); ?>
