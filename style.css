@@ -115,7 +115,7 @@ p {
 	margin-bottom: 1.5em;
 }
 ul, ol {
-	margin: 0 0 1.5em .2em;
+	margin: 0 0 1.5em 3em;
 }
 ul {
 	list-style: disc;
