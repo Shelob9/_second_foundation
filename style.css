@@ -79,9 +79,6 @@ a img {
 #secondary ul, #seconddary ol {
 	list-style-type: none;
 }
-#secondary li {
-	margin-left: .2em;
-}
 
 
 /* =Global
@@ -115,7 +112,7 @@ p {
 	margin-bottom: 1.5em;
 }
 ul, ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 2em;
 }
 ul {
 	list-style: disc;
