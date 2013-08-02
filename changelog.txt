@@ -1,3 +1,11 @@
+v1.1.1
+1) Importe ul/ol margins.
+2) Changed themeURI
+3) Translation domain fixes.
+4) In content-single, thumbnail links to source not the post we are already on.
+5) Fix for default widget header levels.
+6) The lost v1.1.0 Changelog update.
+
 v1.1.0
 1) Upgrade to masonry 3 and improve masonry functionality.
 2) Support for Theme Hook Alliance hooks.
