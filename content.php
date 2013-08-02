@@ -38,11 +38,11 @@
 			<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
 				<?php
 					/* translators: used between list items, there is a space after the comma */
-					$categories_list = get_the_category_list( __( ', ', '_s' ) );
+					$categories_list = get_the_category_list( __( ', ', '_sf' ) );
 					if ( $categories_list && _sf_categorized_blog() ) :
 				?>
 				<span class="cat-links">
-					<?php printf( __( 'Posted in %1$s', '_s' ), $categories_list ); ?>
+					<?php printf( __( 'Posted in %1$s', '_sf' ), $categories_list ); ?>
 				</span>
 				<?php endif; // End if categories ?>
 
@@ -53,7 +53,7 @@
 				?>
 				<span class="sep"> | </span>
 				<span class="tags-links">
-					<?php printf( __( 'Tagged %1$s', '_s' ), $tags_list ); ?>
+					<?php printf( __( 'Tagged %1$s', '_sf' ), $tags_list ); ?>
 				</span>
 				<?php endif; // End if $tags_list ?>
 			<?php endif; // End if 'post' == get_post_type() ?>

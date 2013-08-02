@@ -34,7 +34,7 @@ _sf_open($sidebar);
 
 					<nav role="navigation" id="image-navigation" class="navigation-image">
 						<div class="previous"><?php previous_image_link( false, __( '<span class="meta-nav">&larr;</span> Previous', '_fs' ) ); ?></div>
-						<div class="next"><?php next_image_link( false, __( 'Next <span class="meta-nav">&rarr;</span>', '_s' ) ); ?></div>
+						<div class="next"><?php next_image_link( false, __( 'Next <span class="meta-nav">&rarr;</span>', '_sf' ) ); ?></div>
 					</nav><!-- #image-navigation -->
 				</header><!-- .entry-header -->
 
@@ -98,11 +98,11 @@ _sf_open($sidebar);
 					<?php elseif ( ! comments_open() && pings_open() ) : // Only trackbacks open ?>
 						<?php printf( __( 'Comments are closed, but you can leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', '_sf' ), get_trackback_url() ); ?>
 					<?php elseif ( comments_open() && ! pings_open() ) : // Only comments open ?>
-						<?php _e( 'Trackbacks are closed, but you can <a class="comment-link" href="#respond" title="Post a comment">post a comment</a>.', '_s' ); ?>
+						<?php _e( 'Trackbacks are closed, but you can <a class="comment-link" href="#respond" title="Post a comment">post a comment</a>.', '_sf' ); ?>
 					<?php elseif ( ! comments_open() && ! pings_open() ) : // Comments and trackbacks closed ?>
 						<?php _e( 'Both comments and trackbacks are currently closed.', '_sf' ); ?>
 					<?php endif; ?>
-					<?php edit_post_link( __( 'Edit', '_s' ), ' <span class="edit-link">', '</span>' ); ?>
+					<?php edit_post_link( __( 'Edit', '_sf' ), ' <span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
 			</article><!-- #post-<?php the_ID(); ?> -->
 

@@ -19,9 +19,9 @@
 			</div>
 		<?php endif; ?>
 		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
+		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_sf' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
-	<?php edit_post_link( __( 'Edit', '_s' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
+	<?php edit_post_link( __( 'Edit', '_sf' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
 <?php do_action( 'tha_entry_bottom' ); ?>
 </article><!-- #post-## -->
 <?php do_action( 'tha_entry_after' ); ?>
