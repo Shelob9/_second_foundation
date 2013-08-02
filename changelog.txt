@@ -1,3 +1,12 @@
+v1.1.0
+1) Upgrade to masonry 3 and improve masonry functionality.
+2) Support for Theme Hook Alliance hooks.
+3) Improved ajax menu callback handling.
+4) Big fixes.
+5) Removed Infinite Scroll for now due to jQuery compatibility issues.
+6) Upgraded Foundation JS to 4.2.
+7) Layout fixes and improvements.
+
 v1.0.5.2
 1) Improved sidebar postion functions by:
 	-Removing default value for sidebar default in customizer
