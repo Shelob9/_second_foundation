@@ -16,9 +16,6 @@
 		if ( ! is_single() && ! get_theme_mod( '_sf_masonry' ) == ''  ) {
 			_sf_content_nav( 'nav-below' );
 		}
-		if ( get_theme_mod( '_sf_masonry' ) == '' ) {
-			_sf_masonry_nav( 'nav-below' ); 
-		}
 	?>
 	<?php do_action( 'tha_footer_bottom' ); ?>
 	</footer><!-- #colophon -->

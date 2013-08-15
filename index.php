@@ -24,6 +24,7 @@ _sf_open($sidebar);
 				get_template_part( 'content', 'masonry' );
 				endwhile;
 			echo '</div><!--end masonry-loop-->';
+			_sf_masonry_nav( 'nav-below' ); 
 			}
 		else {
 			/* Start the Loop */
