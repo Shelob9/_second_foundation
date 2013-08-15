@@ -520,6 +520,13 @@ object {
 .masonry-post-excerpt p.excerpt {font-size:.8em;}
 .masonry-entry-cat{ margin-top:1px;}
 #masonry-loop .panel {margin: 0 0 0 0; padding: 0 0 0 0;}
+.masonry-nav {padding-top:4px; display:block;}
+#masonry-nav-title {
+	font-size: 1.2em;
+ 	font-weight: bold;
+ 	text-align: center;
+}
+#masonry-navs {padding-bottom:4px}
 
 
 /* Foundation Modificiation For Top bar
