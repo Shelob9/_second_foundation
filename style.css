@@ -520,6 +520,13 @@ object {
 .masonry-post-excerpt p.excerpt {font-size:.8em;}
 .masonry-entry-cat{ margin-top:1px;}
 #masonry-loop .panel {margin: 0 0 0 0; padding: 0 0 0 0;}
+.masonry-nav {padding-top:4px; display:block;}
+#masonry-nav-title {
+	font-size: 1.2em;
+ 	font-weight: bold;
+ 	text-align: center;
+}
+#masonry-navs {padding-bottom:4px}
 
 
 /* Foundation Modificiation For Top bar
@@ -560,4 +567,27 @@ padding-left: -15px;
 ul.title-area {margin-left:0px;}
 
 .top-bar .toggle-topbar.menu-icon a span {margin-top: -15px;}
+
+/*Clearfix
+----------*/
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
 
