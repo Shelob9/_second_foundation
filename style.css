@@ -568,3 +568,26 @@ ul.title-area {margin-left:0px;}
 
 .top-bar .toggle-topbar.menu-icon a span {margin-top: -15px;}
 
+/*Clearfix
+----------*/
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
