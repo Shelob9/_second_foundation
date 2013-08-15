@@ -8,12 +8,18 @@ Documentation is available via [the wiki](https://github.com/Shelob9/_second_fou
 
 Version 1.1
 ===========
+v1.1.2
+1) Use interchange when Masonry is running.
+2) Special masonry nav and fixes for ordinary nav.
+3) Fixed issue where Masonry content escaped Masonry container.
+
 v1.1.1
-1) Imported ul/ol margins.
-2) Changed themeURI.
+1) Improved ul/ol margins.
+2) Changed themeURI
 3) Translation domain fixes.
 4) In content-single, thumbnail links to source not the post we are already on.
 5) Fix for default widget header levels.
+6) The lost v1.1.0 Changelog update.
 
 v1.1.0
 1) Upgrade to masonry 3 and improve masonry functionality.
