@@ -32,13 +32,17 @@ locate_template('lib/css/style.php', true);
 locate_template('/lib/extras.php', true); 
 // Custom template tags for this theme from _S.
 locate_template('/lib/template-tags.php', true);
-//use galleria (instead of orbit?) if options say so.
-locate_template('/lib/galleria.php', true);
 //include theme hook alliance hooks
 locate_template('/lib/tha/tha-theme-hooks.php', true);
 
+/**
+* Optional Stuff That Theme Doesn't Use By Default
+*/
 
-
+//Galleria
+//locate_template('/lib/galleria.php', true);
+//Slideout Sidebar
+//locate_template('/lib/slideSidebar', true);
 
 
 
