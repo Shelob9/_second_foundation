@@ -10,9 +10,6 @@ get_header();
 $sidebar = get_theme_mod('_sf_default_sidebar');
 _sf_open($sidebar);
 ?>
-
-		<?php if ( have_posts() ) : ?>
-
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php
@@ -82,26 +79,32 @@ _sf_open($sidebar);
 					endif;
 				?>
 			</header><!-- .page-header -->
+			<?php 
+				if ( have_posts() ) { 
+					if ( get_theme_mod( '_sf_masonry' ) == '' ) {
+						echo '<div id="masonry-loop"><!--start masonry-loop-->';
+							/* Start the Loop */
+							while ( have_posts() ) : the_post();
+								get_template_part( 'content', 'masonry' );
+							endwhile;
+						echo '</div><!--end masonry-loop-->';
+						_sf_masonry_nav( 'nav-below' ); 
+					}
+					else {
+						/* Start the Loop */ 
+						 while ( have_posts() ) : the_post();
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to overload this in a child theme then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-				?>
-
-			<?php endwhile; ?>
-
-			
-
-		<?php else : ?>
-
-			<?php get_template_part( 'no-results', 'archive' ); ?>
-
-		<?php endif; ?>
+							/* Include the Post-Format-specific template for the content.
+							 * If you want to overload this in a child theme then include a file
+							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+							 */
+							get_template_part( 'content', get_post_format() );
+						endwhile;
+					}
+				}
+			 	else {
+					get_template_part( 'no-results', 'archive' );
+				}
+			?>
 
 <?php _sf_close($sidebar); ?>
