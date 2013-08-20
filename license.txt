@@ -1,5 +1,8 @@
-_Second Foundation is copyright 2013 Josh Pollock and licensed under the terms of the GPL v3. It is based on Underscores  (_s) by Automattic and Foundation by ZURB.
+_Second Foundation is copyright 2013 Josh Pollock and licensed under the terms of the GPL v3. It is based on Underscores (_s) by Automattic and Foundation by ZURB.
 
+_Second Foundation also includes:
+
+Underscores
 Underscores (http://underscores.me/), (C) 2012-2013 Automattic, Inc.
 Underscores, like WordPress, is licensed under the GPL.
 Resetting and rebuilding styles have been helped along thanks to the fine work of
@@ -7,19 +10,30 @@ Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 and Blueprint http://www.blueprintcss.org/
 
+Foundation
 Foundation (http://foundation.zurb.com/), (c) 2013 ZURB (http://zurb.com/).
 Foundation is licensed under the terms of the MIT Open Source License.
 
-This theme includes the following additional jQuery plugins:
+
+Infinite Scorll
 Infinite Scroll (https://github.com/paulirish/infinite-scroll), (c) 2012-2013 Paul Irish.
 Infinite Scroll is licensed under the terms of the MIT Open Source License.
 
+Browser States:
 Browser States (https://github.com/browserstate), (c) 2011+ by Benjamin Arthur Lupton (http://balupton.com/)
 Browser States is licensed under the terms of the New BSD License (BSD-3).
 
+Backstretch: 
 Backstretch (http://srobbin.com/jquery-plugins/backstretch/), by Scott Robin (http://srobbin.com/), (c) 2012 Robbin & Co.
 Backstretch is licensed under the terms of the MIT Open Source License.
 
+Masonry:
+Masonry (http://masonry.desandro.com/), by David DeSandro (http://v3.desandro.com/)
+Masonry is licensed under the terms of the MIT Open Source License.
+
+imagesLoaded:
+imagesLoaded (http://desandro.github.io/imagesloaded/), by David DeSandro (http://v3.desandro.com/)
+imagesLoaded is licensed under the terms of the MIT Open Source License.
 
 1. GNU General Public License v3 (http://www.gnu.org/licenses/gpl-3.0.html)
 2. GNU General Public License v2 (http://www.gnu.org/licenses/gpl-2.0.html)
