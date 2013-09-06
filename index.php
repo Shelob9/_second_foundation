@@ -17,21 +17,23 @@ _sf_open($sidebar);
 		<?php _sf_home_slider(); ?>
 		<?php if ( have_posts() ) : ?>
 		<?php
-		if ( get_theme_mod( '_sf_masonry' ) == '' ) {
-			echo '<div id="masonry-loop"><!--start masonry-loop-->';
-				/* Start the Loop */
-				while ( have_posts() ) : the_post();
-				get_template_part( 'content', 'masonry' );
-				endwhile;
-			echo '</div><!--end masonry-loop-->';
-			_sf_masonry_nav( 'nav-below' ); 
+			if ( wp_is_mobile() ) {
+				if ( get_theme_mod( '_sf_masonry' ) == '' && ! get_theme_mod( '_sf_masonry_mobile' ) == '' ) {
+					_sf_masonry_loop();
+				}
+				else {
+					_sf_main_loop();
+				}
 			}
-		else {
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-			get_template_part( 'content', get_post_format() );
-			endwhile;
-		} ?>
+			else {
+				if ( get_theme_mod( '_sf_masonry' ) == '' ) {
+					_sf_masonry_loop();
+				}
+				else {
+					_sf_main_loop();
+				}
+			} 
+		?>
 			
 		<?php else : ?>
 			<?php get_template_part( 'no-results', 'index' ); ?>
