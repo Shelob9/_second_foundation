@@ -76,6 +76,9 @@ a img {
 #secondary ul, #seconddary ol {
 	list-style-type: none;
 }
+.entry-header, .entry-header p, .entry-content, .entry-content p, .entry-meta, #comments, .entry-summary, h2.site-description, h1.site-title {
+	margin: 0 4px 0 4px;
+}
 
 
 /* =Global
