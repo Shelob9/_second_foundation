@@ -3,6 +3,8 @@ v1.1.4
 2) Sperate Masonry mobile layout options.
 3) Move pagination/nav to footer.
 4) Separate Masonry pagination/nav.
+5) Remove interchange thumbnail filter for masonry template part
+6) Left hand margin fixes.
 
 v1.1.3
 1) Fixed Foundation reinitialization in ajax menu loads issue.
