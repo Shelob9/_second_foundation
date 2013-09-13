@@ -18,10 +18,13 @@ Key Features:
 
 * All options implemented via WordPress customizer.
 
-Child Theme
-===========
-A starter child theme is available [here](https://github.com/Shelob9/second_speaker). It is designed to make it easy to override and if necessary replace scripts, styles and even whole parts of the parent theme's functions library. For more information see (the documentation) [https://github.com/Shelob9/_second_foundation/wiki/The-Great-Deactivator].
+Child Theme and Companion Plugins, etc.
+========================================
+* [Starter child theme](https://github.com/Shelob9/second_speaker)
 
+* [Plugin for selectively disabling parts of parent theme](https://github.com/Shelob9/the-great-deactivator). More plugins for modifying theme to come.
+
+* [Library as a separate repo](https://github.com/Shelob9/_sf_lib). Is included as submodule in theme itself.
 
 Josh Pollock
 ============
