@@ -20,7 +20,7 @@ Key Features:
 
 Child Theme
 ===========
-A starter child theme is available [here](https://github.com/Shelob9/second_speaker). It is designed to make it easy to override and if necessary replace scripts, styles and even whole parts of the parent theme's functions library. For more information see (the documentation) [https://github.com/Shelob9/_second_foundation/wiki/The-Great-Deactivator].
+A starter child theme is available [here](https://github.com/Shelob9/second_speaker). It is designed to make it easy to override and if necessary replace scripts, styles and even whole parts of the parent theme's functions library. For more information see [the documentation) (https://github.com/Shelob9/_second_foundation/wiki/The-Great-Deactivator].
 
 
 Josh Pollock
