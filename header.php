@@ -27,10 +27,12 @@
 	wp_head(); 
 ?>
 </head>
-
 <body <?php body_class(); ?>>
-<div id="page" class="hfeed site">
-	<?php do_action( 'before' ); ?>
-	<?php _sf_header(); ?>
-
-	<div id="main" class="site-main">
+<?php do_action('tha_body_top'); ?>
+<div id="page" class="hfeed site row">
+	<?php do_action( 'tha_page_top') ?>
+	<?php do_action( 'tha_header_before' ); ?>
+	<?php if (function_exists('_sf_header') ) : _sf_header(); endif; ?>
+	
+	<div id="main" class="site-main large-12 columns">
+	<?php do_action( 'tha_main_top' ); ?>
