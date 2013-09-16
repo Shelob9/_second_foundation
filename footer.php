@@ -7,7 +7,7 @@
  * @package _sf
  */
 ?>
-
+	<?php do_action( 'tha_main_bottom' ); ?>
 	</div><!-- #main -->
 	<?php do_action( 'tha_footer_before' ); ?>
 	<footer id="colophon" class="site-footer row" role="contentinfo">
@@ -20,6 +20,7 @@
 	<?php do_action( 'tha_footer_bottom' ); ?>
 	</footer><!-- #colophon -->
 	<?php do_action( 'tha_footer_after' ); ?>
+<?php do_action( 'tha_page_bottom') ?>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
