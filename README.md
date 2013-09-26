@@ -50,3 +50,7 @@ _Second Foundation is copyright 2013 Josh Pollock.
 _Second Foundation is licensed under the terms of the GPL v3.
 
 For full license details, including licenses of bundled packages, and links to full text of each license see license.txt.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Shelob9/_second_foundation/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
