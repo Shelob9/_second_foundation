@@ -32,7 +32,10 @@
 <div id="page" class="hfeed site row">
 	<?php do_action( 'tha_page_top') ?>
 	<?php do_action( 'tha_header_before' ); ?>
-	<?php if (function_exists('_sf_header') ) : _sf_header(); endif; ?>
-	
+	<header id="masthead" class="site-header row" role="banner">
+	<?php do_action( 'tha_header_top' ); ?>
+		
+	</header><!-- #masthead -->
+	<?php do_action( 'tha_header_after' ); ?>
 	<div id="main" class="site-main large-12 columns">
 	<?php do_action( 'tha_main_top' ); ?>
