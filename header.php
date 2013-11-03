@@ -22,19 +22,19 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
  <?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); ?>
-<?php 
+<?php
 	do_action( 'tha_head_bottom' );
-	wp_head(); 
+	wp_head();
 ?>
 </head>
 <body <?php body_class(); ?>>
 <?php do_action('tha_body_top'); ?>
-<div id="page" class="hfeed site row">
+<div id="page" class="hfeed site">
 	<?php do_action( 'tha_page_top') ?>
 	<?php do_action( 'tha_header_before' ); ?>
 	<header id="masthead" class="site-header row" role="banner">
 	<?php do_action( 'tha_header_top' ); ?>
-		
+
 	</header><!-- #masthead -->
 	<?php do_action( 'tha_header_after' ); ?>
 	<div id="main" class="site-main large-12 columns">
