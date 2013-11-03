@@ -1,8 +1,10 @@
+v1.1.6
+1) Update credit link to match authorURI
+
 v1.1.5
 1) Header/menu via hook.
 2) Made header more sensible
 3) Add thememod defaults
-
 
 v1.1.4
 1) Use imagesloaded to fix Masonry grid issues.
