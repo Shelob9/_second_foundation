@@ -20,7 +20,7 @@ class _sf2_foundation {
         }
         add_filter('post_thumbnail_html', array( $this, 'interchange', 5, 5) );
         add_action('after_theme_setup', array($this, 'interchange_images'));
-        add_action('tha_header_after', array($this, 'menu'));
+        add_action('tha_header_before', array($this, 'menu'));
     }
     /**
      * Array of scripts from foundation to be enqueued.

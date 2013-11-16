@@ -91,13 +91,14 @@ class _SF2 {
     }
 
     function core() {
-        $things = array(
+        $files = array(
             'nav_walker.php',
             'foundation.php',
             'fgrid.php',
+            'header-stuff.php'
         );
-        foreach ($things as $thing) {
-            require_once( trailingslashit( _SF2_CLASSES ) . $thing );
+        foreach ($files as $file) {
+            require_once( trailingslashit( _SF2_CLASSES ) . $file );
         }
 
     }
