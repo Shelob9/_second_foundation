@@ -1,0 +1,56 @@
+$cs-scheme : triad;
+
+/**
+font-family: 'Lato', sans-serif;
+font-family: 'Prosto One', cursive;
+font-family: 'Roboto Slab', serif;
+**/
+
+@mixin link-color ($a, $hover, $visited, $vHover) {
+	a {
+		color: $a;
+		&:hover {color: $hover;}
+		&:visited {color: $visited;}
+		&:visited:hover {color: $vHover;}
+	}
+}
+
+@mixin a-standard {
+	@include link-color( $primary, $complementShade, $complement, $complementShade );
+}
+
+@mixin a-same($color) {
+	@include link-color( $color, $color, $color, $color);
+}
+
+body {
+	color: $black;
+	@include a-standard;
+
+}
+
+h1, h1 a {
+	color: $primary;
+	@include a-same($primary);
+
+}
+h2, h2 a {
+	color: $secondary;
+	@include a-same($secondary);
+}
+h3, h3 a {
+	color: $tertiary;
+	@include a-same($tertiary);
+}
+
+
+
+h1.site-name, h1.site-name a {
+   font-family: 'Roboto Slab', serif;
+   font-weight: bold;
+   font-size: 1.1618em;
+}
+
+h3, h4, h5 {
+  font-weight: normal;
+}

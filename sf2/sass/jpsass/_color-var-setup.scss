@@ -1,0 +1,18 @@
+
+$cs-secondary: cs_secondary();
+$cs-tertiary: cs-tertiary();
+$primary: $cs-primary;
+$secondary: $cs-secondary;
+$tertiary: $cs-tertiary;
+$complement: complement($primary);
+$complementary: $complement;
+$primaryShade: shade($primary, 40%);
+$primaryTint: tint($primary, 40%);
+$secondaryShade: shade($secondary, 40%);
+$secondaryTint: tint($secondary, 40%);
+$tertiaryShade: shade($secondary, 40%);
+$tertiaryTint: tint($tertiary, 40%);
+$complementaryShade: shade($complement, 40%);
+$complementaryTint: tint($complement, 40%);
+$complementShade: $complementaryShade;
+$complementTint: $complementaryTint;

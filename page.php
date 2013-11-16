@@ -7,18 +7,17 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package _sf
+ * @package _s
  */
-get_header(); 
-$sidebar = get_theme_mod('_sf_default_sidebar');
-_sf_open($sidebar);
-?>
-	
-			<?php _sf_home_slider(); ?>
+
+get_header(); ?>
+
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', 'page' ); ?>
-				<?php _sf_content_nav( 'nav-below' ); ?>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template
@@ -26,6 +25,10 @@ _sf_open($sidebar);
 						comments_template();
 				?>
 
-			<?php endwhile; ?>
+			<?php endwhile; // end of the loop. ?>
 
-<?php _sf_close($sidebar); ?>
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>

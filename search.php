@@ -2,18 +2,18 @@
 /**
  * The template for displaying Search Results pages.
  *
- * @package _sf
+ * @package _s
  */
-get_header(); 
-$sidebar = get_theme_mod('_sf_default_sidebar');
-_sf_open($sidebar);
-?>
-	
+
+get_header(); ?>
+
+	<section id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', '_sf' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', '_s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
@@ -23,7 +23,7 @@ _sf_open($sidebar);
 
 			<?php endwhile; ?>
 
-			
+			<?php _s_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
 
@@ -31,4 +31,8 @@ _sf_open($sidebar);
 
 		<?php endif; ?>
 
-<?php _sf_close($sidebar); ?>
+		</div><!-- #content -->
+	</section><!-- #primary -->
+
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>

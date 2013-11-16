@@ -3,118 +3,19 @@ Theme Name: _second-foundation
 Theme URI: http://JoshPress.net/blog/_second-foundation-features/
 Author: Josh Pollock
 Author URI: http://JoshPress.net
-Description: _Second Foundation is a highly customizable theme featuring full page image backgrounds, AJAX menus, Masonry and many mobile-friendly features. Thanks to the Foundation framework it adapts to any size screen and even serves smaller images for smaller devices to improve page load times on mobile.
-Tags: two-columns, white, black, blue, custom-background, custom-colors, custom-menu, featured-images, full-width-template, sticky-post, threaded-comments, theme-options, flexible-width, threaded-comments, light, featured-image-header
-Version: 1.1.7
-Github Theme URI: https://github.com/Shelob9/_second_foundation
-
-License: GNU General Public License v3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
-
-_Second_Foundation is copyright 2013 by Josh Pollock
-_Second_Foundation is licensed under the GPL v3.
-
-For full license details, including licenses of bundled packages, and links to full text of each license see license.txt.
+Description:
+Version: 2.0.1
 */
 
 
-/* =Reset
--------------------------------------------------------------- */
-
-html {
-	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
-	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
-	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
-	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
-	word-wrap:break-word;
-}
-body {
-
-}
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section {
-	display: block;
-}
-ol, ul {
-	list-style: none;
-}
-table { /* tables still need 'cellspacing="0"' in the markup */
-	border-collapse: separate;
-	border-spacing: 0;
-}
-caption, th, td {
-	font-weight: normal;
-	text-align: left;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: "";
-}
-blockquote, q {
-	quotes: "" "";
-}
-a:focus {
-	outline: thin dotted;
-}
-a:hover,
-a:active { /* Improves readability when focused and also mouse hovered in all browsers people.opera.com/patrickl/experiments/keyboard/test */
-	outline: 0;
-}
-a img {
-	border: 0;
-}
-/* =Foundation Tweaks, etc.
------------------------------------------------ */
-
-#secondary ul, #seconddary ol {
-	list-style-type: none;
-}
-.entry-header, .entry-header p, .entry-content, .entry-content p, .entry-meta, #comments, .entry-summary, h2.site-description, h1.site-title {
-	margin: 0 4px 0 4px;
-}
 
 
-/* =Global
------------------------------------------------ */
-
-body,
-button,
-input,
-select,
-textarea {
-	color: #404040;
-	font-family: sans-serif;
-	font-size: 16px;
-	font-size: 1.6rem;
-	line-height: 1.5;
-}
-
-/* Headings */
-h1,h2,h3,h4,h5,h6 {
-	clear: both;
-}
-hr {
-	background-color: #ccc;
-	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
-}
 
 /* Text elements */
 p {
 	margin-bottom: 1.5em;
 }
-ul, ol {
-	margin: 0 0 1.5em 2em;
-}
+
 ul {
 	list-style: disc;
 }
@@ -196,11 +97,7 @@ table {
 th {
 	font-weight: bold;
 }
-img {
-	height: auto; /* Make sure images are scaled correctly. */
-	max-width: 100%; /* Adhere to container width. */
-}
-button,
+
 input,
 select,
 textarea {
@@ -209,87 +106,14 @@ textarea {
 	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
 	*vertical-align: middle; /* Improves appearance and consistency in all browsers */
 }
-button,
+
 input {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
+	*overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */
 }
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border: 1px solid #ccc;
-	border-color: #ccc #ccc #bbb #ccc;
-	border-radius: 3px;
-	background: #e6e6e6;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-	color: rgba(0, 0, 0, .8);
-	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
-	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
-	font-size: 12px;
-	font-size: 1.2rem;
-	line-height: 1;
-	padding: .6em 1em .4em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-button:hover,
-html input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa #bbb;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
-}
-button:focus,
-html input[type="button"]:focus,
-input[type="reset"]:focus,
-input[type="submit"]:focus,
-button:active,
-html input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active {
-	border-color: #aaa #bbb #bbb #bbb;
-	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
-}
-input[type="checkbox"],
-input[type="radio"] {
-	box-sizing: border-box; /* Addresses box sizing set to content-box in IE8/9 */
-	padding: 0; /* Addresses excess padding in IE8/9 */
-}
-input[type="search"] {
-	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
-	-webkit-box-sizing: content-box; /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
-	-moz-box-sizing:    content-box;
-	box-sizing:         content-box;
-}
-input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
-	-webkit-appearance: none;
-}
-button::-moz-focus-inner,
-input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
-	border: 0;
-	padding: 0;
-}
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
-textarea {
-	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-}
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-textarea:focus {
-	color: #111;
-}
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"] {
-	padding: 3px;
-}
+
+
+
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
 	padding-left: 3px;
@@ -372,20 +196,86 @@ a:active {
 }
 
 
+/* =Menu
+----------------------------------------------- */
 
+.navigation-main {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+}
+.navigation-main ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+.navigation-main li {
+	float: left;
+	position: relative;
+}
+.navigation-main a {
+	display: block;
+	text-decoration: none;
+}
+.navigation-main ul ul {
+	-webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:    0 3px 3px rgba(0, 0, 0, 0.2);
+	box-shadow:         0 3px 3px rgba(0, 0, 0, 0.2);
+	display: none;
+	float: left;
+	position: absolute;
+		top: 1.5em;
+		left: 0;
+	z-index: 99999;
+}
+.navigation-main ul ul ul {
+	left: 100%;
+	top: 0;
+}
+.navigation-main ul ul a {
+	width: 200px;
+}
+.navigation-main ul ul li {
+}
+.navigation-main li:hover > a {
+}
+.navigation-main ul ul :hover > a {
+}
+.navigation-main ul ul a:hover {
+}
+.navigation-main ul li:hover > ul {
+	display: block;
+}
+.navigation-main li.current_page_item a,
+.navigation-main li.current-menu-item a {
+}
+
+/* Small menu */
+.menu-toggle {
+	display: none;
+	cursor: pointer;
+}
+
+.main-small-navigation ul {
+	display: none;
+}
+
+@media screen and (max-width: 600px) {
+	.menu-toggle,
+	.main-small-navigation ul.nav-menu.toggled-on {
+		display: block;
+	}
+
+	.navigation-main ul {
+		display: none;
+	}
+}
 
 /* =Content
 ----------------------------------------------- */
 
 .sticky {
-border-style: solid;
-  border-width: 1px;
-  border-color: #d9d9d9;
-  margin-bottom: 1.25em;
-  padding: 1.25em;
-  background: #f2f2f2;
-  -webkit-border-radius: 3px;
-    border-radius: 3px;
 }
 .hentry {
 	margin: 0 0 1.5em;
@@ -419,6 +309,25 @@ border-style: solid;
 /* =Media
 ----------------------------------------------- */
 
+.site-header img,
+.entry-content img,
+.comment-content img,
+.widget img {
+	max-width: 100%; /* Fluid images for posts, comments, and widgets */
+}
+.site-header img,
+.entry-content img,
+.comment-content img[height],
+img[class*="align"],
+img[class*="wp-image-"] {
+	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+.site-header img,
+.entry-content img,
+img.size-full {
+	max-width: 100%;
+	width: auto; /* Prevent stretching of full-size images with height and width attributes in IE8 */
+}
 .entry-content img.wp-smiley,
 .comment-content img.wp-smiley {
 	border: none;
@@ -471,8 +380,19 @@ object {
 /* =Navigation
 ----------------------------------------------- */
 
-#site-navigation 
-{margin-bottom:5px;}
+.site-content [class*="navigation"] {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+[class*="navigation"] .previous {
+	float: left;
+	width: 50%;
+}
+[class*="navigation"] .next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
 
 /* =Comments
 ----------------------------------------------- */
@@ -513,82 +433,3 @@ object {
 .infinity-end.neverending .site-footer {
 	display: block;
 }
-
-
-/* -----------------------------------------
-  Masonry
------------------------------------------ */
-.masonry-post-excerpt p.excerpt {font-size:.8em;}
-.masonry-entry-cat{ margin-top:1px;}
-#masonry-loop .panel {margin: 0 0 0 0; padding: 0 0 0 0;}
-.masonry-nav {padding-top:4px; display:block;}
-#masonry-nav-title {
-	font-size: 1.2em;
- 	font-weight: bold;
- 	text-align: center;
-}
-#masonry-navs {padding-bottom:4px}
-
-
-/* Foundation Modificiation For Top bar
--------------------------------------- */
-.contain-to-grid .top-bar,
-.top-bar {
-	margin-bottom: 0;
-}
-.top-bar-section ul {
-	background: #111;
-}
-
-.top-bar .name h3 {
-	line-height: 45px;
-	font-size: 1.0625em;
-	margin: 0;
-}
-	  
-.top-bar .name h3 > a {
-	font-weight: bold;
-	color: #00abfd; 
-	display: block;
-	padding: 0 15px;
-}
-		
-.top-bar.expanded {
-	background: #111;
-}
-
-.admin-bar .sticky-topbar.fixed {
-	margin-top: 28px;
-}
-
-.top-bar .name h1 a {
-padding-left: -15px;
-}
-
-ul.title-area {margin-left:0px;}
-
-.top-bar .toggle-topbar.menu-icon a span {margin-top: -15px;}
-
-/*Clearfix
-----------*/
-.clearfix:after {
-	content: ".";
-	display: block;
-	clear: both;
-	visibility: hidden;
-	line-height: 0;
-	height: 0;
-}
- 
-.clearfix {
-	display: inline-block;
-}
- 
-html[xmlns] .clearfix {
-	display: block;
-}
- 
-* html .clearfix {
-	height: 1%;
-}
-

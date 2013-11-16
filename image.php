@@ -2,12 +2,14 @@
 /**
  * The template for displaying image attachments.
  *
- * @package _sf
+ * @package _s
  */
-get_header(); 
-$sidebar = get_theme_mod('_sf_default_sidebar');
-_sf_open($sidebar);
+
+get_header();
 ?>
+
+	<div id="primary" class="content-area image-attachment">
+		<div id="content" class="site-content" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -18,23 +20,23 @@ _sf_open($sidebar);
 					<div class="entry-meta">
 						<?php
 							$metadata = wp_get_attachment_metadata();
-							printf( __( 'Published <span class="entry-date"><time class="entry-date" datetime="%1$s">%2$s</time></span> at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a> in <a href="%6$s" title="Return to %7$s" rel="gallery">%8$s</a>', '_sf' ),
+							printf( __( 'Published <span class="entry-date"><time class="entry-date" datetime="%1$s">%2$s</time></span> at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a> in <a href="%6$s" title="Return to %7$s" rel="gallery">%8$s</a>', '_s' ),
 								esc_attr( get_the_date( 'c' ) ),
 								esc_html( get_the_date() ),
 								wp_get_attachment_url(),
 								$metadata['width'],
 								$metadata['height'],
 								get_permalink( $post->post_parent ),
-								esc_attr( strip_tags( get_the_title( $post->post_parent ) ) ),
+								esc_attr( get_the_title( $post->post_parent ) ),
 								get_the_title( $post->post_parent )
 							);
 						?>
-						<?php edit_post_link( __( 'Edit', '_sf' ), '<span class="sep"> | </span> <span class="edit-link">', '</span>' ); ?>
+						<?php edit_post_link( __( 'Edit', '_s' ), '<span class="sep"> | </span> <span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-meta -->
 
 					<nav role="navigation" id="image-navigation" class="navigation-image">
-						<div class="previous"><?php previous_image_link( false, __( '<span class="meta-nav">&larr;</span> Previous', '_fs' ) ); ?></div>
-						<div class="next"><?php next_image_link( false, __( 'Next <span class="meta-nav">&rarr;</span>', '_sf' ) ); ?></div>
+						<div class="previous"><?php previous_image_link( false, __( '<span class="meta-nav">&larr;</span> Previous', '_s' ) ); ?></div>
+						<div class="next"><?php next_image_link( false, __( 'Next <span class="meta-nav">&rarr;</span>', '_s' ) ); ?></div>
 					</nav><!-- #image-navigation -->
 				</header><!-- .entry-header -->
 
@@ -74,7 +76,7 @@ _sf_open($sidebar);
 								}
 							?>
 
-							<a href="<?php echo $next_attachment_url; ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php
+							<a href="<?php echo $next_attachment_url; ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment"><?php
 								$attachment_size = apply_filters( '_s_attachment_size', array( 1200, 1200 ) ); // Filterable image size.
 								echo wp_get_attachment_image( $post->ID, $attachment_size );
 							?></a>
@@ -88,21 +90,21 @@ _sf_open($sidebar);
 					</div><!-- .entry-attachment -->
 
 					<?php the_content(); ?>
-					<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_sf' ), 'after' => '</div>' ) ); ?>
+					<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
 
 				</div><!-- .entry-content -->
 
 				<footer class="entry-meta">
 					<?php if ( comments_open() && pings_open() ) : // Comments and trackbacks open ?>
-						<?php printf( __( '<a class="comment-link" href="#respond" title="Post a comment">Post a comment</a> or leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', '_sf' ), get_trackback_url() ); ?>
+						<?php printf( __( '<a class="comment-link" href="#respond" title="Post a comment">Post a comment</a> or leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', '_s' ), get_trackback_url() ); ?>
 					<?php elseif ( ! comments_open() && pings_open() ) : // Only trackbacks open ?>
-						<?php printf( __( 'Comments are closed, but you can leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', '_sf' ), get_trackback_url() ); ?>
+						<?php printf( __( 'Comments are closed, but you can leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', '_s' ), get_trackback_url() ); ?>
 					<?php elseif ( comments_open() && ! pings_open() ) : // Only comments open ?>
-						<?php _e( 'Trackbacks are closed, but you can <a class="comment-link" href="#respond" title="Post a comment">post a comment</a>.', '_sf' ); ?>
+						<?php _e( 'Trackbacks are closed, but you can <a class="comment-link" href="#respond" title="Post a comment">post a comment</a>.', '_s' ); ?>
 					<?php elseif ( ! comments_open() && ! pings_open() ) : // Comments and trackbacks closed ?>
-						<?php _e( 'Both comments and trackbacks are currently closed.', '_sf' ); ?>
+						<?php _e( 'Both comments and trackbacks are currently closed.', '_s' ); ?>
 					<?php endif; ?>
-					<?php edit_post_link( __( 'Edit', '_sf' ), ' <span class="edit-link">', '</span>' ); ?>
+					<?php edit_post_link( __( 'Edit', '_s' ), ' <span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
 			</article><!-- #post-<?php the_ID(); ?> -->
 
@@ -112,6 +114,9 @@ _sf_open($sidebar);
 					comments_template();
 			?>
 
-		<?php endwhile; ?>
+		<?php endwhile; // end of the loop. ?>
 
-<?php _sf_close($sidebar); ?>
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+<?php get_footer(); ?>

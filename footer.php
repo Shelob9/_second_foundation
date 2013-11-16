@@ -4,26 +4,27 @@
  *
  * Contains the closing of the id=main div and all content after
  *
- * @package _sf
+ * @package _s
  */
 ?>
-	<?php do_action( 'tha_main_bottom' ); ?>
+    <?php tha_content_bottom(); ?>
 	</div><!-- #main -->
-	<?php do_action( 'tha_footer_before' ); ?>
-	<footer id="colophon" class="site-footer row" role="contentinfo">
-	<?php do_action( 'tha_footer_top' ); ?>
-	<?php
-		if ( ! is_single() && ! get_theme_mod( '_sf_masonry' ) == ''  ) {
-			_sf_content_nav( 'nav-below' );
-		}
-	?>
-	<?php do_action( 'tha_footer_bottom' ); ?>
+    <?php tha_content_after(); ?>
+    <?php tha_footer_before(); ?>
+	<footer id="colophon" class="site-footer" role="contentinfo">
+        <?php tha_footer_top(); ?>
+		<div class="site-info">
+			<?php do_action( '_s_credits' ); ?>
+			<a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', '_s' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', '_s' ), 'WordPress' ); ?></a>
+			<span class="sep"> | </span>
+			<?php printf( __( 'Theme: %1$s by %2$s.', '_s' ), '_s', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
+		</div><!-- .site-info -->
+        <?php tha_footer_bottom(); ?>
 	</footer><!-- #colophon -->
-	<?php do_action( 'tha_footer_after' ); ?>
-<?php do_action( 'tha_page_bottom') ?>
 </div><!-- #page -->
-
+<?php tha_footer_after(); ?>
+<?php tha_body_bottom(); ?>
 <?php wp_footer(); ?>
-<?php  do_action( 'tha_body_bottom' ); ?>
+
 </body>
 </html>

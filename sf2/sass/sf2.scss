@@ -1,0 +1,47 @@
+
+$primary : #4934b7;
+$black : #332C2F;
+$white : #fff;
+$silver : #f2f2f3;
+
+
+/**
+font-family: 'Lato', sans-serif;
+font-family: 'Prosto One', cursive;
+font-family: 'Roboto Slab', serif;
+**/
+
+@import 'jpsass/color-schemer';
+@import 'jpsass/color-var-setup';
+@import 'jpsass/builder-mixins';
+@import 'jpsass/text';
+/**Begin Foundation Foundation (http://foundation.zurb.com/), (c) 2013 ZURB (http://zurb.com/).
+Foundation is licensed under the terms of the MIT Open Source License. **/
+@import 'fapp';
+#secondary {
+  //border-left: 1px dotted $primaryTint;
+  margin-left: 0px;
+  padding-left: 4px;
+}
+.top-bar .toggle-topbar.menu-icon {
+  margin-top:4px;
+}
+
+.top-bar .name {
+  margin: 0 4px;
+}
+
+#social-shits {
+  text-align: center;
+  margin: -18px 0 0;
+}
+#me {
+  margin-top:50%;
+}
+
+a, a:visited, a:-webkit-any-link {
+  text-decoration:none;
+
+}
+
+

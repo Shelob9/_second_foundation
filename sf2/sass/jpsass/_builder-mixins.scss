@@ -1,0 +1,61 @@
+@mixin border ($borderColor, $width) {
+	border-width: $width;
+	border-style: solid;
+	border-color: $borderColor;
+}
+
+@mixin corners ($size) {
+	-moz-border-radius-topleft: $size;
+	-moz-border-radius-topright: $size;
+	-moz-border-radius-bottomleft: $size;
+	-moz-border-radius-bottomright: $size;
+	-webkit-border-top-left-radius: $size;
+	-webkit-border-top-right-radius: $size;
+	-webkit-border-bottom-left-radius: $size;
+	-webkit-border-bottom-right-radius: $size;
+	border-top-left-radius: $size;
+	border-top-right-radius: $size;
+	border-bottom-left-radius: $size;
+	border-bottom-right-radius: $size;
+}
+
+@mixin shadow ($shadowColor) {
+	-moz-box-shadow: 1px 2px 3px $shadowColor;
+	-webkit-box-shadow: 1px 2px 3px $shadowColor;
+	box-shadow: 1px 2px 3px $shadowColor;
+}
+
+@mixin margin-even ($size) {
+	margin: $size $size $size $size;
+}
+
+@mixin padding-even ($size) {
+	padding: $size $size $size $size;
+}
+
+
+@mixin gradient ($start, $finish) {
+	background-image: linear-gradient(left top, $start 13%, $finish 69%);
+	background-image: -o-linear-gradient(left top, $start 13%, $finish 69%);
+	background-image: -moz-linear-gradient(left top, $start 13%, $finish 69%);
+	background-image: -webkit-linear-gradient(left top, $start 13%, $finish 69%);
+	background-image: -ms-linear-gradient(left top, $start 13%, $finish 69%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		right bottom,
+		color-stop(0.13, $start),
+		color-stop(0.69, $finish)
+	);  
+}
+
+@mixin center {
+
+    width: 90%;
+
+    min-width: 200px;
+    max-width: 400px;
+    padding: 40px;
+
+}
