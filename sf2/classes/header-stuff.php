@@ -31,15 +31,6 @@ class elements {
     <?php
     }
 
-    function banner() {
-        $header_image = get_header_image();
-        if ( ! empty( $header_image ) ) { ?>
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-
-            </a>
-        <?php } // if ( ! empty( $header_image ) )
-    }
-
     function custom_header_setup() {
         $args = array(
             'default-image'          => '',
@@ -54,16 +45,8 @@ class elements {
 
         $args = apply_filters( 'custom_header_args', $args );
 
-        if ( function_exists( 'wp_get_theme' ) ) {
+
             add_theme_support( 'custom-header', $args );
-        } else {
-            // Compat: Versions of WordPress prior to 3.4.
-            define( 'HEADER_TEXTCOLOR',    $args['default-text-color'] );
-            define( 'HEADER_IMAGE',        $args['default-image'] );
-            define( 'HEADER_IMAGE_WIDTH',  $args['width'] );
-            define( 'HEADER_IMAGE_HEIGHT', $args['height'] );
-            add_custom_image_header( $args['wp-head-callback'], $args['admin-head-callback'], $args['admin-preview-callback'] );
-        }
     }
 
 
@@ -98,12 +81,6 @@ class elements {
      * @see custom_header_setup().
      */
     function header_style() {
-
-        // If no custom options for text are set, let's bail
-        // get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
-        if ( HEADER_TEXTCOLOR == get_header_textcolor() )
-            return;
-        // If we get this far, we have custom styles. Let's do this.
         ?>
         <style type="text/css">
             <?php
@@ -168,12 +145,7 @@ class elements {
                 else
                     $style = ' style="color:#' . get_header_textcolor() . ';"';
             ?>
-            <h1><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-            <div id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
-            <?php $header_image = get_header_image();
-                if ( ! empty( $header_image ) ) : ?>
-                    <img src="<?php echo esc_url( $header_image ); ?>" alt="" />
-                <?php endif; ?>
+
         </div>
     <?php }
 
