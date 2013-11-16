@@ -10,17 +10,15 @@
 
 
 jQuery(document).ready(function($) {
+    //foundation
     $(document)
         .foundation('interchange')
         .foundation(
         'topbar', {stickyClass: 'sticky-topbar'}
     );
 
-
-
-
-
-
+    //adjust padding for hgroup
+    $('hgroup').css('padding-top', $('.sticky-topbar').height() + 'px');
 
 
 
