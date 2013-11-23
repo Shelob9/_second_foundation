@@ -50,9 +50,8 @@ $em-base: 16 !default;
 // Various global styles
 
 $default-float: left;
-
- $body-bg: $white;
- $body-font-color: $black;
+$body-bg: $white;
+$body-font-color: $black;
 $body-font-family: 'lato', Helvetica, Arial, sans-serif;
 $body-font-weight: light;
 $body-font-style: light;
@@ -69,7 +68,7 @@ $body-font-style: light;
 
  $primary-color: $primary;
 $secondary-color:$secondary;
-// $alert-color: #c60f13;
+ $alert-color: $complement;
 // $success-color: #5da423;
 
 // Make sure border radius matches unless we want it different.
@@ -169,7 +168,6 @@ $header-font-color: $black;
 // $header-text-rendering: optimizeLegibility;
 
 // Control header font sizes
-
 $h1-font-size: 1.618em;
 $h2-font-size: 1.495em;
 $h3-font-size: 1.122;
@@ -194,7 +192,7 @@ $h6-font-size: 1em;
 
 $paragraph-font-family: 'Lato', sans-serif;
 $paragraph-font-weight: normal;
-$paragraph-font-size: 1em;
+$paragraph-font-size: 1rem;
 $paragraph-line-height: 1.618;
 // $paragraph-margin-bottom: emCalc(20);
 // $paragraph-aside-font-size: emCalc(14);

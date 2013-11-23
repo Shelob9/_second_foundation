@@ -98,11 +98,11 @@ class _sf2_foundation {
      * @since 0.1
      */
     public function scripts() {
-        wp_enqueue_script( 'foundation', trailingslashit(_SF2_JS).'foundation.js', array( 'jquery', '_SF2' ), '4.3.2', true );
+        wp_enqueue_script( 'foundation', trailingslashit(_SF2_JS).'foundation.js', array( 'jquery', '_SF2' ), '5.0.2', true );
         wp_enqueue_script( 'modernizer', trailingslashit(_SF2_JS).'custom.modernizr.js', array( 'jquery'), false, true );
         foreach ($this->foundation as $script) {
             $src = trailingslashit(_SF2_JS).$script[ 'file' ];
-            wp_enqueue_script( $script[ 'name' ], $src, array( 'jquery', 'foundation', '_SF2' ), '4.3.2', true );
+            wp_enqueue_script( $script[ 'name' ], $src, array( 'jquery', 'foundation', '_SF2' ), '5.0.2', true );
         }
         wp_enqueue_script( '_SF2', trailingslashit(_SF2_JS).'_SF2.js', false, false, true );
     }
@@ -174,7 +174,7 @@ class _sf2_foundation {
                 wp_nav_menu( array(
                     'theme_location' => 'primary',
                     'container' => false,
-                    'depth' => 0,
+                    'depth' => 2,
                     'items_wrap' => '<ul class="left">%3$s</ul>',
                     'fallback_cb' => '_sf_menu_fallback', // workaround to show a message to set up a menu
                     'walker' => new _sf2_nav_walker( array(
