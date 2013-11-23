@@ -23,7 +23,7 @@ class elements {
      * @since _sf 2.0.0
      */
     function hgroup(){
-        ?>
+    ?>
         <hgroup>
             <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
             <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
@@ -81,27 +81,27 @@ class elements {
      * @see custom_header_setup().
      */
     function header_style() {
-        ?>
+    ?>
         <style type="text/css">
-            <?php
+    <?php
                 // Has the text been hidden?
                 if ( 'blank' == get_header_textcolor() ) :
-            ?>
+    ?>
             .site-title,
             .site-description {
                 position: absolute !important;
                 clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
                 clip: rect(1px, 1px, 1px, 1px);
             }
-            <?php
+    <?php
                 // If the user has set a custom color for the text use that
                 else :
-            ?>
+    ?>
             .site-title a,
             .site-description {
                 color: #<?php echo get_header_textcolor(); ?>;
             }
-            <?php endif; ?>
+    <?php endif; ?>
         </style>
     <?php
     }
@@ -112,7 +112,7 @@ class elements {
      * @see custom_header_setup().
      */
     function admin_header_style() {
-        ?>
+    ?>
         <style type="text/css">
             .appearance_page_custom-header #headimg {
                 border: none;
@@ -137,9 +137,10 @@ class elements {
      *
      * @see custom_header_setup().
      */
-    function admin_header_image() { ?>
+    function admin_header_image() {
+    ?>
         <div id="headimg">
-            <?php
+    <?php
                 if ( 'blank' == get_header_textcolor() || '' == get_header_textcolor() )
                     $style = ' style="display:none;"';
                 else
@@ -147,7 +148,8 @@ class elements {
             ?>
 
         </div>
-    <?php }
+    <?php
+    }
 
     function header_bg() {
 
