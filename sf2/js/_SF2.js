@@ -11,11 +11,17 @@
 
 jQuery(document).ready(function($) {
     //foundation
-    $(document)
-        .foundation('interchange')
-        .foundation(
-        'topbar', {stickyClass: 'sticky-topbar'}
-    );
+    $(document).foundation({
+        topbar: {
+            sticky_class: 'sticky-topbar'
+        },
+        interchange: {
+
+        },
+        offcanvas: {
+
+        },
+    });
 
     //adjust padding for hgroup
     $('.sticky-topbar').css('padding-top', $('#wpadminbar').height() + 'px');
