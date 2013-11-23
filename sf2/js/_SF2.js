@@ -18,7 +18,9 @@ jQuery(document).ready(function($) {
     );
 
     //adjust padding for hgroup
-    $('hgroup').css('padding-top', $('.sticky-topbar').height() + 'px');
+    $('.sticky-topbar').css('padding-top', $('#wpadminbar').height() + 'px');
+
+    //$('.sticky-topbar').css('padding-top', $('.hgroup').height() + 'px');
 
 
 
