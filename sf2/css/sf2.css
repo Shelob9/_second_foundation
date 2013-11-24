@@ -6046,6 +6046,6 @@ a, a:visited, a:-webkit-any-link {
 }
 
 /* line 41, ../sass/sf2.scss */
-.sticky-topbar.row-full.fixed, .top-bar, nav.top-bar.expanded.fixed {
+.sticky-topbar.fixed, .top-bar, nav.top-bar.expanded.fixed {
   background-color: #332c2f;
 }

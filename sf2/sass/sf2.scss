@@ -38,7 +38,7 @@ Foundation is licensed under the terms of the MIT Open Source License. **/
 a, a:visited, a:-webkit-any-link {
   text-decoration:none;
 }
-.sticky-topbar.row-full.fixed, .top-bar, nav.top-bar.expanded.fixed  {
+.sticky-topbar.fixed, .top-bar, nav.top-bar.expanded.fixed  {
   background-color: $topbar-dropdown-bg;
 }
 
