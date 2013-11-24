@@ -38,7 +38,7 @@ class _sf2_foundation {
             'file'  => 'foundation.clearing.js',
         ),
         array(
-            'name' 	=> '',
+            'name' 	=> 'cookie',
             'file'	=> 'foundation.cookie.js',
         ),
         array(
@@ -85,16 +85,18 @@ class _sf2_foundation {
             'name' 	=> 'topbar',
             'file'	=> 'foundation.topbar.js',
         ),
+        array(
+            'name'  => 'offcanvas',
+            'file'  => 'foundation.offcanvas.js'
+        ),
     );
 
     /**
      * Enqueue Foundation Scripts
      *
      * @author Josh Pollock
-     * @package The Mule
-     * @since The Mule 0.1
-     * @package _SF2
-     * @since 0.1
+     * @package _Second Foundation
+     * @since 2.0.0
      */
     public function scripts() {
         wp_enqueue_script( 'foundation', trailingslashit(_SF2_JS).'foundation.js', array( 'jquery', '_SF2' ), '5.0.2', true );
@@ -110,8 +112,8 @@ class _sf2_foundation {
      * Enqueue Foundation Scripts
      *
      * @author Josh Pollock
-     * @package The Mule
-     * @since The Mule 0.1
+     * @package _Second Foundation
+     * @since 2.0.0
      */
     public function styles() {
         //wp_enqueue_style('normalize', _SF2_CSS.'/normalize.css');
@@ -122,8 +124,9 @@ class _sf2_foundation {
     /**
      * Add image sizes for Interchange
      *
-     * @package _SF2
-     * @since 0.1
+     * @author Josh Pollock
+     * @package _Second Foundation
+     * @since 2.0.0
      */
     function interchange_images() {
         add_image_size( 'fd-lrg', 1024, 99999);
@@ -131,7 +134,13 @@ class _sf2_foundation {
         add_image_size( 'fd-sm', 320, 9999);
     }
 
-
+    /*
+     * Makes the topbar menu
+     *
+     * @author Josh Pollock
+     * @package _Second Foundation
+     * @since 2.0.0
+     */
     public function menu() { ?>
         <div class="sticky-topbar fixed row-full">
             <nav id="site-navigation" class="navigation-main top-bar" role="navigation">
