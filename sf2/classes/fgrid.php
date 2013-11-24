@@ -92,7 +92,7 @@ class _sf2_fgrid {
 
     function main_start() {
         if (  $this->use_nav( $main = 'enable_offcanvas', $mobile = 'mobOnly_offcanvas' ) == 1)  {
-            $this->start_offcanvas();
+            offcanvas::start_offcanvas();
         }
         echo '<div class="row" id="main-row">';
         if ( is_front_page() ) {
@@ -116,7 +116,7 @@ class _sf2_fgrid {
         echo '</div><!--/main column-->';
         echo '</div><!--/main row-->';
         if (  $this->use_nav( $main = 'enable_offcanvas', $mobile = 'mobOnly_offcanvas' ) == 1 ) {
-            $this->end_offcanvas();
+            offcanvas::end_offcanvas();
         }
     }
 

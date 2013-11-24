@@ -24,7 +24,7 @@ class offcanvas {
         register_nav_menu( 'offcanvas', 'The slide in menu.');
     }
 
-    public function start_offcanvas() {
+    static function start_offcanvas() {
         ?>
         <div class="off-canvas-wrap">
         <div class="inner-wrap">
@@ -59,7 +59,7 @@ class offcanvas {
     <?php
     }
 
-    public function end_offcanvas() {
+    static function end_offcanvas() {
         ?>
 
 
