@@ -36,7 +36,7 @@ class _sf2_fgrid {
     }
 
     function main_start() {
-        $this->offCanvas_start();
+        $this->offCanvas();
         echo '<div class="row" id="main-row">';
         if ( is_front_page() ) {
             echo '<div class="large-9 columns" id="front-content-wrap">';
@@ -58,7 +58,7 @@ class _sf2_fgrid {
     function main_end() {
         echo '</div><!--/main column-->';
         echo '</div><!--/main row-->';
-        $this->offCanvas_end();
+        $this->offCanvas( false );
     }
 
     function footer_start() {
@@ -113,6 +113,72 @@ class _sf2_fgrid {
           </div>
         </div>
     <?php
+    }
+
+    /**
+     * Determines if off canvas nav is to be used or not
+     *
+     * @author Josh Pollock
+     * @package _sf
+     * @since 2.0.2
+     */
+    function use_offcanvas() {
+        //first check if it's enabled or not
+        $yes = get_theme_mod( 'enable_offcanvas', true );
+        if ( $yes == true) {
+            return true;
+        }
+        elseif ( wp_is_mobile() ) {
+            //find out if enabled for mobile
+            $mobile_yes = get_theme_mod( 'mobOnly_offcanvas', true );
+            //check if mobble is installed so we can use it for mobile detection
+            if ( function_exists('is_phone')) {
+                //check if we are using a phone
+                //@TODO Update this to an option defining what type of device == mobile
+                if ( is_phone() && $mobile_yes == TRUE ) {
+                   return true;
+                }
+                else {
+                    return false;
+                }
+
+            }
+            //fallback if mobble isn't installed
+            else {
+                if ( wp_is_mobile() && $mobile_yes == TRUE ) {
+                    return true;
+                }
+                else {
+                    return true;
+                }
+            }
+        }
+        else {
+            return false;
+        }
+
+    }
+
+    /**
+     * Function to output start or end methods for off canvas, if theme_mods say to.
+     *
+     * @param bool $start True if is the start false if not. Default is true
+     * @author Josh Pollock
+     * @package _sf
+     * @since 2.0.2
+     */
+      function offcanvas( $start = true ) {
+        if ( $this->use_offcanvas() == true ) {
+            if ( $start == true) {
+                return $this->offCanvas_start();
+            }
+            else {
+                return $this->offCanvas_end();
+            }
+        }
+        else {
+            return false;
+        }
     }
 }
 
