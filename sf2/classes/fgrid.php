@@ -77,15 +77,30 @@ class _sf2_fgrid {
             <div class="inner-wrap">
 
              <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-
-                <!-- Off Canvas Menu -->
-                <aside class="left-off-canvas-menu">
-                    <!-- whatever you want goes here -->
-                    <ul>
-                        <li><a href="#">Item 1</a></li>
-                        ...
-                    </ul>
-                </aside>
+            <!-- Off Canvas Menu -->
+            <aside class="left-off-canvas-menu">
+        <?php
+            $defaults = array(
+                'theme_location'  => 'offcanvas',
+                'menu'            => '',
+                'container'       => 'false',
+                'container_class' => '',
+                'container_id'    => '',
+                'menu_class'      => 'off-canvas-list"',
+                'menu_id'         => '',
+                'echo'            => true,
+                'fallback_cb'     => 'wp_page_menu',
+                'before'          => '',
+                'after'           => '',
+                'link_before'     => '',
+                'link_after'      => '',
+                'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                'depth'           => -1,
+                'walker'          => ''
+            );
+            wp_nav_menu( $defaults );
+        ?>
+            </aside>
 
                 <!-- main content goes here -->
     <?php

@@ -19,6 +19,7 @@ class _sf2_foundation {
             add_action('wp_enqueue_scripts', array($this, 'styles'), 10);
         }
         add_action('tha_header_before', array($this, 'menu'));
+        add_action('after_setup_theme', array($this, 'register_offC_menu'));
     }
     /**
      * Array of scripts from foundation to be enqueued.
@@ -153,6 +154,18 @@ class _sf2_foundation {
                     echo '</ul> </section></nav><!-- #site-navigation -->';
                     echo '</div><!--# nav wrapper -->';
 
+    }
+
+    /**
+     * Register nav menu for offcanvas
+     *
+     * @author Josh Pollock
+     * @package _Second Foundation
+     * @since 2.0.2
+     */
+
+    function register_offC_menu() {
+        register_nav_menu( 'offcanvas', 'The slide in menu.');
     }
 
 }
