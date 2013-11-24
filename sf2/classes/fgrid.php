@@ -24,6 +24,8 @@ class _sf2_fgrid {
             add_action('tha_footer_before', array($this, 'footer_start'));
             add_action('tha_footer_after', array($this, 'footer_end'));
         }
+            add_action('after_setup_theme', array($this, 'register_offC_menu'));
+
     }
 
     /**
@@ -170,6 +172,18 @@ class _sf2_fgrid {
     function footer_end() {
         echo '</div><!--/footer-column-->';
         echo '</div><!--/footer-row-->';
+    }
+
+    /**
+     * Register nav menu for offcanvas
+     *
+     * @author Josh Pollock
+     * @package _Second Foundation
+     * @since 2.0.2
+     */
+
+    function register_offC_menu() {
+        register_nav_menu( 'offcanvas', 'The slide in menu.');
     }
 
 }

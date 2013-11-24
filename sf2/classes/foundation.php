@@ -18,8 +18,6 @@ class _sf2_foundation {
         if ( _SF2_CHILD_FCSS == false ) {
             add_action('wp_enqueue_scripts', array($this, 'styles'), 10);
         }
-        add_action('tha_header_before', array($this, 'menu'));
-        add_action('after_setup_theme', array($this, 'register_offC_menu'));
     }
     /**
      * Array of scripts from foundation to be enqueued.
@@ -121,52 +119,6 @@ class _sf2_foundation {
         wp_enqueue_style('_SF2', trailingslashit(_SF2_CSS).'sf2.css');
     }
 
-    /*
-     * Makes the topbar menu
-     *
-     * @author Josh Pollock
-     * @package _Second Foundation
-     * @since 2.0.0
-     */
-    public function menu() { ?>
-        <div  class="sticky-topbar fixed row-full">
-            <nav id="top-nav" class="top-bar" data-topbar>
-                <ul class="title-area">
-                    <li class="name">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-                    </li>
-                    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-                </ul>
-            <section class="top-bar-section">
-    <?php
-                wp_nav_menu( array(
-                    'theme_location' => 'primary',
-                    'container' => false,
-                    'depth' => 0,
-                    'items_wrap' => '<ul class="left">%3$s</ul>',
-                    'fallback_cb' => '_sf_menu_fallback', // workaround to show a message to set up a menu
-                    'walker' => new _sf2_nav_walker( array(
-                        'in_top_bar' => true,
-                        'item_type' => 'li'
-                    ) ),
-                ) );
-
-                    echo '</ul> </section></nav><!-- #site-navigation -->';
-                    echo '</div><!--# nav wrapper -->';
-
-    }
-
-    /**
-     * Register nav menu for offcanvas
-     *
-     * @author Josh Pollock
-     * @package _Second Foundation
-     * @since 2.0.2
-     */
-
-    function register_offC_menu() {
-        register_nav_menu( 'offcanvas', 'The slide in menu.');
-    }
 
 }
 
