@@ -27,11 +27,14 @@ jQuery(document).ready(function($) {
 
         },
     });
-    $
+
     //adjust padding for hgroup
     $('.sticky-topbar').css('padding-top', $('#wpadminbar').height() + 'px');
     $('hgroup').css('padding-top', $('.sticky-topbar').height() + 'px');
-
-
+    //and again on window resize
+    $( window ).resize(function() {
+        $('.sticky-topbar').css('padding-top', $('#wpadminbar').height() + 'px');
+        $('hgroup').css('padding-top', $('.sticky-topbar').height() + 'px');
+    });
 
 });
