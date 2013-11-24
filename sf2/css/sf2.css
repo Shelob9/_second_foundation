@@ -4358,12 +4358,12 @@ a.menu-icon span {
   height: 0;
   left: 0.8125rem;
   top: 0.3125rem;
-  -webkit-box-shadow: 0 10px 0 1px white, 0 16px 0 1px white, 0 22px 0 1px white;
-  box-shadow: 0 10px 0 1px white, 0 16px 0 1px white, 0 22px 0 1px white;
+  -webkit-box-shadow: 0 10px 0 1px #332c2f, 0 16px 0 1px #332c2f, 0 22px 0 1px #332c2f;
+  box-shadow: 0 10px 0 1px #332c2f, 0 16px 0 1px #332c2f, 0 22px 0 1px #332c2f;
 }
 a.menu-icon:hover span {
-  -webkit-box-shadow: 0 10px 0 1px #b3b3b3, 0 16px 0 1px #b3b3b3, 0 22px 0 1px #b3b3b3;
-  box-shadow: 0 10px 0 1px #b3b3b3, 0 16px 0 1px #b3b3b3, 0 22px 0 1px #b3b3b3;
+  -webkit-box-shadow: 0 10px 0 1px #a2b734, 0 16px 0 1px #a2b734, 0 22px 0 1px #a2b734;
+  box-shadow: 0 10px 0 1px #a2b734, 0 16px 0 1px #a2b734, 0 22px 0 1px #a2b734;
 }
 
 .left-off-canvas-menu {
