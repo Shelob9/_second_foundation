@@ -14,7 +14,13 @@ class header_stuff {
     function __construct() {
         add_action('tha_header_top', array( $this, 'hgroup'));
         add_action( 'wp_head', array($this, 'header_bg'));
-        add_action('tha_header_before', array($this, 'menu'));
+        //if (  _sf2::use_nav( $main = 'enable_topbar', $mobile = 'mobDisable_topbar' ) == 1)  {
+        if (get_theme_mod('enable_topbar') == 1 ) {
+            if ( ! wp_is_mobile()  )
+            add_action('tha_header_before', array($this, 'menu'));
+            if ( wp_is_mobile() && get_theme_mod( 'mobDisable_topbar' ) != 1 )
+            add_action('tha_header_before', array($this, 'menu'));
+        }
     }
     /**
      * hgroup
