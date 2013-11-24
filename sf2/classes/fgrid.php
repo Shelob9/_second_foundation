@@ -36,6 +36,7 @@ class _sf2_fgrid {
     }
 
     function main_start() {
+        $this->offCanvas_start();
         echo '<div class="row" id="main-row">';
         if ( is_front_page() ) {
             echo '<div class="large-9 columns" id="front-content-wrap">';
@@ -57,6 +58,7 @@ class _sf2_fgrid {
     function main_end() {
         echo '</div><!--/main column-->';
         echo '</div><!--/main row-->';
+        $this->offCanvas_end();
     }
 
     function footer_start() {
@@ -67,6 +69,35 @@ class _sf2_fgrid {
     function footer_end() {
         echo '</div><!--/footer-column-->';
         echo '</div><!--/footer-row-->';
+    }
+
+    function offCanvas_start() {
+    ?>
+        <div class="off-canvas-wrap">
+            <div class="inner-wrap">
+
+             <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+
+                <!-- Off Canvas Menu -->
+                <aside class="left-off-canvas-menu">
+                    <!-- whatever you want goes here -->
+                    <ul>
+                        <li><a href="#">Item 1</a></li>
+                        ...
+                    </ul>
+                </aside>
+
+                <!-- main content goes here -->
+    <?php
+    }
+
+    function offCanvas_end() {
+    ?>
+
+
+          </div>
+        </div>
+    <?php
     }
 }
 
