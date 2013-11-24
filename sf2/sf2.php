@@ -97,6 +97,7 @@ class _SF2 {
             'fgrid.php',
             'header-stuff.php',
             'customizer.php',
+            'off_canvas.php'
         );
         foreach ($files as $file) {
             require_once( trailingslashit( _SF2_CLASSES ) . $file );
