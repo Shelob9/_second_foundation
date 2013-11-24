@@ -99,13 +99,13 @@ class _sf2_foundation {
      * @since 2.0.0
      */
     public function scripts() {
-        wp_enqueue_script( 'foundation', trailingslashit(_SF2_JS).'foundation.js', array( 'jquery', '_SF2' ), '5.0.2', true );
+        wp_enqueue_script( 'foundation', trailingslashit(_SF2_JS).'foundation.js', array( 'jquery' ), '5.0.2', true );
         wp_enqueue_script( 'modernizer', trailingslashit(_SF2_JS).'custom.modernizr.js', array( 'jquery'), false, true );
         foreach ($this->foundation as $script) {
             $src = trailingslashit(_SF2_JS).$script[ 'file' ];
-            wp_enqueue_script( $script[ 'name' ], $src, array( 'jquery', 'foundation', '_SF2' ), '5.0.2', true );
+            wp_enqueue_script( $script[ 'name' ], $src, array( 'jquery', 'foundation' ), '5.0.2', true );
         }
-        wp_enqueue_script( '_SF2', trailingslashit(_SF2_JS).'_SF2.js', false, false, true );
+        wp_enqueue_script( '_SF2', trailingslashit(_SF2_JS).'_SF2.js', array('foundation', 'jquery'), false, true );
     }
 
     /**
