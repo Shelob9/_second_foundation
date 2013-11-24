@@ -4470,6 +4470,7 @@ ul.off-canvas-list li a {
   left: 250px;
 }
 
+/**end foundation**/
 #secondary {
   margin-left: 0px;
   padding-left: 4px;
@@ -4477,16 +4478,17 @@ ul.off-canvas-list li a {
 
 .top-bar .toggle-topbar.menu-icon {
   margin-top: 4px;
+  top: 0%;
 }
 
 .top-bar .name {
   margin: 8px 4px;
 }
 
-#me {
-  margin-top: 50%;
-}
-
 a, a:visited, a:-webkit-any-link {
   text-decoration: none;
+}
+
+.sticky-topbar.row-full.fixed, .top-bar, nav.top-bar.expanded.fixed {
+  background-color: #332c2f;
 }

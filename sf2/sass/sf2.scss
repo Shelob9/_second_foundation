@@ -18,6 +18,8 @@ font-family: 'Roboto Slab', serif;
 /**Begin Foundation Foundation (http://foundation.zurb.com/), (c) 2013 ZURB (http://zurb.com/).
 Foundation is licensed under the terms of the MIT Open Source License. **/
 @import 'fapp';
+/**end foundation**/
+
 #secondary {
   //border-left: 1px dotted $primaryTint;
   margin-left: 0px;
@@ -25,18 +27,16 @@ Foundation is licensed under the terms of the MIT Open Source License. **/
 }
 .top-bar .toggle-topbar.menu-icon {
   margin-top:4px;
+  top: 0%;
 }
 
 .top-bar .name {
   margin: 8px 4px;
 }
 
-
-#me {
-  margin-top:50%;
-}
-
 a, a:visited, a:-webkit-any-link {
   text-decoration:none;
-
+}
+.sticky-topbar.row-full.fixed, .top-bar, nav.top-bar.expanded.fixed  {
+  background-color: $topbar-dropdown-bg;
 }

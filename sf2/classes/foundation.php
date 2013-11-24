@@ -143,15 +143,15 @@ class _sf2_foundation {
      */
     public function menu() { ?>
         <div class="sticky-topbar fixed row-full">
-            <nav id="site-navigation" class="navigation-main top-bar" role="navigation">
+            <nav class="top-bar" data-topbar>
                 <ul class="title-area">
                     <li class="name">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
                     </li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-            </ul>
+                    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                </ul>
             <section class="top-bar-section">
-                <?php
+    <?php
                 wp_nav_menu( array(
                     'theme_location' => 'primary',
                     'container' => false,
