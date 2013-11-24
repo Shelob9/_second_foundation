@@ -9,7 +9,7 @@
 //namespace _sf_elements;
 
 
-class elements {
+class header_stuff {
 
     function __construct() {
         add_action('tha_header_top', array( $this, 'hgroup'));
@@ -85,4 +85,4 @@ class elements {
     }
 
 }
-new elements();
+new header_stuff();
