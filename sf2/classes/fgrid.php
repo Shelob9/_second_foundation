@@ -27,17 +27,17 @@ class _sf2_fgrid {
     }
 
     /**
-     * Determines if off canvas nav is to be used or not
+     * Used to determine if off canvas  or topbar nav is to be used or not
      *
      * @author Josh Pollock
      * @package _sf
      * @since 2.0.2
      */
-    public function use_offcanvas() {
+    public function use_nav( $main = 'enable_offcanvas', $mobile = 'mobOnly_offcanvas' ) {
         //first check if it's enabled or not
-        $yes = get_theme_mod( 'enable_offcanvas', 1 );
+        $yes = get_theme_mod( $main, 1 );
         //also find out if enabled for mobile
-        $mobile_yes = get_theme_mod( 'mobOnly_offcanvas', 1 );
+        $mobile_yes = get_theme_mod( $mobile, 1 );
         if ( $yes != 1) {
             return false;
         }
@@ -133,7 +133,7 @@ class _sf2_fgrid {
     }
 
     function main_start() {
-        if (  $this->use_offcanvas() == 1)  {
+        if (  $this->use_nav( $main = 'enable_offcanvas', $mobile = 'mobOnly_offcanvas' ) == 1)  {
             $this->start_offcanvas();
         }
         echo '<div class="row" id="main-row">';
@@ -157,7 +157,7 @@ class _sf2_fgrid {
     function main_end() {
         echo '</div><!--/main column-->';
         echo '</div><!--/main row-->';
-        if (  $this->use_offcanvas() == 1 ) {
+        if (  $this->use_nav( $main = 'enable_offcanvas', $mobile = 'mobOnly_offcanvas' ) == 1 ) {
             $this->end_offcanvas();
         }
     }
