@@ -3353,7 +3353,7 @@ meta.foundation-mq-topbar {
   background: #332c2f;
 }
 .contain-to-grid .top-bar {
-  margin-bottom: 0.125em;
+  margin-bottom: 0px;
 }
 
 .fixed {
@@ -3385,7 +3385,7 @@ meta.foundation-mq-topbar {
   line-height: 45px;
   position: relative;
   background: #332c2f;
-  margin-bottom: 0.125em;
+  margin-bottom: 0px;
 }
 .top-bar ul {
   margin-bottom: 0;
@@ -3657,7 +3657,7 @@ meta.foundation-mq-topbar {
   .contain-to-grid .top-bar {
     max-width: 62.5em;
     margin: 0 auto;
-    margin-bottom: 0.125em;
+    margin-bottom: 0px;
   }
 
   .top-bar-section {

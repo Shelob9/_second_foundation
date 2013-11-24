@@ -128,8 +128,8 @@ class _sf2_foundation {
      * @since 2.0.0
      */
     public function menu() { ?>
-        <div class="sticky-topbar fixed row-full">
-            <nav class="top-bar" data-topbar>
+        <div  class="sticky-topbar fixed row-full">
+            <nav id="top-nav" class="top-bar" data-topbar>
                 <ul class="title-area">
                     <li class="name">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
