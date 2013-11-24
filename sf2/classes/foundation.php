@@ -18,7 +18,6 @@ class _sf2_foundation {
         if ( _SF2_CHILD_FCSS == false ) {
             add_action('wp_enqueue_scripts', array($this, 'styles'), 10);
         }
-        add_action('after_theme_setup', array($this, 'interchange_images'));
         add_action('tha_header_before', array($this, 'menu'));
     }
     /**
@@ -119,19 +118,6 @@ class _sf2_foundation {
         //wp_enqueue_style('normalize', _SF2_CSS.'/normalize.css');
         //wp_enqueue_style('foundation-css', _SF2_CSS.'/foundation.css');
         wp_enqueue_style('_SF2', trailingslashit(_SF2_CSS).'sf2.css');
-    }
-
-    /**
-     * Add image sizes for Interchange
-     *
-     * @author Josh Pollock
-     * @package _Second Foundation
-     * @since 2.0.0
-     */
-    function interchange_images() {
-        add_image_size( 'fd-lrg', 1024, 99999);
-        add_image_size( 'fd-med', 768, 99999);
-        add_image_size( 'fd-sm', 320, 9999);
     }
 
     /*
