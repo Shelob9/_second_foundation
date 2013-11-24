@@ -95,7 +95,8 @@ class _SF2 {
             'nav_walker.php',
             'foundation.php',
             'fgrid.php',
-            'header-stuff.php'
+            'header-stuff.php',
+            'customizer',
         );
         foreach ($files as $file) {
             require_once( trailingslashit( _SF2_CLASSES ) . $file );
