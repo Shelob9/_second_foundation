@@ -155,7 +155,7 @@ class _sf2_foundation {
                 wp_nav_menu( array(
                     'theme_location' => 'primary',
                     'container' => false,
-                    'depth' =>  0,
+                    'depth' => 2,
                     'items_wrap' => '<ul class="left">%3$s</ul>',
                     'fallback_cb' => '_sf_menu_fallback', // workaround to show a message to set up a menu
                     'walker' => new _sf2_nav_walker( array(
