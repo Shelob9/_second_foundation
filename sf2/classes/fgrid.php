@@ -36,12 +36,15 @@ class _sf2_fgrid {
     public function use_offcanvas() {
         //first check if it's enabled or not
         $yes = get_theme_mod( 'enable_offcanvas', 1 );
+        //also find out if enabled for mobile
+        $mobile_yes = get_theme_mod( 'mobOnly_offcanvas', 1 );
         if ( $yes != 1) {
             return false;
         }
-        elseif ( $yes == 1 && wp_is_mobile() ) {
-            //find out if enabled for mobile
-            $mobile_yes = get_theme_mod( 'mobOnly_offcanvas', 1 );
+        elseif (
+            $yes == 1 && wp_is_mobile()
+        ) {
+         /* @todo impliment this with mobile type option.
             //check if mobble is installed so we can use it for mobile detection
             if ( function_exists('is_phone')) {
                 //check if we are using a phone
@@ -56,16 +59,20 @@ class _sf2_fgrid {
             }
             //fallback if mobble isn't installed
             else {
+         */
                 if ( wp_is_mobile() && $mobile_yes == 1 ) {
                     return true;
                 }
                 else {
-                    return true;
+                    return false;
                 }
-            }
+            //}
+        }
+        elseif ( $yes == 1 && ! wp_is_mobile() && $mobile_yes != 1 ) {
+            return true;
         }
         else {
-            return true;
+            return false;
         }
 
     }
@@ -126,7 +133,7 @@ class _sf2_fgrid {
     }
 
     function main_start() {
-        if (  $this->use_offcanvas() == 1 )  {
+        if (  $this->use_offcanvas() == 1)  {
             $this->start_offcanvas();
         }
         echo '<div class="row" id="main-row">';
