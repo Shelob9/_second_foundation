@@ -18,7 +18,6 @@ class _sf2_foundation {
         if ( _SF2_CHILD_FCSS == false ) {
             add_action('wp_enqueue_scripts', array($this, 'styles'), 10);
         }
-        add_filter('post_thumbnail_html', array( $this, 'interchange', 5, 5) );
         add_action('after_theme_setup', array($this, 'interchange_images'));
         add_action('tha_header_before', array($this, 'menu'));
     }
@@ -49,11 +48,11 @@ class _sf2_foundation {
         array(
             'name' 	=> 'forms',
             'file'	=> 'foundation.forms.js',
-        ),*/
+        ),
         array(
             'name' 	=> 'interchange',
             'file'	=> 'foundation.interchange.js',
-        ),/*
+        ),
         array(
             'name' 	=> 'joyride',
             'file'	=> 'foundation.joyride.js',
@@ -61,11 +60,11 @@ class _sf2_foundation {
         array(
             'name' 	=> 'magellan',
             'file'	=> 'foundation.magellan.js',
-        ),*/
+        ),
         array(
             'name' 	=> 'orbit',
             'file'	=> 'foundation.orbit.js',
-        ),/*
+        ),
         array(
             'name' 	=> 'placeholder',
             'file'	=> 'foundation.placeholder.js',
@@ -132,33 +131,6 @@ class _sf2_foundation {
         add_image_size( 'fd-sm', 320, 9999);
     }
 
-    /**
-     * Interchange Filter
-     *
-     * @package _Second Foundation
-     * @since ?
-     * @package _SF2
-     * @since 0.1
-     */
-    function interchange($html, $post_id, $post_thumbnail_id, $size, $attr) {
-        //make image links
-        $attachment_id = $post_thumbnail_id;
-        $default = wp_get_attachment_image_src($attachment_id);
-        $size = 'fd-sm';
-        $small = wp_get_attachment_image_src($attachment_id, $size);
-        $size = 'fd-med';
-        $med = wp_get_attachment_image_src($attachment_id, $size);
-        $size = 'fd-lrg';
-        $lrg = wp_get_attachment_image_src($attachment_id, $size);
-        //create image tag with queries
-        $html = '<img src="'.$default[0].'"';
-        $html .= 'data-interchange="['.$default[0].', (default)],';
-        $html .= '['.$small[0].', (only screen and (min-width: 320px))],';
-        $html .= '['.$med[0].', (only screen and (min-width: 768px))],';
-        $html .= '['.$lrg[0].', (only screen and (min-width: 1024px))],';
-        $html .='">';
-        return $html;
-    }
 
     public function menu() { ?>
         <div class="sticky-topbar fixed row-full">
