@@ -35,36 +35,19 @@
          * Settings and controls for Nav Options
          */
         $navs = array(
-            //Enable Topbar nav
+            //Slideout menu instead of topbar?
                 array(
-                    'setting'   => 'enable_topbar',
+                    'setting'   => 'alt_nav_only',
                     'default'   => true,
-                    'label'     => 'Enable Topbar Navigation?',
+                    'label'     => 'Use slideout menu instead of topbar?',
                 ),
-            //Enable Off Canvas nav
+            //Alt nav only on mobile
                 array(
-                    'setting'   => 'enable_offcanvas',
+                    'setting'   => 'alt_nav_mobile',
                     'default'   => true,
-                    'label'     => 'Enable Slide-In Menu?',
+                    'label'     => 'alt_nav_mobile',
                 ),
-            //Use Off Canvas On Mobile Only
-                array(
-                    'setting'   => 'mobOnly_offcanvas',
-                    'default'   => true,
-                    'label'     => 'Use Slide-In Menu On Mobile Only?',
-                ),
-            //Disable Topbar nav on mobile
-                array(
-                    'setting'   => 'mobDisable_topbar',
-                    'default'   => false,
-                    'label'     => 'Disable Topbar Navigation On Mobile?',
-                ),
-            //Hide Sidebar on mobile
-                array(
-                    'setting'   => 'mobDisable_sidebar',
-                    'default'   => true,
-                    'label'     => 'Hide Sidebar On Mobile?'
-                ),
+
         );
 
         /**
