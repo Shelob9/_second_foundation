@@ -96,7 +96,7 @@ class _SF2 {
             'foundation.php',
             'fgrid.php',
             'nav-stuff.php',
-            'customizer.php',
+            //'customizer.php',
         );
         foreach ($files as $file) {
             require_once( trailingslashit( _SF2_CLASSES ) . $file );
@@ -110,14 +110,18 @@ class _SF2 {
      * @param string $main What is main enabling/disabling option
      * @param string $mobile Mobile enable/disable option
      * @todo move to a helper class
+     * @todo actual options?
      *
      * @author Josh Pollock
      * @package _sf
      * @since 2.0.2
      */
     static function nav_decider() {
-        $yes = get_theme_mod( 'alt_nav_only' , false );
-        $mobile = get_theme_mod( 'alt_nav_mobile', true );
+        //This is shim for now
+        $yes = 0;
+        $mobile = 1;
+        //$yes = get_theme_mod( 'alt_nav_only' , false );
+        //$mobile = get_theme_mod( 'alt_nav_mobile', true );
         if ( $yes == 1 ) {
             return true;
         }
