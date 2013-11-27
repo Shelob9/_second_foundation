@@ -34,5 +34,5 @@ get_header(); ?>
 		</div><!-- #content -->
 	</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php _sf_sidebar(); ?>
 <?php get_footer(); ?>
