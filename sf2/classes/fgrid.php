@@ -50,9 +50,6 @@ class _sf2_fgrid {
         else {
             $col = 9;
         }
-        if (  _sf2::nav_decider() == true )  {
-            nav::start_offcanvas();
-        }
         echo '<div class="row" id="main-row">';
         if ( is_front_page() ) {
             echo '<div class="large-'.$col.' columns" id="front-content-wrap">';

@@ -5893,8 +5893,8 @@ a.menu-icon span {
   height: 0;
   left: 0.8125rem;
   top: 0.3125rem;
-  -webkit-box-shadow: 0 10px 0 1px #332c2f, 0 16px 0 1px #332c2f, 0 22px 0 1px #332c2f;
-  box-shadow: 0 10px 0 1px #332c2f, 0 16px 0 1px #332c2f, 0 22px 0 1px #332c2f;
+  -webkit-box-shadow: 0 10px 0 1px white, 0 16px 0 1px white, 0 22px 0 1px white;
+  box-shadow: 0 10px 0 1px white, 0 16px 0 1px white, 0 22px 0 1px white;
 }
 /* line 313, ../sass/foundation/components/_offcanvas.scss */
 a.menu-icon:hover span {
@@ -6048,4 +6048,9 @@ a, a:visited, a:-webkit-any-link {
 /* line 41, ../sass/sf2.scss */
 .sticky-topbar.fixed, .top-bar, nav.top-bar.expanded.fixed {
   background-color: #332c2f;
+}
+
+/* line 45, ../sass/sf2.scss */
+.left-small a.menu-icon {
+  position: absolute;
 }

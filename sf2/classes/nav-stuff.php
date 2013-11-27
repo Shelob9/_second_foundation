@@ -19,7 +19,7 @@ class nav {
             add_action('tha_header_before', array($this, 'menu'));
         }
         else {
-            add_action('tha_header_before', array($this, 'tab_bar'));
+            add_action( 'tha_header_before', array($this, 'start_offcanvas'));
         }
 
     }
@@ -103,10 +103,11 @@ class nav {
         register_nav_menu( 'offcanvas', 'The slide in menu.');
     }
 
-    static function start_offcanvas() {
+    function start_offcanvas() {
     ?>
         <div class="off-canvas-wrap">
             <div class="inner-wrap">
+            <?php self::tab_bar(); ?>
             <!-- Off Canvas Menu -->
             <aside class="left-off-canvas-menu">
                 <?php
