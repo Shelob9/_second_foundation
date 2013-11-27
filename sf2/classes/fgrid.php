@@ -18,7 +18,7 @@ class _sf2_fgrid {
             add_action('tha_header_top', array($this, 'head_start'));
             add_action('tha_header_after', array($this, 'head_end'));
             add_action('tha_content_top', array($this, 'main_start'));
-            if ( _SF2::sidebar_decider()  != true ) {
+            if ( _SF2::nav_decider()  == false ) {
                 add_action('tha_sidebars_before', array($this, 'sidebar_start'));
                 add_action('tha_sidebars_after', array($this, 'sidebar_end'));
             }
@@ -44,14 +44,14 @@ class _sf2_fgrid {
 
     function main_start() {
         //determine if we are going 9 wide or 12 wide
-        if ( _SF2::sidebar_decider()  == true ) {
-            $col = 9;
-        }
-        else {
+        if ( _SF2::nav_decider()  == true ) {
             $col = 12;
         }
-        if (  _sf2::use_nav( $main = 'enable_offcanvas', $mobile = 'mobOnly_offcanvas' ) == 1)  {
-            offcanvas::start_offcanvas();
+        else {
+            $col = 9;
+        }
+        if (  _sf2::nav_decider() == true )  {
+            nav::start_offcanvas();
         }
         echo '<div class="row" id="main-row">';
         if ( is_front_page() ) {
@@ -74,8 +74,8 @@ class _sf2_fgrid {
     function main_end() {
         echo '</div><!--/main column-->';
         echo '</div><!--/main row-->';
-        if (  _sf2::use_nav( $main = 'enable_offcanvas', $mobile = 'mobOnly_offcanvas' ) == 1 ) {
-            offcanvas::end_offcanvas();
+        if (  _sf2::nav_decider() == true ) {
+            nav::end_offcanvas();
         }
     }
 

@@ -45,7 +45,7 @@
                 array(
                     'setting'   => 'alt_nav_mobile',
                     'default'   => true,
-                    'label'     => 'alt_nav_mobile',
+                    'label'     => 'Sliedout menu for mobile only?',
                 ),
 
         );

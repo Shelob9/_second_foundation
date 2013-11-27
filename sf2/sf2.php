@@ -95,9 +95,8 @@ class _SF2 {
             'nav_walker.php',
             'foundation.php',
             'fgrid.php',
-            'header-stuff.php',
+            'nav-stuff.php',
             'customizer.php',
-            'offcanvas.php'
         );
         foreach ($files as $file) {
             require_once( trailingslashit( _SF2_CLASSES ) . $file );
@@ -106,7 +105,7 @@ class _SF2 {
     }
 
     /**
-     * Used to determine if off canvas  or topbar nav is to be used or not
+     * Used to determine if in alt nav setup
      *
      * @param string $main What is main enabling/disabling option
      * @param string $mobile Mobile enable/disable option
@@ -116,66 +115,19 @@ class _SF2 {
      * @package _sf
      * @since 2.0.2
      */
-    static function use_nav( $main, $mobile ) {
-        //first check if it's enabled or not
-        $yes = get_theme_mod( $main, 1 );
-        //also find out if enabled for mobile
-        $mobile_yes = get_theme_mod( $mobile, 1 );
-        if ( $yes != 1) {
-            return false;
-        }
-        elseif (
-            $yes == 1 && wp_is_mobile()
-        ) {
-            /* @todo impliment this with mobile type option.
-            //check if mobble is installed so we can use it for mobile detection
-            if ( function_exists('is_phone')) {
-            //check if we are using a phone
-            //@TODO Update this to an option defining what type of device == mobile
-            if ( is_phone() && $mobile_yes == 1 ) {
+    static function nav_decider() {
+        $yes = get_theme_mod( 'alt_nav_only' , false );
+        $mobile = get_theme_mod( 'alt_nav_mobile', true );
+        if ( $yes == 1 ) {
             return true;
-            }
-            else {
-            return false;
-            }
-
-            }
-            //fallback if mobble isn't installed
-            else {
-             */
-            if ( wp_is_mobile() && $mobile_yes == 1 ) {
-                return true;
-            }
-            else {
-                return false;
-            }
-            //}
         }
-        elseif ( $yes == 1 && ! wp_is_mobile() && $mobile_yes != 1 ) {
+        elseif ( wp_is_mobile() && $mobile == 1 ) {
             return true;
         }
         else {
             return false;
         }
     }
-    /**
-     * Show Sidebar?
-     */
-
-    static function sidebar_decider() {
-        if ( ! wp_is_mobile() ) {
-            return true;
-        }
-        elseif ( wp_is_mobile() && get_theme_mod( 'mobDisable_sidebar')) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-
-
 }
 
 /**
@@ -197,7 +149,7 @@ new _SF2();
  * @since 2.0.2
  */
 function _sf_sidebar( $name = null ) {
-    if ( _SF2::sidebar_decider()  == true ) {
+    if ( _SF2::nav_decider()  == true ) {
         get_sidebar( $name );
     }
 }
