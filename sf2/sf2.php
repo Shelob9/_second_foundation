@@ -149,7 +149,7 @@ new _SF2();
  * @since 2.0.2
  */
 function _sf_sidebar( $name = null ) {
-    if ( _SF2::nav_decider()  == true ) {
+    if ( _SF2::nav_decider()  == false ) {
         get_sidebar( $name );
     }
 }

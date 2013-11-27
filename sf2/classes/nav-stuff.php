@@ -18,6 +18,9 @@ class nav {
         if ( _sf2::nav_decider() == false ) {
             add_action('tha_header_before', array($this, 'menu'));
         }
+        else {
+            add_action('tha_header_before', array($this, 'tab_bar'));
+        }
 
     }
     /**
@@ -101,46 +104,57 @@ class nav {
     }
 
     static function start_offcanvas() {
-        ?>
+    ?>
         <div class="off-canvas-wrap">
-        <div class="inner-wrap">
-
-        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-        <!-- Off Canvas Menu -->
-        <aside class="left-off-canvas-menu">
-            <?php
-                $defaults = array(
-                    'theme_location'  => 'offcanvas',
-                    'menu'            => '',
-                    'container'       => 'false',
-                    'container_class' => '',
-                    'container_id'    => '',
-                    'menu_class'      => 'off-canvas-list"',
-                    'menu_id'         => '',
-                    'echo'            => true,
-                    'fallback_cb'     => 'wp_page_menu',
-                    'before'          => '',
-                    'after'           => '',
-                    'link_before'     => '',
-                    'link_after'      => '',
-                    'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                    'depth'           => -1,
-                    'walker'          => ''
-                );
-                wp_nav_menu( $defaults );
-            ?>
-        </aside>
+            <div class="inner-wrap">
+            <!-- Off Canvas Menu -->
+            <aside class="left-off-canvas-menu">
+                <?php
+                    $defaults = array(
+                        'theme_location'  => 'offcanvas',
+                        'menu'            => '',
+                        'container'       => 'false',
+                        'container_class' => '',
+                        'container_id'    => '',
+                        'menu_class'      => 'off-canvas-list"',
+                        'menu_id'         => '',
+                        'echo'            => true,
+                        'fallback_cb'     => 'wp_page_menu',
+                        'before'          => '',
+                        'after'           => '',
+                        'link_before'     => '',
+                        'link_after'      => '',
+                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                        'depth'           => -1,
+                        'walker'          => ''
+                    );
+                    wp_nav_menu( $defaults );
+                ?>
+            </aside>
 
         <!-- main content goes here -->
     <?php
     }
 
     static function end_offcanvas() {
-        ?>
-
-
+    ?>
+            </div>
         </div>
-        </div>
+    <?php
+    }
+
+    function tab_bar() {
+    ?>
+    <nav class="tab-bar">
+        <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+        </section>
+        <section class="middle tab-bar-section">
+            <hgroup>
+                    <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+            </hgroup>
+        </section>
+    </nav>
     <?php
     }
 
