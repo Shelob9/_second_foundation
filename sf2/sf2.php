@@ -110,6 +110,7 @@ class _SF2 {
      *
      * @param string $main What is main enabling/disabling option
      * @param string $mobile Mobile enable/disable option
+     * @todo move to a helper class
      *
      * @author Josh Pollock
      * @package _sf
@@ -156,8 +157,24 @@ class _SF2 {
         else {
             return false;
         }
-
     }
+    /**
+     * Show Sidebar?
+     */
+
+    static function sidebar_decider() {
+        if ( ! wp_is_mobile() ) {
+            return true;
+        }
+        elseif ( wp_is_mobile() && get_theme_mod( 'mobDisable_sidebar')) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+
 
 }
 
@@ -165,3 +182,22 @@ class _SF2 {
  * Init class _SF2
  */
 new _SF2();
+
+
+/**
+ * Custom Sidebar Function
+ *
+ * @param string $name (optional) name of sidebar to be passed to get_sidebar()
+ * @todo add filter for sidebar name
+ * @todo move to a helper class
+ * @todo more specific mobile definiton
+ *
+ * @author Josh Pollock
+ * @package _sf
+ * @since 2.0.2
+ */
+function _sf_sidebar( $name = null ) {
+    if ( _SF2::sidebar_decider()  == true ) {
+        get_sidebar( $name );
+    }
+}
