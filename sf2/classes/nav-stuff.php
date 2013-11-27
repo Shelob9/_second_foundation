@@ -135,14 +135,14 @@ class nav {
     <?php
     }
 
-        static function end_offcanvas() {
-            ?>
+    static function end_offcanvas() {
+        ?>
 
 
-            </div>
-            </div>
-        <?php
-        }
+        </div>
+        </div>
+    <?php
+    }
 
 }
 new nav();
