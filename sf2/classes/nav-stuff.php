@@ -13,7 +13,7 @@ class nav {
 
     function __construct() {
         add_action('tha_header_top', array( $this, 'hgroup'));
-        add_action( 'wp_head', array($this, 'header_bg'));
+        add_action( 'wp_head', array($this, 'bgs'));
         add_action('after_setup_theme', array($this, 'register_offC_menu'));
         if ( _sf2::nav_decider() == false ) {
             add_action('tha_header_before', array($this, 'menu'));
@@ -38,12 +38,22 @@ class nav {
     }
 
 
-    function header_bg() {
-
+    function bgs() {
+        //get the custom header image
         $header_img_url = get_header_image();
+        //get default background image
+        $defaultbg = get_template_directory_uri().'/images/bg.jpg';
+        //set body bg img
+        $body_img_url = get_theme_mod( 'body_bg_img', $defaultbg );
+        //create the styles
         $style =
             '#masthead{
-                background-image:url('.$header_img_url.');
+                background-image: url('.$header_img_url.');
+            }
+            body {
+                background-image: url('.$body_img_url.');
+            }
+            #masthead, body {
                 background-repeat: no-repeat;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
