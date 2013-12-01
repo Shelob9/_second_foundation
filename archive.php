@@ -79,7 +79,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php _s_content_nav( 'nav-below' ); ?>
+			<?php _sf_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
 

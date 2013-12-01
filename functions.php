@@ -21,7 +21,7 @@ if ( ! isset( $content_width ) )
  */
 require( get_template_directory() . '/inc/jetpack.php' );
 
-if ( ! function_exists( '_s_setup' ) ) :
+if ( ! function_exists( '_sf_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -29,7 +29,7 @@ if ( ! function_exists( '_s_setup' ) ) :
  * before the init hook. The init hook is too late for some features, such as indicating
  * support post thumbnails.
  */
-function _s_setup() {
+function _sf_setup() {
 
 	/**
 	 * Custom template tags for this theme.
@@ -81,30 +81,30 @@ function _s_setup() {
 	 */
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 }
-endif; // _s_setup
-add_action( 'after_setup_theme', '_s_setup' );
+endif; // _sf_setup
+add_action( 'after_setup_theme', '_sf_setup' );
 
 /**
  * Setup the WordPress core custom background feature.
  *
  * Hooks into the after_setup_theme action.
  */
-function _s_register_custom_background() {
+function _sf_register_custom_background() {
 	$args = array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	);
 
-	$args = apply_filters( '_s_custom_background_args', $args );
+	$args = apply_filters( '_sf_custom_background_args', $args );
 	add_theme_support( 'custom-background', $args );
 
 }
-add_action( 'after_setup_theme', '_s_register_custom_background' );
+add_action( 'after_setup_theme', '_sf_register_custom_background' );
 
 /**
  * Register widgetized area and update sidebar with default widgets
  */
-function _s_widgets_init() {
+function _sf_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', '_sf' ),
 		'id'            => 'sidebar-1',
@@ -114,12 +114,12 @@ function _s_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 }
-add_action( 'widgets_init', '_s_widgets_init' );
+add_action( 'widgets_init', '_sf_widgets_init' );
 
 /**
  * Enqueue scripts and styles
  */
-function _s_scripts() {
+function _sf_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
@@ -134,7 +134,7 @@ function _s_scripts() {
 		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 	}
 }
-add_action( 'wp_enqueue_scripts', '_s_scripts' );
+add_action( 'wp_enqueue_scripts', '_sf_scripts' );
 
 /**
  * Implement the Custom Header feature
