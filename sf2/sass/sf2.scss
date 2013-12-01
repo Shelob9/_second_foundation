@@ -45,4 +45,31 @@ a, a:visited, a:-webkit-any-link {
 .left-small a.menu-icon {
   position: absolute;
 }
+#secondary, article, #footer-row, #masthead, #nav-below {
+  background-color: $white;
+  @include corners(4px);
+}
 
+.hentry, #nav-below {
+  margin: 4px 0 1.5em;
+}
+
+#nav-below {
+  padding: 0 4px 4px;
+}
+
+#content {
+  margin-right: 8px;
+}
+
+article {
+  padding: 0 4px 4px;
+}
+
+.vcard {
+  border: none;
+}
+
+#masthead {
+  margin-bottom: 16px;
+}
