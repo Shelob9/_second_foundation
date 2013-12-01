@@ -77,7 +77,7 @@ class _sf2_fgrid {
     }
 
     function footer_start() {
-        echo '<div class="row">';
+        echo '<div class="row" id="footer-row">';
         echo '<div class="large-12 columns">';
     }
 
