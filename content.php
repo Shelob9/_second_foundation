@@ -25,7 +25,7 @@
 	<?php else : ?>
 	<div class="entry-content">
         <?php _sf_thumbnail(); ?>
-		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', '_s' ) ); ?>
+		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
@@ -60,7 +60,10 @@
 		<?php endif; ?>
 
 		<?php edit_post_link( __( 'Edit', '_s' ), '<span class="sep"> | </span><span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-meta -->
+	    <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', '_s' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
+            <?php _e( '<div class="right">Continue reading <span class="meta-nav">&rarr;</span></div>', '_s' ) ; ?>
+        </a>
+    </footer><!-- .entry-meta -->
 	<?php tha_entry_bottom(); ?>
 </article><!-- #post-## -->
 <?php tha_entry_after(); ?>
