@@ -157,3 +157,18 @@ function _sf_sidebar( $name = null ) {
         get_sidebar( $name );
     }
 }
+
+/**
+ * Function for outputing content/excerpt with the thumbnail
+ *
+ * @author Josh Pollock
+ * @package _sf
+ * @since 2.0.2
+ */
+function _sf_thumbnail() {
+    if ( has_post_thumbnail()) : ?>
+    <div class="left post-thumbnail">
+        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" ><?php the_post_thumbnail('thumbnail'); ?></a>
+    </div>
+    <?php endif;
+}

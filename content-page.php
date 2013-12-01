@@ -14,6 +14,7 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+        <?php _sf_thumbnail(); ?>
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->

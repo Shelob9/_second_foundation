@@ -6101,3 +6101,8 @@ article {
 #masthead {
   margin-bottom: 16px;
 }
+
+/* line 77, ../sass/sf2.scss */
+.post-thumbnail {
+  margin-right: 4px;
+}
