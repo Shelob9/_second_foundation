@@ -15,7 +15,7 @@ class _sf2_fgrid {
 
     function __construct() {
         if ( ! is_admin() ) {
-            add_action('tha_header_top', array($this, 'head_start'));
+            add_action('tha_header_before', array($this, 'head_start'));
             add_action('tha_header_after', array($this, 'head_end'));
             add_action('tha_content_top', array($this, 'main_start'));
             if ( _SF2::nav_decider()  == false ) {
@@ -38,8 +38,8 @@ class _sf2_fgrid {
     }
 
     function head_end() {
-        echo '</div><!--/header column-->';
-        echo '</div><!--/header row-->';
+        echo '</div><!--/#column-header-->';
+        echo '</div><!--/#row-header-->';
     }
 
     function main_start() {
@@ -58,6 +58,10 @@ class _sf2_fgrid {
             echo '<div class="large-'.$col.' columns" id="content-wrap">';
         }
     }
+    function main_end() {
+        echo '</div><!--/#content-wrap or #front-content-wrap-->';
+        echo '</div><!--/#main-row-->';
+    }
 
     function sidebar_start() {
         echo '</div><!--/content column-->';
@@ -65,25 +69,19 @@ class _sf2_fgrid {
     }
 
     function sidebar_end() {
-        echo '</div><!--/sidebar column-->';
+        echo '</div><!--/#sidebar-wrap-->';
     }
 
-    function main_end() {
-        echo '</div><!--/main column-->';
-        echo '</div><!--/main row-->';
-        if (  _sf2::nav_decider() == true ) {
-            nav::end_offcanvas();
-        }
-    }
+
 
     function footer_start() {
         echo '<div class="row" id="footer-row">';
-        echo '<div class="large-12 columns">';
+        echo '<div class="large-12 columns" id="footer-column">';
     }
 
     function footer_end() {
-        echo '</div><!--/footer-column-->';
-        echo '</div><!--/footer-row-->';
+        echo '</div><!--/#footer-column-->';
+        echo '</div><!--/#footer-row-->';
     }
 
 

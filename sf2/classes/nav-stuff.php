@@ -19,7 +19,8 @@ class nav {
             add_action('tha_header_before', array($this, 'menu'));
         }
         else {
-            add_action( 'tha_header_before', array($this, 'start_offcanvas'));
+            add_action( 'tha_body_top', array($this, 'start_offcanvas'));
+            add_action( 'tha_body_bottom', array($this, 'end_offcanvas'));
         }
 
     }
@@ -96,7 +97,7 @@ class nav {
                         ) ),
                 ) );
 
-                    echo '</ul> </section></nav><!-- #site-navigation -->';
+                    echo '</ul> </section></nav><!-- nav#top-bar -->';
                     echo '</div><!--# nav wrapper -->';
 
     }
@@ -141,16 +142,17 @@ class nav {
                     );
                     wp_nav_menu( $defaults );
                 ?>
-            </aside>
+            </aside><!--/aside.left-off-canvas-menu -->
 
-        <!-- main content goes here -->
+        <section class="main-content">
     <?php
     }
 
-    static function end_offcanvas() {
+    function end_offcanvas() {
     ?>
-            </div>
-        </div>
+                </section><!--/section.main-content-->
+            </div><!--/.inner-wrap (offcanvas)-->
+        </div><!--/.off-canvas-wrap-->
     <?php
     }
 
@@ -164,8 +166,8 @@ class nav {
             <hgroup>
                     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
             </hgroup>
-        </section>
-    </nav>
+        </section><!--/section.middle tab-bar-section-->
+    </nav><!--nav.tab-bar-->
     <?php
     }
 
