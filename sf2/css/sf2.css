@@ -6073,3 +6073,8 @@ hgroup {
 .post-thumbnail {
   margin-right: 4px;
 }
+
+/* line 103, ../sass/sf2.scss */
+#footer-row {
+  margin-top: 1.5em;
+}
