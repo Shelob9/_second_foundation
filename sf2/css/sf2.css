@@ -5245,17 +5245,17 @@ table tfoot tr td {
 }
 
 /* line 30, ../sass/sf2.scss */
-.top-bar .toggle-topbar.menu-icon {
+.top-bar {
   margin-top: 4px;
   top: 0%;
 }
 
 /* line 35, ../sass/sf2.scss */
-.top-bar .name {
+.top-bar .name, #footer-row {
   margin: 8px 4px;
 }
 /* line 37, ../sass/sf2.scss */
-.top-bar .name a {
+.top-bar .name a, #footer-row a {
   color: #007fff;
 }
 
@@ -6077,4 +6077,6 @@ hgroup {
 /* line 103, ../sass/sf2.scss */
 #footer-row {
   margin-top: 1.5em;
+  padding: 2px 2px;
+  text-align: center;
 }

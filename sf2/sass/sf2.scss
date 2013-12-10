@@ -27,12 +27,12 @@ $site-title: $secondary;
   padding-left: 4px;
   margin-top: 4px;
 }
-.top-bar .toggle-topbar.menu-icon {
+.top-bar {
   margin-top:4px;
   top: 0%;
 }
 
-.top-bar .name {
+.top-bar .name, #footer-row {
   margin: 8px 4px;
   a {color: $site-title;}
 }
@@ -102,4 +102,6 @@ hgroup {
 
 #footer-row {
   margin-top: 1.5em;
+  padding: 2px 2px;
+  text-align: center;
 }
