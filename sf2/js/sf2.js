@@ -28,6 +28,9 @@ jQuery(document).ready(function($) {
         },
     });
     /**
+     * Script to adjust the padding of .sticky-topbar and #main to compensate for fixed heights
+     */
+    /**
      * Get the height, in pixels of a container
      *
      * @param div The container to get height of.
@@ -37,7 +40,6 @@ jQuery(document).ready(function($) {
         var height = $( div ).height();
         return height;
     };
-
     //Function to add padding of the top bar and main content so no bad overlaps happen
     var paddingAdjust = function() {
         //calculate container heights
@@ -56,5 +58,5 @@ jQuery(document).ready(function($) {
     $( window ).resize(function() {
         paddingAdjust();
     });
-
+    
 });
