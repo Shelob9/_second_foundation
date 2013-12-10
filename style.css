@@ -18,33 +18,6 @@ See license.txt for more information.
 
 
 /* Text elements */
-p {
-	margin-bottom: 1.5em;
-}
-
-ul {
-	list-style: disc;
-}
-ol {
-	list-style: decimal;
-}
-li > ul,
-li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
-}
-dt {
-	font-weight: bold;
-}
-dd {
-	margin: 0 1.5em 1.5em;
-}
-b, strong {
-	font-weight: bold;
-}
-dfn, cite, em, i {
-	font-style: italic;
-}
 blockquote {
 	margin: 0 1.5em;
 }
@@ -69,40 +42,7 @@ abbr, acronym {
 	border-bottom: 1px dotted #666;
 	cursor: help;
 }
-mark, ins {
-	background: #fff9c0;
-	text-decoration: none;
-}
-sup,
-sub {
-	font-size: 75%;
-	height: 0;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
-}
-sup {
-	bottom: 1ex;
-}
-sub {
-	top: .5ex;
-}
-small {
-	font-size: 75%;
-}
-big {
-	font-size: 125%;
-}
-figure {
-	margin: 0;
-}
-table {
-	margin: 0 0 1.5em;
-	width: 100%;
-}
-th {
-	font-weight: bold;
-}
+
 
 input,
 select,
@@ -127,18 +67,6 @@ textarea {
 	width: 98%;
 }
 
-/* Links */
-a {
-	color: royalblue;
-}
-a:visited {
-	color: purple;
-}
-a:hover,
-a:focus,
-a:active {
-	color: midnightblue;
-}
 
 /* Alignment */
 .alignleft {

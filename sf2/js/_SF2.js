@@ -30,17 +30,25 @@ jQuery(document).ready(function($) {
     /**
      * Get the height, in pixels of a container
      *
-     * @param div The container to get height of
-     * @returns height The height of the container in pixels
+     * @param div The container to get height of.
+     * @returns height The height of the container in pixels.
      */
     var divHeight = function( div ) {
         var height = $( div ).height();
         return height;
     };
+
     //Function to add padding of the top bar and main content so no bad overlaps happen
     var paddingAdjust = function() {
-        $('.sticky-topbar').css('padding-top', divHeight('#wpadminbar') );
-        $('#main').css('padding-top', divHeight( '.sticky-topbar') + divHeight('#wpadminbar')  );
+        //calculate container heights
+        var siteHeader = divHeight( '.site-header' );
+        var wpadminbar = divHeight('#wpadminbar');
+        //combine height of #site-header and #wpadminbar
+        var mainPush =  siteHeader  +  wpadminbar;
+        //push main content down by height of .site-header + wp admin bar
+        $('#main').css('padding-top', mainPush + 'px'  );
+        //push topbar down by height of the WP admin bar
+        $('.sticky-topbar').css('padding-top', wpadminbar + 'px' );
     };
     //adjust padding for top of page.
     paddingAdjust();
