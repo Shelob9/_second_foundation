@@ -50,8 +50,9 @@
 // @import "foundation/components/sub-nav";
 // @import "foundation/components/switch";
 // @import "foundation/components/magellan";
-// @import "foundation/components/tables";
+ @import "foundation/components/tables";
 // @import "foundation/components/thumbs";
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
-   @import "foundation/components/offcanvas";
+ //moved off canvas import directly into sf2.scss
+ //  @import "foundation/components/offcanvas";

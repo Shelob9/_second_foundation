@@ -52,7 +52,7 @@ $em-base: 16 !default;
 $default-float: left;
 $body-bg: $white;
 $body-font-color: $black;
-$body-font-family: 'lato', Helvetica, Arial, sans-serif;
+//$body-font-family: 'lato', Helvetica, Arial, sans-serif;
 $body-font-weight: light;
 $body-font-style: light;
 
@@ -1258,9 +1258,9 @@ $topbar-dropdown-link-bg: lighten($topbar-bg, 10%);
 
 // Set the link colors and styles for top-level nav
 
-// $topbar-link-color: #fff;
-// $topbar-link-color-hover: #fff;
-// $topbar-link-color-active: #fff;
+ $topbar-link-color: $white;
+ $topbar-link-color-hover: $secondary;
+ $topbar-link-color-active: $tertiary;
 $topbar-link-weight: bold;
 $topbar-link-font-size: emCalc(13);
 $topbar-link-hover-lightness: -30%; // Darken by 30%
@@ -1277,8 +1277,8 @@ $topbar-link-bg-active: darken($topbar-bg, 3%);
 // $topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: emCalc(13);
 // $topbar-menu-link-weight: bold;
-// $topbar-menu-link-color: #fff;
-// $topbar-menu-icon-color: #fff;
+ $topbar-menu-link-color: $accent;
+ $topbar-menu-icon-color: $white;
 // $topbar-menu-link-color-toggled: #888;
 // $topbar-menu-icon-color-toggled: #888;
 
@@ -1327,8 +1327,8 @@ $topbar-link-bg-active: darken($topbar-bg, 3%);
 // $off-canvas-label-border-top: 1px solid lighten(#444, 10%);
 // $off-canvas-label-border-bottom: none;
 // $off-canvas-label-margin:0;
-// $off-canvas-link-padding: rem-calc(10, 15);
-// $off-canvas-link-color: rgba(#FFF, 0.7);
+// $off-canvas-link-padding: rem-calc(10, 15);'
+ $off-canvas-link-color: $white;
 // $off-canvas-link-border-bottom: 1px solid darken($off-canvas-bg, 5%);
 
 // Off Canvas Menu Icon Variables

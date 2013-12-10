@@ -1,5 +1,5 @@
 
-$primary : #4934b7;
+$primary : red;
 $black : #332C2F;
 $white : #fff;
 $silver : #f2f2f3;
@@ -14,11 +14,12 @@ font-family: 'Roboto Slab', serif;
 @import 'jpsass/color-schemer';
 @import 'jpsass/color-var-setup';
 @import 'jpsass/builder-mixins';
-@import 'jpsass/text';
+//@import 'jpsass/text';
 /**Begin Foundation Foundation (http://foundation.zurb.com/), (c) 2013 ZURB (http://zurb.com/).
 Foundation is licensed under the terms of the MIT Open Source License. **/
 @import 'fapp';
 /**end foundation**/
+$site-title: $secondary;
 
 #secondary {
   //border-left: 1px dotted $primaryTint;
@@ -33,11 +34,22 @@ Foundation is licensed under the terms of the MIT Open Source License. **/
 
 .top-bar .name {
   margin: 8px 4px;
+  a {color: $site-title;}
+}
+
+h1.site-title {
+  a{
+    color: $site-title;
+  &:visited {color: $site-title}
+  }
 }
 
 a, a:visited, a:-webkit-any-link {
   text-decoration:none;
 }
+$off-canvas-link-color: $white;
+@import "foundation/components/offcanvas";
+
 .sticky-topbar.fixed, .top-bar, nav.top-bar.expanded.fixed  {
   background-color: $topbar-dropdown-bg;
 }
@@ -45,7 +57,7 @@ a, a:visited, a:-webkit-any-link {
 .left-small a.menu-icon {
   position: absolute;
 }
-#secondary, article, #footer-row, #masthead, #nav-below {
+#secondary, article, #footer-row, #masthead, #nav-below, #respond{
   background-color: $white;
   @include corners(4px);
 }
@@ -62,7 +74,7 @@ a, a:visited, a:-webkit-any-link {
   margin-right: 8px;
 }
 
-article {
+article, #respond {
   padding: 0 4px 4px;
 }
 
@@ -70,8 +82,18 @@ article {
   border: none;
 }
 
+#row-header {
+  max-width: 100%;
+  z-index:10;
+  position: fixed;
+}
+
 #masthead {
   margin-bottom: 16px;
+}
+
+hgroup {
+  text-align: center;
 }
 
 .post-thumbnail {

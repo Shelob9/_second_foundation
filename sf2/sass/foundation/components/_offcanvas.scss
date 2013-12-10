@@ -1,7 +1,7 @@
 @import "global";
 @import "type";
 @import "top-bar";
-
+$off-canvas-link-color: $white;
 // OFF CANVAS VARIABLES
 // Off Canvas Tab Bar Variables
 $tabbar-bg: #333 !default;
@@ -21,7 +21,7 @@ $tabbar-header-line-height: $tabbar-height !default;
 $tabbar-header-margin: 0 !default;
 
 // Off Canvas Menu Variables
-$off-canvas-width: 250px !default;
+$off-canvas-width: 33%;
 $off-canvas-bg: #333 !default;
 
 // Off Canvas Menu List Variables

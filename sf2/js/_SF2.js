@@ -27,14 +27,26 @@ jQuery(document).ready(function($) {
 
         },
     });
-
-    //adjust padding for hgroup
-    $('.sticky-topbar').css('padding-top', $('#wpadminbar').height() + 'px');
-    $('hgroup').css('padding-top', $('.sticky-topbar').height() + 'px');
+    /**
+     * Get the height, in pixels of a container
+     *
+     * @param div The container to get height of
+     * @returns height The height of the container in pixels
+     */
+    var divHeight = function( div ) {
+        var height = $( div ).height();
+        return height;
+    };
+    //Function to add padding of the top bar and main content so no bad overlaps happen
+    var paddingAdjust = function() {
+        $('.sticky-topbar').css('padding-top', divHeight('#wpadminbar') );
+        $('#main').css('padding-top', divHeight( '.sticky-topbar') + divHeight('#wpadminbar')  );
+    };
+    //adjust padding for top of page.
+    paddingAdjust();
     //and again on window resize
     $( window ).resize(function() {
-        $('.sticky-topbar').css('padding-top', $('#wpadminbar').height() + 'px');
-        $('hgroup').css('padding-top', $('.sticky-topbar').height() + 'px');
+        paddingAdjust();
     });
 
 });
