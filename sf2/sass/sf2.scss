@@ -22,13 +22,13 @@ Foundation is licensed under the terms of the MIT Open Source License. **/
 $site-title: $secondary;
 
 #secondary {
-  //border-left: 1px dotted $primaryTint;
-  margin-left: 0px;
-  padding-left: 4px;
-  margin-top: 4px;
+  margin: 4px 0 0 8px;
+  @media only screen and (min-width: $small-screen) {  margin: 4px 0 0 0;}
+  padding: 8px 4px 0;
+  ul { list-style: none;}
 }
 .top-bar {
-  margin-top:4px;
+  margin: 0;
   top: 0%;
 }
 
@@ -105,3 +105,13 @@ hgroup {
   padding: 2px 2px;
   text-align: center;
 }
+
+.top-bar-section li a, .top-bar-section ul li > a {
+  color: $white !important;
+}
+
+.left-off-canvas-menu  {
+  a {color: $white;}
+  ul {list-style: none;}
+}
+

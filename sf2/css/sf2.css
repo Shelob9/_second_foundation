@@ -5239,14 +5239,23 @@ table tfoot tr td {
 /**end foundation**/
 /* line 24, ../sass/sf2.scss */
 #secondary {
-  margin-left: 0px;
-  padding-left: 4px;
-  margin-top: 4px;
+  margin: 4px 0 0 8px;
+  padding: 8px 4px 0;
+}
+@media only screen and (min-width: 768px) {
+  /* line 24, ../sass/sf2.scss */
+  #secondary {
+    margin: 4px 0 0 0;
+  }
+}
+/* line 28, ../sass/sf2.scss */
+#secondary ul {
+  list-style: none;
 }
 
 /* line 30, ../sass/sf2.scss */
 .top-bar {
-  margin-top: 4px;
+  margin: 0;
   top: 0%;
 }
 
@@ -6079,4 +6088,18 @@ hgroup {
   margin-top: 1.5em;
   padding: 2px 2px;
   text-align: center;
+}
+
+/* line 109, ../sass/sf2.scss */
+.top-bar-section li a, .top-bar-section ul li > a {
+  color: white !important;
+}
+
+/* line 114, ../sass/sf2.scss */
+.left-off-canvas-menu a {
+  color: white;
+}
+/* line 115, ../sass/sf2.scss */
+.left-off-canvas-menu ul {
+  list-style: none;
 }
