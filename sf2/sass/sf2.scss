@@ -57,9 +57,14 @@ $off-canvas-link-color: $white;
 .left-small a.menu-icon {
   position: absolute;
 }
-#secondary, article, #footer-row, #masthead, #nav-below, #respond{
+#secondary, article, #footer-row, #nav-below, #respond{
   background-color: $white;
   @include corners(4px);
+}
+
+#masthead {
+  background-color: $white;
+  @include bottom-corners (8px);
 }
 
 .hentry, #nav-below {

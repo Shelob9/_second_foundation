@@ -2126,48 +2126,51 @@ ul.off-canvas-list li a { display: block; padding: 0.66667rem; color: white; bor
 .left-small a.menu-icon { position: absolute; }
 
 /* line 60, ../sass/sf2.scss */
-#secondary, article, #footer-row, #masthead, #nav-below, #respond { background-color: white; -moz-border-radius-topleft: 4px; -moz-border-radius-topright: 4px; -moz-border-radius-bottomleft: 4px; -moz-border-radius-bottomright: 4px; -webkit-border-top-left-radius: 4px; -webkit-border-top-right-radius: 4px; -webkit-border-bottom-left-radius: 4px; -webkit-border-bottom-right-radius: 4px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
+#secondary, article, #footer-row, #nav-below, #respond { background-color: white; -moz-border-radius-bottomleft: 4px; -moz-border-radius-bottomright: 4px; -webkit-border-bottom-left-radius: 4px; -webkit-border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; -moz-border-radius-topleft: 4px; -moz-border-radius-topright: 4px; -webkit-border-top-left-radius: 4px; -webkit-border-top-right-radius: 4px; border-top-left-radius: 4px; border-top-right-radius: 4px; }
 
 /* line 65, ../sass/sf2.scss */
+#masthead { background-color: white; -moz-border-radius-bottomleft: 8px; -moz-border-radius-bottomright: 8px; -webkit-border-bottom-left-radius: 8px; -webkit-border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; }
+
+/* line 70, ../sass/sf2.scss */
 .hentry, #nav-below { margin: 4px 0 1.5em; }
 
-/* line 69, ../sass/sf2.scss */
+/* line 74, ../sass/sf2.scss */
 #nav-below { padding: 0 4px 4px; }
 
-/* line 73, ../sass/sf2.scss */
+/* line 78, ../sass/sf2.scss */
 #content { margin-right: 8px; }
 
-/* line 77, ../sass/sf2.scss */
+/* line 82, ../sass/sf2.scss */
 article, #respond { padding: 0 4px 4px; }
 
-/* line 81, ../sass/sf2.scss */
+/* line 86, ../sass/sf2.scss */
 .vcard { border: none; }
 
-/* line 85, ../sass/sf2.scss */
+/* line 90, ../sass/sf2.scss */
 #row-header { max-width: 100%; z-index: 10; position: fixed; }
 
-/* line 91, ../sass/sf2.scss */
+/* line 96, ../sass/sf2.scss */
 #masthead { margin-bottom: 16px; }
 
-/* line 95, ../sass/sf2.scss */
+/* line 100, ../sass/sf2.scss */
 hgroup { text-align: center; }
 
-/* line 99, ../sass/sf2.scss */
+/* line 104, ../sass/sf2.scss */
 .post-thumbnail { margin-right: 4px; }
 
-/* line 103, ../sass/sf2.scss */
+/* line 108, ../sass/sf2.scss */
 #footer-row { margin-top: 1.5em; padding: 2px 2px; text-align: center; }
 
-/* line 109, ../sass/sf2.scss */
+/* line 114, ../sass/sf2.scss */
 .top-bar-section li a, .top-bar-section ul li > a { color: white !important; }
 
-/* line 113, ../sass/sf2.scss */
+/* line 118, ../sass/sf2.scss */
 .top-bar.expanded { background-color: #332c2f; }
 
-/* line 118, ../sass/sf2.scss */
+/* line 123, ../sass/sf2.scss */
 .left-off-canvas-menu a { color: white; }
-/* line 119, ../sass/sf2.scss */
+/* line 124, ../sass/sf2.scss */
 .left-off-canvas-menu ul { list-style: none; }
 
-/* line 122, ../sass/sf2.scss */
+/* line 127, ../sass/sf2.scss */
 #wpadminbar { position: fixed !important; }

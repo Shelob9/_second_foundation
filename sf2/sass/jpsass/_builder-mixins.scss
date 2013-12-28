@@ -4,20 +4,30 @@
 	border-color: $borderColor;
 }
 
-@mixin corners ($size) {
-	-moz-border-radius-topleft: $size;
-	-moz-border-radius-topright: $size;
-	-moz-border-radius-bottomleft: $size;
-	-moz-border-radius-bottomright: $size;
-	-webkit-border-top-left-radius: $size;
-	-webkit-border-top-right-radius: $size;
-	-webkit-border-bottom-left-radius: $size;
-	-webkit-border-bottom-right-radius: $size;
-	border-top-left-radius: $size;
-	border-top-right-radius: $size;
-	border-bottom-left-radius: $size;
-	border-bottom-right-radius: $size;
+@mixin top-corners ($size) {
+  -moz-border-radius-topleft: $size;
+  -moz-border-radius-topright: $size;
+  -webkit-border-top-left-radius: $size;
+  -webkit-border-top-right-radius: $size;
+  border-top-left-radius: $size;
+  border-top-right-radius: $size;
+
 }
+
+@mixin bottom-corners ($size) {
+  -moz-border-radius-bottomleft: $size;
+  -moz-border-radius-bottomright: $size;
+  -webkit-border-bottom-left-radius: $size;
+  -webkit-border-bottom-right-radius: $size;
+  border-bottom-left-radius: $size;
+  border-bottom-right-radius: $size;
+}
+
+@mixin corners ($size) {
+  @include bottom-corners ($size);
+  @include top-corners ($size);
+}
+
 
 @mixin shadow ($shadowColor) {
 	-moz-box-shadow: 1px 2px 3px $shadowColor;
