@@ -1,5 +1,7 @@
 jQuery(document).ready(function($) {
-    //foundation
+    /**
+     * Setup Foundation
+     */
     $(document).foundation({
         topbar: {
             sticky_class: 'sticky-topbar',
@@ -16,6 +18,10 @@ jQuery(document).ready(function($) {
 
         },
     });
+    /**
+     * Improve topbar
+     */
+    //put container IDs/classes we will be playing with in vars.
     var header      = '#row-header';
     var main        = '#main';
     var banner      = '#masthead';
@@ -23,49 +29,41 @@ jQuery(document).ready(function($) {
     var navTrans    = '.top-bar-section li a:not(.button), .top-bar-section ul li > a, .top-bar-section ul, .top-bar.expanded .title-area';
     var navDivider  = '.top-bar-section > ul > .divider';
     var imgURL      = "http://themedev.dev/themedev-content/uploads/2013/11/cropped-DSCN4885.jpg";
-    /**
-     * Adjust margin of main content area so the topbar does not overlap.
-     */
+    var title       = 'ul.title-area';
+    /* Adjust margin of main content area so the topbar does not overlap. */
     var pushit = function() {
         $( main ).css({marginTop: $( header ).height() + 'px' });
     };
     pushit();
-
+    /* On scroll away from top hide #masthead and put its background onto the topbar */
+    //define the behaviour when scrolled away
     var away = function() {
         $( banner ).css( 'display', 'none');
         $( nav ).css('background-image', 'url(' + imgURL + ')');
-        $( "ul.title-area").css( 'display', 'block' );
+        $( title ).css( 'display', 'block' );
     };
-
+    //define behaviour when not scrolled away
     var notAway = function() {
         $( banner).css( 'display', "block");
         $( nav ).css('background-image', 'url()');
         $( navTrans).css( 'background-color', 'transparent' );
         $( navDivider).css( 'border-right', 'none');
-        $( "ul.title-area").css( 'display', 'none' );
+        $( title ).css( 'display', 'none' );
     };
-
-    if ($('body').scrollTop() > 0) {
-        away();
-    }
-    //when scrolled back
-    else {
-        notAway();
-    }
-
-    //the main scroll function
-    $(window).scroll(function(){
-        //when scrolled away from top
+    //combine them in a scroll function
+    var scrollIt = function(){
         if ($('body').scrollTop() > 0) {
-           away();
+            away();
         }
         //when scrolled back
-         else {
-           notAway();
+        else {
+            notAway();
         }
-     });
-
-
-
-
+    };
+    //make it so on page load
+    scrollIt();
+    //and again when we scroll
+    $(window).scroll(function(){
+        scrollIt();
+    });
 });
