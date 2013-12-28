@@ -16,13 +16,39 @@ jQuery(document).ready(function($) {
 
         },
     });
+    var header      = '#row-header';
+    var main        = '#main';
+    var banner      = '#masthead';
+    var nav         = '#top-nav';
+    var navTrans    = '.top-bar-section li a:not(.button), .top-bar-section ul li > a, .top-bar-section ul, .top-bar.expanded .title-area';
+    var navDivider  = '.top-bar-section > ul > .divider';
+    var imgURL      = "http://themedev.dev/themedev-content/uploads/2013/11/cropped-DSCN4885.jpg";
     /**
      * Adjust margin of main content area so the topbar does not overlap.
      */
     var pushit = function() {
-        $( "#main").css({marginTop: $( '#row-header' ).height() + 'px' });
+        $( main ).css({marginTop: $( header ).height() + 'px' });
     };
     pushit();
+
+
+    //the main scroll function
+    $(window).scroll(function(){
+
+        //when scrolled away from top
+        if ($('body').scrollTop() > 0) {
+            $( banner ).css( 'display', 'none');
+            $( nav ).css('background-image', 'url(' + imgURL + ')');
+        }
+        //when scrolled back
+         else {
+            $( banner).css( 'display', "block");
+            $( nav ).css('background-image', 'url()');
+            $( navTrans).css( 'background-color', 'transparent' );
+            $( navDivider).css( 'border-right', 'none');
+        }
+     });
+
 
 
 
