@@ -31,21 +31,37 @@ jQuery(document).ready(function($) {
     };
     pushit();
 
+    var away = function() {
+        $( banner ).css( 'display', 'none');
+        $( nav ).css('background-image', 'url(' + imgURL + ')');
+        $( "ul.title-area").css( 'display', 'block' );
+    };
+
+    var notAway = function() {
+        $( banner).css( 'display', "block");
+        $( nav ).css('background-image', 'url()');
+        $( navTrans).css( 'background-color', 'transparent' );
+        $( navDivider).css( 'border-right', 'none');
+        $( "ul.title-area").css( 'display', 'none' );
+    };
+
+    if ($('body').scrollTop() > 0) {
+        away();
+    }
+    //when scrolled back
+    else {
+        notAway();
+    }
 
     //the main scroll function
     $(window).scroll(function(){
-
         //when scrolled away from top
         if ($('body').scrollTop() > 0) {
-            $( banner ).css( 'display', 'none');
-            $( nav ).css('background-image', 'url(' + imgURL + ')');
+           away();
         }
         //when scrolled back
          else {
-            $( banner).css( 'display', "block");
-            $( nav ).css('background-image', 'url()');
-            $( navTrans).css( 'background-color', 'transparent' );
-            $( navDivider).css( 'border-right', 'none');
+           notAway();
         }
      });
 
