@@ -29,6 +29,7 @@ jQuery(document).ready(function($) {
     var navTrans    = '.top-bar-section li a:not(.button), .top-bar-section ul li > a, .top-bar-section ul, .top-bar.expanded .title-area';
     var navDivider  = '.top-bar-section > ul > .divider';
     var title       = 'ul.title-area li.name';
+    //var titleArea   = 'ul.title-area';
     /* Adjust margin of main content area so the topbar does not overlap. */
     var pushit = function() {
         $( main ).css({marginTop: $( header ).height() + 'px' });
