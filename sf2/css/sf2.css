@@ -6108,3 +6108,8 @@ hgroup {
 .left-off-canvas-menu ul {
   list-style: none;
 }
+
+/* line 122, ../sass/sf2.scss */
+#wpadminbar {
+  position: fixed !important;
+}
