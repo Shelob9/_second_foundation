@@ -56,7 +56,7 @@ class nav {
             body {
                 background-image: url('.$body_img_url.');
             }
-            #masthead, body {
+            #masthead, body, #top-nav {
                 background-repeat: no-repeat;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
