@@ -32,7 +32,6 @@ jQuery(document).ready(function($) {
     /* Adjust margin of main content area so the topbar does not overlap. */
     var pushit = function() {
         $( main ).css({marginTop: $( header ).height() + 'px' });
-        $( nav).css({marginTop: $( '#wpadminbar' ).height() + 'px' });
     };
     pushit();
     /* On scroll away from top hide #masthead and put its background onto the topbar */
