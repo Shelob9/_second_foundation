@@ -104,6 +104,9 @@ class _sf2_foundation {
             wp_enqueue_script( $script[ 'name' ], $src, array( 'jquery', 'foundation' ), '5.0.2', true );
         }
         wp_enqueue_script( '_SF2', trailingslashit(_SF2_JS).'sf2.js', array('foundation', 'jquery'), false, true );
+        //localize the URL for header img on sf2.js
+        $header_img_url = get_header_image();
+        wp_localize_script( '_SF2', 'bannerIMG', $header_img_url );
     }
 
     /**

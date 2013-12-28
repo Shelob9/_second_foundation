@@ -28,7 +28,6 @@ jQuery(document).ready(function($) {
     var nav         = '#top-nav';
     var navTrans    = '.top-bar-section li a:not(.button), .top-bar-section ul li > a, .top-bar-section ul, .top-bar.expanded .title-area';
     var navDivider  = '.top-bar-section > ul > .divider';
-    var imgURL      = "http://themedev.dev/themedev-content/uploads/2013/11/cropped-DSCN4885.jpg";
     var title       = 'ul.title-area';
     /* Adjust margin of main content area so the topbar does not overlap. */
     var pushit = function() {
@@ -39,7 +38,7 @@ jQuery(document).ready(function($) {
     //define the behaviour when scrolled away
     var away = function() {
         $( banner ).css( 'display', 'none');
-        $( nav ).css('background-image', 'url(' + imgURL + ')');
+        $( nav ).css('background-image', 'url(' + bannerIMG + ')');
         $( title ).css( 'display', 'block' );
     };
     //define behaviour when not scrolled away
