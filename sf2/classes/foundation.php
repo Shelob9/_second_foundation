@@ -104,7 +104,7 @@ class _sf2_foundation {
             $src = trailingslashit(_SF2_JS).$script[ 'file' ].$suffix.'.js';
             wp_enqueue_script( $script[ 'name' ], $src, array( 'jquery', 'foundation' ), '5.0.2', true );
         }
-        wp_enqueue_script( '_SF2', trailingslashit(_SF2_JS).'sf2', array('foundation', 'jquery'), false, true );
+        wp_enqueue_script( '_SF2', trailingslashit(_SF2_JS)."sf2{$suffix}.js", array('foundation', 'jquery'), false, true );
         //localize the URL for header img on sf2
         $header_img_url = get_header_image();
         wp_localize_script( '_SF2', 'bannerIMG', $header_img_url );
