@@ -118,9 +118,8 @@ class _sf2_foundation {
      * @since 2.0.0
      */
     public function styles() {
-        //wp_enqueue_style('normalize', _SF2_CSS.'/normalize.css');
-        //wp_enqueue_style('foundation-css', _SF2_CSS.'/foundation.css');
-        wp_enqueue_style('_SF2', trailingslashit(_SF2_CSS).'sf2.css');
+        $suffix = ( defined('_SF2_DEV') AND _SF2_DEV ) ? '' : '.min';
+        wp_enqueue_style('_SF2', trailingslashit(_SF2_CSS)."sf2{$suffix}.css");
     }
 
 
