@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function($) {
     //foundation
     $(document).foundation({
@@ -17,5 +16,14 @@ jQuery(document).ready(function($) {
 
         },
     });
+    /**
+     * Adjust margin of main content area so the topbar does not overlap.
+     */
+    var pushit = function() {
+        $( "#main").css({marginTop: $( '#row-header' ).height() + 'px' });
+    };
+    pushit();
+
+
 
 });
