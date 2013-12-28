@@ -6095,11 +6095,16 @@ hgroup {
   color: white !important;
 }
 
-/* line 114, ../sass/sf2.scss */
+/* line 113, ../sass/sf2.scss */
+.top-bar.expanded {
+  background-color: #332c2f;
+}
+
+/* line 118, ../sass/sf2.scss */
 .left-off-canvas-menu a {
   color: white;
 }
-/* line 115, ../sass/sf2.scss */
+/* line 119, ../sass/sf2.scss */
 .left-off-canvas-menu ul {
   list-style: none;
 }

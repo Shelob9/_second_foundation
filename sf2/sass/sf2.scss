@@ -110,6 +110,10 @@ hgroup {
   color: $white !important;
 }
 
+.top-bar.expanded {
+  background-color: $topbar-dropdown-bg;
+}
+
 .left-off-canvas-menu  {
   a {color: $white;}
   ul {list-style: none;}
