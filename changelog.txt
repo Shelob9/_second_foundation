@@ -1,3 +1,8 @@
+v2.0.2
+Full rewrite from scratch--Decisions not options.
+
+v2.0.0-2.0.1 Were full of unspeakable things and are hopefully lost to all times.
+
 v1.1.6
 1) Update credit link to match authorURI
 

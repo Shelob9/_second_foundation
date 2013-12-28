@@ -3,7 +3,7 @@ Theme Name: _second-foundation
 Theme URI: http://jpwp.me/sf
 Author: Josh Pollock
 Author URI: http://JoshPress.net
-Description:
+Description: A responsive starter theme with Foundation. Works as is but has very few options.
 Version: 2.0.2
 License: GPL (Version 2 or later)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,6 +12,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /**
 _Second Foundation is copyright 2013 Josh Pollock
 _Second Foundation is licensed under the terms of the GNU General Public License Version 2 or later.
+
+It is based on Underscores and Foundation
+Underscores (http://underscores.me/), (C) 2012-2013 Automattic, Inc.
+Underscores, like WordPress, is licensed under the GPL.
+Foundation (http://foundation.zurb.com/), (c) 2013 ZURB (http://zurb.com/).
+Foundation is licensed under the terms of the MIT Open Source License.
+
 See license.txt for more information.
 **/
 
