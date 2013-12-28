@@ -28,10 +28,11 @@ jQuery(document).ready(function($) {
     var nav         = '#top-nav';
     var navTrans    = '.top-bar-section li a:not(.button), .top-bar-section ul li > a, .top-bar-section ul, .top-bar.expanded .title-area';
     var navDivider  = '.top-bar-section > ul > .divider';
-    var title       = 'ul.title-area';
+    var title       = 'ul.title-area li.name';
     /* Adjust margin of main content area so the topbar does not overlap. */
     var pushit = function() {
         $( main ).css({marginTop: $( header ).height() + 'px' });
+        $( nav).css({marginTop: $( '#wpadminbar' ).height() + 'px' });
     };
     pushit();
     /* On scroll away from top hide #masthead and put its background onto the topbar */
@@ -39,7 +40,7 @@ jQuery(document).ready(function($) {
     var away = function() {
         $( banner ).css( 'display', 'none');
         $( nav ).css('background-image', 'url(' + bannerIMG + ')');
-        $( title ).css( 'display', 'block' );
+        //$( title ).css( 'display', 'block' );
     };
     //define behaviour when not scrolled away
     var notAway = function() {
@@ -47,7 +48,7 @@ jQuery(document).ready(function($) {
         $( nav ).css('background-image', 'url()');
         $( navTrans).css( 'background-color', 'transparent' );
         $( navDivider).css( 'border-right', 'none');
-        $( title ).css( 'display', 'none' );
+        //$( title ).css( 'display', 'none' );
     };
     //combine them in a scroll function
     var scrollIt = function(){
@@ -64,5 +65,6 @@ jQuery(document).ready(function($) {
     //and again when we scroll
     $(window).scroll(function(){
         scrollIt();
+        pushit();
     });
 });
