@@ -88,6 +88,12 @@ class _SF2 {
             define('_SF2_CHILD_FCSS', false);
         }
 
+        /**DEV MODE**/
+        //IF is true then CSS and JS will load from minimized versions
+        if (! defined('_SF2_DEV')) {
+            define( '_SF2_DEV', false );
+        }
+
     }
 
     function core() {

@@ -25,67 +25,67 @@ class _sf2_foundation {
     private $foundation = array(
         /*array(
             'name' 	=> 'abide',
-            'file'	=> 'foundation.abide.js',
+            'file'	=> 'foundation.abide',
         ),
         array(
             'name' 	=> 'alerts',
-            'file'	=> 'foundation.alerts.js',
+            'file'	=> 'foundation.alerts',
         ),
         array(
             'name'  => 'clearing',
-            'file'  => 'foundation.clearing.js',
+            'file'  => 'foundation.clearing',
         ),
         array(
             'name' 	=> 'cookie',
-            'file'	=> 'foundation.cookie.js',
+            'file'	=> 'foundation.cookie',
         ),
         array(
             'name' 	=> 'dropdown',
-            'file'	=> 'foundation.dropdown.js',
+            'file'	=> 'foundation.dropdown',
         ),
         array(
             'name' 	=> 'forms',
-            'file'	=> 'foundation.forms.js',
+            'file'	=> 'foundation.forms',
         ),
         array(
             'name' 	=> 'interchange',
-            'file'	=> 'foundation.interchange.js',
+            'file'	=> 'foundation.interchange',
         ),
         array(
             'name' 	=> 'joyride',
-            'file'	=> 'foundation.joyride.js',
+            'file'	=> 'foundation.joyride',
         ),
         array(
             'name' 	=> 'magellan',
-            'file'	=> 'foundation.magellan.js',
+            'file'	=> 'foundation.magellan',
         ),
         array(
             'name' 	=> 'orbit',
-            'file'	=> 'foundation.orbit.js',
+            'file'	=> 'foundation.orbit',
         ),
         array(
             'name' 	=> 'placeholder',
-            'file'	=> 'foundation.placeholder.js',
+            'file'	=> 'foundation.placeholder',
         ),
         array(
             'name' 	=> 'reveal',
-            'file'	=> 'foundation.reveal.js',
+            'file'	=> 'foundation.reveal',
         ),
         array(
             'name' 	=> 'section',
-            'file'	=> 'foundation.section.js',
+            'file'	=> 'foundation.section',
         ),
         array(
             'name' 	=> 'tooltips',
-            'file'	=> 'foundation.tooltips.js',
+            'file'	=> 'foundation.tooltips',
         ),*/
         array(
             'name' 	=> 'topbar',
-            'file'	=> 'foundation.topbar.js',
+            'file'	=> 'foundation.topbar',
         ),
         array(
             'name'  => 'offcanvas',
-            'file'  => 'foundation.offcanvas.js'
+            'file'  => 'foundation.offcanvas'
         ),
     );
 
@@ -97,14 +97,15 @@ class _sf2_foundation {
      * @since 2.0.0
      */
     public function scripts() {
-        wp_enqueue_script( 'foundation', trailingslashit(_SF2_JS).'foundation.js', array( 'jquery' ), '5.0.2', true );
-        wp_enqueue_script( 'modernizer', trailingslashit(_SF2_JS).'custom.modernizr.js', array( 'jquery'), false, true );
+        $suffix = ( defined('_SF2_DEV') AND _SF2_DEV ) ? '' : '.min';
+        wp_enqueue_script( 'foundation', trailingslashit(_SF2_JS)."foundation{$suffix}.js", array( 'jquery' ), '5.0.2', true );
+        wp_enqueue_script( 'modernizer', trailingslashit(_SF2_JS)."custom.modernizr{$suffix}.js", array( 'jquery'), false, true );
         foreach ($this->foundation as $script) {
-            $src = trailingslashit(_SF2_JS).$script[ 'file' ];
+            $src = trailingslashit(_SF2_JS).$script[ 'file' ].$suffix.'.js';
             wp_enqueue_script( $script[ 'name' ], $src, array( 'jquery', 'foundation' ), '5.0.2', true );
         }
-        wp_enqueue_script( '_SF2', trailingslashit(_SF2_JS).'sf2.js', array('foundation', 'jquery'), false, true );
-        //localize the URL for header img on sf2.js
+        wp_enqueue_script( '_SF2', trailingslashit(_SF2_JS).'sf2', array('foundation', 'jquery'), false, true );
+        //localize the URL for header img on sf2
         $header_img_url = get_header_image();
         wp_localize_script( '_SF2', 'bannerIMG', $header_img_url );
     }
