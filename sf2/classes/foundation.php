@@ -113,13 +113,15 @@ class _sf2_foundation {
     /**
      * Enqueue Foundation Scripts
      *
+     * @TODO switch to min if _SF2_DEV is true
      * @author Josh Pollock
      * @package _Second Foundation
      * @since 2.0.0
      */
     public function styles() {
-        $suffix = ( defined('_SF2_DEV') AND _SF2_DEV ) ? '' : '.min';
-        wp_enqueue_style('_SF2', trailingslashit(_SF2_CSS)."sf2{$suffix}.css");
+        //$suffix = ( defined('_SF2_DEV') AND _SF2_DEV ) ? '' : '.min';
+        //wp_enqueue_style('_SF2', trailingslashit(_SF2_CSS)."sf2{$suffix}.css");
+        wp_enqueue_style('_SF2', trailingslashit(_SF2_CSS)."sf2.css");
     }
 
 
