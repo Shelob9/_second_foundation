@@ -29,6 +29,7 @@ jQuery(document).ready(function($) {
     var navTrans    = '.top-bar-section li a:not(.button), .top-bar-section ul li > a, .top-bar-section ul, .top-bar.expanded .title-area';
     var navDivider  = '.top-bar-section > ul > .divider';
     var title       = 'ul.title-area li.name';
+    var topBarBG    = '#332c2f';
     //var titleArea   = 'ul.title-area';
     /* Adjust margin of main content area so the topbar does not overlap. */
     var pushit = function() {
@@ -40,6 +41,9 @@ jQuery(document).ready(function($) {
     var away = function() {
         $( banner ).css( 'display', 'none');
         $( nav ).css('background-image', 'url(' + bannerIMG + ')');
+        $ ('.toggle-topbar').click( function() {
+            $('ul.title-area').css('background-color', 'transparent');
+        });
         //$( title ).css( 'display', 'block' );
     };
     //define behaviour when not scrolled away
@@ -48,6 +52,10 @@ jQuery(document).ready(function($) {
         $( nav ).css('background-image', 'url()');
         $( navTrans).css( 'background-color', 'transparent' );
         $( navDivider).css( 'border-right', 'none');
+        if ( ! $( nav ).hasClass( 'expanded') ) {
+            $( '.top-bar-section .dropdown li' ).css( 'background-color', topBarBG );
+        }
+        $('.top-bar.expanded .title-area').css('background-color', 'transparent');
         //$( title ).css( 'display', 'none' );
     };
     //combine them in a scroll function
