@@ -316,12 +316,9 @@
         }
         $dropdown.prepend($titleLi);
       });
-
       // Put element back in the DOM
       section.appendTo(topbar);
 
-      // check for sticky
-      this.sticky();
 
       this.assembled(topbar);
     },
@@ -337,37 +334,6 @@
       $('> li', ul).each(function () { total += $(this).outerHeight(true); });
 
       return total;
-    },
-
-    sticky : function () {
-      var $window = $(window),
-          self = this;
-
-      $(window).on('scroll', function() {
-        self.update_sticky_positioning();
-      });
-    },
-
-    update_sticky_positioning: function() {
-      var klass = '.' + this.settings.sticky_class;
-      var $window = $(window);
-
-      if ($(klass).length > 0) {
-        var distance = this.settings.sticky_topbar.data('stickyoffset');
-        if (!$(klass).hasClass('expanded')) {
-          if ($window.scrollTop() > (distance)) {
-            if (!$(klass).hasClass('fixed')) {
-              $(klass).addClass('fixed');
-              $('body').addClass('f-topbar-fixed');
-            }
-          } else if ($window.scrollTop() <= distance) {
-            if ($(klass).hasClass('fixed')) {
-              $(klass).removeClass('fixed');
-              $('body').removeClass('f-topbar-fixed');
-            }
-          }
-        }
-      }
     },
 
     off : function () {
