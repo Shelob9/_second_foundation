@@ -52,10 +52,10 @@ class _sf2_fgrid {
         }
         echo '<div class="row" id="main-row">';
         if ( is_front_page() ) {
-            echo '<div class="large-'.$col.' columns" id="front-content-wrap">';
+            echo '<div class="large-'.$col.' columns small-12" id="front-content-wrap">';
         }
         else {
-            echo '<div class="large-'.$col.' columns" id="content-wrap">';
+            echo '<div class="large-'.$col.' columns small-12" id="content-wrap">';
         }
     }
     function main_end() {
@@ -65,7 +65,7 @@ class _sf2_fgrid {
 
     function sidebar_start() {
         echo '</div><!--/content column-->';
-        echo '<div class="large-3 columns" id="sidebar-wrap">';
+        echo '<div class="large-3 columns small-12" id="sidebar-wrap">';
     }
 
     function sidebar_end() {

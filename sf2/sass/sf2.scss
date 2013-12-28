@@ -23,7 +23,7 @@ $site-title: $secondary;
 
 #secondary {
   margin: 4px 0 0 8px;
-  @media only screen and (min-width: $small-screen) {  margin: 4px 0 0 0;}
+  @media only screen and (max-width: $small-screen) {  margin: 4px 0 0 0;}
   padding: 8px 4px 0;
   ul { list-style: none;}
 }
@@ -48,6 +48,7 @@ a, a:visited, a:-webkit-any-link {
   text-decoration:none;
 }
 $off-canvas-link-color: $white;
+$off-canvas-width: 67%;
 @import "foundation/components/offcanvas";
 
 .sticky-topbar.fixed, .top-bar, nav.top-bar.expanded.fixed  {
@@ -127,3 +128,4 @@ hgroup {
 #wpadminbar {
   position: fixed !important;
 }
+
