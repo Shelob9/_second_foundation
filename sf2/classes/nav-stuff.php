@@ -160,10 +160,12 @@ class nav {
         <section class="left-small">
             <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
         </section>
+        <!--
         <section class="middle tab-bar-section">
             <hgroup>
                     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
             </hgroup>
+        -->
         </section><!--/section.middle tab-bar-section-->
     </nav><!--nav.tab-bar-->
     <?php
