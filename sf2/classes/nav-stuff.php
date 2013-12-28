@@ -77,7 +77,7 @@ class nav {
      * @since 2.0.0
      */
     public function menu() { ?>
-        <div  class="sticky-topbar fixed">
+
         <nav id="top-nav" class="top-bar" data-topbar>
         <ul class="title-area">
             <li class="name">
@@ -98,9 +98,8 @@ class nav {
                             'item_type' => 'li'
                         ) ),
                 ) );
-
                     echo '</ul> </section></nav><!-- nav#top-bar -->';
-                    echo '</div><!--# nav wrapper -->';
+
 
     }
 
