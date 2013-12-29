@@ -52,7 +52,8 @@ class _sf2_fgrid {
         }
         echo '<div class="row" id="main-row">';
         if ( is_front_page() ) {
-            echo '<div class="large-'.$col.' columns small-12" id="front-content-wrap">';
+            $front_width = apply_filters( '_sf2_front_col', $col );
+            echo '<div class="large-'.$front_width.' columns small-12" id="front-content-wrap">';
         }
         else {
             echo '<div class="large-'.$col.' columns small-12" id="content-wrap">';
