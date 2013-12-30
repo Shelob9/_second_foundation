@@ -16,11 +16,5 @@ $complementaryShade: shade($complement, 40%);
 $complementaryTint: tint($complement, 40%);
 $complementShade: $complementaryShade;
 $complementTint: $complementaryTint;
+$white: shade( white, 10%);
 
-//for backwards compatiblity with my random attempts at getting this right before.
-$accent: $silver;
-$accentShade: shade($accent, 40%);
-$accentTint: tint($accent, 40%);
-$alt1: $secondary;
-$alt2: $tertiary;
-$accentEr: $accentTint;
