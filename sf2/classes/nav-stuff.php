@@ -47,7 +47,7 @@ class nav {
         //get default background image
         $defaultbg = get_template_directory_uri().'/images/bg.jpg';
         //set body bg img
-        $body_img_url = get_theme_mod( 'body_bg_img', $defaultbg );
+        $body_img_url = get_background_image();
         //create the styles
         $style =
             '#masthead{

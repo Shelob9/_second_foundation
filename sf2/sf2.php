@@ -102,7 +102,6 @@ class _SF2 {
             'foundation.php',
             'fgrid.php',
             'nav-stuff.php',
-            'customizer.php',
         );
         foreach ($files as $file) {
             require_once( trailingslashit( _SF2_CLASSES ) . $file );
