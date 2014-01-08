@@ -18,10 +18,15 @@ class backstretch {
      * @returns array $bg
      */
     function bg() {
+        if ( get_background_image() != '' ) {
+            $page = get_background_image();
+        }
+        else {
+            $page = get_template_directory_uri().'/images/bg.jpg';
+        }
         $bg = array(
-            'header'            => get_header_image(),
-            'default_page'      => get_template_directory_uri().'/images/bg.jpg',
-            'page'              => get_background_image(),
+            'header'=> get_header_image(),
+            'page'  => $page
         );
 
         return $bg;
