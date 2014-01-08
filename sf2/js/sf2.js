@@ -29,7 +29,9 @@ jQuery(document).ready(function($) {
     var navTrans = '.top-bar-section li a:not(.button), .top-bar-section ul li > a, .top-bar-section ul, .top-bar.expanded .title-area';
     var navDivider = '.top-bar-section > ul > .divider';
     var title = 'ul.title-area li.name';
+    //need to set this one problematically!
     var topBarBG = '#332c2f';
+    var siteDesc = '.site-meta .site-description';
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
             $( '#row-header' ).css( 'position', 'inherit' );
     }
@@ -43,28 +45,28 @@ jQuery(document).ready(function($) {
         /* On scroll away from top hide #masthead and put its background onto the topbar */
         //define the behaviour when scrolled away
         var away = function () {
-            $( '.site-meta .site-description' ).css('display', 'none');
-            $( banner ).fadeOut( 'fast' , 0, function() {
-                $( nav ).css('background-image', 'url(' + bannerIMG + ')');
+            $( siteDesc ).css( 'display', 'none' );
+            $( banner ).fadeOut(  'fast' , 0, function() {
+                $( nav ).css( 'background-image', 'url(' + bannerIMG + ')');
             });
             //$(nav).css('background-image', 'url(' + bannerIMG + ')');
-            $('.toggle-topbar').click(function () {
-                $('ul.title-area').css('background-color', 'transparent');
+            $( '.toggle-topbar' ).click(function () {
+                $( 'ul.title-area' ).css( 'background-color', 'transparent' );
             });
             //$( title ).css( 'display', 'block' );
         };
         //define behaviour when not scrolled away
         var notAway = function () {
             $( banner ).fadeIn( "slow", function() {
-                $( '.site-meta .site-description' ).css('display', 'block');
+                $( siteDesc ).css('display', 'block');
             });
-            $(nav).css('background-image', 'none');
-            $(navTrans).css('background-color', 'transparent');
-            $(navDivider).css('border-right', 'none');
-            if (!$(nav).hasClass('expanded')) {
-                $('.top-bar-section .dropdown li').css('background-color', topBarBG);
+            $( nav ).css( 'background-image', 'none' );
+            $( navTrans ).css( 'background-color', 'transparent' );
+            $( navDivider ).css( 'border-right', 'none' );
+            if (!$( nav ).hasClass( 'expanded' )) {
+                $( '.top-bar-section .dropdown li' ).css( 'background-color', topBarBG );
             }
-            $('.top-bar.expanded .title-area').css('background-color', 'transparent');
+            $( '.top-bar.expanded .title-area' ).css( 'background-color', 'transparent' );
             //$( title ).css( 'display', 'none' );
         };
         //combine them in a scroll function
