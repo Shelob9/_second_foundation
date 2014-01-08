@@ -87,4 +87,11 @@ jQuery(document).ready(function($) {
             pushit();
         });
     }
+
+    /**
+     * Init Backstretch for page background
+     */
+    $.backstretch( sf2BG.page );
+    //$( header ).backstretch( sf2BG.header );
+
 });
