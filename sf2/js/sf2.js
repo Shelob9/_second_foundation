@@ -44,10 +44,7 @@ jQuery(document).ready(function($) {
         //define the behaviour when scrolled away
         var away = function () {
             $( '.site-meta .site-description' ).css('display', 'none');
-            $( banner ).animate({
-                opacity: 0,
-            }, 300, function() {
-                $( banner ).css('display', 'none');
+            $( banner ).fadeOut( 'fast' , 0, function() {
                 $( nav ).css('background-image', 'url(' + bannerIMG + ')');
             });
             //$(nav).css('background-image', 'url(' + bannerIMG + ')');
@@ -58,8 +55,10 @@ jQuery(document).ready(function($) {
         };
         //define behaviour when not scrolled away
         var notAway = function () {
-            $(banner).css('display', "block");
-            $(nav).css('background-image', 'url()');
+            $( banner ).fadeIn( "slow", function() {
+                $( '.site-meta .site-description' ).css('display', 'block');
+            });
+            $(nav).css('background-image', 'none');
             $(navTrans).css('background-color', 'transparent');
             $(navDivider).css('border-right', 'none');
             if (!$(nav).hasClass('expanded')) {
