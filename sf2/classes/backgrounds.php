@@ -5,6 +5,7 @@ class backstretch {
 
     function __construct() {
         add_action( 'wp_enqueue_scripts', array( $this, 'backstretch' ) );
+        add_action( 'wp_head', array( $this, 'header_bg' ) );
     }
 
     /**
@@ -41,6 +42,39 @@ class backstretch {
         wp_enqueue_script( 'backstretch', trailingslashit(_SF2_JS)."jquery.backstretch{$suffix}.js", array( 'jquery' ), null, false );
         $data = $this->bg();
         wp_localize_script( 'backstretch', 'sf2BG', $data );
+    }
+
+    /**
+     * Sets bg for header.
+     *
+     * @TODO figure out how to use backstretch instead
+     *
+     * @author Josh Pollock
+     * @package _sf
+     * @since 2.0.2
+     *
+     * @uses this::bg()
+     */
+    function header_bg() {
+        //set header imgage url
+        $bg = $this->bg();
+        $header_img_url = $bg[ 'header' ];
+        //create the styles
+        $style =
+            '#masthead{
+                background-image: url('.$header_img_url.');
+            }
+            #masthead, #top-nav {
+                background-repeat: no-repeat;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                background-attachment:fixed;
+                background-position:center;
+             }';
+        //output with style tages
+        echo '<style>'.$style.'</style>';
     }
 
 }

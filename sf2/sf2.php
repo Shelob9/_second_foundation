@@ -102,7 +102,7 @@ class _SF2 {
             'foundation.php',
             'fgrid.php',
             'nav-stuff.php',
-            'backstretch.php'
+            'backgrounds.php'
         );
         foreach ($files as $file) {
             require_once( trailingslashit( _SF2_CLASSES ) . $file );
