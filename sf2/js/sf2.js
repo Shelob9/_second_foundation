@@ -43,8 +43,14 @@ jQuery(document).ready(function($) {
         /* On scroll away from top hide #masthead and put its background onto the topbar */
         //define the behaviour when scrolled away
         var away = function () {
-            $(banner).css('display', 'none');
-            $(nav).css('background-image', 'url(' + bannerIMG + ')');
+            $( '.site-meta .site-description' ).css('display', 'none');
+            $( banner ).animate({
+                opacity: 0,
+            }, 300, function() {
+                $( banner ).css('display', 'none');
+                $( nav ).css('background-image', 'url(' + bannerIMG + ')');
+            });
+            //$(nav).css('background-image', 'url(' + bannerIMG + ')');
             $('.toggle-topbar').click(function () {
                 $('ul.title-area').css('background-color', 'transparent');
             });
