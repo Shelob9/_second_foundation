@@ -1,7 +1,9 @@
 _Second Foundation
 ==================
 
-A responsive starter theme with Foundation. Works as is but has very few options.
+A responsive starter theme with for the Foundation Framework.
+
+Version 2.0.2 is almost done, has a few bugs left.
 
 Version 1.x followed the "All the options! All the things!" design philosophy. Version 2.X is about "Decisions, not options" and therefore has almost no options.
 
