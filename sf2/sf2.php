@@ -160,6 +160,14 @@ new _SF2();
  */
 function _sf_sidebar( $name = null ) {
     if ( _SF2::nav_decider()  == false ) {
+        /**
+        * Filter to override which sidebar we are using.
+        *
+        * @since 2.0.2
+        *
+        * @see https://core.trac.wordpress.org/ticket/26636
+        */
+        $name = apply_filters('get_sidebar', $name);
         get_sidebar( $name );
     }
 }
