@@ -32,6 +32,7 @@ jQuery(document).ready(function($) {
     //need to set this one problematically!
     var topBarBG = '#332c2f';
     var siteDesc = '.site-meta .site-description';
+    var bannerIMG = sf2.headerBG;
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
             $( '#row-header' ).css( 'position', 'inherit' );
     }
