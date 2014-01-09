@@ -215,10 +215,25 @@ function _sf_sidebar( $name = null ) {
  * @package _sf
  * @since 2.0.2
  */
-function _sf_thumbnail() {
-    if ( has_post_thumbnail()) : ?>
+function _sf_thumbnail( $condition = true ) {
+    //by default don't show post_thumbnail on single
+    if ( is_single() ) {
+        $condition = false;
+    }
+    /**
+     * Filter to change the condition for showing or not.
+     *
+     * @since 2.0.2
+     *
+     */
+    $condition = apply_filters( '_sf_thumb_condition', $condition );
+    if ( has_post_thumbnail() && $condition !=false ) : ?>
     <div class="left post-thumbnail">
         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" ><?php the_post_thumbnail('thumbnail'); ?></a>
     </div>
     <?php endif;
+}
+
+function _sf_temp_part( $parts, $cache = false ) {
+
 }
