@@ -54,7 +54,7 @@ jQuery(document).ready(function($) {
             $( '.toggle-topbar' ).click(function () {
                 $( 'ul.title-area' ).css( 'background-color', 'transparent' );
             });
-            $( title ).css( 'width', 'auto' ).html( '<a href="' + sf2.homeURL + '" >' + sf2.siteTitle + '</a>' );
+            $( title ).css( 'width', 'auto' ).html( '<a href="' + sf2.homeURL + '" rel="home" title="' + sf2.siteTitle + '">' + sf2.siteTitle + '</a>' );
         };
         //define behaviour when not scrolled away
         var notAway = function () {
