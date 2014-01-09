@@ -72,7 +72,7 @@ jQuery(document).ready(function($) {
         };
         //combine them in a scroll function
         var scrollIt = function () {
-            if ($('body').scrollTop() > 0) {
+            if ( $('body').scrollTop() || $('html').scrollTop() > 0 ) {
                 away();
             }
             //when scrolled back
