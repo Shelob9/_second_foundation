@@ -54,7 +54,7 @@ jQuery(document).ready(function($) {
             $( '.toggle-topbar' ).click(function () {
                 $( 'ul.title-area' ).css( 'background-color', 'transparent' );
             });
-            //$( title ).css( 'display', 'block' );
+            $( title ).css( 'width', 'auto' ).html( '<a href="' + sf2.homeURL + '" >' + sf2.siteTitle + '</a>' );
         };
         //define behaviour when not scrolled away
         var notAway = function () {
@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
                 $( '.top-bar-section .dropdown li' ).css( 'background-color', topBarBG );
             }
             $( '.top-bar.expanded .title-area' ).css( 'background-color', 'transparent' );
-            //$( title ).css( 'display', 'none' );
+            $( title ).html( '&nbsp;' );
         };
         //combine them in a scroll function
         var scrollIt = function () {
