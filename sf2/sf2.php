@@ -98,12 +98,13 @@ class _SF2 {
 
     function core() {
         $files = array(
+            'helper.php',
             'nav_walker.php',
             'foundation.php',
             'fgrid.php',
             'nav-stuff.php',
             'backgrounds.php',
-            'helper.php'
+
         );
         /**
          * Filter which _sf2 classes to include
