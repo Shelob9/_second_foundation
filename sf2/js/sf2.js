@@ -79,6 +79,7 @@ jQuery(document).ready(function($) {
             //when scrolled back
             else {
                 notAway();
+                pushit();
             }
         };
         //make it so on page load
