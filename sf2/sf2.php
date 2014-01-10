@@ -129,8 +129,6 @@ new _SF2();
  * Custom Sidebar Function
  *
  * @param string $name (optional) name of sidebar to be passed to get_sidebar()
- * @todo add filter for sidebar name
- * @todo move to a helper class
  * @todo more specific mobile definiton
  *
  * @author Josh Pollock
@@ -138,7 +136,7 @@ new _SF2();
  * @since 2.0.2
  */
 function _sf_sidebar( $name = null ) {
-    if ( _SF2::nav_decider()  == false ) {
+    if ( _sf_nav()  == false ) {
         /**
         * Filter to override which sidebar we are using.
         *
