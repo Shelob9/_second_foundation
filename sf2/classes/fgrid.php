@@ -18,7 +18,7 @@ class _sf2_fgrid {
             add_action('tha_header_before', array($this, 'head_start'));
             add_action('tha_header_after', array($this, 'head_end'));
             add_action('tha_content_top', array($this, 'main_start'));
-            if ( _SF2::nav_decider()  == false ) {
+            if ( _sf_nav()  == false ) {
                 add_action('tha_sidebars_before', array($this, 'sidebar_start'));
                 add_action('tha_sidebars_after', array($this, 'sidebar_end'));
             }
@@ -29,6 +29,7 @@ class _sf2_fgrid {
 
 
     }
+
 
 
     function head_start() {
@@ -44,7 +45,7 @@ class _sf2_fgrid {
 
     function main_start() {
         //determine if we are going 9 wide or 12 wide
-        if ( _SF2::nav_decider()  == true ) {
+        if ( _sf_nav()  == true ) {
             $col = 12;
         }
         else {
@@ -84,6 +85,7 @@ class _sf2_fgrid {
         echo '</div><!--/#footer-column-->';
         echo '</div><!--/#footer-row-->';
     }
+
 
 
 
