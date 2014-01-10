@@ -105,6 +105,12 @@ class _SF2 {
             'backgrounds.php',
             'helper.php'
         );
+        /**
+         * Filter which _sf2 classes to include
+         *
+         * @since 2.0.3
+         */
+        $files = apply_filters( '_sf2_classes', $files );
         foreach ($files as $file) {
             require_once( trailingslashit( _SF2_CLASSES ) . $file );
         }
@@ -182,14 +188,31 @@ function _sf_thumbnail( $condition = true ) {
  * @return  bool|string $nav    Which nav to use
  */
 if ( ! function_exists( '_sf_nav' ) ) :
-function _sf_nav( $which = false) {
-    if ( $which === false ) {
-        $helper = new helper();
-        $nav = $helper->nav_decider();
+    function _sf_nav( $which = false) {
+        if ( $which === false ) {
+            $helper = new helper();
+            $nav = $helper->nav_decider();
+        }
+        else {
+            $nav = $which;
+        }
+        return $nav;
     }
-    else {
-        $nav = $which;
-    }
-    return $nav;
-}
 endif; // _sf_nav exists
+
+/**
+ * Smart Template Part Function.
+ * Wrapper for helper::temp_parts(), which is a wrapper for get_template_part and pods_view.
+ *
+ * @author Josh Pollock
+ * @package _sf
+ * @since 2.0.3
+ */
+
+if ( ! function_exists( '_sf_smart_parts') ) :
+    function _sf_smart_parts( $parts, $cache = false ) {
+        $helper = new helper();
+        return $helper->temp_part( $parts, $cache );
+    }
+endif; //_sf_smart_parts exists
+
