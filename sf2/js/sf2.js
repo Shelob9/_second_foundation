@@ -39,10 +39,10 @@ jQuery(document).ready(function($) {
     else {
         //var titleArea   = 'ul.title-area';
         /* Adjust margin of main content area so the topbar does not overlap. */
-        var pushit = function () {
+        var pushIt = function () {
             $(main).css({marginTop: $(header).height() + 'px' });
         };
-        pushit();
+        pushIt();
         /* On scroll away from top hide #masthead and put its background onto the topbar */
         //define the behaviour when scrolled away
         var away = function () {
@@ -79,7 +79,7 @@ jQuery(document).ready(function($) {
             //when scrolled back
             else {
                 notAway();
-                pushit();
+                pushIt();
             }
         };
         //make it so on page load
@@ -87,7 +87,7 @@ jQuery(document).ready(function($) {
         //and again when we scroll
         $(window).scroll(function () {
             scrollIt();
-            pushit();
+            pushIt();
         });
     }
 
