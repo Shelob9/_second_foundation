@@ -169,3 +169,27 @@ function _sf_thumbnail( $condition = true ) {
     </div>
     <?php endif;
 }
+
+/**
+ * Determine which nav type to use.
+ *
+ * @param   bool|string $which Which nav to use. If is false, helper::nav_decider() decides
+ *
+ * @author Josh Pollock
+ * @package _sf
+ * @since 2.0.3
+ *
+ * @return  bool|string $nav    Which nav to use
+ */
+if ( ! function_exists( '_sf_nav' ) ) :
+function _sf_nav( $which = false) {
+    if ( $which === false ) {
+        $helper = new helper();
+        $nav = $helper->nav_decider();
+    }
+    else {
+        $nav = $which;
+    }
+    return $nav;
+}
+endif; // _sf_nav exists
