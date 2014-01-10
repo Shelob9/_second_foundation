@@ -102,7 +102,8 @@ class _SF2 {
             'foundation.php',
             'fgrid.php',
             'nav-stuff.php',
-            'backgrounds.php'
+            'backgrounds.php',
+            'helper.php'
         );
         foreach ($files as $file) {
             require_once( trailingslashit( _SF2_CLASSES ) . $file );
@@ -232,8 +233,4 @@ function _sf_thumbnail( $condition = true ) {
         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" ><?php the_post_thumbnail('thumbnail'); ?></a>
     </div>
     <?php endif;
-}
-
-function _sf_temp_part( $parts, $cache = false ) {
-
 }
