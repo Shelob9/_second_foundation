@@ -14,7 +14,7 @@ class nav {
     function __construct() {
         add_action('tha_header_top', array( $this, 'hgroup'));
         add_action('after_setup_theme', array($this, 'register_offC_menu'));
-        if ( _sf2::nav_decider() == false ) {
+        if ( _sf_nav() == false ) {
             add_action('tha_header_before', array($this, 'menu'));
         }
         else {
