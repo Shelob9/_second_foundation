@@ -60,6 +60,7 @@ jQuery(document).ready(function($) {
         var notAway = function () {
             $( banner ).fadeIn( "slow", function() {
                 $( siteDesc ).css('display', 'block');
+                $( nav ).css( 'background-image', 'url()');
             });
             $( nav ).css( 'background-image', 'none' );
             $( navTrans ).css( 'background-color', 'transparent' );
