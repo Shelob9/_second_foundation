@@ -18,7 +18,7 @@ get_header(); ?>
 				<h1 class="page-title">
 					<?php
 						if ( is_category() ) {
-							printf( __( 'Category Archives: %s', '_sf' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+							 _e( '<span>' . single_cat_title( '', false ) . '</span>', '_sf' );
 
 						} elseif ( is_tag() ) {
 							printf( __( 'Tag Archives: %s', '_sf' ), '<span>' . single_tag_title( '', false ) . '</span>' );
