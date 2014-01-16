@@ -58,7 +58,7 @@ $off-canvas-width: 67%;
 .left-small a.menu-icon {
   position: absolute;
 }
-#secondary, article, #footer-row, #nav-below, #respond{
+#secondary, article, #footer-row, #nav-below, #respond, .page-header {
   background-color: $white;
   @include corners(4px);
 }
@@ -137,4 +137,9 @@ hgroup {
 article  {
   p {padding: 12px; }
   li {margin-left: 16px;}
+}
+
+.page-header {
+  padding: 12px 8px 6px;
+  margin-bottom: 1.5em;
 }
