@@ -25,7 +25,13 @@
 	<?php else : ?>
 	<div class="entry-content">
         <?php _sf_thumbnail(); ?>
-		<?php the_content(); ?>
+		<?php
+            if ( ! is_single() ) {
+                the_content();
+            }
+            else {
+                the_excerpt();
+            }?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_sf' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
