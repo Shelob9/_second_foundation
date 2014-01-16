@@ -16,22 +16,18 @@
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-
-	<?php if ( is_search() ) : // Only display Excerpts for Search ?>
+	<?php if ( is_single() ) : ?>
 	<div class="entry-summary">
+
         <?php _sf_thumbnail(); ?>
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 	<?php else : ?>
 	<div class="entry-content">
-        <?php _sf_thumbnail(); ?>
-		<?php
-            if ( ! is_single() ) {
-                the_content();
-            }
-            else {
-                the_excerpt();
-            }?>
+        <?php
+            _sf_thumbnail();
+            the_content();
+        ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_sf' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
