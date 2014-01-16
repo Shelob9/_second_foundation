@@ -39,8 +39,8 @@ jQuery(document).ready(function($) {
     else {
         //var titleArea   = 'ul.title-area';
         /* Adjust margin of main content area so the topbar does not overlap. */
-        var pushIt = function () {
-            $(main).css({marginTop: $(header).height() + 'px' });
+        var pushIt = function ( push ) {
+            $(main).css({marginTop: push + 'px' });
         };
         pushIt();
         /* On scroll away from top hide #masthead and put its background onto the topbar */
@@ -70,6 +70,7 @@ jQuery(document).ready(function($) {
             }
             $( '.top-bar.expanded .title-area' ).css( 'background-color', 'transparent' );
             $( title ).html( '&nbsp;' );
+            pushIt( $(header).height() );
         };
         //combine them in a scroll function
         var scrollIt = function () {
@@ -79,7 +80,7 @@ jQuery(document).ready(function($) {
             //when scrolled back
             else {
                 notAway();
-                pushIt();
+
             }
         };
         //make it so on page load
@@ -87,7 +88,7 @@ jQuery(document).ready(function($) {
         //and again when we scroll
         $(window).scroll(function () {
             scrollIt();
-            pushIt();
+            pushIt( $(header).height() );
         });
     }
 
