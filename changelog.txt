@@ -1,3 +1,7 @@
+v2.0.3
+Improve scrolling adjustments to topbar
+Improved backgrounds.
+
 v2.0.2
 Full rewrite from scratch--Decisions not options.
 
