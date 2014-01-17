@@ -46,11 +46,10 @@ jQuery(document).ready(function($) {
         /* On scroll away from top hide #masthead and put its background onto the topbar */
         //define the behaviour when scrolled away
         var away = function () {
-            $( siteDesc ).css( 'display', 'none' );
+            //$( siteDesc ).css( 'display', 'none' );
             $( banner ).fadeOut(  'fast' , 0, function() {
                 $( nav ).css( 'background-image', 'url(' + bannerIMG + ')');
             });
-            //$(nav).css('background-image', 'url(' + bannerIMG + ')');
             $( '.toggle-topbar' ).click(function () {
                 $( 'ul.title-area' ).css( 'background-color', 'transparent' );
             });
@@ -59,12 +58,11 @@ jQuery(document).ready(function($) {
         //define behaviour when not scrolled away
         var notAway = function () {
             $( banner ).fadeIn( "slow", function() {
-                $( siteDesc ).css('display', 'block');
-                $( nav ).css( 'background-image', 'url()');
+                $( nav ).css( 'background-image', 'none' );
+                $( navTrans ).css( 'background-color', 'transparent' );
+                $( navDivider ).css( 'border-right', 'none' );
             });
-            $( nav ).css( 'background-image', 'none' );
-            $( navTrans ).css( 'background-color', 'transparent' );
-            $( navDivider ).css( 'border-right', 'none' );
+
             if (!$( nav ).hasClass( 'expanded' )) {
                 $( '.top-bar-section .dropdown li' ).css( 'background-color', topBarBG );
             }
