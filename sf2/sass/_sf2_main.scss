@@ -1,0 +1,113 @@
+#secondary {
+  margin: 12px 0 0 8px;
+  @media only screen and (max-width: $small-screen) {  margin: 4px 0 0 0;}
+  padding: 8px 12px;
+  ul { list-style: none;}
+}
+.top-bar {
+  margin: 0;
+  top: 0%;
+}
+
+.top-bar .name, #footer-row {
+  margin: 8px 4px;
+  a {color: $site-title;}
+}
+
+h1.site-title {
+  a{
+    color: $site-title;
+    &:visited {color: $site-title}
+  }
+}
+
+a, a:visited, a:-webkit-any-link {
+  text-decoration:none;
+}
+$off-canvas-link-color: $white;
+$off-canvas-width: 67%;
+@import "foundation/components/offcanvas";
+
+.sticky-topbar.fixed, .top-bar, nav.top-bar.expanded.fixed  {
+  background-color: $topbar-dropdown-bg;
+}
+
+.left-small a.menu-icon {
+  position: absolute;
+}
+#secondary, article, #footer-row, #nav-below, #respond, .page-header, .comments-area {
+  background-color: $white;
+  @include corners(4px);
+  padding: 12px;
+  margin: 12px 12px 1.5em;
+}
+
+#masthead {
+  background-color: $white;
+  @include bottom-corners (8px);
+}
+
+
+#content {
+  margin-right: 8px;
+}
+
+.vcard {
+  border: none;
+}
+
+#row-header {
+  max-width: 100%;
+  z-index:10;
+  position: fixed;
+}
+
+#masthead {
+  margin-bottom: 16px;
+}
+
+hgroup {
+  text-align: center;
+}
+
+.post-thumbnail {
+  margin-right: 4px;
+}
+
+#footer-row {
+  margin-top: 1.5em;
+  padding: 2px 2px;
+  text-align: center;
+}
+
+.top-bar-section li a, .top-bar-section ul li > a {
+  color: $white !important;
+}
+
+.top-bar.expanded {
+  background-color: $topbar-dropdown-bg;
+}
+
+.left-off-canvas-menu  {
+  a {color: $white;}
+  ul {list-style: none;}
+}
+
+#wpadminbar {
+  position: fixed !important;
+}
+
+.wp-caption .wp-caption-text {
+  margin: 0.8075em 0;
+  font-size: .8em;
+}
+
+article  {
+  p {padding: 12px; }
+  li {margin-left: 16px;}
+}
+
+.page-header {
+  padding: 12px 8px 6px;
+  margin-bottom: 1.5em;
+}
