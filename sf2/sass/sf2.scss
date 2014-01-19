@@ -22,9 +22,9 @@ Foundation is licensed under the terms of the MIT Open Source License. **/
 $site-title: $secondary;
 
 #secondary {
-  margin: 4px 0 0 8px;
+  margin: 12px 0 0 8px;
   @media only screen and (max-width: $small-screen) {  margin: 4px 0 0 0;}
-  padding: 8px 4px 0;
+  padding: 8px 12px;
   ul { list-style: none;}
 }
 .top-bar {
@@ -40,7 +40,7 @@ $site-title: $secondary;
 h1.site-title {
   a{
     color: $site-title;
-  &:visited {color: $site-title}
+    &:visited {color: $site-title}
   }
 }
 
@@ -58,9 +58,11 @@ $off-canvas-width: 67%;
 .left-small a.menu-icon {
   position: absolute;
 }
-#secondary, article, #footer-row, #nav-below, #respond, .page-header {
+#secondary, article, #footer-row, #nav-below, #respond, .page-header, .comments-area {
   background-color: $white;
   @include corners(4px);
+  padding: 12px;
+  margin: 12px 12px 1.5em;
 }
 
 #masthead {
@@ -68,20 +70,9 @@ $off-canvas-width: 67%;
   @include bottom-corners (8px);
 }
 
-.hentry, #nav-below {
-  margin: 4px 0 1.5em;
-}
-
-#nav-below {
-  padding: 0 4px 4px;
-}
 
 #content {
   margin-right: 8px;
-}
-
-article, #respond {
-  padding: 0 4px 4px;
 }
 
 .vcard {
