@@ -42,7 +42,7 @@ jQuery(document).ready(function($) {
         var pushIt = function ( push ) {
             $(main).css({marginTop: push + 'px' });
         };
-        pushIt();
+        pushIt( $(header).height() );
         /* On scroll away from top hide #masthead and put its background onto the topbar */
         //define the behaviour when scrolled away
         var away = function () {
